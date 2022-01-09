@@ -1,0 +1,100 @@
+### Variables
+set {
+    # Logo key
+    $mod Mod4
+
+    # Home row direction keys, like vim
+    $left h
+    $down j
+    $up k
+    $right l
+
+    # Terminal emulator
+    $term $TERMINAL
+
+    # Application launcher
+    # Pass the final command to swaymsg so that the resulting window can be opened
+    # on the original workspace that the command was run on.
+    $launcher menu_path | bemenu | xargs swaymsg exec --
+
+    # General purpose menu
+    $menu bemenu
+}
+
+
+
+### Input
+# Keyboard
+input * {
+    xkb_numlock enable
+    xkb_layout us,ru
+    xkb_options grp:alt_shift_toggle
+}
+
+# Mouse
+input type:pointer {
+    accel_profile flat
+    pointer_accel -0.4
+}
+
+
+
+### Appearance
+# Font
+font FiraCode 10
+
+# Colors
+set $bg #222222
+
+# class                 border  bg      text    indicator   child_border
+client.focused          #aaaaaa $bg     #ffffff #aaaaaa     #aaaaaa
+client.focused_inactive $bg     $bg     #aaaaaa
+client.unfocused        $bg     $bg     #aaaaaa
+
+# Borders
+smart_borders on
+default_border pixel 1
+default_floating_border normal 1
+
+# Wallpaper
+output * bg $bg solid_color
+
+
+
+### Display
+output HDMI-A-1 {
+    mode 1920x1080@60Hz
+    pos 0 0
+}
+output DVI-I-1 {
+    mode 1280x1024@75Hz
+    pos 1920 0
+}
+
+
+
+include {
+    # Fix for gtk apps waiting for xdg_desktop_portal to be started through dbus is
+    # implemented in /etc/sway/config.d/50-systemd-user.conf
+    # Since waybar uses gtk, you probably should include system configs before you start it
+    /etc/sway/config.d/*
+
+    d/*
+}
+
+### Autostart
+exec {
+    waybar
+
+    # Sway's "exec" command has one not that much documented feature:
+    #   If exact process that was started with it creates a window
+    #   then the window will be placed on workspace that was focused when it was called
+    # And if line starting foot server looks like this:
+    #       exec foot --server
+    # This creates unpleasant situation with
+    # first (after sway startup) footclient window always
+    # being created on the first workspace,
+    # no matter which one is focused at the moment.
+    # With all this in mind we can just append and ampersand
+    foot --server &
+}

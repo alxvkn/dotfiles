@@ -1,0 +1,5 @@
+#!/bin/sh
+# output all unique executable names from $PATH
+# similar to dmenu_path, for use with sway-like wms and dmenu-like menus
+# you propably want to use dmenu_path, because it has caching feature
+for i in $(echo $PATH | sed 's/:/\n/g'); do ls $i; done | sort -u

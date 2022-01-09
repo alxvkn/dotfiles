@@ -1,0 +1,18 @@
+[core]
+    editor = nvim
+[user]
+    name = aseedee
+    email = 64454213+aseedee@users.noreply.github.com
+[init]
+    defaultBranch = main
+[alias]
+    a = add
+    s = status
+    ss = status -s
+    co = checkout
+    ci = commit
+    unstage = restore --staged
+[url "https://github.com/"]
+    insteadOf = ghttps:
+[url "git@github.com:"]
+    insteadOf = gh:
