@@ -77,9 +77,8 @@ vim.g.NERDAltDelims_c = 1
 vim.g.NERDAltDelims_java = 1
 
 
--- airline settings
-vim.g.airline_section_z = '%L lines | %l:%c | %p%%'
-vim.g.airline_theme = 'srcery'
+-- lualine
+require'lualine'.setup()
 
 -- 'silent!' so config will be loaded without errors
 -- even if plugins aren't yet installed

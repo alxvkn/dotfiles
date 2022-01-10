@@ -10,7 +10,10 @@ packer.startup(function(use)
 
     use 'junegunn/fzf'
 
-    use 'vim-airline/vim-airline'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
 
     use 'preservim/nerdcommenter'
     use 'jiangmiao/auto-pairs'
