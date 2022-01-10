@@ -3,9 +3,10 @@ local packer_just_installed = nil
 local packer_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(packer_path)) ~= 0 then
     print('cloning packer.nvim with git into ' .. packer_path)
-    vim.fn.system({'git', 'clone', '--depth=1', 'https://github.com/wbthomason/packer.nvim', packer_path})
+    vim.fn.system({'git', 'clone', '--depth=1',
+        'https://github.com/wbthomason/packer.nvim', packer_path})
     if vim.v.shell_error == 0 then
-        print('successfully installed packer.nvim')
+        print'successfully installed packer.nvim'
         packer_just_installed = true
     else
         print'something went wrong. check if git is available in $PATH'
@@ -18,9 +19,8 @@ require'plugins'
 if packer_just_installed then
     print'running packer.sync(). after that the config will be sourced again'
     require'packer'.sync()
-    vim.cmd[[
-    au User PackerComplete execute 'source' stdpath('config') .. '/init.lua'
-    ]] -- life would be easier if there was a way to make packer.sync() blocking
+    vim.cmd[[autocmd User PackerComplete execute 'source' stdpath('config') .. '/init.lua']]
+    -- life would be easier if there was a way to make packer.sync() blocking
     return -- prevent further config execution, since plugins are not yet installed
 end
 
@@ -33,7 +33,6 @@ end
 
 vim.o.termguicolors = true
 
--- alacritty mouse workaround
 vim.o.mouse = 'a'
 
 -- at moment i thought i understood how indentation settings work
