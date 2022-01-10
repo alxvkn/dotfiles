@@ -80,8 +80,6 @@ vim.g.NERDAltDelims_java = 1
 -- lualine
 require'lualine'.setup()
 
--- 'silent!' so config will be loaded without errors
--- even if plugins aren't yet installed
-vim.cmd 'silent! colorscheme srcery'
+vim.cmd'colorscheme srcery'
 
 vim.o.guifont = 'Fira Code:h11'
