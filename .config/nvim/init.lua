@@ -1,12 +1,25 @@
+local packer_just_installed = nil
+
 local packer_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(packer_path)) ~= 0 then
-    InstallPacker = function()
-        vim.fn.system({'git', 'clone', '--depth=1', 'https://github.com/wbthomason/packer.nvim', packer_path})
-        print'msg from InstallPacker()'
+    print('cloning packer.nvim with git into ' .. packer_path)
+    vim.fn.system({'git', 'clone', '--depth=1', 'https://github.com/wbthomason/packer.nvim', packer_path})
+    if vim.v.shell_error == 0 then
+        print('successfully installed packer.nvim')
+        packer_just_installed = true
+    else
+        print'something went wrong. check if git is available in $PATH'
+        return
     end
-    print'no packer.nvim found in default location, InstallPacker lua function defined'
-else
-    require'plugins'
+end
+
+require'plugins'
+
+if packer_just_installed then
+    require'packer'.sync()
+    vim.cmd[[
+    au User PackerComplete execute 'source' stdpath('config') .. '/init.lua'
+    ]]
 end
 
 

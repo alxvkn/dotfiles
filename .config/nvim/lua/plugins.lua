@@ -1,5 +1,4 @@
 local packer = require'packer'
-
 packer.init({compile_path = vim.fn.stdpath('data') .. '/site/plugin/packer_compiled.lua'})
 packer.startup(function(use)
     use 'wbthomason/packer.nvim'
