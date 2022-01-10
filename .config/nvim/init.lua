@@ -20,7 +20,8 @@ if packer_just_installed then
     require'packer'.sync()
     vim.cmd[[
     au User PackerComplete execute 'source' stdpath('config') .. '/init.lua'
-    ]]
+    ]] -- life would be easier if there was a way to make packer.sync() blocking
+    return -- prevent further config execution, since plugins are not yet installed
 end
 
 
