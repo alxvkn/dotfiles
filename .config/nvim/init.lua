@@ -16,6 +16,7 @@ end
 require'plugins'
 
 if packer_just_installed then
+    print'running packer.sync(). after that the config will be sourced again'
     require'packer'.sync()
     vim.cmd[[
     au User PackerComplete execute 'source' stdpath('config') .. '/init.lua'
