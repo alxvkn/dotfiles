@@ -1,6 +1,6 @@
 local packer_just_installed = nil
 
--- installing packer.nvim via git if it isn't already installed
+-- installing packer.nvim if it isn't already installed
 local packer_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(packer_path)) ~= 0 then
     print('cloning packer.nvim with git into ' .. packer_path)
@@ -19,7 +19,7 @@ require'plugins'
 
 -- if packer.nvim was installed at this exact config run:
 -- - run packer.sync() to install all specified plugins;
--- - setup autocmd to notify packer is done installing plugins;
+-- - setup autocmd to notify user when packer.sync() is completed;
 -- - stop execution of this config;
 if packer_just_installed then
     require'packer'.sync()
