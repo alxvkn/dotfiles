@@ -61,6 +61,9 @@ vim.cmd[[
     augroup end
 ]]
 
+-- reload any of the config files as soon as it's written
+vim.cmd[[autocmd! BufWritePost ~/.config/nvim/* source <afile>]]
+
 -- :e # by ctrl+j
 map('n', '<C-J>', '<C-^>', {})
 
