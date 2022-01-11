@@ -164,6 +164,9 @@ bindsym --to-code {
     # Editor
     $mod+n exec $term -e $EDITOR
 
+    # neovide
+    $mod+Shift+n exec neovide
+
     # Open tui mixer
     $mod+F9 exec $term -e pulsemixer
 
