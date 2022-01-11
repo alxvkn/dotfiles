@@ -70,15 +70,7 @@ map('n', '<C-J>', '<C-^>', {})
 -- Russian keys
 vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 
--- NERDCommenter settings
 vim.g.mapleader = '['
-vim.g.NERDCreateDefaultMappings = true
-
-vim.g.NERDSpaceDelims = 1
-
-vim.g.NERDAltDelims_c = 1
-vim.g.NERDAltDelims_java = 1
-
 
 -- lualine
 require'lualine'.setup()
