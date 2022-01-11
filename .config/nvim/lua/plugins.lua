@@ -27,4 +27,5 @@ packer.startup(function(use)
     use 'srcery-colors/srcery-vim'
     use 'nanotech/jellybeans.vim'
     use 'ntk148v/vim-horizon'
+    use 'ayu-theme/ayu-vim'
 end)
