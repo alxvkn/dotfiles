@@ -20,8 +20,6 @@ packer.startup(function(use)
 
     use 'numtostr/comment.nvim'
 
-    use {'neoclide/coc.nvim', branch = 'release', opt = true}
-
     -- colorschemes
     use 'dikiaap/minimalist'
     use 'srcery-colors/srcery-vim'
