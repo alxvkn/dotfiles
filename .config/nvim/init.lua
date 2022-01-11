@@ -85,4 +85,4 @@ require'lualine'.setup()
 
 vim.cmd'colorscheme horizon'
 
-vim.o.guifont = 'Fira Code:h11'
+vim.o.guifont = 'Fira Code:h10'
