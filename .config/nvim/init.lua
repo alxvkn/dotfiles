@@ -19,22 +19,14 @@ require'plugins'
 
 -- if packer.nvim was installed at this exact config run:
 -- - run packer.sync() to install all specified plugins;
--- - setup self-destructing autocmd to re-source this config right after
---      packer is done installing plugins;
+-- - setup autocmd to notify packer is done installing plugins;
 -- - stop execution of this config;
 if packer_just_installed then
-    print'running packer.sync(). after that the config will be sourced again'
     require'packer'.sync()
-    vim.cmd[[
-    augroup finish_bootstrap
-        autocmd!
-        autocmd User PackerComplete execute 'source' stdpath('config') .. '/init.lua | autocmd! finish_bootstrap'
-    augroup end
-    ]]
+    vim.cmd[[autocmd! User PackerComplete echo 'looks like packer.sync() completed. you must(should) restart neovim']]
     -- life would be easier if there was a way to make packer.sync() blocking
     return -- prevent further config execution, since plugins are not yet installed
 end
-
 
 local function map(mode, lhs, rhs, opts)
     if opts then opts['noremap'] = true
