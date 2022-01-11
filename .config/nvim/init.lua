@@ -1,5 +1,6 @@
 local packer_just_installed = nil
 
+-- installing packer.nvim via git if it isn't already installed
 local packer_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(packer_path)) ~= 0 then
     print('cloning packer.nvim with git into ' .. packer_path)
@@ -16,6 +17,11 @@ end
 
 require'plugins'
 
+-- if packer.nvim was installed at this exact config run:
+-- - run packer.sync() to install all specified plugins;
+-- - setup autocmd to re-source this config right after
+--      packer is done installing plugins;
+-- - stop execution of this config;
 if packer_just_installed then
     print'running packer.sync(). after that the config will be sourced again'
     require'packer'.sync()
@@ -31,8 +37,7 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
-vim.o.termguicolors = true
-
+-- enable mouse in all modes
 vim.o.mouse = 'a'
 
 -- at moment i thought i understood how indentation settings work
@@ -48,9 +53,9 @@ vim.o.cindent = true
 vim.opt.cinkeys:remove'0#'
 vim.opt.indentkeys:remove'0#'
 
+-- no swapfiles
 vim.o.swapfile = false
 vim.o.number = true
-
 
 -- only ignore case in command completion
 vim.cmd[[
@@ -64,17 +69,21 @@ vim.cmd[[
 -- reload any of the config files as soon as it's written
 vim.cmd[[autocmd! BufWritePost ~/.config/nvim/* source <afile>]]
 
--- :e # by ctrl+j
-map('n', '<C-J>', '<C-^>', {})
-
 -- Russian keys
 vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 
-vim.g.mapleader = '['
+-- :e # by ctrl+j
+map('n', '<C-J>', '<C-^>', {})
+
+
+-- Plugins configuration/setup
+-- why he couldn't make it lowercase btw?
+require'Comment'.setup()
 
 -- lualine
 require'lualine'.setup()
 
+-- Appearance
+vim.o.termguicolors = true
 vim.cmd'colorscheme horizon'
-
 vim.o.guifont = 'Fira Code:h10'
