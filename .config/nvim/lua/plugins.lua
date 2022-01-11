@@ -3,7 +3,6 @@ packer.reset()
 packer.init({compile_path = vim.fn.stdpath('data') .. '/site/plugin/packer_compiled.lua'})
 packer.startup(function(use)
     use 'wbthomason/packer.nvim'
-    use 'savq/paq-nvim'
 
     use 'tpope/vim-sensible'
     use 'tpope/vim-vinegar'
@@ -18,6 +17,8 @@ packer.startup(function(use)
 
     use 'jiangmiao/auto-pairs'
     use 'tpope/vim-surround'
+
+    use 'numtostr/comment.nvim'
 
     use {'neoclide/coc.nvim', branch = 'release', opt = true}
 
