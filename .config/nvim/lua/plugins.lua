@@ -5,15 +5,15 @@ packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'tpope/vim-sensible'
-    use 'tpope/vim-vinegar'
-    use 'tpope/vim-fugitive'
-
-    use 'junegunn/fzf'
 
     use {
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
+
+    use 'junegunn/fzf'
+    use 'tpope/vim-vinegar'
+    use 'tpope/vim-fugitive'
 
     use 'jiangmiao/auto-pairs'
     use 'tpope/vim-surround'
