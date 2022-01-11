@@ -25,4 +25,6 @@ packer.startup(function(use)
     -- colorschemes
     use 'dikiaap/minimalist'
     use 'srcery-colors/srcery-vim'
+    use 'nanotech/jellybeans.vim'
+    use 'ntk148v/vim-horizon'
 end)

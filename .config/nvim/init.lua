@@ -83,6 +83,6 @@ vim.g.NERDAltDelims_java = 1
 -- lualine
 require'lualine'.setup()
 
-vim.cmd'colorscheme srcery'
+vim.cmd'colorscheme horizon'
 
 vim.o.guifont = 'Fira Code:h11'
