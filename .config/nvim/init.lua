@@ -64,7 +64,7 @@ vim.cmd[[
 ]]
 
 -- reload any of the config files as soon as it's written
-vim.cmd[[autocmd! BufWritePost ~/.config/nvim/* source <afile>]]
+vim.cmd('autocmd! BufWritePost ' .. vim.fn.stdpath('config') .. '/* source <afile>')
 
 -- Russian keys
 vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
