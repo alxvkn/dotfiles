@@ -80,6 +80,81 @@ require'Comment'.setup()
 -- lualine
 require'lualine'.setup()
 
+-- nvim-lspconfig
+
+-- Completion
+vim.o.completeopt = 'menuone,noselect'
+local cmp = require'cmp'
+cmp.setup({
+    snippet ={},
+    mapping = {
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'})
+    },
+    sources = cmp.config.sources({
+        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'nvim_lsp' }
+    })
+})
+cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
+})
+cmp.setup.cmdline('/', {
+    sources = cmp.config.sources({
+        { name = 'buffer' }
+    })
+})
+
+local lspconfig = require'lspconfig'
+local on_attach = function(_, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+    local opts = { noremap = true, silent = true }
+
+    buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
+end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
+
+local servers = { 'clangd', 'sumneko_lua' }
+for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities
+    }
+end
+
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
+lspconfig.sumneko_lua.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+                path = runtime_path
+            },
+            diagnostics = {
+                globals = { 'vim' }
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file('', true)
+            },
+            telemetry = { enable = false }
+        }
+    }
+}
+
 -- Appearance
 vim.o.termguicolors = true
 vim.cmd'colorscheme horizon'
