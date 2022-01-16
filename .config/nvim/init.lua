@@ -136,7 +136,7 @@ table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
 lspconfig.sumneko_lua.setup {
-    cmd = { 'lua-language-server', '--logpath=/home/me/.cache/sumneko-lua.log.d' },
+    cmd = { 'lua-language-server', '--logpath=~/.cache/sumneko-lua.log.d' },
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
