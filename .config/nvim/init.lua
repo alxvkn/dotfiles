@@ -126,13 +126,23 @@ capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
 -- (if config is reloaded)
 vim.lsp.stop_client(vim.lsp.get_active_clients(), true)
 
-local servers = { 'clangd' }
+local servers = {
+    'clangd',
+    'bashls'
+}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
         capabilities = capabilities
     }
 end
+
+lspconfig.tsserver.setup {
+    cmd = { 'npx', 'typescript-language-server', '--stdio' },
+    capabilities = capabilities
+}
+
+
 
 -- Appearance
 vim.o.termguicolors = true
