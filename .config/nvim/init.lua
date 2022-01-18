@@ -84,7 +84,7 @@ require'lualine'.setup()
 vim.o.completeopt = 'menuone,noselect'
 local cmp = require'cmp'
 cmp.setup({
-    snippet ={},
+    snippet = {},
     mapping = {
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'})
     },
@@ -126,6 +126,7 @@ capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
 -- (if config is reloaded)
 vim.lsp.stop_client(vim.lsp.get_active_clients(), true)
 
+-- servers with default settings
 local servers = {
     'clangd',
     'bashls'
@@ -136,10 +137,11 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities
     }
 end
-
+-- servers that need some extra configuration
 lspconfig.tsserver.setup {
-    cmd = { 'npx', 'typescript-language-server', '--stdio' },
-    capabilities = capabilities
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { 'npx', 'typescript-language-server', '--stdio' }
 }
 
 
