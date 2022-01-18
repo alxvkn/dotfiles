@@ -80,9 +80,7 @@ require'Comment'.setup()
 -- lualine
 require'lualine'.setup()
 
--- nvim-lspconfig
-
--- Completion
+-- nvim-cmp
 vim.o.completeopt = 'menuone,noselect'
 local cmp = require'cmp'
 cmp.setup({
@@ -109,6 +107,7 @@ cmp.setup.cmdline('/', {
     })
 })
 
+-- nvim-lspconfig
 local lspconfig = require'lspconfig'
 local on_attach = function(_, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -123,6 +122,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
 
+-- stop all active clients if there are any
+-- (if config is reloaded)
+vim.lsp.stop_client(vim.lsp.get_active_clients(), true)
+
 local servers = { 'clangd' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
@@ -130,31 +133,6 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities
     }
 end
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, 'lua/?.lua')
-table.insert(runtime_path, 'lua/?/init.lua')
-
-lspconfig.sumneko_lua.setup {
-    cmd = { 'lua-language-server', '--logpath=~/.cache/sumneko-lua.log.d' },
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT',
-                path = runtime_path
-            },
-            diagnostics = {
-                globals = { 'vim' }
-            },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file('', true)
-            },
-            telemetry = { enable = false }
-        }
-    }
-}
 
 -- Appearance
 vim.o.termguicolors = true
