@@ -89,9 +89,9 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'})
     },
     sources = cmp.config.sources({
-        { name = 'buffer' },
+        { name = 'nvim_lsp' },
         { name = 'path' },
-        { name = 'nvim_lsp' }
+        { name = 'buffer' }
     })
 })
 cmp.setup.cmdline(':', {
