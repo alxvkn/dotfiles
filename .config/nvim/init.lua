@@ -94,7 +94,9 @@ vim.o.completeopt = 'menuone,noselect'
 local cmp = require'cmp'
 cmp.setup({
     snippet = {
-        -- TODO: snippet engine integration, i don't remember how exactly
+        expand = function(args)
+            require'snippy'.expand_snippet(args.body)
+        end
     },
     mapping = {
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
