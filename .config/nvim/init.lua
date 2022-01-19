@@ -84,9 +84,12 @@ require'lualine'.setup()
 vim.o.completeopt = 'menuone,noselect'
 local cmp = require'cmp'
 cmp.setup({
-    snippet = {},
+    snippet = {
+        -- TODO: snippet engine integration, i don't remember how exactly
+    },
     mapping = {
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'})
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
+        ['<CR>'] = cmp.mapping.confirm({ select = false })
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
