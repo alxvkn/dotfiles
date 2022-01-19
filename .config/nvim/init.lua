@@ -84,7 +84,7 @@ require'snippy'.setup({
     mappings = {
         is = {
             ['<Tab>'] = 'next',
-            ['<S-Tab'] = 'previous'
+            ['<S-Tab>'] = 'previous'
         }
     }
 })
