@@ -80,6 +80,15 @@ require'Comment'.setup()
 -- lualine
 require'lualine'.setup()
 
+require'snippy'.setup({
+    mappings = {
+        is = {
+            ['<Tab>'] = 'next',
+            ['<S-Tab'] = 'previous'
+        }
+    }
+})
+
 -- nvim-cmp
 vim.o.completeopt = 'menuone,noselect'
 local cmp = require'cmp'
