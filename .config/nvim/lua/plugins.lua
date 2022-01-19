@@ -32,7 +32,13 @@ packer.startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-nvim-lsp' -- nvim lsp completion source
+    use 'dcampos/cmp-snippy' -- snippy completion source
 
+    -- snippets
+    use 'dcampos/nvim-snippy' -- engine
+    use 'honza/vim-snippets' -- snippets themself
+
+    -- predefined configurations for various langauge servers
     use 'neovim/nvim-lspconfig'
 end)
