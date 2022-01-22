@@ -21,19 +21,26 @@ packer.startup(function(use)
     use 'numtostr/comment.nvim'
 
     -- colorschemes
-    use 'dikiaap/minimalist'
-    use 'srcery-colors/srcery-vim'
-    use 'nanotech/jellybeans.vim'
-    use 'ntk148v/vim-horizon'
-    use 'ayu-theme/ayu-vim'
+    use {
+        'dikiaap/minimalist',
+        'srcery-colors/srcery-vim',
+        'nanotech/jellybeans.vim',
+        'ntk148v/vim-horizon',
+        'ayu-theme/ayu-vim'
+    }
 
     -- nvim-cmp
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-nvim-lsp' -- nvim lsp completion source
-    use 'dcampos/cmp-snippy' -- snippy completion source
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = {
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-nvim-lsp', -- nvim lsp completion source
+            'dcampos/cmp-snippy' -- snippy completion source
+        }
+    }
+
 
     -- snippets
     use 'dcampos/nvim-snippy' -- engine
