@@ -122,6 +122,12 @@ cmp.setup.cmdline('/', {
     })
 })
 
+-- nvim-treesitter
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = 'maintained',
+    highlight = { enable = true }
+}
+
 -- nvim-lspconfig
 local lspconfig = require'lspconfig'
 local on_attach = function(_, bufnr)

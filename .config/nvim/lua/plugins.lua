@@ -40,6 +40,11 @@ packer.startup(function(use)
             'dcampos/cmp-snippy' -- snippy completion source
         }
     }
+    -- nvim-treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
 
     -- snippets
