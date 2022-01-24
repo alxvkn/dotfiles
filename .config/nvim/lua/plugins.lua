@@ -26,7 +26,8 @@ packer.startup(function(use)
         'nanotech/jellybeans.vim',
         'ntk148v/vim-horizon',
         'ayu-theme/ayu-vim',
-        'kdheepak/monochrome.nvim'
+        'kdheepak/monochrome.nvim',
+        'projekt0n/github-nvim-theme'
     }
 
     -- git integration

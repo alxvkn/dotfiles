@@ -181,5 +181,7 @@ lspconfig.tsserver.setup {
 
 -- Appearance
 vim.o.termguicolors = true
-vim.cmd'colorscheme horizon'
+require'github-theme'.setup {
+    theme_style = 'dark_default'
+}
 vim.o.guifont = 'Fira Code:h10'
