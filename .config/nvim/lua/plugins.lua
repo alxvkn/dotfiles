@@ -13,7 +13,6 @@ packer.startup(function(use)
 
     use 'junegunn/fzf'
     use 'tpope/vim-vinegar'
-    use 'tpope/vim-fugitive'
 
     use 'jiangmiao/auto-pairs'
     use 'tpope/vim-surround'
@@ -26,7 +25,17 @@ packer.startup(function(use)
         'srcery-colors/srcery-vim',
         'nanotech/jellybeans.vim',
         'ntk148v/vim-horizon',
-        'ayu-theme/ayu-vim'
+        'ayu-theme/ayu-vim',
+        'kdheepak/monochrome.nvim'
+    }
+
+    -- git integration
+    use {
+        'tpope/vim-fugitive',
+        {
+            'lewis6991/gitsigns.nvim',
+            requires = 'nvim-lua/plenary.nvim'
+        }
     }
 
     -- nvim-cmp

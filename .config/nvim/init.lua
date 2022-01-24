@@ -74,6 +74,17 @@ map('n', '<C-J>', '<C-^>', {})
 
 
 -- Plugins configuration/setup
+-- gitsigns
+require'gitsigns'.setup {
+    signcolumn = false,
+    numhl = true,
+    current_line_blame = true,
+    current_line_blame_opts = {
+        virt_text_pos = 'right_align',
+        delay = 500
+    }
+}
+
 -- why he couldn't make it lowercase btw?
 require'Comment'.setup()
 
