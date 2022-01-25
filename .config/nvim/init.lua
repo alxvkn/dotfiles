@@ -130,7 +130,6 @@ cmp.setup.cmdline('/', {
 
 -- nvim-treesitter
 require'nvim-treesitter.configs'.setup {
-    ignore_install = { 'ocamllex', 'norg' },
     highlight = { enable = true }
 }
 
