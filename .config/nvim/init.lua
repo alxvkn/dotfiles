@@ -1,37 +1,39 @@
 local packer_just_installed = nil
 
 -- installing packer.nvim if it isn't already installed
-local packer_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local packer_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(packer_path)) ~= 0 then
-    print('cloning packer.nvim with git into ' .. packer_path)
-    vim.fn.system({'git', 'clone', '--depth=1',
-        'https://github.com/wbthomason/packer.nvim', packer_path})
-    if vim.v.shell_error == 0 then
-        print'successfully installed packer.nvim'
-        packer_just_installed = true
-    else
-        print'something went wrong. check if git is available in $PATH'
-        return
-    end
+  print('cloning packer.nvim with git into ' .. packer_path)
+  vim.fn.system { 'git', 'clone', '--depth=1', 'https://github.com/wbthomason/packer.nvim', packer_path }
+  if vim.v.shell_error == 0 then
+    print 'successfully installed packer.nvim'
+    packer_just_installed = true
+  else
+    print 'something went wrong. check if git is available in $PATH'
+    return
+  end
 end
 
-require'plugins'
+require 'plugins'
 
 -- if packer.nvim was installed at this exact config run:
 -- - run packer.sync() to install all specified plugins;
 -- - setup autocmd to notify user when packer.sync() is completed;
 -- - stop execution of this config;
 if packer_just_installed then
-    require'packer'.sync()
-    vim.cmd[[autocmd! User PackerComplete echo 'looks like packer.sync() completed. you must(should) restart neovim']]
-    -- life would be easier if there was a way to make packer.sync() blocking
-    return -- prevent further config execution, since plugins are not yet installed
+  require('packer').sync()
+  vim.cmd [[autocmd! User PackerComplete echo 'looks like packer.sync() completed. you must(should) restart neovim']]
+  -- life would be easier if there was a way to make packer.sync() blocking
+  return -- prevent further config execution, since plugins are not yet installed
 end
 
 local function map(mode, lhs, rhs, opts)
-    if opts then opts['noremap'] = true
-    else opts = {noremap = true} end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+  if opts then
+    opts['noremap'] = true
+  else
+    opts = { noremap = true }
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
 -- enable mouse in all modes
@@ -55,7 +57,7 @@ vim.o.swapfile = false
 vim.o.number = true
 
 -- only ignore case in command completion
-vim.cmd[[
+vim.cmd [[
     augroup ignorecase_commandmode
         autocmd!
         autocmd CmdLineEnter : let &ignorecase = 1
@@ -64,86 +66,90 @@ vim.cmd[[
 ]]
 
 -- Russian keys
-vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
+vim.o.langmap =
+  'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 
 -- :e # by ctrl+j
 map('n', '<C-J>', '<C-^>', {})
 
-
 -- Plugins configuration/setup
 -- gitsigns
-require'gitsigns'.setup {
-    signcolumn = false,
-    numhl = true,
+require('gitsigns').setup {
+  signcolumn = false,
+  numhl = true,
 }
 
 -- why he couldn't make it lowercase btw?
-require'Comment'.setup()
+require('Comment').setup()
 
 -- lualine
-require'lualine'.setup()
+require('lualine').setup()
 
-require'snippy'.setup({
-    mappings = {
-        is = {
-            ['<Tab>'] = 'next',
-            ['<S-Tab>'] = 'previous'
-        }
-    }
-})
+require('snippy').setup {
+  mappings = {
+    is = {
+      ['<Tab>'] = 'next',
+      ['<S-Tab>'] = 'previous',
+    },
+  },
+}
 
 -- nvim-cmp
 vim.o.completeopt = 'menuone,noselect'
-local cmp = require'cmp'
-cmp.setup({
-    snippet = {
-        expand = function(args)
-            require'snippy'.expand_snippet(args.body)
-        end
-    },
-    mapping = {
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
-        ['<CR>'] = cmp.mapping.confirm({ select = false })
-    },
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'snippy' },
-        { name = 'path' },
-        { name = 'buffer' }
-    })
-})
+local cmp = require 'cmp'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      require('snippy').expand_snippet(args.body)
+    end,
+  },
+  mapping = {
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<CR>'] = cmp.mapping.confirm { select = false },
+  },
+  sources = cmp.config.sources {
+    { name = 'nvim_lsp' },
+    { name = 'snippy' },
+    { name = 'path' },
+    { name = 'buffer' },
+  },
+}
 cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
-        { name = 'path' }
-    }, {
-        { name = 'cmdline' }
-    })
+  sources = cmp.config.sources({
+    { name = 'path' },
+  }, {
+    { name = 'cmdline' },
+  }),
 })
 cmp.setup.cmdline('/', {
-    sources = cmp.config.sources({
-        { name = 'buffer' }
-    })
+  sources = cmp.config.sources {
+    { name = 'buffer' },
+  },
 })
 
 -- nvim-treesitter
-require'nvim-treesitter.configs'.setup {
-    highlight = { enable = true }
+require('nvim-treesitter.configs').setup {
+  highlight = { enable = true },
 }
 
 -- nvim-lspconfig
-local lspconfig = require'lspconfig'
+local lspconfig = require 'lspconfig'
 local on_attach = function(_, bufnr)
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  local function buf_set_keymap(...)
+    vim.api.nvim_buf_set_keymap(bufnr, ...)
+  end
+  local function buf_set_option(...)
+    vim.api.nvim_buf_set_option(bufnr, ...)
+  end
 
-    local opts = { noremap = true, silent = true }
+  local opts = { noremap = true, silent = true }
 
-    buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- stop all active clients if there are any
 -- (if config is reloaded)
@@ -151,43 +157,43 @@ vim.lsp.stop_client(vim.lsp.get_active_clients(), true)
 
 -- servers with default settings
 local servers = {
-    'clangd',
-    'bashls'
+  'clangd',
+  'bashls',
 }
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities
-    }
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
 end
 -- servers that need some extra configuration
 lspconfig.tsserver.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = { 'npx', 'typescript-language-server', '--stdio' }
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'npx', 'typescript-language-server', '--stdio' },
 }
 
 -- formatter
-require'formatter'.setup {
-    filetype = {
-        lua = {
-            function()
-                return {
-                    exe = 'stylua',
-                    args = {
-                        '--search-parent-directories',
-                        '-'
-                    },
-                    stdin = true
-                }
-            end
+require('formatter').setup {
+  filetype = {
+    lua = {
+      function()
+        return {
+          exe = 'stylua',
+          args = {
+            '--search-parent-directories',
+            '-',
+          },
+          stdin = true,
         }
-    }
+      end,
+    },
+  },
 }
 
 -- Appearance
 vim.o.termguicolors = true
-require'github-theme'.setup {
-    theme_style = 'dark_default'
+require('github-theme').setup {
+  theme_style = 'dark_default',
 }
 vim.o.guifont = 'Fira Code:h10'
