@@ -63,4 +63,7 @@ packer.startup(function(use)
 
     -- predefined configurations for various langauge servers
     use 'neovim/nvim-lspconfig'
+
+    -- formatter
+    use 'mhartington/formatter.nvim'
 end)

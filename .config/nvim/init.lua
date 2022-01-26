@@ -167,7 +167,23 @@ lspconfig.tsserver.setup {
     cmd = { 'npx', 'typescript-language-server', '--stdio' }
 }
 
-
+-- formatter
+require'formatter'.setup {
+    filetype = {
+        lua = {
+            function()
+                return {
+                    exe = 'stylua',
+                    args = {
+                        '--search-parent-directories',
+                        '-'
+                    },
+                    stdin = true
+                }
+            end
+        }
+    }
+}
 
 -- Appearance
 vim.o.termguicolors = true
