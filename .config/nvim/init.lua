@@ -72,6 +72,8 @@ vim.o.langmap =
 -- :e # by ctrl+j
 map('n', '<C-J>', '<C-^>', {})
 
+vim.g.mapleader = '<Space>'
+
 -- Plugins configuration/setup
 -- gitsigns
 require('gitsigns').setup {
