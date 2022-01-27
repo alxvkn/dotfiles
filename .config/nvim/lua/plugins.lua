@@ -4,6 +4,8 @@ packer.init { compile_path = vim.fn.stdpath 'data' .. '/site/plugin/packer_compi
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use 'nvim-lua/plenary.nvim'
+
   use 'tpope/vim-sensible'
 
   use {
@@ -35,7 +37,6 @@ packer.startup(function(use)
     'tpope/vim-fugitive',
     {
       'lewis6991/gitsigns.nvim',
-      requires = 'nvim-lua/plenary.nvim',
     },
   }
 
