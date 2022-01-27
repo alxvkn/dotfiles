@@ -4,8 +4,10 @@ packer.init { compile_path = vim.fn.stdpath 'data' .. '/site/plugin/packer_compi
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  -- lua utility functions required by various plugins
   use 'nvim-lua/plenary.nvim'
 
+  -- kind of a default options superset for (neo)vim
   use 'tpope/vim-sensible'
 
   use {
@@ -17,8 +19,11 @@ packer.startup(function(use)
   use 'tpope/vim-vinegar'
 
   use 'jiangmiao/auto-pairs'
+
+  -- fancy macros to wrap text in brackets/quotes/everything that i forgot how to use
   use 'tpope/vim-surround'
 
+  -- commenting plugin
   use 'numtostr/comment.nvim'
 
   -- colorschemes
