@@ -68,6 +68,9 @@ packer.startup(function(use)
   -- predefined configurations for various langauge servers
   use 'neovim/nvim-lspconfig'
 
+  -- telescope
+  use 'nvim-telescope/telescope.nvim'
+
   -- formatter
   use 'mhartington/formatter.nvim'
 end)
