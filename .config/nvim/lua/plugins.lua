@@ -15,7 +15,6 @@ packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   }
 
-  use 'junegunn/fzf'
   use 'tpope/vim-vinegar'
 
   use 'jiangmiao/auto-pairs'
