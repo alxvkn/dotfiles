@@ -72,7 +72,7 @@ vim.o.langmap =
 -- :e # by ctrl+j
 map('n', '<C-J>', '<C-^>', {})
 
-vim.g.mapleader = '<Space>'
+vim.g.mapleader = ' '
 
 -- Plugins configuration/setup
 -- gitsigns
@@ -174,6 +174,12 @@ lspconfig.tsserver.setup {
   capabilities = capabilities,
   cmd = { 'npx', 'typescript-language-server', '--stdio' },
 }
+
+-- telescope default shortcuts
+map('n', '<Leader>ff', [[<Cmd>lua require('telescope.builtin').find_files()<CR>]])
+map('n', '<Leader>fg', [[<Cmd>lua require('telescope.builtin').live_grep()<CR>]])
+map('n', '<Leader>fb', [[<Cmd>lua require('telescope.builtin').buffers()<CR>]])
+map('n', '<Leader>fh', [[<Cmd>lua require('telescope.builtin').help_tags()<CR>]])
 
 -- formatter
 require('formatter').setup {
