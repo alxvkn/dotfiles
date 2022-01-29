@@ -176,6 +176,7 @@ lspconfig.tsserver.setup {
 }
 
 -- telescope default shortcuts
+map('n', '<Leader>f<Leader>', [[<Cmd>lua require('telescope.builtin').builtin()<CR>]])
 map('n', '<Leader>ff', [[<Cmd>lua require('telescope.builtin').find_files()<CR>]])
 map('n', '<Leader>fg', [[<Cmd>lua require('telescope.builtin').live_grep()<CR>]])
 map('n', '<Leader>fb', [[<Cmd>lua require('telescope.builtin').buffers()<CR>]])
