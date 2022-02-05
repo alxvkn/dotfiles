@@ -15,7 +15,9 @@ export BEMENU_OPTS="--tb '#111111cc'    --tf '#ffffff'
 export PATH=${HOME}/bin:${PATH}
 
 if [[ "$(tty)" == '/dev/tty1' ]]; then
-    exec sway
+    if [[ "$(command -v sway)" ]]; then
+        exec sway
+    fi
 fi
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
