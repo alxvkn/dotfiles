@@ -57,10 +57,10 @@ bindsym {
     $mod+Shift+0 move container to workspace number 10
 }
 
-# Workspace cycling with $mod+{PgUp,PgDown}
+# Workspace cycling with $mod+{,Shift}+Tab
 bindsym --to-code {
-    $mod+Prior workspace prev
-    $mod+Next workspace next
+    $mod+Shift+Tab workspace prev
+    $mod+Tab workspace next
 }
 # Same with $mod+mwheel{up,down}
 bindsym --whole-window {
