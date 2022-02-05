@@ -14,7 +14,7 @@ if vim.fn.empty(vim.fn.glob(packer_path)) ~= 0 then
   end
 end
 
-require 'plugins'
+require 'config.plugins'
 
 -- if packer.nvim was installed at this exact config run:
 -- - run packer.sync() to install all specified plugins;
