@@ -37,7 +37,7 @@ return setmetatable({
 --   buffer
 -- } -> {
 --   noremap(default),
---   buffer
+--   map
 -- }
 -- yeah and then make K.n default so you can just call K()
 -- such an overengineering, i love it
