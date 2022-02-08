@@ -36,6 +36,7 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
+
 -- enable mouse in all modes
 vim.o.mouse = 'a'
 
@@ -74,131 +75,7 @@ map('n', '<C-J>', '<C-^>', {})
 
 vim.g.mapleader = ' '
 
--- Plugins configuration/setup
--- gitsigns
-require('gitsigns').setup {
-  signcolumn = false,
-  numhl = true,
-}
-
--- why he couldn't make it lowercase btw?
-require('Comment').setup()
-
--- lualine
-require('lualine').setup()
-
-require('snippy').setup {
-  mappings = {
-    is = {
-      ['<Tab>'] = 'next',
-      ['<S-Tab>'] = 'previous',
-    },
-  },
-}
-
--- nvim-cmp
 vim.o.completeopt = 'menuone,noselect'
-local cmp = require 'cmp'
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      require('snippy').expand_snippet(args.body)
-    end,
-  },
-  mapping = {
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<CR>'] = cmp.mapping.confirm { select = false },
-  },
-  sources = cmp.config.sources {
-    { name = 'nvim_lsp' },
-    { name = 'snippy' },
-    { name = 'path' },
-    { name = 'buffer' },
-  },
-}
-cmp.setup.cmdline(':', {
-  sources = cmp.config.sources({
-    { name = 'path' },
-  }, {
-    { name = 'cmdline' },
-  }),
-})
-cmp.setup.cmdline('/', {
-  sources = cmp.config.sources {
-    { name = 'buffer' },
-  },
-})
-
--- nvim-treesitter
-require('nvim-treesitter.configs').setup {
-  highlight = { enable = true },
-}
-
--- nvim-lspconfig
-local lspconfig = require 'lspconfig'
-local on_attach = function(_, bufnr)
-  local function buf_set_keymap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
-  end
-
-  local opts = { noremap = true, silent = true }
-
-  buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
-end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
--- stop all active clients if there are any
--- (if config is reloaded)
-vim.lsp.stop_client(vim.lsp.get_active_clients(), true)
-
--- servers with default settings
-local servers = {
-  'clangd',
-  'bashls',
-}
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
--- servers that need some extra configuration
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { 'npx', 'typescript-language-server', '--stdio' },
-}
-
--- telescope default shortcuts
-map('n', '<Leader>f<Leader>', [[<Cmd>lua require('telescope.builtin').builtin()<CR>]])
-map('n', '<Leader>ff', [[<Cmd>lua require('telescope.builtin').find_files()<CR>]])
-map('n', '<Leader>fg', [[<Cmd>lua require('telescope.builtin').live_grep()<CR>]])
-map('n', '<Leader>fb', [[<Cmd>lua require('telescope.builtin').buffers()<CR>]])
-map('n', '<Leader>fh', [[<Cmd>lua require('telescope.builtin').help_tags()<CR>]])
-
--- formatter
-require('formatter').setup {
-  filetype = {
-    lua = {
-      function()
-        return {
-          exe = 'stylua',
-          args = {
-            '--search-parent-directories',
-            '-',
-          },
-          stdin = true,
-        }
-      end,
-    },
-  },
-}
 
 -- Appearance
 vim.o.termguicolors = true

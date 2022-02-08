@@ -13,6 +13,9 @@ packer.startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function()
+      require 'config.plugins.lualine'
+    end,
   }
 
   use 'tpope/vim-vinegar'
@@ -23,7 +26,12 @@ packer.startup(function(use)
   use 'tpope/vim-surround'
 
   -- commenting plugin
-  use 'numtostr/comment.nvim'
+  use {
+    'numtostr/comment.nvim',
+    config = function()
+      require 'config.plugins.Comment'
+    end,
+  }
 
   -- colorschemes
   use {
@@ -42,6 +50,9 @@ packer.startup(function(use)
     'tpope/vim-fugitive',
     {
       'lewis6991/gitsigns.nvim',
+      config = function()
+        require 'config.plugins.gitsigns'
+      end,
     },
   }
 
@@ -55,23 +66,49 @@ packer.startup(function(use)
       'hrsh7th/cmp-nvim-lsp', -- nvim lsp completion source
       'dcampos/cmp-snippy', -- snippy completion source
     },
+    config = function()
+      require 'config.plugins.cmp'
+    end,
   }
   -- nvim-treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    config = function()
+      require 'config.plugins.treesitter'
+    end,
   }
 
   -- snippets
-  use 'dcampos/nvim-snippy' -- engine
+  use {
+    'dcampos/nvim-snippy', -- engine
+    config = function()
+      require 'config.plugins.snippy'
+    end,
+  }
   use 'honza/vim-snippets' -- snippets themself
 
   -- predefined configurations for various langauge servers
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require 'config.plugins.lsp'
+    end,
+  }
 
   -- telescope
-  use 'nvim-telescope/telescope.nvim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    config = function()
+      require 'config.plugins.telescope'
+    end,
+  }
 
   -- formatter
-  use 'mhartington/formatter.nvim'
+  use {
+    'mhartington/formatter.nvim',
+    config = function()
+      require 'config.plugins.formatter'
+    end,
+  }
 end)
