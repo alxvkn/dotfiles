@@ -16,28 +16,38 @@ return setmetatable({
         opts = table.opts_noremap(opts)
         return vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
       end,
-      buf_map = function(bufnr, lhs, rhs)
-        opts = table.opts_noremap(opts)
-        return vim.api.nvim_buf_set_keymap(bufnr, lhs, rhs, opts)
+      buf = function(bufnr)
+        return setmetatable({
+          map = function(lhs, rhs, opts)
+            return vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+          end,
+          noremap = function(lhs, rhs, opts)
+            opts = table.opts_noremap(opts)
+            return vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+          end,
+        }, {
+          __call = function(this, lhs, rhs, opts)
+            this.noremap(lhs, rhs, opts)
+          end,
+        })
       end,
     }, {
-      __call = function(this, lhs, rhs)
-        this.noremap(lhs, rhs)
+      __call = function(this, lhs, rhs, opts)
+        this.noremap(lhs, rhs, opts)
       end,
     })
   end,
 })
 
--- yo yo i think we should make even harder to understand thing
--- something like K.n() will actually mean K.n.global.noremap()
--- and so that local to buffer keymaps can be created with K.n.buffer.noremap()
--- like some multi level ierarchy shit
--- K.n {
---   global(default),
---   buffer
--- } -> {
---   noremap(default),
---   map
--- }
--- yeah and then make K.n default so you can just call K()
--- such an overengineering, i love it
+-- usage is something like
+-- ...
+-- local K = require '*thismodule*'
+-- K.n() -- creates global mapping in normal mode with noremap, like :nnoremap
+-- K.n.noremap() -- same as above, but explicitly
+-- K.n.map() -- creates global mapping in normal mode without noremap, like :nmap
+-- ...
+--
+-- K.n.buf(bufnr) provides just the same interface (noremap(), map())
+-- but mappings will be created local to buffer identified by bufnr
+--
+-- n field in above can be replaced with any mode letter (i,c,x,...)
