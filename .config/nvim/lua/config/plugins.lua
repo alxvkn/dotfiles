@@ -99,14 +99,11 @@ packer.startup(function(use)
     config = function()
       require 'config.plugins.lsp'
     end,
-    event = 'BufRead',
-    module = 'lspconfig',
   }
 
   -- sumneko lua configuration for nvim plugins/config files
   use {
     'folke/lua-dev.nvim',
-    after = 'nvim-lspconfig',
     config = function()
       require 'config.plugins.nvim-lua-dev'
     end,
