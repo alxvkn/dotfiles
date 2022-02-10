@@ -5,7 +5,10 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- lua utility functions required by various plugins
-  use 'nvim-lua/plenary.nvim'
+  use {
+    'nvim-lua/plenary.nvim',
+    module = 'plenary',
+  }
 
   -- kind of a default options superset for (neo)vim
   use 'tpope/vim-sensible'
@@ -53,6 +56,7 @@ packer.startup(function(use)
       config = function()
         require 'config.plugins.gitsigns'
       end,
+      event = 'BufRead',
     },
   }
 
@@ -77,6 +81,7 @@ packer.startup(function(use)
     config = function()
       require 'config.plugins.treesitter'
     end,
+    event = 'BufRead',
   }
 
   -- snippets
@@ -94,14 +99,18 @@ packer.startup(function(use)
     config = function()
       require 'config.plugins.lsp'
     end,
+    event = 'BufRead',
+    module = 'lspconfig',
   }
 
+  -- sumneko lua configuration for nvim plugins/config files
   use {
     'folke/lua-dev.nvim',
-    requires = 'neovim/nvim-lspconfig',
+    after = 'nvim-lspconfig',
     config = function()
       require 'config.plugins.nvim-lua-dev'
     end,
+    ft = 'lua',
   }
 
   -- telescope
@@ -118,5 +127,9 @@ packer.startup(function(use)
     config = function()
       require 'config.plugins.formatter'
     end,
+    cmd = {
+      'Format',
+      'FormatWrite',
+    },
   }
 end)
