@@ -96,6 +96,14 @@ packer.startup(function(use)
     end,
   }
 
+  use {
+    'folke/lua-dev.nvim',
+    requires = 'neovim/nvim-lspconfig',
+    config = function()
+      require 'config.plugins.nvim-lua-dev'
+    end,
+  }
+
   -- telescope
   use {
     'nvim-telescope/telescope.nvim',
