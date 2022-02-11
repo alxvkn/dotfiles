@@ -44,7 +44,7 @@ input type:pointer {
 font FiraCode 10
 
 # Colors
-set $bg #222222
+set $bg #101010
 
 # class                 border  bg      text    indicator   child_border
 client.focused          #aaaaaa $bg     #ffffff #aaaaaa     #aaaaaa
