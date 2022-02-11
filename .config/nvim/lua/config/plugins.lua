@@ -136,4 +136,11 @@ packer.startup(function(use)
       'FormatWrite',
     },
   }
+
+  use {
+    'numToStr/FTerm.nvim',
+    config = function()
+      require 'config.plugins.FTerm'
+    end,
+  }
 end)
