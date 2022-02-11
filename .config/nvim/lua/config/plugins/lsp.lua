@@ -2,10 +2,6 @@ local K = require 'config.util.map'
 
 local lspconfig = require 'lspconfig'
 local on_attach = function(_, bufnr)
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
-  end
-
   local opts = { noremap = true, silent = true }
 
   K.n.buf(bufnr)('K', ':lua vim.lsp.buf.hover()<CR>', opts)
