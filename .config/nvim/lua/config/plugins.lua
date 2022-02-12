@@ -104,7 +104,7 @@ packer.startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     config = function()
-      require 'config.plugins.lsp'
+      require 'config.plugins.lsp.lspconfig'
     end,
   }
 
@@ -112,7 +112,7 @@ packer.startup(function(use)
   use {
     'folke/lua-dev.nvim',
     config = function()
-      require 'config.plugins.nvim-lua-dev'
+      require 'config.plugins.lsp.nvim-lua-dev'
     end,
     ft = 'lua',
   }
