@@ -54,12 +54,6 @@ packer.startup(function(use)
     'kdheepak/monochrome.nvim',
     'projekt0n/github-nvim-theme',
   }
-  use {
-    'xiyaowong/nvim-transparent',
-    config = function()
-      require 'config.plugins.transparent'
-    end,
-  }
 
   -- git integration
   use {
