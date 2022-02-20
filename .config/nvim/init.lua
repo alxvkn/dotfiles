@@ -79,7 +79,5 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- Appearance
 vim.o.termguicolors = true
-require('github-theme').setup {
-  theme_style = 'dark_default',
-}
+vim.cmd 'colorscheme base16-tomorrow-night'
 vim.o.guifont = 'Fira Code:h10'
