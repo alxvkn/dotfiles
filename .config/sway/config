@@ -66,10 +66,10 @@ output HDMI-A-1 {
     mode --custom 1920x1080@80Hz
     pos 0 0
 }
-output DVI-I-1 {
-    mode --custom 1280x1024@76Hz
-    pos 1920 0
-}
+# output DVI-I-1 {
+#     mode --custom 1280x1024@76Hz
+#     pos 1920 0
+# }
 
 
 
