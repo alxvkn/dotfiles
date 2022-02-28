@@ -4,22 +4,23 @@
 
 ### Modes
 # Resize
+set $resize_step 30px
 mode "resize" {
     bindsym --to-code {
         # left will shrink the containers width
         # right will grow the containers width
         # up will shrink the containers height
         # down will grow the containers height
-        $left resize shrink width 10px
-        $down resize grow height 10px
-        $up resize shrink height 10px
-        $right resize grow width 10px
+        $left resize shrink width $resize_step
+        $down resize grow height $resize_step
+        $up resize shrink height $resize_step
+        $right resize grow width $resize_step
 
         # Ditto, with arrow keys
-        Left resize shrink width 10px
-        Down resize grow height 10px
-        Up resize shrink height 10px
-        Right resize grow width 10px
+        Left resize shrink width $resize_step
+        Down resize grow height $resize_step
+        Up resize shrink height $resize_step
+        Right resize grow width $resize_step
 
         # Return to default mode
         Return mode "default"
