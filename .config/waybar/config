@@ -13,7 +13,8 @@
         // Modules configuration
         "sway/window#hidden": {
             // only used to get background color changing working on both bars
-            "format": ""
+            "icon": false,
+            "format": "",
         },
         "sway/workspaces": {
             "all-outputs": true,
@@ -58,6 +59,7 @@
         "modules-left": ["sway/window"],
         "modules-right": ["cpu", "memory", "temperature#gpu", "network", "clock"],
         "sway/window": {
+            "icon": false,
             "format": "{}",
             "rewrite": {
                 // the symbol '–' chromium uses isn't just a hyphen, it is an "En dash"
