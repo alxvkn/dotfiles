@@ -143,4 +143,12 @@ packer.startup(function(use)
       require 'config.plugins.FTerm'
     end,
   }
+
+  -- ui for displaying lsp loading progress
+  use {
+    'j-hui/fidget.nvim',
+    config = function()
+      require 'config.plugins.fidget'
+    end,
+  }
 end)
