@@ -4,7 +4,6 @@ set colored-completion-prefix on
 
 # Completion
 set show-all-if-ambiguous on
-set completion-ignore-case on
 
 # Display each completion item on a new line
 set completion-display-width 0
