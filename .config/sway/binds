@@ -29,7 +29,12 @@ mode "resize" {
 }
 bindsym --to-code $mod+r mode "resize"
 
-
+# Pass all keys to active window (for launching other wm's inside sway)
+# stolen from https://git.sr.ht/~begs/dotfiles
+mode "passthrough" {
+    bindsym $mod+Equal mode "default"
+}
+bindsym $mod+Equal mode "passthrough"
 
 ### Workspace stuff
 bindsym {
