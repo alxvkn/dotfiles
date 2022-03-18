@@ -28,8 +28,10 @@ packer.startup(function(use)
     end,
   }
 
+  -- i would say, make netrw actually usable
   use 'tpope/vim-vinegar'
 
+  -- auto-pairs for brackets/quotes
   use 'jiangmiao/auto-pairs'
 
   -- fancy macros to wrap text in brackets/quotes/everything that i forgot how to use
