@@ -36,7 +36,6 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
-
 -- enable mouse in all modes
 vim.o.mouse = 'a'
 
@@ -70,12 +69,11 @@ vim.cmd [[
 vim.o.langmap =
   'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 
--- :e # by ctrl+j
-map('n', '<C-J>', '<C-^>', {})
-
 vim.g.mapleader = ' '
 
 vim.o.completeopt = 'menuone,noselect'
+
+require 'config.mappings'
 
 -- Appearance
 vim.o.termguicolors = true
