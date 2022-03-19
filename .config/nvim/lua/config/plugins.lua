@@ -153,4 +153,12 @@ packer.startup(function(use)
       require 'config.plugins.fidget'
     end,
   }
+
+  -- highlight and list todo/note/fix etc. comments
+  use {
+    'folke/todo-comments.nvim',
+    config = function()
+      require 'config.plugins.todo-comments'
+    end,
+  }
 end)
