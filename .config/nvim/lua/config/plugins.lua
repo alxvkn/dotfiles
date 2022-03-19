@@ -140,9 +140,9 @@ packer.startup(function(use)
   }
 
   use {
-    'numToStr/FTerm.nvim',
+    'akinsho/toggleterm.nvim',
     config = function()
-      require 'config.plugins.FTerm'
+      require 'config.plugins.toggleterm'
     end,
   }
 
