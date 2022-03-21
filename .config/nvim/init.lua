@@ -71,6 +71,8 @@ vim.o.langmap =
 
 vim.g.mapleader = ' '
 
+vim.o.timeout = false
+
 vim.o.completeopt = 'menuone,noselect'
 
 require 'config.mappings'
