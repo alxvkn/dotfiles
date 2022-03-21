@@ -27,15 +27,6 @@ if packer_just_installed then
   return -- prevent further config execution, since plugins are not yet installed
 end
 
-local function map(mode, lhs, rhs, opts)
-  if opts then
-    opts['noremap'] = true
-  else
-    opts = { noremap = true }
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
-end
-
 -- enable mouse in all modes
 vim.o.mouse = 'a'
 
