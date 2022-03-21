@@ -139,6 +139,14 @@ packer.startup(function(use)
     },
   }
 
+  -- buffer deletion utility
+  use {
+    'kazhala/close-buffers.nvim',
+    config = function()
+      require 'config.plugins.close-buffers'
+    end,
+  }
+
   use {
     'akinsho/toggleterm.nvim',
     config = function()
