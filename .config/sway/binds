@@ -114,6 +114,9 @@ bindsym --to-code {
     # Toggle the current focus between tiling and floating mode
     $mod+Shift+space floating toggle
 
+    # Stick floating focus to current output so that it'l show up on any workspace
+    $mod+Control+space sticky toggle
+
     # Swap focus between the tiling area and the floating area
     $mod+space focus mode_toggle
 
