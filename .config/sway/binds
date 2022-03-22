@@ -101,6 +101,7 @@ bindsym --to-code {
     # respectively.
     $mod+b splith
     $mod+v splitv
+    $mod+c split none # cancel any of the above for current focus
 
     # Switch the current container between different layout styles
     $mod+s layout stacking
