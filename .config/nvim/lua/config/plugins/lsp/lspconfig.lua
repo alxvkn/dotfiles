@@ -13,6 +13,7 @@ vim.lsp.stop_client(vim.lsp.get_active_clients(), true)
 local servers = {
   'clangd',
   'bashls',
+  'pyright',
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
