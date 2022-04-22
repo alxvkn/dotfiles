@@ -22,7 +22,7 @@ require 'config.plugins'
 -- - stop execution of this config;
 if packer_just_installed then
   require('packer').sync()
-  vim.cmd [[autocmd! User PackerComplete echo 'looks like packer.sync() completed. you must(should) restart neovim']]
+  vim.cmd [[autocmd! User PackerComplete echo 'looks like packer.sync() completed. either re-source init.lua or restart nvim']]
   -- life would be easier if there was a way to make packer.sync() blocking
   return -- prevent further config execution, since plugins are not yet installed
 end
