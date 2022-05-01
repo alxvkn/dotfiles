@@ -10,7 +10,7 @@ export BEMENU_OPTS="--tb '#111111cc'    --tf '#ffffff'
                     --nb '#111111cc'    --nf '#bbbbbb'
                     --hb '#bbbbbb'      --hf '#000000'
                     --fn 'Fira Code 11'
-                    -H 20 -M 300 -l 20 -sp '' -i"
+                    -H 20 -W 0.3 -l 20 -fsp '' -i"
 
 export PATH=${HOME}/bin:${PATH}
 
