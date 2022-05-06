@@ -1,0 +1,27 @@
+#!/bin/sh
+# vim:ft=sh
+
+# im going to try weird concurrency stuff right here
+
+
+listen_for_window_title() {
+    # subscribing to regular window events to output title
+    # when focus moved to another window or window that is focused changed its title
+    jq_filter_window='select(.container.focused and (.change == "focus" or .change == "title")).container.name'
+    swaymsg -mt subscribe '["window"]' | jq -r --unbuffered "$jq_filter_window"
+}
+
+listen_for_switch_to_empty_workspace() {
+    # trying to output empty line to clear blocklet when there is no focused window 
+
+    # i am assuming that WORKSPACE event with .change = init
+    # will occur when changing focus to empty workspace,
+    # since there was no workspace before
+
+    # sh*t i just realized that if you kill last window on workspace that won't work
+
+    : # this means true so bash will run this script
+}
+
+# just running this one so i have at least what i had before
+listen_for_window_title

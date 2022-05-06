@@ -1,0 +1,32 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[sway/window]
+command=$SCRIPT_DIR/sway/window
+interval=persist
+
+[gputemp]
+command=echo gpu: $(~/scripts/gputemp.sh)
+interval=2
+
+[wttr]
+align=center
+min_width=80
+command=curl -s ru.wttr.in/?format=1
+interval=1800
+
+[date]
+# command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%A %x %X'
+interval=1
+
+# vim: ft=dosini
