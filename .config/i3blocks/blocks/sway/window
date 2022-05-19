@@ -12,14 +12,9 @@ listen_for_window_title() {
 }
 
 listen_for_switch_to_empty_workspace() {
-    # trying to output empty line to clear blocklet when there is no focused window 
+    # output empty line when focus is moved to empty workspace
 
-    # i am assuming that WORKSPACE event with .change = init
-    # will occur when changing focus to empty workspace,
-    # since there was no workspace before
-
-    # sh*t i just realized that if you kill last window on workspace that won't work
-    jq_filter_workspace='select(.change == "focus" and ((.current.floating_nodes | length == 0) or (.current.nodes | length == 0))).current.id'
+    jq_filter_workspace='select(.change == "focus" and ((.current.floating_nodes | length == 0) and (.current.nodes | length == 0))).current.id'
     swaymsg -mt subscribe '["workspace"]' | jq -r --unbuffered "$jq_filter_workspace" | while read ID; do echo; done
 
     # : # this means true so bash will run this script
