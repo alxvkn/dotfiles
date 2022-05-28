@@ -18,12 +18,6 @@ interval=persist
 command=echo gpu: $(~/scripts/gputemp.sh)
 interval=2
 
-[wttr]
-align=center
-min_width=80
-command=curl -s ru.wttr.in/?format=1
-interval=1800
-
 [date]
 # command=date '+%Y-%m-%d %H:%M:%S'
 command=date '+%A %x %X'
