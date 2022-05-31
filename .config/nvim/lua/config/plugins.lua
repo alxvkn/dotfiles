@@ -47,7 +47,7 @@ packer.startup(function(use)
 
   -- colorschemes
   use {
-    'chriskempson/base16-vim',
+    'RRethy/nvim-base16',
     'dikiaap/minimalist',
     'srcery-colors/srcery-vim',
     'nanotech/jellybeans.vim',
