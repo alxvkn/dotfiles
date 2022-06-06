@@ -72,3 +72,5 @@ require 'config.mappings'
 vim.o.termguicolors = true
 vim.cmd 'colorscheme base16-tomorrow-night'
 vim.o.guifont = 'Fira Code:h10'
+
+vim.o.title = true
