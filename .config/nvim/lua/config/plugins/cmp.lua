@@ -7,7 +7,7 @@ cmp.setup {
   },
   mapping = {
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<CR>'] = cmp.mapping.confirm { select = true },
+    ['<CR>'] = cmp.mapping.confirm { select = false },
     ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i' }),
     ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i' }),
   },
