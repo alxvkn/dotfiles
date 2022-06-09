@@ -169,4 +169,12 @@ packer.startup(function(use)
       require 'config.plugins.todo-comments'
     end,
   }
+
+  use {
+    'abecodes/tabout.nvim',
+    after = 'nvim-treesitter',
+    config = function()
+      require('tabout').setup {}
+    end,
+  }
 end)
