@@ -3,7 +3,8 @@
 #
 
 export TERMINAL=footclient
-export EDITOR=nvim
+export VISUAL=vi
+export EDITOR="vi -e"
 
 export BEMENU_OPTS="--tb '#111111cc'    --tf '#ffffff'
                     --fb '#111111cc'    --ff '#ffffff'

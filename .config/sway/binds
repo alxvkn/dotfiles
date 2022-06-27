@@ -171,8 +171,8 @@ bindsym --to-code {
     # Uhh
     XF86PowerOff exec chromium
 
-    # Editor
-    $mod+n exec $term -e $EDITOR
+    # Neovim
+    $mod+n exec $term -e nvim
 
     # neovide
     $mod+Shift+n exec neovide
