@@ -14,6 +14,7 @@ local servers = {
   'clangd',
   'bashls',
   'pyright',
+  'rust_analyzer',
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -25,5 +26,19 @@ end
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'javascript.jsx',
+    'typescript',
+    'typescriptreact',
+    'typescript.tsx',
+    'svelte',
+  },
   cmd = { 'npx', 'typescript-language-server', '--stdio' },
+}
+lspconfig.svelte.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'npx', 'svelte-language-server', '--stdio' },
 }
