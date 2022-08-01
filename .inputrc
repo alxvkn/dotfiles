@@ -7,3 +7,5 @@ set show-all-if-ambiguous on
 
 # Display each completion item on a new line
 set completion-display-width 0
+
+set show-mode-in-prompt on
