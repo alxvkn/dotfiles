@@ -9,3 +9,7 @@ set show-all-if-ambiguous on
 set completion-display-width 0
 
 set show-mode-in-prompt on
+
+# Clear screen with ctrl+l in vi insert mode
+set keymap vi-insert
+Control-l: clear-screen
