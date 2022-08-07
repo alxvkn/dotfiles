@@ -13,3 +13,5 @@ set show-mode-in-prompt on
 # Clear screen with ctrl+l in vi insert mode
 set keymap vi-insert
 Control-l: clear-screen
+Control-a: beginning-of-line
+Control-e: end-of-line
