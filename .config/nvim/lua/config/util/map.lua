@@ -3,27 +3,30 @@
 return setmetatable({
   opts_noremap = function(opts)
     opts = opts or {}
-    opts['noremap'] = true
+    opts['remap'] = false
     return opts
   end,
 }, {
   __index = function(table, mode)
     return setmetatable({
       map = function(lhs, rhs, opts)
-        return vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+        return vim.keymap.set(mode, lhs, rhs, opts)
       end,
       noremap = function(lhs, rhs, opts)
         opts = table.opts_noremap(opts)
-        return vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+        return vim.keymap.set(mode, lhs, rhs, opts)
       end,
       buf = function(bufnr)
         return setmetatable({
           map = function(lhs, rhs, opts)
-            return vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            return vim.keymap.set(mode, lhs, rhs, opts)
           end,
           noremap = function(lhs, rhs, opts)
             opts = table.opts_noremap(opts)
-            return vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+            opts.buffer = bufnr
+            return vim.keymap.set(mode, lhs, rhs, opts)
           end,
         }, {
           __call = function(this, lhs, rhs, opts)
