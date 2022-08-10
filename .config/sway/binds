@@ -5,6 +5,7 @@
 ### Modes
 # Resize
 set $resize_step 30px
+set $floating_move_step 30px
 mode "resize" {
     bindsym --to-code {
         # left will shrink the containers width
@@ -87,14 +88,14 @@ bindsym --to-code {
     $mod+Right focus right
 
     # Moving focused window with arrow and vim direction keys
-    $mod+Shift+$left move left
-    $mod+Shift+$down move down
-    $mod+Shift+$up move up
-    $mod+Shift+$right move right
-    $mod+Shift+Left move left
-    $mod+Shift+Down move down
-    $mod+Shift+Up move up
-    $mod+Shift+Right move right
+    $mod+Shift+$left move left $floating_move_step
+    $mod+Shift+$down move down $floating_move_step
+    $mod+Shift+$up move up $floating_move_step
+    $mod+Shift+$right move right $floating_move_step
+    $mod+Shift+Left move left $floating_move_step
+    $mod+Shift+Down move down $floating_move_step
+    $mod+Shift+Up move up $floating_move_step
+    $mod+Shift+Right move right $floating_move_step
 
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
