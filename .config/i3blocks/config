@@ -18,6 +18,12 @@ interval=persist
 command=echo gpu: $(~/scripts/gputemp.sh)
 interval=2
 
+[diskspace#root]
+mountpoint=/
+label=
+command=$SCRIPT_DIR/diskspace
+interval=2
+
 [date]
 # command=date '+%Y-%m-%d %H:%M:%S'
 command=date '+%A %x %X'
