@@ -2,7 +2,7 @@
 
 # this version works if there is only one adb device connected
 
-# TODO: select device with serial number in case there is more then one
+# TODO: select device with serial number in case there is more than one
 
 LABEL="${LABEL:-adb}"
 
