@@ -1,3 +1,4 @@
 #!/bin/sh
 LABEL="${LABEL:-disk}"
+MOUNTPOINT="${MOUNTPOINT:-/}"
 df -h --o=target,avail $MOUNTPOINT | awk -v LABEL="$LABEL" '/[[:digit:]]/{print LABEL, $1, $2, "free"}'
