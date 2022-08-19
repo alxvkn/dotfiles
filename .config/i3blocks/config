@@ -18,6 +18,11 @@ interval=persist
 command=echo gpu: $(~/scripts/gputemp.sh)
 interval=2
 
+[adb/battery]
+LABEL=
+command=$SCRIPT_DIR/adb/battery
+interval=2
+
 [diskspace#root]
 LABEL=
 MOUNTPOINT=/

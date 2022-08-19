@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# this version works if there is only one adb device connected
+
+# TODO: select device with serial number in case there is more then one
+
+LABEL="${LABEL:-adb}"
+
+if adb shell exit 0; then
+    LEVEL=$(adb shell dumpsys battery | awk '/level/{print $NF}')
+    CHARGING=$(adb shell dumpsys battery | awk '/status/ {if ($NF == 2) print "charging"}')
+else
+    echo
+    exit
+fi
+
+echo $LABEL $LEVEL% $CHARGING # full_text
+echo $LEVEL% # short_text
+
+if [ $LEVEL -ge 100 ]; then # color
+    echo '#50aa50'
+elif [ $LEVEL -le 15 ]; then # urgency
+    echo '#ff5050'
+fi
