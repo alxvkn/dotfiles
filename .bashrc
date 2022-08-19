@@ -6,7 +6,6 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls -ph --color=auto'
-alias pacman='pacman --color=always'
 
 alias ll='ls -l'
 
