@@ -19,8 +19,8 @@ command=echo gpu: $(~/scripts/gputemp.sh)
 interval=2
 
 [diskspace#root]
-mountpoint=/
-label=
+LABEL=
+MOUNTPOINT=/
 command=$SCRIPT_DIR/diskspace
 interval=2
 
