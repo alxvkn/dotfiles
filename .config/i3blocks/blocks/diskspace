@@ -1,4 +1,12 @@
 #!/bin/sh
 LABEL="${LABEL:-disk}"
 MOUNTPOINT="${MOUNTPOINT:-/}"
-df -h --o=target,avail $MOUNTPOINT | awk -v LABEL="$LABEL" '/[[:digit:]]/{print LABEL, $1, $2, "free"}'
+
+# Файловая система Размер Использовано  Дост Использовано% Cмонтировано в
+# /dev/sda5          167G         141G   18G           90% /
+#                                        $4                $6
+
+df -h $MOUNTPOINT | awk -v LABEL="$LABEL" '{ if (NR == 2) print LABEL, $6, $4, "free"}'
+
+# resulting line will be 
+# disk 18G / free
