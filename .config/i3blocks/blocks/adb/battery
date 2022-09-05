@@ -6,6 +6,14 @@
 
 LABEL="${LABEL:-adb}"
 
+if [ -n $DEVICE_PATTERN ]; then
+    # i like shell scripting here because i don't need to do shit for this to work
+    # adb itself uses this environment variable
+    ANDROID_SERIAL=$(adb devices -l | awk '/'"$DEVICE_PATTERN"'/ {print $1; exit}')
+    # adb uses this variable even if it is empty
+    [ -z $ANDROID_SERIAL ] && unset ANDROID_SERIAL
+fi
+
 if adb shell exit 0; then
     LEVEL=$(adb shell dumpsys battery | awk '/level/{print $NF}')
     CHARGING=$(adb shell dumpsys battery | awk '/status/ {if ($NF == 2) print "charging"}')
