@@ -42,3 +42,8 @@ lspconfig.svelte.setup {
   capabilities = capabilities,
   cmd = { 'npx', 'svelte-language-server', '--stdio' },
 }
+lspconfig.jsonls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'vscode-json-languageserver', '--stdio' },
+}
