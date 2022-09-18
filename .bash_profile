@@ -4,7 +4,7 @@
 
 export TERMINAL=footclient
 export VISUAL=vi
-export EDITOR="vi -e"
+export EDITOR="$VISUAL"
 
 export BEMENU_OPTS="--tb '#111111cc'    --tf '#ffffff'
                     --fb '#111111cc'    --ff '#ffffff'
