@@ -21,11 +21,6 @@ set {
     $menu bemenu
 }
 
-### I don't know how funny this would sound, but
-# Open all windows as floating by default
-for_window [class="[.]*"] floating enable
-for_window [app_id="[.]*"] floating enable
-
 ### Input
 # Keyboard
 input * {
