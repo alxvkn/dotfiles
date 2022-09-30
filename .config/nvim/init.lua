@@ -70,7 +70,7 @@ require 'config.mappings'
 
 -- Appearance
 vim.o.termguicolors = true
-vim.cmd 'colorscheme base16-gruvbox-material-dark-hard'
+vim.cmd 'colorscheme base16-ayu-dark'
 vim.o.guifont = 'Fira Code:h10'
 
 vim.o.title = true
