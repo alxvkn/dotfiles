@@ -24,7 +24,7 @@ packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      require 'config.plugins.lualine'
+      require('lualine').setup()
     end,
   }
 
@@ -47,7 +47,7 @@ packer.startup(function(use)
   use {
     'numtostr/comment.nvim',
     config = function()
-      require 'config.plugins.Comment'
+      require('Comment').setup()
     end,
   }
 
@@ -172,7 +172,7 @@ packer.startup(function(use)
   use {
     'folke/todo-comments.nvim',
     config = function()
-      require 'config.plugins.todo-comments'
+      require('todo-comments').setup()
     end,
   }
 
