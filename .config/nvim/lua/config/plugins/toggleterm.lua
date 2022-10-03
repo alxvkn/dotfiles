@@ -7,5 +7,5 @@ require('toggleterm').setup {
     end
   end,
   open_mapping = '<A-;>',
-  direction = 'tab',
+  direction = 'horizontal',
 }
