@@ -32,13 +32,7 @@ packer.startup(function(use)
   use 'tpope/vim-vinegar'
 
   -- auto-pairs for brackets/quotes
-  -- use 'jiangmiao/auto-pairs' -- something fails on neovim v0.7.2
-  use {
-    'ZhiyuanLck/smart-pairs',
-    config = function()
-      require('pairs'):setup()
-    end,
-  }
+  use 'jiangmiao/auto-pairs'
 
   -- fancy macros to wrap text in brackets/quotes/everything that i forgot how to use
   use 'tpope/vim-surround'
