@@ -68,6 +68,10 @@ packer.startup(function(use)
       event = 'BufRead',
     },
   }
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+  }
 
   -- nvim-cmp
   use {
