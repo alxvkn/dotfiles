@@ -37,6 +37,12 @@ packer.startup(function(use)
   -- fancy macros to wrap text in brackets/quotes/everything that i forgot how to use
   use 'tpope/vim-surround'
 
+  use {
+    'phaazon/hop.nvim',
+    config = function()
+      require('hop').setup()
+    end,
+  }
   -- commenting plugin
   use {
     'numtostr/comment.nvim',
