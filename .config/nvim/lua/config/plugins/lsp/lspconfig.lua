@@ -15,6 +15,7 @@ local servers = {
   'bashls',
   'pyright',
   'rust_analyzer',
+  'dartls',
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
