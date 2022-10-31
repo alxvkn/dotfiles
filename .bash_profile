@@ -19,7 +19,14 @@ export PATH=${HOME}/bin:${PATH}
 
 if [[ "$(tty)" == '/dev/tty1' ]]; then
     if [[ "$(command -v sway)" ]]; then
-        exec sway
+        read -p 'starting sway in 3 seconds. continue? [Y/n] ' -t 5 -n 1 ans
+        echo
+        case $ans in
+            'y' | 'Y' | '')
+                exec sway
+                ;;
+        esac
+        echo 'staying in shell'
     fi
 fi
 
