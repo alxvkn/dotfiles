@@ -24,7 +24,7 @@ packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      require('lualine').setup()
+      require('lualine').setup {}
     end,
   }
 
@@ -122,9 +122,9 @@ packer.startup(function(use)
 
   -- sumneko lua configuration for nvim plugins/config files
   use {
-    'folke/lua-dev.nvim',
+    'folke/neodev.nvim',
     config = function()
-      require 'config.plugins.lsp.nvim-lua-dev'
+      require 'config.plugins.lsp.neodev'
     end,
     ft = 'lua',
   }
@@ -184,7 +184,7 @@ packer.startup(function(use)
     'abecodes/tabout.nvim',
     after = 'nvim-treesitter',
     config = function()
-      require('tabout').setup {}
+      require 'config.plugins.tabout'
     end,
   }
 end)
