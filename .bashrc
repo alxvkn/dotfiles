@@ -19,4 +19,6 @@ BOLD="\[$(tput bold)\]"
 
 PS1="[\u@\h ${FG_BLUE}\W${RESET}]\$ "
 
+shopt -s histverify
+
 set -o vi
