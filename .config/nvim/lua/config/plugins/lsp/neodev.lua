@@ -9,9 +9,11 @@ require('lspconfig').sumneko_lua.setup {
     '.luacheckrc',
     '.git'
   ),
-  Lua = {
-    completion = {
-      callSnippet = 'Replace',
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = 'Replace',
+      },
     },
   },
 }
