@@ -69,7 +69,10 @@ packer.startup(function(use)
     {
       'lewis6991/gitsigns.nvim',
       config = function()
-        require 'config.plugins.gitsigns'
+        require('gitsigns').setup {
+          signcolumn = false,
+          numhl = true,
+        }
       end,
       event = 'BufRead',
     },
@@ -98,7 +101,10 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require 'config.plugins.treesitter'
+      require('nvim-treesitter.configs').setup {
+        highlight = { enable = true },
+        indent = { enable = true },
+      }
     end,
     event = 'BufRead',
   }
@@ -107,7 +113,7 @@ packer.startup(function(use)
   use {
     'dcampos/nvim-snippy', -- engine
     config = function()
-      require 'config.plugins.snippy'
+      require('snippy').setup {}
     end,
   }
   use 'honza/vim-snippets' -- snippets themself
@@ -160,7 +166,7 @@ packer.startup(function(use)
   use {
     'akinsho/toggleterm.nvim',
     config = function()
-      require 'config.plugins.toggleterm'
+      require('config.plugins.toggleterm')
     end,
   }
 
@@ -168,7 +174,11 @@ packer.startup(function(use)
   use {
     'j-hui/fidget.nvim',
     config = function()
-      require 'config.plugins.fidget'
+      require('fidget').setup {
+        text = {
+          spinner = 'line',
+        },
+      }
     end,
   }
 
@@ -184,7 +194,7 @@ packer.startup(function(use)
     'abecodes/tabout.nvim',
     after = 'nvim-treesitter',
     config = function()
-      require 'config.plugins.tabout'
+      require('tabout').setup()
     end,
   }
 end)
