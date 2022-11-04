@@ -13,5 +13,5 @@ return function(_, bufnr)
   K.n.buf(bufnr)('<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
   K.n.buf(bufnr)('<Leader>rn', function() vim.lsp.buf.rename() end, opts)
   K.n.buf(bufnr)('<Leader>ca', function() vim.lsp.buf.code_action() end, opts)
-  K.n.buf(bufnr)('<Leader>lf', function() vim.lsp.buf.formatting() end, opts)
+  K.n.buf(bufnr)('<Leader>lf', function() vim.lsp.buf.format() end, opts)
 end
