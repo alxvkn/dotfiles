@@ -6,6 +6,6 @@ require('toggleterm').setup {
       return vim.o.columns / 2
     end
   end,
-  open_mapping = '<A-;>',
+  open_mapping = '<C-;>',
   direction = 'horizontal',
 }
