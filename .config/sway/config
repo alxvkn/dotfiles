@@ -98,6 +98,8 @@ include {
     binds
 }
 
+exec swayidle before-sleep swaylock
+
 ### Autostart
 exec {
     # waybar
