@@ -19,6 +19,8 @@ BOLD="\[$(tput bold)\]"
 
 PS1="[\u@\h ${FG_BLUE}\W${RESET}]\$ "
 
+test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
+
 shopt -s histverify
 
 set -o vi
