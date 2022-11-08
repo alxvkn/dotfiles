@@ -157,6 +157,9 @@ bindsym --to-code {
 
 ### I honestly don't now how to name this section
 bindsym --to-code {
+    # Emoji picker
+    $mod+period $set_en_kb; exec "~/scripts/emoji-picker.sh"
+
     # Lock
     $mod+Shift+Return $set_en_kb; exec swaylock
 
