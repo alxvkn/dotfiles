@@ -157,6 +157,10 @@ bindsym --to-code {
 
 ### I honestly don't now how to name this section
 bindsym --to-code {
+    # control mouse from keyboard
+    # https://github.com/rvaiya/warpd
+    $mod+semicolon exec "killall warpd; warpd --normal"
+
     # Emoji picker
     $mod+period $set_en_kb; exec "~/scripts/emoji-picker.sh"
 

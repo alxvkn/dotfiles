@@ -1,0 +1,2 @@
+indicator: topleft
+exit: esc semicolon Return
