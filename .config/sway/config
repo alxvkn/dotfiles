@@ -15,10 +15,10 @@ set {
     # Application launcher
     # Pass the final command to swaymsg so that the resulting window can be opened
     # on the original workspace that the command was run on.
-    $launcher menu_path | bemenu | xargs swaymsg exec --
+    $launcher fuzzel -p 'run> '
 
     # General purpose menu
-    $menu bemenu
+    $menu fuzzel -d
 }
 
 ### Input
