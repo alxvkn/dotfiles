@@ -70,7 +70,7 @@ require 'config.mappings'
 
 -- Appearance
 vim.o.termguicolors = true
-vim.cmd 'colorscheme base16-ayu-dark'
+require('pywal').setup()
 vim.o.guifont = 'Fira Code:h10'
 
 vim.o.title = true

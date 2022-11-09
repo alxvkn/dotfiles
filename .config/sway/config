@@ -42,10 +42,14 @@ input type:pointer {
 font FiraCode 10
 
 # Colors
-set $bg #000000
+include "$HOME/.cache/wal/colors-sway"
+set {
+    $bg $background
+    $fg $foreground
+}
 
 # class                 border  bg      text    indicator   child_border
-client.focused          #aaaaaa $bg     #ffffff #aaaaaa     #aaaaaa
+client.focused          #aaaaaa $bg     $fg     #aaaaaa     #aaaaaa
 client.focused_inactive $bg     $bg     #aaaaaa
 client.unfocused        $bg     $bg     #aaaaaa
 
@@ -55,7 +59,7 @@ default_border pixel 1
 default_floating_border normal 1
 
 # Wallpaper
-output * bg $bg solid_color
+output * bg $wallpaper fill
 
 
 
@@ -80,7 +84,7 @@ bar main {
 
     colors {
         background          $bg
-        statusline          #ffffff
+        statusline          $fg
 
         focused_workspace   #ffffff #ffffff $bg
         inactive_workspace  $bg     $bg     #aaaaaa

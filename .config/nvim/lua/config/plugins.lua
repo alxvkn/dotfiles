@@ -63,6 +63,11 @@ packer.startup(function(use)
     'projekt0n/github-nvim-theme',
   }
 
+  -- pywal integration
+  use {
+    'AlphaTechnolog/pywal.nvim',
+  }
+
   -- git integration
   use {
     'tpope/vim-fugitive',
