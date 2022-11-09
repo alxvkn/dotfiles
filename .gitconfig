@@ -16,3 +16,5 @@
     insteadOf = ghttps:
 [url "git@github.com:"]
     insteadOf = gh:
+[safe]
+	directory = /opt/flutter
