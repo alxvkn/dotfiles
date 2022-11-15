@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 # some tweaks for this config
-NOTES_DIR=~/.notes/
+NOTES_DIR=~/.notes
 
 
 # prompt & colors
@@ -36,7 +36,7 @@ set -o vi
 # functions & aliases
 # take quick notes
 note() {
-    FILE="$NOTES_DIR$1"
+    FILE="$NOTES_DIR/$1"
     shift
     {
         echo $(date) # timestamp
