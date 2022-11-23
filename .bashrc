@@ -8,13 +8,17 @@
 NOTES_DIR=~/.notes
 
 
-# prompt & colors
-FG_GREEN="\[$(tput setaf 2)\]"
-FG_BLUE="\[$(tput setaf 4)\]"
-RESET="\[$(tput sgr0)\]"
+# colors & styles
+command -v tput &> /dev/null && {
+    FG_GREEN="\[$(tput setaf 2)\]"
+    FG_BLUE="\[$(tput setaf 4)\]"
 
-BOLD="\[$(tput bold)\]"
+    BOLD="\[$(tput bold)\]"
 
+    RESET="\[$(tput sgr0)\]"
+}
+
+# prompt
 PS1="[\u@\h ${FG_BLUE}\W${RESET}]\$ "
 
 # default ls flags
