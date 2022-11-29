@@ -86,7 +86,8 @@ bar main {
         background          $bg
         statusline          $fg
 
-        focused_workspace   #ffffff #ffffff $bg
+        #                   border  bg      text
+        focused_workspace   $fg     $fg     $bg
         inactive_workspace  $bg     $bg     #aaaaaa
     }
 }
