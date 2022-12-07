@@ -68,4 +68,4 @@ note() {
 
 alias ll='ls -l'
 
-cat ~/TODO.md
+[ -f "~/TODO.md" ] && cat ~/TODO.md # list todo notes on every shell startup
