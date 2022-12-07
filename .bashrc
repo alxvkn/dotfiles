@@ -40,13 +40,32 @@ set -o vi
 # functions & aliases
 # take quick notes
 note() {
-    FILE="$NOTES_DIR/$1"
+    SUBCOMMAND="$1"
     shift
-    {
-        echo $(date) # timestamp
-        echo "$@"
-        echo # newline
-    } >> $FILE
+    case $SUBCOMMAND in
+        l | ls | list)
+            ls $NOTES_DIR
+            ;;
+        s | show | c | cat)
+            FILE="$NOTES_DIR/$1"
+            if [[ -f $FILE ]]; then
+                cat $FILE
+            else
+                echo "looks like $FILE doesn't exist"
+            fi
+            ;;
+        a | ad | add)
+            FILE="$NOTES_DIR/$1"
+            shift
+            {
+                echo $(date) # timestamp
+                echo "$@"
+                echo # newline
+            } >> $FILE
+            ;;
+    esac
 }
 
 alias ll='ls -l'
+
+cat ~/TODO.md
