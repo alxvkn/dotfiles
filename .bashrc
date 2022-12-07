@@ -22,7 +22,7 @@ command -v tput &> /dev/null && {
 PS1="[\u@\h ${FG_BLUE}\W${RESET}]\$ "
 
 # default ls flags
-alias ls='ls -ph --color=auto'
+alias ls='ls -Fh --color=auto'
 
 # make less interpret color sequences
 alias less='less -R'
