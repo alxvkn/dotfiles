@@ -21,7 +21,7 @@ export PATH=${HOME}/bin:${PATH}
 
 if [ "$(tty)" = '/dev/tty1' ]; then
     if [ "$(command -v sway)" ]; then
-        read -p 'starting sway in 3 seconds. continue? [Y/n] ' -t 5 -n 1 ans
+        read -p 'starting sway in 3 seconds. continue? [Y/n] ' -t 3 -n 1 ans
         # TODO: make whole script posix compliant but especially this line ^^^
         echo
         case $ans in
