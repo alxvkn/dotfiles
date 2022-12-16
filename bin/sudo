@@ -1,2 +1,2 @@
 #!/bin/sh
-exec doas $*
+command -v doas && exec doas "$@" || test -x /usr/bin/sudo && exec /usr/bin/sudo "$@"
