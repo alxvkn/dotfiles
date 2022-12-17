@@ -18,6 +18,7 @@ bindkey '^U' backward-kill-line
 bindkey '^F' forward-char
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
+bindkey '^R' history-incremental-pattern-search-backward
 
 
 zstyle ':completion:*' format 'completing %d'
