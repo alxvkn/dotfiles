@@ -32,3 +32,9 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# pywal colors
+test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
+
+# list todos on every shell startup
+test -f ~/TODO.md && cat ~/TODO.md
