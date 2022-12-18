@@ -66,16 +66,6 @@ output * bg $wallpaper fill
 
 
 
-### Display
-output HDMI-A-1 {
-    mode --custom 1920x1080@80Hz
-    pos 0 0
-}
-# output DVI-I-1 {
-#     mode --custom 1280x1024@76Hz
-#     pos 1920 0
-# }
-
 # Bar
 bar main {
     # status_command ~/dev/bstatus/main.py
@@ -104,6 +94,10 @@ include {
 
 include {
     binds
+
+    # machine-local settings, which make no sense lying on dotfiles repo
+    # e.g. monitor setup
+    local/*
 }
 
 # open mixer as floating window ./binds:189
