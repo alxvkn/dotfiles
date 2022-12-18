@@ -38,3 +38,5 @@ test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
 
 # list todos on every shell startup
 test -f ~/TODO.md && cat ~/TODO.md
+
+: # make sure last status will be 0
