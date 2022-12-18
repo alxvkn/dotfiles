@@ -35,6 +35,9 @@ input type:pointer {
     pointer_accel -0.4
 }
 
+# hide mouse cursor when anything is pressed on keyboard
+seat * hide_cursor when-typing enable
+
 
 
 ### Appearance
