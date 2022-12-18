@@ -106,6 +106,17 @@ include {
     binds
 }
 
+# open mixer as floating window ./binds:189
+for_window [app_id=pulsemixer] {
+    floating enable
+    sticky enable
+    resize set {
+        height 30 ppt
+        width 40 ppt
+    }
+    move position 58 ppt 68 ppt
+}
+
 exec swayidle before-sleep swaylock
 
 ### Autostart

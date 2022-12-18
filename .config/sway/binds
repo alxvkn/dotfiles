@@ -174,7 +174,7 @@ bindsym --to-code {
     $mod+Return exec $term
 
     # Htop
-    $mod+Escape exec $term -e htop
+    $mod+Escape exec $term --app-id=htop -e htop
 
     # Uhh
     XF86PowerOff exec chromium
@@ -186,7 +186,7 @@ bindsym --to-code {
     $mod+Shift+n exec neovide
 
     # Open tui mixer
-    $mod+F9 exec $term -e pulsemixer
+    $mod+F9 exec $term --app-id=pulsemixer -e pulsemixer
 
     # Screenshots
     Print exec "~/scripts/screenshot.sh"
