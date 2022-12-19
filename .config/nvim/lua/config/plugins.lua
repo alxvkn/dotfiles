@@ -35,14 +35,7 @@ packer.startup(function(use)
   use 'jiangmiao/auto-pairs'
 
   -- fancy macros to wrap text in brackets/quotes/everything that i forgot how to use
-  -- maybe i should go back to tpope's,
-  -- there is not very funny things happeining with { on a paragraph
-  use {
-    'kylechui/nvim-surround',
-    config = function()
-      require('nvim-surround').setup()
-    end
-  }
+  use 'tpope/vim-surround'
 
   -- commenting plugin
   use {
