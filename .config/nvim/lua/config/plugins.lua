@@ -35,7 +35,12 @@ packer.startup(function(use)
   use 'jiangmiao/auto-pairs'
 
   -- fancy macros to wrap text in brackets/quotes/everything that i forgot how to use
-  use 'tpope/vim-surround'
+  use {
+    'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup()
+    end
+  }
 
   -- commenting plugin
   use {
