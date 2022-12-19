@@ -4,9 +4,9 @@
 
 export TERMINAL=footclient
 
-if command -v nvim; then
+if [ -n $(command -v nvim) ]; then
     export VISUAL="nvim --noplugin -u /dev/null"
-elif command -v vim; then
+elif [ -n $(command -v vim) ]; then
     export VISUAL=vim
 else
     export VISUAL=vi
@@ -26,7 +26,7 @@ export WINEDLLOVERRIDES=winemenubuilder.exe=d
 export PATH=${HOME}/bin:${PATH}
 
 if [ "$(tty)" = '/dev/tty1' ]; then
-    if [ "$(command -v sway)" ]; then
+    if [ -n "$(command -v sway)" ]; then
         if [ -n "$BASH_VERSION" ]; then
             read -p 'starting sway in 3 seconds. continue? [Y/n] ' -t 3 -n 1 ans
         elif [ -n "$ZSH_VERSION" ]; then

@@ -9,7 +9,7 @@ NOTES_DIR=~/.notes
 
 
 # colors & styles
-command -v tput &> /dev/null && {
+[ -n "$(command -v tput)" ] && {
     FG_GREEN="\[$(tput setaf 2)\]"
     FG_BLUE="\[$(tput setaf 4)\]"
 
