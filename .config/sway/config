@@ -9,6 +9,9 @@ set {
     $up k
     $right l
 
+    # Browser
+    $browser browser
+
     # Terminal emulator
     $term $TERMINAL
 

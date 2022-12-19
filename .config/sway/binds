@@ -177,7 +177,7 @@ bindsym --to-code {
     $mod+Escape exec $term --app-id=htop -e htop
 
     # Uhh
-    XF86PowerOff exec chromium
+    XF86PowerOff exec $browser
 
     # Neovim
     $mod+n exec $term -e nvim
