@@ -3,7 +3,15 @@
 #
 
 export TERMINAL=footclient
-export VISUAL=vi
+
+if command -v nvim; then
+    export VISUAL="nvim --noplugin -u /dev/null"
+elif command -v vim; then
+    export VISUAL=vim
+else
+    export VISUAL=vi
+fi
+
 export EDITOR="$VISUAL"
 
 export BEMENU_OPTS="--tb '#111111cc'    --tf '#ffffff'
