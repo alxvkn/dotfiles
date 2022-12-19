@@ -17,4 +17,4 @@
 [url "git@github.com:"]
     insteadOf = gh:
 [safe]
-	directory = /opt/flutter
+    directory = /opt/flutter
