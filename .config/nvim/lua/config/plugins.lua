@@ -36,6 +36,8 @@ packer.startup(function(use)
 
   -- fancy macros to wrap text in brackets/quotes/everything that i forgot how to use
   use 'tpope/vim-surround'
+  -- properly repeat surround mappings with .
+  use 'tpope/vim-repeat'
 
   -- commenting plugin
   use {
