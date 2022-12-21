@@ -1,10 +1,10 @@
 local cmp = require 'cmp'
-local snippy = require 'snippy'
+local luasnip = require 'luasnip'
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      require('snippy').expand_snippet(args.body)
+      require('luasnip').lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -15,8 +15,8 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif snippy.can_expand_or_advance() then
-        snippy.expand_or_advance()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -24,8 +24,8 @@ cmp.setup {
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif snippy.can_jump(-1) then
-        snippy.previous()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -33,7 +33,7 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     { name = 'nvim_lsp' },
-    { name = 'snippy' },
+    { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
   },

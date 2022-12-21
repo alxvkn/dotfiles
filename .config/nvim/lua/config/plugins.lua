@@ -91,7 +91,7 @@ packer.startup(function(use)
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lsp', -- nvim lsp completion source
-      'dcampos/cmp-snippy', -- snippy completion source
+      'saadparwaiz1/cmp_luasnip', -- luasnip completion source
     },
     config = function()
       require 'config.plugins.cmp'
@@ -112,12 +112,13 @@ packer.startup(function(use)
 
   -- snippets
   use {
-    'dcampos/nvim-snippy', -- engine
+    'L3MON4D3/LuaSnip', -- engine
     config = function()
-      require('snippy').setup {}
+      require('luasnip').setup {}
+      require('luasnip.loaders.from_vscode').lazy_load()
     end,
   }
-  use 'honza/vim-snippets' -- snippets themself
+  use 'rafamadriz/friendly-snippets' -- snippets themself
 
   -- predefined configurations for various langauge servers
   use {
