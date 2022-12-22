@@ -1,4 +1,4 @@
-require('neodev').setup()
+require('neodev').setup {}
 require('lspconfig').sumneko_lua.setup {
   on_attach = require 'config.plugins.lsp.on_attach',
   root_dir = require('lspconfig').util.root_pattern(

@@ -43,7 +43,7 @@ packer.startup(function(use)
   use {
     'numtostr/comment.nvim',
     config = function()
-      require('Comment').setup()
+      require('Comment').setup {}
     end,
   }
 
@@ -188,14 +188,14 @@ packer.startup(function(use)
   use {
     'folke/todo-comments.nvim',
     config = function()
-      require('todo-comments').setup()
+      require('todo-comments').setup {}
     end,
   }
 
   use {
     'norcalli/nvim-colorizer.lua',
     config = function()
-      require('colorizer').setup()
+      require('colorizer').setup {}
     end,
   }
 
@@ -203,7 +203,7 @@ packer.startup(function(use)
     'abecodes/tabout.nvim',
     after = 'nvim-treesitter',
     config = function()
-      require('tabout').setup()
+      require('tabout').setup {}
     end,
   }
 end)
