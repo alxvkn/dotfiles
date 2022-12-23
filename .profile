@@ -5,7 +5,7 @@
 export TERMINAL=footclient
 
 if [ -n $(command -v nvim) ]; then
-    export VISUAL="nvim --noplugin -u /dev/null"
+    export VISUAL="nvim --noplugin -u $HOME/.config/min-nvim/init.lua"
 elif [ -n $(command -v vim) ]; then
     export VISUAL=vim
 else
