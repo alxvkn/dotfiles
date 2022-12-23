@@ -70,7 +70,13 @@ require 'config.mappings'
 
 -- Appearance
 vim.o.termguicolors = true
-require('pywal').setup()
+local f = io.open(os.getenv('HOME') .. '/.cache/wal/colors-wal.vim', 'r')
+if f ~= nil then
+  f:close()
+  require('pywal').setup()
+else
+  vim.cmd[[colorscheme base16-gruvbox-material-dark-hard]]
+end
 vim.o.guifont = 'Fira Code:h10'
 
 vim.o.title = true
