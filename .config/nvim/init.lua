@@ -46,6 +46,7 @@ vim.o.autoindent = true
 -- no swapfiles
 vim.o.swapfile = false
 vim.o.number = true
+vim.o.relativenumber = true
 
 -- only ignore case in command completion
 vim.cmd [[
