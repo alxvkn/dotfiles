@@ -11,3 +11,10 @@ alias ll='ls -l'
 alias n='nvim'
 alias e="$EDITOR"
 alias g='git'
+
+# reload config
+if [ -n "$BASH_VERSION" ]; then
+    alias r='source ~/.bashrc'
+elif [ -n "$ZSH_VERSION" ]; then
+    alias r='source ~/.zshrc'
+fi
