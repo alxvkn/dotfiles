@@ -21,12 +21,7 @@ NOTES_DIR=~/.notes
 # prompt
 PS1="[\u@\h ${FG_BLUE}\W${RESET}]\$ "
 
-# default ls flags
-alias ls='ls -Fh --color=auto'
-
-# make less interpret color sequences
-alias less='less -R'
-
+source ~/.config/alias.sh
 
 # pywal colors
 test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
@@ -65,7 +60,5 @@ note() {
             ;;
     esac
 }
-
-alias ll='ls -l'
 
 [ -f "~/TODO.md" ] && cat ~/TODO.md # list todo notes on every shell startup

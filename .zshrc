@@ -1,8 +1,3 @@
-alias ls='ls -Fh --color=auto'
-alias less='less -R'
-
-alias ll='ls -l'
-
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
@@ -20,6 +15,7 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^R' history-incremental-pattern-search-backward
 
+source ~/.config/alias.sh
 
 zstyle ':completion:*' format 'completing %d'
 zstyle ':completion:*' list-colors ''
