@@ -23,14 +23,7 @@ packer.startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function()
-      require('lualine').setup {
-        extensions = {
-          'toggleterm',
-          'fugitive',
-        },
-      }
-    end,
+    config = function() require('config.plugins.lualine') end,
   }
 
   -- i would say, make netrw actually usable
