@@ -74,7 +74,7 @@ bar main {
     # status_command ~/dev/bstatus/main.py
     status_command SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
     separator_symbol '  '
-    position bottom
+    position top
 
     workspace_min_width 24
 
