@@ -55,7 +55,7 @@ set {
 }
 
 # class                 border  bg      text    indicator   child_border
-client.focused          #aaaaaa $bg     $fg     #aaaaaa     #aaaaaa
+client.focused          $fg     $bg     $fg     #aaaaaa     #aaaaaa
 client.focused_inactive $bg     $bg     #aaaaaa
 client.unfocused        $bg     $bg     #aaaaaa
 
