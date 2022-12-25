@@ -13,7 +13,7 @@ set {
     $browser browser
 
     # Terminal emulator
-    $term $TERMINAL
+    $term footclient
 
     # Application launcher
     # Pass the final command to swaymsg so that the resulting window can be opened
@@ -59,6 +59,9 @@ client.focused          $fg     $bg     $fg     #aaaaaa     #aaaaaa
 client.focused_inactive $bg     $bg     #aaaaaa
 client.unfocused        $bg     $bg     #aaaaaa
 
+# Gaps
+gaps inner 5px
+
 # Borders
 smart_borders on
 default_border pixel 1
@@ -73,18 +76,20 @@ output * bg $wallpaper fill
 bar main {
     # status_command ~/dev/bstatus/main.py
     status_command SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
-    separator_symbol '  '
+    separator_symbol ' † '
     position top
 
-    workspace_min_width 24
+    strip_workspace_numbers yes
+    workspace_min_width 32
 
+    gaps 5px
     colors {
         background          $bg
         statusline          $fg
 
         #                   border  bg      text
         focused_workspace   $fg     $fg     $bg
-        inactive_workspace  $bg     $bg     #aaaaaa
+        inactive_workspace  #aaaaaa $bg     #aaaaaa
     }
 }
 
@@ -119,6 +124,7 @@ exec swayidle before-sleep swaylock
 ### Autostart
 exec {
     # waybar
+    ~/.config/sway/autoname-workspaces.py
 
     # Sway's "exec" command has one not that much documented feature:
     #   If exact process that was started with it creates a window
