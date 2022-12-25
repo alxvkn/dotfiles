@@ -123,7 +123,8 @@ exec swayidle before-sleep swaylock
 
 ### Autostart
 exec {
-    # waybar
+    # script distributed with sway, with icons defined
+    # TODO: improve handling of closing last window on the workspace
     ~/.config/sway/autoname-workspaces.py
 
     # Sway's "exec" command has one not that much documented feature:
