@@ -1,1 +1,2 @@
 map <c-z> $ kill -STOP $PPID
+map D delete
