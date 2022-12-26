@@ -16,8 +16,6 @@ listen_for_switch_to_empty_workspace() {
 
     jq_filter_workspace='select(.change == "focus" and ((.current.floating_nodes | length == 0) and (.current.nodes | length == 0))).current.id'
     swaymsg -mt subscribe '["workspace"]' | jq -r --unbuffered "$jq_filter_workspace" | while read ID; do echo; done
-
-    # : # this means true so bash will run this script
 }
 
 # just running this one so i have at least what i had before
