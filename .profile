@@ -21,7 +21,7 @@ export BEMENU_OPTS="--tb '#111111cc'    --tf '#ffffff'
 
 export WINEDLLOVERRIDES=winemenubuilder.exe=d
 
-export PATH=${HOME}/bin:${PATH}
+export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 if [ "$(tty)" = '/dev/tty1' ]; then
     if [ -n "$(command -v sway)" ]; then
