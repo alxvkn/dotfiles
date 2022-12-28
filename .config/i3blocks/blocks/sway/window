@@ -3,22 +3,45 @@
 
 # im going to try weird concurrency stuff right here
 
-
-listen_for_window_title() {
+### EVENTS THAT SET WINDOW TITLE
+title_update_and_focus() {
     # subscribing to regular window events to output title
     # when focus moved to another window or window that is focused changed its title
-    jq_filter_window='select(.container.focused and (.change == "focus" or .change == "title")).container.name'
-    swaymsg -mt subscribe '["window"]' | jq -r --unbuffered "$jq_filter_window"
+    jq_filter='select(.container.focused and (.change == "focus" or .change == "title")).container.name'
+    swaymsg -mt subscribe '["window"]' | jq -r --unbuffered "$jq_filter"
 }
 
-listen_for_switch_to_empty_workspace() {
+### EVENTS THAT CLEAR WINDOW TITLE
+empty_workspace_focus() {
     # output empty line when focus is moved to empty workspace
 
-    jq_filter_workspace='select(.change == "focus" and ((.current.floating_nodes | length == 0) and (.current.nodes | length == 0))).current.id'
-    swaymsg -mt subscribe '["workspace"]' | jq -r --unbuffered "$jq_filter_workspace" | while read ID; do echo; done
+    jq_filter='select(.change == "focus" and ((.current.floating_nodes | length == 0) and (.current.nodes | length == 0))).current.id'
+    swaymsg -mt subscribe '["workspace"]' | jq -r --unbuffered "$jq_filter" | while read ID; do echo; done
 }
 
-# just running this one so i have at least what i had before
-listen_for_window_title &
-listen_for_switch_to_empty_workspace &
+last_window_closed() {
+    # when window is closed check if focused workspace is empty
+
+    # check if focused workspace is empty
+    # with get_workspaces .focus represents (i guess)
+    # last focused views on the workspace
+    # i didn't find a better way to detect if focused workspace is empty
+    # because get_tree doesn't really show if workspace is focused
+    # and get_workspaces has .nodes empty
+    #
+    # no focus - no windows
+    jq_filter='.[] | select(.focused and (.focus | length) == 0) | .id'
+
+    # subscribe to close events
+    swaymsg -mt subscribe '["window"]' | jq -r --unbuffered 'select(.change == "close") | .container.id' |
+        while read WINDOW
+        do
+            WORKSPACE=$(swaymsg -rt get_workspaces | jq -r --unbuffered "$jq_filter")
+            [ -n "$WORKSPACE" ] && echo
+        done
+}
+
+title_update_and_focus &
+empty_workspace_focus &
+last_window_closed &
 wait
