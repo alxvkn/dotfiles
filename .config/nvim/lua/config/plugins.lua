@@ -102,7 +102,11 @@ packer.startup(function(use)
     config = function()
       require('nvim-treesitter.configs').setup {
         highlight = { enable = true },
-        indent = { enable = true },
+        indent = {
+          enable = true,
+          -- https://github.com/nvim-treesitter/nvim-treesitter/issues/2499
+          disable = { "python" },
+        },
       }
     end,
     event = 'BufRead',
