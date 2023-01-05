@@ -14,14 +14,14 @@ if vim.fn.empty(vim.fn.glob(packer_path)) ~= 0 then
   end
 end
 
-require 'config.plugins'
+-- require 'config.plugins'
 
 -- if packer.nvim was installed at this exact config run:
 -- - run packer.sync() to install all specified plugins;
 -- - setup autocmd to notify user when packer.sync() is completed;
 -- - stop execution of this config;
 if packer_just_installed then
-  require('packer').sync()
+  -- require('packer').sync()
   vim.cmd [[autocmd! User PackerComplete echo 'looks like packer.sync() completed. either re-source init.lua or restart nvim']]
   -- life would be easier if there was a way to make packer.sync() blocking
   return -- prevent further config execution, since plugins are not yet installed
