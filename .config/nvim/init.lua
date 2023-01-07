@@ -47,7 +47,10 @@ if f ~= nil then
   f:close()
   require('pywal').setup()
 else
-  vim.cmd[[colorscheme base16-gruvbox-material-dark-hard]]
+  pcall(
+    vim.cmd,
+    [[colorscheme base16-gruvbox-material-dark-hard]]
+  )
 end
 vim.o.guifont = 'Fira Code:h10'
 
