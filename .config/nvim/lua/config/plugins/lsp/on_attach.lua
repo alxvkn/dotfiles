@@ -1,17 +1,16 @@
-local K = require 'config.util.map'
 return function(_, bufnr)
-  local opts = { noremap = true, silent = true }
+  local opts = { silent = true }
 
-  K.n.buf(bufnr)('K', function() vim.lsp.buf.hover() end, opts)
-  K.n.buf(bufnr)('<Leader>gd', function() vim.lsp.buf.definition() end, opts)
-  K.n.buf(bufnr)('<Leader>gD', function() vim.lsp.buf.declaration() end, opts)
-  K.n.buf(bufnr)('<Leader>td', function() vim.lsp.buf.type_definition() end, opts)
-  K.n.buf(bufnr)('<Leader>gi', function() vim.lsp.buf.implementation() end, opts)
-  K.n.buf(bufnr)('<Leader>gr', function() vim.lsp.buf.references() end, opts)
-  K.n.buf(bufnr)('<Leader>wa', function() vim.lsp.buf.add_workspace_folder() end, opts)
-  K.n.buf(bufnr)('<Leader>wr', function() vim.lsp.buf.remove_workspace_folder() end, opts)
-  K.n.buf(bufnr)('<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
-  K.n.buf(bufnr)('<Leader>rn', function() vim.lsp.buf.rename() end, opts)
-  K.n.buf(bufnr)('<Leader>ca', function() vim.lsp.buf.code_action() end, opts)
-  K.n.buf(bufnr)('<Leader>lf', function() vim.lsp.buf.format() end, opts)
+  vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set('n', '<Leader>gd', function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set('n', '<Leader>gD', function() vim.lsp.buf.declaration() end, opts)
+  vim.keymap.set('n', '<Leader>td', function() vim.lsp.buf.type_definition() end, opts)
+  vim.keymap.set('n', '<Leader>gi', function() vim.lsp.buf.implementation() end, opts)
+  vim.keymap.set('n', '<Leader>gr', function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set('n', '<Leader>wa', function() vim.lsp.buf.add_workspace_folder() end, opts)
+  vim.keymap.set('n', '<Leader>wr', function() vim.lsp.buf.remove_workspace_folder() end, opts)
+  vim.keymap.set('n', '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
+  vim.keymap.set('n', '<Leader>rn', function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set('n', '<Leader>ca', function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set('n', '<Leader>lf', function() vim.lsp.buf.format() end, opts)
 end
