@@ -12,8 +12,8 @@ alias n='nvim'
 alias e="$EDITOR"
 alias g='git'
 
-# attach to session if it exists, else create one
-alias t='tmux new -A'
+# attach to (optionally named) session if it exists, else create one
+alias t='tmux new -A -s'
 
 # reload config
 if [ -n "$BASH_VERSION" ]; then
