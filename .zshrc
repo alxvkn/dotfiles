@@ -29,6 +29,18 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# https://git.kernel.org/pub/scm/git/git.git/plain/contrib/completion/git-completion.zsh
+# zsh's built-in git completion is slow.
+# script by the link above supposed to work faster (being official from the git distribution)
+# and i assume is downloaded and located under ~/.zsh/_git
+# TODO: do something nicer about all this and other plugins
+if [ -d ~/.zsh ]; then
+    fpath=(~/.zsh $fpath)
+fi
+
+# TODO: port and kinda finish note script from bashrc
+# create a todo script
+
 # pywal colors
 [ -z "$TMUX" ] && test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
 
