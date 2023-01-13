@@ -17,6 +17,10 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 source ~/.config/alias.sh
 
+cht() {
+    curl cht.sh/$1$(shift; (($# > 0)) && echo "/$@" | tr ' ' '+')
+}
+
 zstyle ':completion:*' format 'completing %d'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' menu select=1
