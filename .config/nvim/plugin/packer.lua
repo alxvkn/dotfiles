@@ -2,6 +2,9 @@
 local packer_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(packer_path)) ~= 0 then
   require('install_packer').install(packer_path)
+  return
+  -- this file will re-executed by the install function,
+  -- so doing the rest of the file after install is done is just a waste of resources
 end
 
 local packer = require 'packer'
