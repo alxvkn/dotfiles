@@ -45,7 +45,10 @@ vim.o.termguicolors = true
 local f = io.open(os.getenv('HOME') .. '/.cache/wal/colors-wal.vim', 'r')
 if f ~= nil then
   f:close()
-  require('pywal').setup()
+  local ok, pywal = pcall(require, 'pywal')
+  if ok then
+    pywal.setup()
+  end
 else
   pcall(
     vim.cmd.colorscheme,
