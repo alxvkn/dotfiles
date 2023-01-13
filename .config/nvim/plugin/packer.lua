@@ -25,8 +25,5 @@ packer.init {
 -- but how cool is it when you add a plugin just by creating one new file?
 local plugin_spec_files = vim.fn.split(vim.fn.glob(vim.fn.stdpath('config') .. '/packs/*'), '\n')
 for _,file in ipairs(plugin_spec_files) do
-  print('sourcing file' .. file)
   vim.cmd.source(file)
 end
-
-print('packer.lua end')

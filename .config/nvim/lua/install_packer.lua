@@ -12,7 +12,6 @@ M.install = function(path)
   end
 
   vim.cmd.packadd 'packer.nvim'
-  print('packer was installed. reloading all things that need to be reloaded you know')
 
   -- re-run the file that called this function
   -- to initialize the packer with desired settings
@@ -34,11 +33,11 @@ M.install = function(path)
       -- delete this autocmd after first execution
       vim.api.nvim_del_augroup_by_id(augroup_id)
 
-      print('packer just installed all specified plugins, you should restart neovim now')
-
       -- re-source main config file (mostly just to set colors)
       vim.cmd.runtime 'init.lua'
       -- source all plugins from start dirs in runtimepath
+      -- TODO: not actually surprising since i'm all the way in with the wildcards
+      -- but nvim-treesitter gets loaded even though it is opt
       vim.cmd.runtime {
         args = { 'START', '**/plugin/*' }, -- also include after/plugin
         bang = true
@@ -46,6 +45,8 @@ M.install = function(path)
       -- and source packer_compiled again
       -- at this point only for lualine to identify the colorscheme
       vim.cmd.runtime 'plugin/packer_compiled.lua'
+
+      print('packer installed all specified plugins. all things that need to be reloaded were reloaded')
     end,
   })
 end
