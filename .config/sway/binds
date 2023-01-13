@@ -64,10 +64,13 @@ bindsym {
     $mod+Shift+0 move container to workspace number 10
 }
 
-# Workspace cycling with $mod+{,Shift}+Tab
+# Workspace cycling with $mod+{,Shift}+Tab and $mod+{p,n}
 bindsym --to-code {
     $mod+Shift+Tab workspace prev
     $mod+Tab workspace next
+
+    $mod+p workspace prev
+    $mod+n workspace next
 }
 # Same with $mod+mwheel{up,down}
 bindsym --whole-window {
@@ -178,9 +181,6 @@ bindsym --to-code {
 
     # Uhh
     XF86PowerOff exec $browser
-
-    # Neovim
-    $mod+n exec $term -e nvim
 
     # neovide
     $mod+Shift+n exec neovide
