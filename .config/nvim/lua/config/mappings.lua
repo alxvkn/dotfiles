@@ -1,7 +1,5 @@
-local K = require 'config.util.map'
-
 -- go to normal mode from terminal with alt+[
-K.t('<A-[>', '<C-\\><C-N>')
+vim.keymap.set('t', '<A-[>', '<C-\\><C-N>')
 
-K.n('<C-j>', '<Cmd>bnext<CR>')
-K.n('<C-k>', '<Cmd>bprevious<CR>')
+vim.keymap.set('n', '<C-j>', '<Cmd>bnext<CR>')
+vim.keymap.set('n', '<C-k>', '<Cmd>bprevious<CR>')
