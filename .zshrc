@@ -21,6 +21,10 @@ cht() {
     curl cht.sh/$1$(shift; (($# > 0)) && echo "/$@" | tr ' ' '+')
 }
 
+# prompt
+PROMPT='%S%n@%M%s %F{red}%U%2~%u%f %# '
+RPROMPT='%B%(0?.%F{green}ok%f.%F{red}%?%f) %b %*'
+
 zstyle ':completion:*' format 'completing %d'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' menu select=1
