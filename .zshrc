@@ -22,7 +22,7 @@ cht() {
 }
 
 # prompt
-PROMPT='%S%n@%M%s %F{red}%U%2~%u%f %# '
+PROMPT='(%n@%M %F{cyan}%U%2~%u%f) %# '
 RPROMPT='%B%(0?.%F{green}ok%f.%F{red}%?%f) %b %*'
 
 zstyle ':completion:*' format 'completing %d'
