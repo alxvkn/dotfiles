@@ -4,7 +4,7 @@ SAVEHIST=1000
 
 setopt hist_ignore_dups
 
-setopt autocd notify
+setopt notify
 setopt shwordsplit # afaik iterate over words in a string as bash does
 
 bindkey -v
