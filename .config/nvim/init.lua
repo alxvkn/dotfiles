@@ -27,7 +27,7 @@ vim.cmd [[
 vim.o.hlsearch = false
 
 -- Russian keys
-vim.o.langmap = 'йцукенгшщзхъфывапролджэячсмитьбю;qwertyuiop[]asdfghjkl\\;\'zxcvbnm\\,.,ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>?'
+vim.o.langmap = 'йцукенгшщзхъфывапролджэячсмитьбю;qwertyuiop[]asdfghjkl\\;\'zxcvbnm\\,.,ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>'
 
 vim.cmd.cabbrev('ц', 'w')
 vim.cmd.cabbrev('й', 'q')
