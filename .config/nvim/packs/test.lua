@@ -8,11 +8,13 @@ use {
   module = 'plenary',
 }
 
+use {
+  'kyazdani42/nvim-web-devicons',
+  module = 'nvim-web-devicons'
+}
+
 -- kind of a default options superset for (neo)vim
 use 'tpope/vim-sensible'
-
--- i would say, make netrw actually usable
-use 'tpope/vim-vinegar'
 
 -- auto-pairs for brackets/quotes
 -- use 'jiangmiao/auto-pairs'
