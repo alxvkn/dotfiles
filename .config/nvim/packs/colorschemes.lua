@@ -12,6 +12,8 @@ require('packer').use {
           -- so bg overrides will happen
           vim.cmd.doautocmd 'ColorScheme'
         end
+        -- without that focused windows's status line will be filled with ^^^
+        vim.api.nvim_set_hl(0, 'StatusLineNC', { clear = true })
       else
         local _, _ = pcall(
           require,
