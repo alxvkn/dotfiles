@@ -33,8 +33,8 @@ M.install = function(path)
       -- delete this autocmd after first execution
       vim.api.nvim_del_augroup_by_id(augroup_id)
 
-      -- re-source main config file (mostly just to set colors)
-      vim.cmd.runtime 'init.lua'
+      -- re-source colors config (to set a colorscheme since it is installed)
+      vim.cmd.runtime 'plugin/color.lua'
       -- source all plugins from start dirs in runtimepath
       -- TODO: not actually surprising since i'm all the way in with the wildcards
       -- but nvim-treesitter gets loaded even though it is opt
