@@ -11,34 +11,6 @@ use {
 -- kind of a default options superset for (neo)vim
 use 'tpope/vim-sensible'
 
-use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-  config = function()
-    require('lualine').setup {
-      extensions = {
-        'toggleterm',
-        'fugitive',
-      },
-      sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
-        lualine_x = {
-          'encoding',
-          'fileformat',
-          {
-            'filetype',
-            icon_only = true,
-          },
-        },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' },
-      },
-    }
-  end,
-}
-
 -- i would say, make netrw actually usable
 use 'tpope/vim-vinegar'
 
@@ -82,20 +54,6 @@ use {
   requires = 'nvim-lua/plenary.nvim',
 }
 
--- nvim-cmp
-use {
-  'hrsh7th/nvim-cmp',
-  requires = {
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-nvim-lsp', -- nvim lsp completion source
-    'saadparwaiz1/cmp_luasnip', -- luasnip completion source
-  },
-  config = function()
-    require 'config.plugins.cmp'
-  end,
-}
 -- nvim-treesitter
 use {
   'nvim-treesitter/nvim-treesitter',
@@ -118,46 +76,6 @@ use {
   end,
 }
 use 'rafamadriz/friendly-snippets' -- snippets themself
-
--- predefined configurations for various langauge servers
-use {
-  'neovim/nvim-lspconfig',
-  config = function()
-    require 'config.plugins.lsp.lspconfig'
-  end,
-}
-
--- sumneko lua configuration for nvim plugins/config files
-use {
-  'folke/neodev.nvim',
-  config = function()
-    require 'config.plugins.lsp.neodev'
-  end,
-  ft = 'lua',
-}
-
--- telescope
-use {
-  'nvim-telescope/telescope.nvim',
-  config = function()
-    require 'config.plugins.telescope'
-  end,
-}
-
--- buffer deletion utility
-use {
-  'kazhala/close-buffers.nvim',
-  config = function()
-    require 'config.plugins.close-buffers'
-  end,
-}
-
-use {
-  'akinsho/toggleterm.nvim',
-  config = function()
-    require 'config.plugins.toggleterm'
-  end,
-}
 
 -- ui for displaying lsp loading progress
 use {
