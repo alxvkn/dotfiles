@@ -1,10 +1,10 @@
 inside-color=00000000
 text-color=ffffff
-ring-color=aaaaaa
+ring-color=000000
 
 inside-ver-color=00000000
 text-ver-color=ffffff
-ring-ver-color=aaaaaa
+ring-ver-color=000000
 
 inside-clear-color=00000000
 text-clear-color=ffffff
@@ -19,7 +19,7 @@ text-caps-lock-color=000000
 
 line-uses-ring
 
-key-hl-color=222222
+key-hl-color=aaaaaa
 hide-keyboard-layout
 
 indicator-idle-visible
