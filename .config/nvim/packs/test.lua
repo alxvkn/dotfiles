@@ -144,18 +144,6 @@ use {
   end,
 }
 
--- formatter
-use {
-  'mhartington/formatter.nvim',
-  config = function()
-    require 'config.plugins.formatter'
-  end,
-  cmd = {
-    'Format',
-    'FormatWrite',
-  },
-}
-
 -- buffer deletion utility
 use {
   'kazhala/close-buffers.nvim',
