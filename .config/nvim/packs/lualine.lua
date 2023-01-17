@@ -6,6 +6,10 @@ require('packer').use {
         'toggleterm',
         'fugitive',
       },
+      options = {
+        component_separators = { left = '|', right = '|' },
+        section_separators = { left = '', right = '' },
+      },
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
@@ -24,4 +28,3 @@ require('packer').use {
     }
   end,
 }
-
