@@ -1,4 +1,3 @@
--- TODO: don't termguicolors = false if TERM is linux
 if os.getenv('TERM') ~= 'linux' then
   vim.o.termguicolors = true
 end
