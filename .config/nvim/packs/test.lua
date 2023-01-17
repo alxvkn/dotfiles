@@ -32,11 +32,6 @@ use {
   end,
 }
 
--- pywal integration
-use {
-  'AlphaTechnolog/pywal.nvim',
-}
-
 -- git integration
 use {
   {
