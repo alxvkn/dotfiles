@@ -8,12 +8,6 @@ vim.o.expandtab = true
 vim.o.smarttab = true
 vim.o.autoindent = true
 
--- Fix for some mystery happening to # symbol
--- vim.o.smartindent = false
--- vim.o.cindent = true
--- vim.opt.cinkeys:remove'0#'
--- vim.opt.indentkeys:remove'0#'
-
 -- no swapfiles
 vim.o.swapfile = false
 vim.o.number = true
