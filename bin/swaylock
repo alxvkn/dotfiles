@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. ~/.cache/wal/colors.sh
+
+exec /usr/bin/swaylock -i $wallpaper --key-hl-color="${color6#'#'}"
