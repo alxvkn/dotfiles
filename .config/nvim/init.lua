@@ -1,6 +1,8 @@
 -- enable mouse in all modes
 vim.o.mouse = 'a'
 
+vim.o.completeopt = 'menuone,noselect'
+
 -- at moment i thought i understood how indentation settings work
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
@@ -34,9 +36,10 @@ vim.g.mapleader = ' '
 
 vim.o.timeout = false
 
-vim.o.completeopt = 'menuone,noselect'
+vim.keymap.set('t', '<A-[>', '<C-\\><C-N>')
 
-require 'config.mappings'
+vim.keymap.set('n', '<C-j>', '<Cmd>bnext<CR>')
+vim.keymap.set('n', '<C-k>', '<Cmd>bprevious<CR>')
 
 vim.o.guifont = 'Fira Code:h10'
 
