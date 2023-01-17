@@ -37,7 +37,12 @@ use {
 
 -- git integration
 use {
-  'tpope/vim-fugitive',
+  {
+    'tpope/vim-fugitive',
+    config = function()
+      vim.keymap.set('n', '<Leader>gg', ':Git<cr>', {})
+    end
+  },
   {
     'lewis6991/gitsigns.nvim',
     config = function()
