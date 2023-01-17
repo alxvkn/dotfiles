@@ -24,6 +24,18 @@ packer.init {
 -- for the future: i guess the whole thing is a little bit venturous and will cause problems
 -- but how cool is it when you add a plugin just by creating one new file?
 local plugin_spec_files = vim.fn.split(vim.fn.glob(vim.fn.stdpath('config') .. '/packs/*'), '\n')
-for _,file in ipairs(plugin_spec_files) do
+for _, file in ipairs(plugin_spec_files) do
   vim.cmd.source(file)
 end
+
+vim.keymap.set('n', '<leader>sr',
+  function() vim.cmd.runtime 'plugin/packer.lua' end,
+  { desc = 'Reload packer plugin specifications' })
+
+vim.keymap.set('n', '<leader>ss',
+  function() require('packer').sync() end,
+  { desc = 'Run packer.sync()' })
+
+vim.keymap.set('n', '<leader>sc',
+  function() require('packer').compile() end,
+  { desc = 'Run packer.compile()' })
