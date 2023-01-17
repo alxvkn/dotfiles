@@ -29,8 +29,12 @@ vim.cmd [[
 ]]
 
 -- Russian keys
-vim.o.langmap =
-  'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
+vim.o.langmap = 'йцукенгшщзхъфывапролджэячсмитьбю.;qwertyuiop[]asdfghjkl\\;\'zxcvbnm\\,./,ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>?'
+
+vim.cmd.cabbrev('ц', 'w')
+vim.cmd.cabbrev('й', 'q')
+vim.cmd.cabbrev('цй', 'wq')
+vim.cmd.cabbrev('йф', 'qa')
 
 vim.g.mapleader = ' '
 
