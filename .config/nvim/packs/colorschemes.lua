@@ -13,7 +13,7 @@ require('packer').use {
           vim.cmd.doautocmd 'ColorScheme'
         end
         -- without that focused windows's status line will be filled with ^^^
-        vim.api.nvim_set_hl(0, 'StatusLineNC', { clear = true })
+        vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'none' })
       else
         local _, _ = pcall(
           require,
