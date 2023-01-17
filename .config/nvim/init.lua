@@ -24,6 +24,8 @@ vim.cmd [[
     augroup end
 ]]
 
+vim.o.hlsearch = false
+
 -- Russian keys
 vim.o.langmap = 'йцукенгшщзхъфывапролджэячсмитьбю;qwertyuiop[]asdfghjkl\\;\'zxcvbnm\\,.,ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>?'
 
