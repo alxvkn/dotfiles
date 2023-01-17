@@ -3,6 +3,7 @@ local M = {}
 M.on_attach = function(_, bufnr)
   local opts = { silent = true, buffer = bufnr }
 
+  vim.keymap.set('i', '<c-l>', function() vim.lsp.buf.signature_help() end, opts)
   vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set('n', '<Leader>gd', function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set('n', '<Leader>gD', function() vim.lsp.buf.declaration() end, opts)
