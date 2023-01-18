@@ -20,6 +20,8 @@ require('packer').use {
       mapping = {
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete {}, { 'i', 'c' }),
         ['<CR>'] = cmp.mapping.confirm { select = false },
+        ['<C-y>'] = cmp.mapping.confirm { select = true },
+        ['<C-e>'] = cmp.mapping.abort(),
         ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i' }),
         ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i' }),
         ['<Tab>'] = cmp.mapping(function(fallback)
