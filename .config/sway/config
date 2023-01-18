@@ -108,6 +108,16 @@ include {
     local/*
 }
 
+for_window [app_id=floating_terminal] {
+    floating enable
+    sticky enable
+    resize set {
+        height 80 ppt
+        width 50 ppt
+    }
+    move position 25 ppt 10 ppt
+}
+
 # open mixer as floating window ./binds:189
 for_window [app_id=pulsemixer] {
     floating enable
