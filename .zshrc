@@ -49,10 +49,9 @@ fi
 # TODO: port and kinda finish note script from bashrc
 # create a todo script
 
-# pywal colors
-[ -z "$TMUX" ] && test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
+# test -f ~/TODO.md && cat ~/TODO.md
 
-# list todos on every shell startup
-test -f ~/TODO.md && cat ~/TODO.md
+# pywal colors
+# [ -z "$TMUX" ] && test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
 
 : # make sure last status will be 0
