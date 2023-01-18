@@ -108,6 +108,7 @@ include {
     local/*
 }
 
+# binds:177
 for_window [app_id=floating_terminal] {
     floating enable
     sticky enable
