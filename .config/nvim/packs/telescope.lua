@@ -1,13 +1,17 @@
 require('packer').use {
   'nvim-telescope/telescope.nvim',
   config = function()
-    vim.keymap.set('n', '<Leader>t<Leader>', function() require('telescope.builtin').builtin() end)
-    vim.keymap.set('n', '<Leader>tf', function() require('telescope.builtin').find_files() end)
-    vim.keymap.set('n', '<Leader>tg', function() require('telescope.builtin').git_files() end)
-    vim.keymap.set('n', '<Leader>tb', function() require('telescope.builtin').buffers() end)
-    vim.keymap.set('n', '<Leader>th', function() require('telescope.builtin').help_tags() end)
-    vim.keymap.set('n', '<Leader>tj', function() require('telescope.builtin').planets() end)
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<Leader>t<Leader>', builtin.builtin)
+    vim.keymap.set('n', '<Leader>tf', builtin.find_files)
+    vim.keymap.set('n', '<Leader>tg', builtin.git_files)
+    vim.keymap.set('n', '<Leader>tb', builtin.buffers)
+    vim.keymap.set('n', '<Leader>th', builtin.help_tags)
+    vim.keymap.set('n', '<Leader>tj', builtin.planets)
 
-    vim.keymap.set('n', '<Leader>tc', function() require('telescope.builtin').colorscheme { enable_preview = true } end)
+    vim.keymap.set('n', '<Leader>ds', builtin.lsp_document_symbols)
+    vim.keymap.set('n', '<Leader>ws', builtin.lsp_workspace_symbols)
+
+    vim.keymap.set('n', '<Leader>tc', function() builtin.colorscheme { enable_preview = true } end)
   end,
 }
