@@ -119,6 +119,17 @@ for_window [app_id=floating_terminal] {
     move position 25 ppt 10 ppt
 }
 
+# HOLY FUCK IT REALLY DID WORK OUT!!!
+# telegram's tray icon's context menu has the
+# same app_id as the actual telegram window,
+# but always has this exact title
+
+# (title for the real window is "Telegram (*count of unread chats*))
+for_window [title=TelegramDesktop] {
+    floating enable
+    move position 90 ppt 0 ppt
+}
+
 # open mixer as floating window ./binds:189
 for_window [app_id=pulsemixer] {
     floating enable
