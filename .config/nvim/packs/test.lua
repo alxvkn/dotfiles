@@ -56,19 +56,6 @@ use {
   requires = 'nvim-lua/plenary.nvim',
 }
 
--- nvim-treesitter
-use {
-  'nvim-treesitter/nvim-treesitter',
-  run = ':TSUpdate',
-  config = function()
-    require('nvim-treesitter.configs').setup {
-      highlight = { enable = true },
-      indent = { enable = true },
-    }
-  end,
-  event = 'BufRead',
-}
-
 -- snippets
 use {
   'L3MON4D3/LuaSnip', -- engine
