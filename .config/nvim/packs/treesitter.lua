@@ -21,11 +21,17 @@ require('packer').use {
             include_surrounding_whitespace = true,
             lookahead = true,
             keymaps = {
+              ['aa'] = '@parameter.outer',
+              ['ia'] = '@parameter.inner',
               ['af'] = '@function.outer',
               ['if'] = '@function.inner',
               ['ac'] = '@class.outer',
               ['ic'] = '@class.inner',
-            }
+            },
+            selection_modes = {
+              ['@function.inner'] = 'V',
+              ['@class.inner'] = 'V',
+            },
           },
           swap = {
             enable = true,
