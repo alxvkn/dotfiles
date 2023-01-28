@@ -24,6 +24,10 @@ LABEL=
 command=$SCRIPT_DIR/adb/battery
 interval=2
 
+[memfree]
+command=free -h | awk '/Mem/{print "mem: " $3 " used"}'
+interval=2
+
 [diskspace#root]
 LABEL=
 MOUNTPOINT=/
