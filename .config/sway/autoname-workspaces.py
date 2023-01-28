@@ -16,9 +16,11 @@ import sys
 
 WINDOW_ICONS = {
     "google-chrome": "",
-    "org.telegram.desktop": "切",
+    "org.telegram.desktop": "",
     "foot": ""
 }
+# 
+# 
 
 DEFAULT_ICON = "■"
 
