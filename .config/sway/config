@@ -60,7 +60,7 @@ client.focused_inactive $bg     $bg     #aaaaaa
 client.unfocused        $bg     $bg     #aaaaaa
 
 # Gaps
-gaps inner 5px
+# gaps inner 5px
 
 # Borders
 smart_borders on
@@ -79,10 +79,11 @@ bar main {
     separator_symbol ' † '
     position top
 
+    height 24
     strip_workspace_numbers yes
     workspace_min_width 32
 
-    gaps 5px
+    # gaps 5px
     colors {
         background          $bg
         statusline          $fg
