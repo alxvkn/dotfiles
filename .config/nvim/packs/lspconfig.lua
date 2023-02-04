@@ -19,6 +19,9 @@ require('packer').use {
       'pyright',
       'rust_analyzer',
       'dartls',
+      'emmet_ls',
+      'html',
+      'cssls',
     }
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
