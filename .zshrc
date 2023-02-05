@@ -32,6 +32,10 @@ zstyle ':completion:*' menu select=1
 autoload -Uz compinit
 compinit
 
+if [ -n "$(command -v zoxide)" ]; then
+    eval "$(zoxide init zsh)"
+fi
+
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
