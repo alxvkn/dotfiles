@@ -45,7 +45,7 @@ seat * hide_cursor when-typing enable
 
 ### Appearance
 # Font
-font Terminus 10
+font Iosevka 11
 
 # Colors
 include "$HOME/.cache/wal/colors-sway"
