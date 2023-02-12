@@ -21,6 +21,11 @@ export BEMENU_OPTS="--tb '#111111cc'    --tf '#ffffff'
 
 export WINEDLLOVERRIDES=winemenubuilder.exe=d
 
+# optional custom location for npm global prefix
+if [ -d "$HOME/.npm-global" ]; then
+    export PATH="$HOME/.npm-global/bin:$PATH"
+fi
+
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 if [ "$(tty)" = '/dev/tty1' ]; then
