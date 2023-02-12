@@ -170,6 +170,8 @@ bindsym --to-code {
     # Lock
     $mod+Shift+Return $set_en_kb; exec swaylock
 
+    $mod+u exec wlogout
+
     # Application launcher
     $mod+d $set_en_kb; exec $launcher
 
