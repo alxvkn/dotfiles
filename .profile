@@ -29,13 +29,14 @@ fi
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 if [ "$(tty)" = '/dev/tty1' ]; then
-    if [ -n "$(command -v sway)" ]; then
+    COMPOSITOR=sway
+    if [ -n "$(command -v $COMPOSITOR)" ]; then
         if [ -n "$BASH_VERSION" ]; then
-            read -p 'starting sway in 3 seconds. continue? [Y/n] ' -t 3 -n 1 ans
+            read -p "starting $COMPOSITOR in 3 seconds. continue? [Y/n] " -t 3 -n 1 ans
         elif [ -n "$ZSH_VERSION" ]; then
-            read -k 1 -t 3 '?starting sway in 3 seconds. continue? [Y/n] ' ans
+            read -k 1 -t 3 "?starting $COMPOSITOR in 3 seconds. continue? [Y/n] " ans
         else # guessing posix sh
-            echo 'starting sway in 3 seconds. ^C to cancel'
+            echo "starting $COMPOSITOR in 3 seconds. ^C to cancel"
             if ! sleep 3; then
                 ans='n'
             fi
@@ -47,7 +48,7 @@ if [ "$(tty)" = '/dev/tty1' ]; then
             # i guess there is something about word splitting
             # i.e. in zsh it doesn't happen on strings with only separators
             $'\n' | '' | 'y' | 'Y')
-                exec sway
+                exec "$COMPOSITOR"
                 ;;
         esac
         echo 'staying in shell'
