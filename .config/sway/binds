@@ -195,7 +195,7 @@ bindsym --to-code {
 
     # Screenshots
     Print exec "~/scripts/wayland_screenshot.sh"
-    $mod+Print exec "~/scripts/wayland_screenshot.sh -a"
+    $mod+Print exec "~/scripts/wayland_screenshot.sh --area"
 
     # Make all media bindings available on lockscreen
     --locked {
