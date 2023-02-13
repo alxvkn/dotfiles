@@ -194,8 +194,8 @@ bindsym --to-code {
     $mod+F9 exec $term --app-id=pulsemixer -e pulsemixer
 
     # Screenshots
-    Print exec "~/scripts/screenshot.sh"
-    $mod+Print exec "~/scripts/screenshot.sh -a"
+    Print exec "~/scripts/wayland_screenshot.sh"
+    $mod+Print exec "~/scripts/wayland_screenshot.sh -a"
 
     # Make all media bindings available on lockscreen
     --locked {
