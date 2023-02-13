@@ -7,11 +7,11 @@ mkdir -p $SCRNDIR
 
 if [ $# -gt 0 ]; then
     case $1 in
-        -a | --area)
+        --area)
             grim -g "$(slurp)" -t png $SCRNFNAME
             ;;
         *)
-            echo "usage: $0 [ -a | --area ]"
+            echo "usage: $0 [ --area ]"
             exit 1
             ;;
     esac
