@@ -197,6 +197,9 @@ bindsym --to-code {
     Print exec "~/scripts/wayland_screenshot.sh"
     $mod+Print exec "~/scripts/wayland_screenshot.sh --area"
 
+    Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save"
+    $mod+Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save --area"
+
     # Make all media bindings available on lockscreen
     --locked {
         # Volume control
