@@ -5,17 +5,22 @@
 # $ MENU='dmenu -i -l 10' TYPETOOL='xdotool type --file -' emoji-picker.sh
 # to use dmenu (for example) as menu and xdotool as input method
 
-MENU="${MENU:-bemenu -l 50}"
-COPYTOOL="${COPYTOOL:-wl-copy -}"
-TYPETOOL="${TYPETOOL:-wtype -}"
-
-if command -v $TYPETOOL; then
-    echo "using $TYPETOOL"
-    sed '1,/^### DATA ###$/d' $0 | $MENU | cut -d ' ' -f 1 | tr -d '\n' | $TYPETOOL
-else
-    echo "$TYPETOOL wasn't found, trying to use $COPYTOOL"
-    sed '1,/^### DATA ###$/d' $0 | $MENU | cut -d ' ' -f 1 | tr -d '\n' | $COPYTOOL
+if [ -z "$MENU" ]; then
+    1>&2 echo MENU is empty, set it to something before launching, e.g.
+    1>&2 echo $ MENU=dmenu $0
+    exit 1
 fi
+
+if [ -n "$TYPETOOL" ]; then
+    echo "using '$TYPETOOL'"
+    sed '1,/^### DATA ###$/d' $0 | $MENU | cut -d ' ' -f 1 | tr -d '\n' | $TYPETOOL
+elif [ -n "$COPYTOOL" ]; then
+    sed '1,/^### DATA ###$/d' $0 | $MENU | cut -d ' ' -f 1 | tr -d '\n' | $COPYTOOL
+else
+    echo 1>&2 echo set either TYPETOOL or COPYTOOL to something before launching
+    echo 1>&2 echo e.g. \`TYPETOOL=\'wtype -\'\` $0
+fi
+
 exit
 
 # basically all credits to the creator of wofi-emoji

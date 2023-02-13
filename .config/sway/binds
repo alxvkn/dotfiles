@@ -165,7 +165,7 @@ bindsym --to-code {
     $mod+semicolon exec "killall warpd; warpd --normal"
 
     # Emoji picker
-    $mod+period $set_en_kb; exec "~/scripts/emoji-picker.sh"
+    $mod+period $set_en_kb; exec "MENU='fuzzel -d' TYPETOOL='wtype -' ~/scripts/emoji-picker.sh"
 
     # Lock
     $mod+Shift+Return $set_en_kb; exec swaylock
