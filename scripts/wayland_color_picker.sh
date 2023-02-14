@@ -1,7 +1,6 @@
 #!/bin/sh
 
 COLOR_FORMAT=${COLOR_FORMAT:-hex}
-echo $COLOR_FORMAT
 
 if [ $COLOR_FORMAT = rgb ]; then
     CUT_FIELD=2
