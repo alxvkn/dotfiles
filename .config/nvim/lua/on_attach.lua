@@ -16,7 +16,7 @@ M.on_attach = function(_, bufnr)
   vim.keymap.set('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
   vim.keymap.set('n', '<Leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
   vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, opts)
+  vim.keymap.set({ 'n', 'v' }, '<Leader>ca', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', '<Leader>f', vim.lsp.buf.format, opts)
 end
 
