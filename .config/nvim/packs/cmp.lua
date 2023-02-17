@@ -50,5 +50,11 @@ require('packer').use {
         { name = 'buffer' },
       },
     }
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'cmdline' }
+      },
+    })
   end,
 }
