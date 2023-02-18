@@ -35,6 +35,7 @@ vim.cmd.cabbrev('цй', 'wq')
 vim.cmd.cabbrev('йф', 'qa')
 
 vim.g.mapleader = ' '
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', {})
 
 vim.o.timeout = false
 
