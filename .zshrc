@@ -31,6 +31,18 @@ toggle-doas() {
 zle -N toggle-doas
 bindkey '^O' toggle-doas
 
+# if 'fuck' is typed, set buffer to previous command prefixed with doas
+_fuck() {
+    if [ "$BUFFER" = "fuc" ]; then
+        BUFFER="doas $(fc -ln -1)"
+        zle end-of-line
+    else
+        zle self-insert
+    fi
+}
+zle -N _fuck
+bindkey 'k' _fuck
+
 # expand aliases after a space
 magic-space() {
     zle _expand_alias
