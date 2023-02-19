@@ -17,6 +17,14 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 source ~/.config/alias.sh
 
+# expand aliases after a space
+magic-space() {
+    zle _expand_alias
+    zle self-insert
+}
+zle -N magic-space
+bindkey ' ' magic-space
+
 cht() {
     curl cht.sh/$1$(shift; (($# > 0)) && echo "/$@" | tr ' ' '+')
 }
