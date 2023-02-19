@@ -34,8 +34,9 @@ bindkey '^O' toggle-doas
 # if 'fuck' is typed, set buffer to previous command prefixed with doas
 _fuck() {
     if [ "$BUFFER" = "fuck" ]; then
-        BUFFER="doas $(fc -ln -1)"
-        zle end-of-line
+        # clear buffer and call toggle-doas
+        BUFFER=
+        toggle-doas
     else
         zle accept-line
     fi
