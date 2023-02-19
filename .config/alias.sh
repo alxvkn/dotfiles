@@ -11,8 +11,6 @@ alias ll='ls -l'
 alias n='nvim'
 alias e="$EDITOR"
 alias g='git'
-alias p='pacman'
-
 alias t='tmux'
 
 alias fuck='doas $(fc -ln -1)'
@@ -22,4 +20,8 @@ if [ -n "$BASH_VERSION" ]; then
     alias r='source ~/.bashrc'
 elif [ -n "$ZSH_VERSION" ]; then
     alias r='source ~/.zshrc'
+fi
+
+if [ -n "$(command -v pacman)" ]; then
+    alias p='pacman'
 fi
