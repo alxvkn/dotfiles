@@ -11,7 +11,11 @@ alias ll='ls -l'
 alias n='nvim'
 alias e="$EDITOR"
 alias g='git'
+alias p='pacman'
+
 alias t='tmux'
+
+alias fuck='doas $(fc -ln -1)'
 
 # reload config
 if [ -n "$BASH_VERSION" ]; then
