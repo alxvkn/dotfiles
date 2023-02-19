@@ -33,15 +33,15 @@ bindkey '^O' toggle-doas
 
 # if 'fuck' is typed, set buffer to previous command prefixed with doas
 _fuck() {
-    if [ "$BUFFER" = "fuc" ]; then
+    if [ "$BUFFER" = "fuck" ]; then
         BUFFER="doas $(fc -ln -1)"
         zle end-of-line
     else
-        zle self-insert
+        zle accept-line
     fi
 }
 zle -N _fuck
-bindkey 'k' _fuck
+bindkey '^M' _fuck
 
 cht() {
     curl cht.sh/$1$(shift; (($# > 0)) && echo "/$@" | tr ' ' '+')
