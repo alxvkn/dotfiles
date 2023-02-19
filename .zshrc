@@ -17,6 +17,20 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 source ~/.config/alias.sh
 
+# toggle doas at line beginning
+toggle-doas() {
+    if [ -z "$BUFFER" ]; then # empty buffer, use previous line, add doas
+        BUFFER="doas $(fc -ln -1)"
+    elif [[ "$BUFFER" = "doas "* ]]; then # there already is doas, remove it
+        BUFFER=${BUFFER#'doas '}
+    else # non-emtpy buffer, add doas to it
+        BUFFER="doas $BUFFER"
+    fi
+    zle end-of-line
+}
+zle -N toggle-doas
+bindkey '^O' toggle-doas
+
 # expand aliases after a space
 magic-space() {
     zle _expand_alias
