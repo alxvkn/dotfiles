@@ -48,10 +48,9 @@ seat * hide_cursor when-typing enable
 font Iosevka 11
 
 # Colors
-include "$HOME/.cache/wal/colors-sway"
 set {
-    $bg $background
-    $fg $foreground
+    $bg #112211
+    $fg #ffffff
 }
 
 # class                 border  bg      text    indicator   child_border
