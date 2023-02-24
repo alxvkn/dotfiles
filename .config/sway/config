@@ -49,7 +49,7 @@ font Iosevka 11
 
 # Colors
 set {
-    $bg #112211
+    $bg #112221
     $fg #ffffff
 }
 
@@ -67,7 +67,7 @@ default_border pixel 1
 default_floating_border normal 1
 
 # Wallpaper
-output * bg $wallpaper fill
+output * bg $bg solid_color
 
 
 
