@@ -60,6 +60,12 @@ zstyle ':completion:*' menu select=1
 autoload -Uz compinit
 compinit
 
+zmodload zsh/complist
+bindkey -M menuselect h vi-backward-char
+bindkey -M menuselect j vi-down-line-or-history
+bindkey -M menuselect k vi-up-line-or-history
+bindkey -M menuselect l vi-forward-char
+
 if [ -n "$(command -v zoxide)" ]; then
     eval "$(zoxide init zsh)"
 fi
