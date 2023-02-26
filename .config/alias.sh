@@ -19,7 +19,7 @@ alias fuck='doas $(fc -ln -1)'
 if [ -n "$BASH_VERSION" ]; then
     alias r='source ~/.bashrc'
 elif [ -n "$ZSH_VERSION" ]; then
-    alias r='source ~/.zshrc'
+    alias r="source $ZDOTDIR/.zshrc"
 fi
 
 if [ -n "$(command -v pacman)" ]; then
