@@ -3,6 +3,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 setopt hist_ignore_dups
+setopt hist_ignore_space
 
 setopt notify
 setopt shwordsplit # afaik iterate over words in a string as bash does
