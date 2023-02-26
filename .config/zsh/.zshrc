@@ -18,6 +18,8 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 source ~/.config/alias.sh
 
+source $ZDOTDIR/vi-mode-cursor.zsh
+
 # toggle doas at line beginning
 toggle-doas() {
     if [ -z "$BUFFER" ]; then # empty buffer, use previous line, add doas
