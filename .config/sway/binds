@@ -164,8 +164,10 @@ bindsym --to-code {
     # https://github.com/rvaiya/warpd
     $mod+semicolon exec "killall warpd; warpd --normal"
 
+    # Music
     $mod+Home exec "~/scripts/music.sh"
-    $mod+End exec $term tmux a -t music
+    # beautiful
+    $mod+End exec "TERM="$term" ~/.config/sway/scripts/toggle_music.sh"
 
     # Emoji picker
     $mod+period $set_en_kb; exec "MENU='fuzzel -d' TYPETOOL='wtype -' ~/scripts/emoji-picker.sh"
