@@ -21,7 +21,7 @@ set {
     $launcher menu_path | fuzzel -dp 'run> ' | xargs swaymsg exec --
 
     # General purpose menu
-    $menu fuzzel -d
+    $menu 'fuzzel -d'
 }
 
 ### Input

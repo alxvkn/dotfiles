@@ -170,7 +170,7 @@ bindsym --to-code {
     $mod+End exec "TERM="$term" ~/.config/sway/scripts/toggle_music.sh"
 
     # Emoji picker
-    $mod+period $set_en_kb; exec "MENU='fuzzel -d' TYPETOOL='wtype -' ~/scripts/emoji-picker.sh"
+    $mod+period $set_en_kb; exec "MENU='"$menu"' TYPETOOL='wtype -' ~/scripts/emoji-picker.sh"
 
     # Lock
     $mod+Shift+Return $set_en_kb; exec swaylock
