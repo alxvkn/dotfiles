@@ -11,10 +11,22 @@ setopt shwordsplit # afaik iterate over words in a string as bash does
 bindkey -v
 bindkey '^W' backward-kill-word
 bindkey '^U' backward-kill-line
-bindkey '^F' forward-char
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
-bindkey '^R' history-incremental-pattern-search-backward
+
+# (at least on foot terminal)
+bindkey  "^[[1~" beginning-of-line # home key
+bindkey  "^[[4~" end-of-line # end key
+
+bindkey -M viins '^R' history-incremental-pattern-search-backward
+bindkey -M vicmd '^R' history-incremental-pattern-search-backward
+bindkey -M viins '^F' history-incremental-pattern-search-forward
+bindkey -M vicmd '^F' history-incremental-pattern-search-forward
+
+# edit in $EDITOR with <space>e
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd ' e' edit-command-line
 
 source ~/.config/alias.sh
 
