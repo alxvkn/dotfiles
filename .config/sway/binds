@@ -171,6 +171,8 @@ bindsym --to-code {
 
     # Emoji picker
     $mod+period $set_en_kb; exec "MENU='"$menu"' TYPETOOL='wtype -' ~/scripts/emoji-picker.sh"
+    # Emoji picker, but just copy to clipboard
+    $mod+Shift+period $set_en_kb; exec "MENU='"$menu"' COPYTOOL='wl-copy' ~/scripts/emoji-picker.sh"
 
     # Lock
     $mod+Shift+Return $set_en_kb; exec swaylock
