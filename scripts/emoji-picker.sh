@@ -11,14 +11,20 @@ if [ -z "$MENU" ]; then
     exit 1
 fi
 
-if [ -n "$TYPETOOL" ]; then
-    echo "using '$TYPETOOL'"
-    sed '1,/^### DATA ###$/d' $0 | $MENU | cut -d ' ' -f 1 | tr -d '\n' | $TYPETOOL
-elif [ -n "$COPYTOOL" ]; then
-    sed '1,/^### DATA ###$/d' $0 | $MENU | cut -d ' ' -f 1 | tr -d '\n' | $COPYTOOL
-else
+if [ -z "$TYPETOOL" ] && [ -z "$COPYTOOL" ]; then
     echo 1>&2 echo set either TYPETOOL or COPYTOOL to something before launching
     echo 1>&2 echo e.g. \`TYPETOOL=\'wtype -\'\` $0
+    exit 1
+fi
+
+emoji=$(sed '1,/^### DATA ###$/d' $0 | $MENU | cut -d ' ' -f 1 | tr -d '\n')
+
+if [ -n "$TYPETOOL" ]; then
+    echo $emoji | $TYPETOOL
+fi
+
+if [ -n "$COPYTOOL" ]; then
+    echo $emoji | $COPYTOOL
 fi
 
 exit
