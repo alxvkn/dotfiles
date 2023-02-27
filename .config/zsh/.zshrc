@@ -88,6 +88,7 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 # https://git.kernel.org/pub/scm/git/git.git/plain/contrib/completion/git-completion.zsh
 # zsh's built-in git completion is slow.
