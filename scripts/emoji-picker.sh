@@ -19,12 +19,13 @@ fi
 
 emoji=$(sed '1,/^### DATA ###$/d' $0 | $MENU | cut -d ' ' -f 1 | tr -d '\n')
 
+
 if [ -n "$TYPETOOL" ]; then
-    echo $emoji | $TYPETOOL
+    echo -n $emoji | $TYPETOOL
 fi
 
 if [ -n "$COPYTOOL" ]; then
-    echo $emoji | $COPYTOOL
+    echo -n $emoji | $COPYTOOL
 fi
 
 exit
