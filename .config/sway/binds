@@ -196,7 +196,7 @@ bindsym --to-code {
     $mod+Shift+n exec neovide
 
     # Open tui mixer
-    $mod+F9 exec $term --app-id=pulsemixer -e pulsemixer
+    $mod+F9 exec $term --app-id=tui_mixer -e pulsemixer
 
     # Screenshots
     Print exec "~/scripts/wayland_screenshot.sh"

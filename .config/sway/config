@@ -131,7 +131,7 @@ for_window [title=TelegramDesktop] {
 }
 
 # open mixer as floating window ./binds:189
-for_window [app_id=pulsemixer] {
+for_window [app_id=tui_mixer] {
     floating enable
     sticky enable
     resize set {
