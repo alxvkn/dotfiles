@@ -105,7 +105,6 @@ bindsym --to-code {
     # respectively.
     $mod+b splith
     $mod+v splitv
-    $mod+c split none # cancel any of the above for current focus
 
     # toggle
     $mod+Shift+s sticky enable
