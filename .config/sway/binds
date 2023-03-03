@@ -107,6 +107,9 @@ bindsym --to-code {
     $mod+v splitv
     $mod+c split none # cancel any of the above for current focus
 
+    # toggle
+    $mod+Shift+s sticky enable
+
     # Switch the current container between different layout styles
     $mod+s layout stacking
     $mod+w layout tabbed
@@ -133,7 +136,7 @@ bindsym --to-code {
     $mod+a focus parent
 
     # Move focus to the child container
-    $mod+z focus child
+    $mod+Shift+a focus child
 
     # Kill focused container
     $mod+q kill
