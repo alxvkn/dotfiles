@@ -17,7 +17,8 @@ import sys
 WINDOW_ICONS = {
     "google-chrome": "",
     "org.telegram.desktop": "",
-    "foot": ""
+    "foot": "",
+    "discord": "󰙯"
 }
 # 
 # 
