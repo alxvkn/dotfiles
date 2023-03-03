@@ -44,6 +44,9 @@ vim.keymap.set('t', '<A-[>', '<C-\\><C-N>')
 vim.keymap.set('n', '<C-j>', '<Cmd>bnext<CR>')
 vim.keymap.set('n', '<C-k>', '<Cmd>bprevious<CR>')
 
+vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', { desc = 'Yank to system clipboard' })
+vim.keymap.set({'n', 'v'}, '<Leader>p', '"+p', { desc = 'Paste from system clipboard' })
+
 vim.o.guifont = 'Fira Code:h10'
 
 vim.o.title = true
