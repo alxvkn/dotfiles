@@ -49,7 +49,7 @@ font Iosevka 11
 
 # Colors
 set {
-    $bg #112221
+    $bg #0C0C10
     $fg #ffffff
 }
 
