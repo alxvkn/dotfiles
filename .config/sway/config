@@ -45,7 +45,7 @@ seat * hide_cursor when-typing enable
 
 ### Appearance
 # Font
-font Iosevka 11
+font IosevkaMedium 11
 
 # Colors
 set {
