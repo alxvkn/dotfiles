@@ -171,7 +171,7 @@ mode $shortcut_mode {
         Return mode "default"
     }
 }
-bindsym --to-code $mod+x mode $shortcut_mode
+bindsym --to-code $mod+z mode $shortcut_mode
 
 ### I honestly don't now how to name this section
 bindsym --to-code {
@@ -213,7 +213,7 @@ bindsym --to-code {
     $mod+Shift+n exec neovide
 
     # Open tui mixer
-    $mod+F9 exec $term --app-id=tui_mixer -e pulsemixer
+    $mod+F9 exec $term --app-id=tui_mixer -e ncpamixer -t o
 
     # Screenshots
     Print exec "~/scripts/wayland_screenshot.sh"
