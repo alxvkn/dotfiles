@@ -34,6 +34,12 @@ MOUNTPOINT=/
 command=$SCRIPT_DIR/diskspace
 interval=2
 
+[pulseaudio]
+command=$SCRIPT_DIR/pulseaudio
+interval=persist
+min_width=50
+align=center
+
 [date]
 # command=date '+%Y-%m-%d %H:%M:%S'
 command=date '+%A %x %X'

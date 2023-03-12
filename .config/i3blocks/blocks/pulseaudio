@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# pactl -f json list sinks | jq '.[] | select(.index == 45) | .properties["alsa.long_card_name"]'
+
+sink_active_port_type() {
+    pactl -f json list sinks 2>/dev/null |
+        jq -r -c '.[] | select(.name == "'"$1"'") | .active_port as $active_port | .ports[] | select(.name == $active_port) | .type'
+}
+
+sink_muted() {
+    # pactl -f json list sinks 2>/dev/null | jq '.[] | select(.name == "'"$1"'") | .mute' |
+    #     { read bool; [ $bool = 'true' ]; }
+    # funny how they actually have this command
+    pactl get-sink-mute @DEFAULT_SINK@ |
+        { read mute; [ "$mute" = 'Mute: yes' ]; }
+}
+
+sink_index_by_name() {
+    pactl -f json list sinks 2>/dev/null | jq '.[] | select(.name == "'"$1"'") | .index'
+}
+
+on_update() {
+    # !!! volume shown is for left channel
+    case "$(sink_active_port_type $(pactl get-default-sink))" in
+        HDMI)
+            icon_unmuted=󰽟
+            icon_muted=󰽠
+            ;;
+        Headphones)
+            icon_unmuted=󰋋
+            icon_muted=󰟎
+            ;;
+        *)
+            icon_unmuted=󰕾
+            icon_muted=󰝟
+            ;;
+    esac
+
+    if sink_muted; then
+        icon="$icon_muted"
+        volume=
+    else
+        icon="$icon_unmuted"
+        volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{ print $5 }')
+    fi
+    echo $icon "$volume"
+}
+
+# pactl json output is fucked up
+# at least with jq (maybe it expects a newline before each new object)
+pactl subscribe |
+    stdbuf -o0 grep -e "on sink #" -e "on server #" |
+    while read void
+    do
+        on_update
+    done
