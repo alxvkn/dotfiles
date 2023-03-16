@@ -18,8 +18,10 @@ WINDOW_ICONS = {
     "google-chrome": "",
     "org.telegram.desktop": "",
     "foot": "",
-    "discord": "󰙯"
+    "discord": "󰙯",
+    "steam": "",
 }
+# 󰓓
 # 
 # 
 
