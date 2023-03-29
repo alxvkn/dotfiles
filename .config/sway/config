@@ -29,7 +29,7 @@ set {
 input * {
     xkb_numlock enable
     xkb_layout us,ru
-    xkb_options grp:alt_shift_toggle,caps:swapescape
+    xkb_options grp:alt_shift_toggle,caps:escape
 }
 
 # Mouse
@@ -47,16 +47,21 @@ seat * hide_cursor when-typing enable
 # Font
 font IosevkaMedium 11
 
+include ~/.cache/wal/colors-sway
+
 # Colors
 set {
     $bg #0C0C10
     $fg #ffffff
+    $bg $background
+    $fg $foreground
+    $inactive_fg $color2
 }
 
 # class                 border  bg      text    indicator   child_border
 client.focused          $fg     $bg     $fg     #aaaaaa     #aaaaaa
-client.focused_inactive $bg     $bg     #aaaaaa
-client.unfocused        $bg     $bg     #aaaaaa
+client.focused_inactive #000000 $bg     #aaaaaa
+client.unfocused        #000000 $bg     #aaaaaa             #000000
 
 # Gaps
 # gaps inner 5px
@@ -87,9 +92,9 @@ bar main {
         background          $bg
         statusline          $fg
 
-        #                   border  bg      text
-        focused_workspace   $fg     $fg     $bg
-        inactive_workspace  #aaaaaa $bg     #aaaaaa
+        #                   border          bg      text
+        focused_workspace   $fg             $fg     $bg
+        inactive_workspace  $inactive_fg    $bg     $inactive_fg
     }
 }
 
