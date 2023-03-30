@@ -4,8 +4,9 @@ require('packer').use {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-nvim-lsp', -- nvim lsp completion source
-    'saadparwaiz1/cmp_luasnip', -- luasnip completion source
+    'hrsh7th/cmp-nvim-lsp',     -- nvim
+    'saadparwaiz1/cmp_luasnip', -- luasnip
+    'f3fora/cmp-spell',         -- spell
   },
   config = function()
     local cmp = require 'cmp'
@@ -47,6 +48,7 @@ require('packer').use {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+        { name = 'spell' },
         { name = 'buffer' },
       },
     }
