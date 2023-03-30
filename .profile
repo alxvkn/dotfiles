@@ -28,6 +28,8 @@ fi
 
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
+[ -n "$(command -v udisksctl)" ] && (~/scripts/automount-udisks.sh &)
+
 if [ "$(tty)" = '/dev/tty1' ]; then
     COMPOSITOR=sway
     if [ -n "$(command -v $COMPOSITOR)" ]; then
