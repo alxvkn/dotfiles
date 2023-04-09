@@ -107,4 +107,13 @@ fi
 # pywal colors
 # [ -z "$TMUX" ] && test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
 
+timer() {
+    (
+        seconds=$1
+        shift
+        sleep $seconds &&
+            notify-send "timer $seconds seconds" "$*"
+    )& disown
+}
+
 : # make sure last status will be 0
