@@ -33,26 +33,7 @@ export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 if [ "$(tty)" = '/dev/tty1' ]; then
     COMPOSITOR=sway
     if [ -n "$(command -v $COMPOSITOR)" ]; then
-        if [ -n "$BASH_VERSION" ]; then
-            read -p "starting $COMPOSITOR in 3 seconds. continue? [Y/n] " -t 3 -n 1 ans
-        elif [ -n "$ZSH_VERSION" ]; then
-            read -k 1 -t 3 "?starting $COMPOSITOR in 3 seconds. continue? [Y/n] " ans
-        else # guessing posix sh
-            echo "starting $COMPOSITOR in 3 seconds. ^C to cancel"
-            if ! sleep 3; then
-                ans='n'
-            fi
-        fi
-        echo
-        case "$ans" in
-            # hitting enter in bash gives an empty string,
-            # while in zsh the variable consists of one newline character
-            # i guess there is something about word splitting
-            # i.e. in zsh it doesn't happen on strings with only separators
-            $'\n' | '' | 'y' | 'Y')
-                exec "$COMPOSITOR"
-                ;;
-        esac
-        echo 'staying in shell'
+        echo starting "$COMPOSITOR"
+        exec "$COMPOSITOR"
     fi
 fi
