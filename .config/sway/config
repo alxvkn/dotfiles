@@ -82,7 +82,7 @@ bar main {
     # status_command ~/dev/bstatus/main.py
     status_command SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
     separator_symbol ' † '
-    position top
+    position bottom
 
     height 24
     strip_workspace_numbers no
@@ -132,7 +132,7 @@ for_window [app_id=floating_terminal] {
 # (title for the real window is "Telegram (*count of unread chats*))
 for_window [title=TelegramDesktop] {
     floating enable
-    move position 90 ppt 0 ppt
+    move position 90 ppt 90 ppt
 }
 
 # open mixer as floating window ./binds:189
