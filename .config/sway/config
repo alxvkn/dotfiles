@@ -64,7 +64,8 @@ client.focused_inactive #000000 $bg     #aaaaaa
 client.unfocused        #000000 $bg     #aaaaaa             #000000
 
 # Gaps
-# gaps inner 5px
+gaps inner 5px
+smart_gaps on
 
 # Borders
 smart_borders on
