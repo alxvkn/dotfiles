@@ -72,7 +72,7 @@ default_border pixel 1
 default_floating_border normal 1
 
 # Wallpaper
-output * bg $bg solid_color
+output * bg $wallpaper fill
 
 
 
