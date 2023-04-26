@@ -25,7 +25,7 @@ fi
 echo $LABEL $LEVEL% $CHARGING # full_text
 echo $LEVEL% # short_text
 
-if [ $LEVEL -ge 100 ]; then # color
+if [ $LEVEL -ge 85 ]; then # color
     echo '#50aa50'
 elif [ $LEVEL -le 15 ]; then # urgency
     echo '#ff5050'
