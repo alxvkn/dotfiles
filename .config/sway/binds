@@ -107,7 +107,7 @@ bindsym --to-code {
     $mod+v splitv
 
     # toggle
-    $mod+Shift+s sticky enable
+    $mod+Shift+s sticky toggle
 
     # Switch the current container between different layout styles
     $mod+s layout stacking
