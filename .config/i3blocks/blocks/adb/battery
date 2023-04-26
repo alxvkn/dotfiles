@@ -15,7 +15,7 @@ if [ -n $DEVICE_PATTERN ]; then
 fi
 
 if adb shell exit 0; then
-    LEVEL=$(adb shell dumpsys battery | awk '/level/{print $NF}')
+    LEVEL=$(adb shell 'dumpsys battery | awk "/level/{print \$NF}"')
     CHARGING=$(adb shell dumpsys battery | awk '/status/ {if ($NF == 2) print "charging"}')
 else
     echo
