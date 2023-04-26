@@ -2,16 +2,19 @@
 
 # this version works if there is only one adb device connected
 
-# TODO: select device with serial number in case there is more than one
+# TODO: TO FUCKING DO: CONVERT TO A SCRIPT THAT can handle clicks AND will wait for last serial of matching device and somehow restart itself or something
 
-LABEL="${LABEL:-adb}"
+LABEL="${LABEL:-$DEVICE_PATTERN}"
 
 if [ -n $DEVICE_PATTERN ]; then
     # i like shell scripting here because i don't need to do shit for this to work
     # adb itself uses this environment variable
-    ANDROID_SERIAL=$(adb devices -l | awk '/'"$DEVICE_PATTERN"'/ {print $1; exit}')
+    export ANDROID_SERIAL=$(adb devices -l | awk '/'"$DEVICE_PATTERN"'/ {print $1; exit}')
     # adb uses this variable even if it is empty
-    [ -z $ANDROID_SERIAL ] && unset ANDROID_SERIAL
+    if [ -z $ANDROID_SERIAL ]; then
+        echo
+        exit
+    fi
 fi
 
 if adb shell exit 0; then
