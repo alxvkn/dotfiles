@@ -14,8 +14,16 @@ separator_block_width=15
 command=$SCRIPT_DIR/sway/window
 interval=persist
 
+[playerctl]
+command=$SCRIPT_DIR/playerctl
+interval=persist
+
 [gputemp]
 command=echo gpu: $(~/scripts/gputemp.sh)
+interval=2
+
+[memfree]
+command=free -h | awk '/Mem/{print "mem: " $3 " used"}'
 interval=2
 
 [adb/battery#tablet]
@@ -23,16 +31,14 @@ DEVICE_PATTERN=Lenovo
 LABEL=󰓶
 command=$SCRIPT_DIR/adb/battery
 interval=5
+markup=pango
 
 [adb/battery#phone]
 DEVICE_PATTERN=SM
 LABEL=
 command=$SCRIPT_DIR/adb/battery
 interval=5
-
-[memfree]
-command=free -h | awk '/Mem/{print "mem: " $3 " used"}'
-interval=2
+markup=pango
 
 [diskspace#root]
 LABEL=

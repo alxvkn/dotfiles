@@ -1,0 +1,26 @@
+#!/bin/sh
+
+playerctl -p "%any" -F status | while read status; do
+    if [ "$status" = Playing ]; then
+        ICON=
+    elif [ "$status" = Paused ]; then
+        ICON=
+    else
+        echo
+    fi
+    echo "$ICON $(playerctl metadata | grep title | { read player _ title; echo $title; } )"
+done &
+
+while read button; do
+    case $button in
+        1)
+            playerctl play-pause
+            ;;
+        4)
+            playerctl position 5-
+            ;;
+        5)
+            playerctl position 5+
+            ;;
+    esac
+done
