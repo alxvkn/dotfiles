@@ -48,7 +48,6 @@ use {
         numhl = true,
       }
     end,
-    event = 'BufRead',
   },
 }
 use {
@@ -92,13 +91,5 @@ use {
   'norcalli/nvim-colorizer.lua',
   config = function()
     require('colorizer').setup {}
-  end,
-}
-
-use {
-  'abecodes/tabout.nvim',
-  after = 'nvim-treesitter',
-  config = function()
-    require('tabout').setup {}
   end,
 }
