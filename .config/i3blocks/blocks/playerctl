@@ -8,7 +8,7 @@ playerctl -p "%any" -F status | while read status; do
     else
         echo
     fi
-    echo "$ICON $(playerctl metadata | grep title | { read player _ title; echo $title; } )"
+    echo "$ICON $(playerctl metadata -f '{{artist}} - {{title}}')"
 done &
 
 while read button; do
