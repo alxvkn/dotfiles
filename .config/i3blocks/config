@@ -26,19 +26,20 @@ interval=2
 command=free -h | awk '/Mem/{print "mem: " $3 " used"}'
 interval=2
 
-[adb/battery#tablet]
+[adb#tablet]
 DEVICE_PATTERN=Lenovo
 LABEL=󰓶
-command=$SCRIPT_DIR/adb/battery
-interval=5
+command=$SCRIPT_DIR/adb
+interval=persist
 markup=pango
 
-[adb/battery#phone]
+[adb#phone]
 DEVICE_PATTERN=SM
 LABEL=
-command=$SCRIPT_DIR/adb/battery
-interval=5
+command=$SCRIPT_DIR/adb
+interval=persist
 markup=pango
+format=raw
 
 [diskspace#root]
 LABEL=

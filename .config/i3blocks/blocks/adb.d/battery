@@ -1,0 +1,30 @@
+#!/bin/sh
+
+if adb shell exit 0; then
+    LEVEL=$(adb shell 'dumpsys battery | awk "/level/{print \$NF}"')
+    CHARGING=$(adb shell dumpsys battery | awk '/status/ {if ($NF == 2) print "charging"}')
+else
+    echo
+    exit
+fi
+
+BATTERY=
+COLOR=
+
+if [ $LEVEL -lt 50 ]; then
+    COLOR='#aaaa50'
+elif [ $LEVEL -ge 85 ]; then
+    COLOR='#50aa50'
+else
+    COLOR='#ffffff'
+fi
+
+if [ -n "$CHARGING" ]; then
+    # BATTERY=󰂄
+    BATTERY=󰂅
+    BATTERY='<span fgcolor="'$COLOR'">'$BATTERY'</span>'
+else
+    BATTERY=󰁹
+fi
+
+echo "$LEVEL% $BATTERY"

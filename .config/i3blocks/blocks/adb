@@ -1,0 +1,37 @@
+#!/bin/sh
+
+LABEL="${LABEL:-$DEVICE_PATTERN}"
+
+while [ -z "$ANDROID_SERIAL" ]; do
+    if [ -z "$DEVICE_PATTERN" ]; then
+        exit 1
+    else
+        # i like shell scripting here because i don't need to do shit for this to work
+        # adb itself uses this environment variable
+        export ANDROID_SERIAL=$(adb devices -l | awk '/'"$DEVICE_PATTERN"'/ {print $1; exit}')
+        # adb uses this variable even if it is empty
+        if [ -z $ANDROID_SERIAL ]; then
+            sleep 5
+        fi
+    fi
+done
+
+# TODO: auto die if device with serial disconnected and auto restart
+while true; do
+    echo $LABEL $($SCRIPT_DIR/adb.d/battery)
+    sleep 5
+done &
+
+while read button; do
+    case $button in
+        1)
+            scrcpy > /dev/null &
+            ;;
+        2)
+            adb shell input text $(cat ~/.phonepin)
+            ;;
+        3)
+            adb shell input keyevent POWER
+            ;;
+    esac
+done
