@@ -35,7 +35,7 @@ markup=pango
 
 [adb#phone]
 DEVICE_PATTERN=SM
-LABEL=
+LABEL=󰄜
 command=$SCRIPT_DIR/adb
 interval=persist
 markup=pango
