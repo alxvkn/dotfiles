@@ -16,9 +16,6 @@ use {
 -- kind of a default options superset for (neo)vim
 use 'tpope/vim-sensible'
 
--- auto-pairs for brackets/quotes
--- use 'jiangmiao/auto-pairs'
-
 -- fancy macros to wrap text in brackets/quotes/everything that i forgot how to use
 use {
   'kylechui/nvim-surround',
