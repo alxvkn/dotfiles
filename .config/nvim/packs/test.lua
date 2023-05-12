@@ -20,7 +20,12 @@ use 'tpope/vim-sensible'
 -- use 'jiangmiao/auto-pairs'
 
 -- fancy macros to wrap text in brackets/quotes/everything that i forgot how to use
-use 'tpope/vim-surround'
+use {
+  'kylechui/nvim-surround',
+  config = function()
+    require('nvim-surround').setup {}
+  end,
+}
 -- properly repeat surround mappings with .
 use 'tpope/vim-repeat'
 
