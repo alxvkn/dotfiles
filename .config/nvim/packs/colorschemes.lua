@@ -17,7 +17,7 @@ require('packer').use {
           transparent = true
         }
       }
-      vim.cmd.colorscheme 'nightfox'
+      vim.cmd.colorscheme 'horizon'
     end
   },
 }
