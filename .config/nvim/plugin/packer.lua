@@ -33,9 +33,13 @@ vim.keymap.set('n', '<leader>sr',
   { desc = 'Reload packer plugin specifications' })
 
 vim.keymap.set('n', '<leader>ss',
-  function() require('packer').sync() end,
+  require('packer').sync,
   { desc = 'Run packer.sync()' })
 
+vim.keymap.set('n', '<leader>si',
+  require('packer').install,
+  { desc = 'Run packer.install()' })
+
 vim.keymap.set('n', '<leader>sc',
-  function() require('packer').compile() end,
+  require('packer').compile,
   { desc = 'Run packer.compile()' })
