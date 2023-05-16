@@ -4,6 +4,7 @@ require('packer').use {
   'srcery-colors/srcery-vim',
   'nanotech/jellybeans.vim',
   'ntk148v/vim-horizon',
+  'rose-pine/neovim',
   'ayu-theme/ayu-vim',
   'kdheepak/monochrome.nvim',
   'projekt0n/github-nvim-theme',
@@ -14,10 +15,10 @@ require('packer').use {
       require('nightfox').setup {
         options = {
           dim_inactive = true,
-          transparent = true
+          -- transparent = true
         }
       }
-      vim.cmd.colorscheme 'horizon'
+      vim.cmd.colorscheme 'rose-pine'
     end
   },
 }
