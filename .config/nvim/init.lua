@@ -29,6 +29,9 @@ vim.o.hlsearch = false
 -- Russian keys
 vim.o.langmap = 'ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;\'zxcvbnm\\,.,ЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>'
 
+vim.o.keymap = 'russian-jcukenwin'
+vim.o.iminsert = 0 -- disable alternative keymap by default
+
 vim.cmd.cabbrev('ц', 'w')
 vim.cmd.cabbrev('й', 'q')
 vim.cmd.cabbrev('цй', 'wq')
