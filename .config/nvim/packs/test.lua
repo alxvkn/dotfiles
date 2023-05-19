@@ -67,10 +67,6 @@ use {
     end,
   },
 }
-use {
-  'TimUntersberger/neogit',
-  requires = 'nvim-lua/plenary.nvim',
-}
 
 -- snippets
 use {
@@ -104,6 +100,7 @@ use {
   end,
 }
 
+-- preview colors
 use {
   'norcalli/nvim-colorizer.lua',
   config = function()
