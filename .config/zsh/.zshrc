@@ -66,11 +66,11 @@ cht() {
     curl cht.sh/$1$(shift; (($# > 0)) && echo "/$@" | tr ' ' '+')
 }
 
-if [ -n $TERMUX_VERSION ]; then
+if [ -n "$TERMUX_VERSION" ]; then
     PROMPT_OS="%F{green}󰀲%f "
 elif [ -f /etc/os-release ]; then
     source /etc/os-release
-    if [ $ID = arch ]; then
+    if [ "$ID" = arch ]; then
         PROMPT_OS="%F{cyan}%f "
     fi
 else
