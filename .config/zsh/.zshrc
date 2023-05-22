@@ -14,9 +14,12 @@ bindkey '^U' backward-kill-line
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
+bindkey '^P' up-line-or-history
+bindkey '^N' down-line-or-history
+
 # (at least on foot terminal)
-bindkey  "^[[1~" beginning-of-line # home key
-bindkey  "^[[4~" end-of-line # end key
+bindkey "^[[1~" beginning-of-line # home key
+bindkey "^[[4~" end-of-line # end key
 
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd '^R' history-incremental-pattern-search-backward
@@ -63,9 +66,20 @@ cht() {
     curl cht.sh/$1$(shift; (($# > 0)) && echo "/$@" | tr ' ' '+')
 }
 
+if [ -n $TERMUX_VERSION ]; then
+    PROMPT_OS="%F{green}󰀲%f "
+elif [ -f /etc/os-release ]; then
+    source /etc/os-release
+    if [ $ID = arch ]; then
+        PROMPT_OS="%F{cyan}%f "
+    fi
+else
+    PROMPT_OS=
+fi
+
 # prompt
-PROMPT='(%n@%M %F{cyan}%U%2~%u%f) %# '
-RPROMPT='%B%(0?.%F{green}ok%f.%F{red}%?%f) %b %*'
+PROMPT="($PROMPT_OS%F{cyan}%U%2~%u%f) $ "
+RPROMPT="%(0?..%F{red}%?%f 💀)"
 
 zstyle ':completion:*' format 'completing %d'
 zstyle ':completion:*' list-colors ''
