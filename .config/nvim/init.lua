@@ -49,6 +49,9 @@ vim.keymap.set('n', '<C-k>', '<Cmd>bprevious<CR>')
 
 vim.keymap.set('i', 'kj', '<Esc>')
 
+vim.keymap.set('n', '^', '0')
+vim.keymap.set('n', '0', '^')
+
 vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', { desc = 'Yank to system clipboard' })
 vim.keymap.set({'n', 'v'}, '<Leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
