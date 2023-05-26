@@ -240,6 +240,7 @@ bindsym --to-code {
         $mod+Shift+F2 exec playerctl previous
         $mod+Shift+F3 exec playerctl next
         
+        XF86AudioPause exec playerctl pause
         XF86AudioPlay exec playerctl play-pause
         XF86AudioPrev exec playerctl position 5-
         XF86AudioNext exec playerctl position 5+
