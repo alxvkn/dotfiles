@@ -1,5 +1,6 @@
 require('packer').use {
-  { 'nvim-treesitter/nvim-treesitter',
+  {
+    'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup {
@@ -42,6 +43,17 @@ require('packer').use {
               ["<leader>A"] = "@parameter.inner",
             },
           },
+        }
+      }
+    end
+  },
+  {
+    'nvim-treesitter/playground',
+    after = 'nvim-treesitter',
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        playground = {
+          enable = true
         }
       }
     end
