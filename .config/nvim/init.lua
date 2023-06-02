@@ -24,6 +24,16 @@ vim.cmd [[
     augroup end
 ]]
 
+-- https://github.com/neovim/neovim/issues/21771
+local tmux_pwd_fix_augroup = vim.api.nvim_create_augroup('TmuxPwdFix', { clear = true })
+vim.api.nvim_create_autocmd('DirChanged', {
+  group = tmux_pwd_fix_augroup,
+  pattern = '*',
+  callback = function()
+    vim.fn.chansend(vim.v.stderr, '\27]7;' .. vim.v.event.cwd .. '\27\\')
+  end
+})
+
 vim.o.hlsearch = false
 
 -- Russian keys
