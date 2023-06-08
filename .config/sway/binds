@@ -159,7 +159,7 @@ bindsym --to-code {
     $mod+o $set_ru_kb
 }
 
-set $shortcut_mode "shortcuts: [t] - , [b] - , [s] - , [v] - vnc, [y] - mpv $(wl-paste)"
+set $shortcut_mode "shortcuts: [t] - , [b] - , [s] - 󰄜, [v] - vnc, [y] - mpv $(wl-paste)"
 mode $shortcut_mode {
     bindsym --to-code {
         t exec telegram-desktop; mode "default"
