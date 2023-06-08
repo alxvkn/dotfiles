@@ -37,6 +37,9 @@ mode "passthrough" {
 }
 bindsym $mod+Equal mode "passthrough"
 
+# toggle status bar visibility
+bindsym --to-code $mod+b bar main mode toggle
+
 ### Workspace stuff
 bindsym {
     # You guess it
@@ -100,10 +103,7 @@ bindsym --to-code {
     $mod+Shift+Up move up $floating_move_step
     $mod+Shift+Right move right $floating_move_step
 
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    $mod+b splith
+    # vertically split focused window
     $mod+v splitv
 
     # toggle
