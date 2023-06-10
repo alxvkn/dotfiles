@@ -1,1 +1,1 @@
-require('packer').use 'rafamadriz/friendly-snippets' -- snippets themself
+return 'rafamadriz/friendly-snippets' -- snippets themself

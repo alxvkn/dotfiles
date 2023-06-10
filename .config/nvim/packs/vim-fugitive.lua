@@ -1,5 +1,5 @@
 -- git integration
-require('packer').use {
+return {
   {
     'tpope/vim-fugitive',
     config = function()

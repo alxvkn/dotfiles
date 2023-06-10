@@ -1,5 +1,5 @@
 -- highlight and list todo/note/fix etc. comments
-require('packer').use {
+return {
   'folke/todo-comments.nvim',
   config = function()
     require('todo-comments').setup {}

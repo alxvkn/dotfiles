@@ -1,6 +1,7 @@
-require('packer').use {
+return {
   'nvim-lualine/lualine.nvim',
   config = function()
+    vim.o.laststatus = 3
     require('lualine').setup {
       extensions = {
         'toggleterm',

@@ -1,5 +1,5 @@
 -- snippets
-require('packer').use {
+return {
   'L3MON4D3/LuaSnip', -- engine
   config = function()
     require('luasnip').setup {}

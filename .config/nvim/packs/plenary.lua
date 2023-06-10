@@ -1,5 +1,5 @@
 -- lua utility functions required by various plugins
-require('packer').use {
+return {
   'nvim-lua/plenary.nvim',
   module = 'plenary',
 }

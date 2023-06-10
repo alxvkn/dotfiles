@@ -1,3 +1,3 @@
-require('packer').use {
+return {
   'unblevable/quick-scope',
 }

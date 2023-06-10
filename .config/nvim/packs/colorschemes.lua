@@ -1,4 +1,4 @@
-require('packer').use {
+return {
   'RRethy/nvim-base16',
   'dikiaap/minimalist',
   'srcery-colors/srcery-vim',
@@ -12,6 +12,7 @@ require('packer').use {
     'EdenEast/nightfox.nvim',
     config = function()
       print('nightfox\'s config function start')
+      require 'colors'
       require('nightfox').setup {
         options = {
           dim_inactive = true,

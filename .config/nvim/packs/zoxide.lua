@@ -1,3 +1,1 @@
-require('packer').use {
-  'nanotee/zoxide.vim',
-}
+return 'nanotee/zoxide.vim'

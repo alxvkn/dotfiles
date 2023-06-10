@@ -1,7 +1,7 @@
-require('packer').use {
+return {
   {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup {
         highlight = { enable = true },
@@ -12,7 +12,6 @@ require('packer').use {
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
     config = function()
       require('nvim-treesitter.configs').setup {
         textobjects = {
@@ -49,7 +48,6 @@ require('packer').use {
   },
   {
     'nvim-treesitter/playground',
-    after = 'nvim-treesitter',
     config = function()
       require('nvim-treesitter.configs').setup {
         playground = {

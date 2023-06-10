@@ -1,4 +1,4 @@
-require('packer').use {
+return {
   'akinsho/toggleterm.nvim',
   config = function()
     require('toggleterm').setup {

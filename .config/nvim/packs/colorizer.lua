@@ -1,5 +1,5 @@
 -- preview colors
-require('packer').use {
+return {
   'norcalli/nvim-colorizer.lua',
   config = function()
     require('colorizer').setup {}

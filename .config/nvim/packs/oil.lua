@@ -1,4 +1,4 @@
-require('packer').use {
+return {
   'stevearc/oil.nvim',
   config = function()
     require('oil').setup {

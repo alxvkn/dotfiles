@@ -1,5 +1,5 @@
 -- ui for displaying lsp loading progress
-require('packer').use {
+return {
   'j-hui/fidget.nvim',
   config = function()
     require('fidget').setup {
