@@ -1,8 +1,3 @@
-if os.getenv('TERM') ~= 'linux' then
-  vim.o.termguicolors = true
-end
-
-
 -- vim.api.nvim_create_autocmd('ColorScheme', {
 --   group = vim.api.nvim_create_augroup('transparent_bg', {}),
 --   callback = function()

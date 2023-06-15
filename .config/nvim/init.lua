@@ -15,6 +15,10 @@ vim.o.swapfile = false
 vim.o.number = true
 vim.o.relativenumber = true
 
+if os.getenv('TERM') ~= 'linux' then
+  vim.o.termguicolors = true
+end
+
 -- only ignore case in command completion
 vim.cmd [[
     augroup ignorecase_commandmode

@@ -11,7 +11,6 @@ return {
   {
     'EdenEast/nightfox.nvim',
     config = function()
-      print('nightfox\'s config function start')
       require 'colors'
       require('nightfox').setup {
         options = {
