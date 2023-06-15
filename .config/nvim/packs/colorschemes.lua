@@ -1,8 +1,6 @@
 return {
   'RRethy/nvim-base16',
   'dikiaap/minimalist',
-  'srcery-colors/srcery-vim',
-  'nanotech/jellybeans.vim',
   'ntk148v/vim-horizon',
   'rose-pine/neovim',
   'ayu-theme/ayu-vim',
