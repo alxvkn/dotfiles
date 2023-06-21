@@ -4,6 +4,9 @@ alias ls='ls -Fh --color=auto'
 ## make less interpret color sequences
 alias less='less -R'
 
+## human readable sizes
+alias df='df -h'
+
 # actual aliases
 alias ll='ls -l'
 
