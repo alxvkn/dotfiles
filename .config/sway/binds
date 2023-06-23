@@ -209,9 +209,6 @@ bindsym --to-code {
     # Uhh
     XF86PowerOff exec $browser
 
-    # neovide
-    $mod+Shift+n exec neovide
-
     # Open tui mixer
     $mod+F9 exec $term --app-id=tui_mixer -e ncpamixer -t o
 
