@@ -1,0 +1,9 @@
+[Unit]
+Description=Automatically mount connected block devices with udisksctl
+
+[Service]
+Type=simple
+ExecStart=%h/scripts/automount-udisks.sh
+
+[Install]
+WantedBy=default.target
