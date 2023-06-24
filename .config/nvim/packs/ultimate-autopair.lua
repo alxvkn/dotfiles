@@ -1,6 +1,21 @@
 return {
   'altermo/ultimate-autopair.nvim',
-  config = function()
-    require('ultimate-autopair').setup()
-  end
+  opts = {
+    cr = {
+      map = {
+        '<cr>',
+        '<c-j>',
+      }
+    },
+    bs = {
+      map = {
+        '<bs>',
+        '<c-h>',
+      },
+      cmap = {
+        '<bs>',
+        '<c-h>',
+      }
+    }
+  }
 }
