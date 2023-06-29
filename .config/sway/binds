@@ -2,6 +2,8 @@
 
 # Mostly default and self-explanatory
 
+include marks
+
 ### Modes
 # Resize
 set $resize_step 30px
