@@ -198,7 +198,7 @@ bindsym --to-code {
     $mod+d $set_en_kb; exec $launcher
 
     # Small floating terminal window
-    $mod+m exec $term --app-id=floating_terminal
+    $mod+grave exec $term --app-id=floating_terminal
 
     # Terminal
     $mod+Return exec $term
