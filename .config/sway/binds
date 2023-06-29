@@ -159,7 +159,7 @@ bindsym --to-code {
     $mod+o $set_ru_kb
 }
 
-set $shortcut_mode "shortcuts: [t] - , [b] - , [s] - 󰄜, [v] - vnc, [y] - mpv $(wl-paste)"
+set $shortcut_mode "shortcuts: [t] - , [b] - , [s] - 󰄜, [v] - vnc, [y] - mpv $(wl-paste), [d] - 󰙯"
 mode $shortcut_mode {
     bindsym --to-code {
         t exec telegram-desktop; mode "default"
@@ -167,6 +167,7 @@ mode $shortcut_mode {
         s exec scrcpy -K; mode "default"
         v exec vncviewer; mode "default"
         y exec mpv "$(wl-paste)"; mode "default"
+        d exec discord; mode "default"
         Escape mode "default"
         Return mode "default"
     }
