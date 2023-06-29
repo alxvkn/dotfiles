@@ -1,3 +1,7 @@
+# machine-local settings, which make no sense lying on dotfiles repo
+# e.g. monitor setup
+include local/*
+
 ### Variables
 set {
     # Logo key
@@ -106,13 +110,7 @@ include {
     /etc/sway/config.d/*
 }
 
-include {
-    binds
-
-    # machine-local settings, which make no sense lying on dotfiles repo
-    # e.g. monitor setup
-    local/*
-}
+include binds
 
 # binds:177
 for_window [app_id=floating_terminal] {
