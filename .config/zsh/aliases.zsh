@@ -14,10 +14,9 @@ alias ll='ls -l'
 alias n='nvim'
 alias e="$EDITOR"
 alias g='git'
+alias r="source $ZDOTDIR/.zshrc"
+
 alias t='tmux'
 
 alias fuck='doas $(fc -ln -1)'
 
-alias r="source $ZDOTDIR/.zshrc"
-
-source $ZDOTDIR/p.zsh
