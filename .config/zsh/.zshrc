@@ -78,7 +78,7 @@ else
 fi
 
 # prompt
-PROMPT="($PROMPT_OS%F{cyan}%U%2~%u%f) $ "
+PROMPT="┌$PROMPT_OS%n %B%2~%b"$'\n└%# '
 RPROMPT="%(0?..%F{red}%?%f 💀)"
 
 zstyle ':completion:*' format 'completing %d'
