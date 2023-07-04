@@ -67,7 +67,8 @@ cht() {
 }
 
 if [ -n "$TERMUX_VERSION" ]; then
-    PROMPT_OS="%F{green}󰀲%f "
+    # PROMPT_OS="%F{green}󰀲%f "
+    PROMPT_OS="%F{green}%f "
 elif [ -f /etc/os-release ]; then
     source /etc/os-release
     if [ "$ID" = arch ]; then
