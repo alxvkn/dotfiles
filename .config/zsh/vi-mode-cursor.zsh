@@ -8,4 +8,4 @@ zle-keymap-select() {
 }
 zle -N zle-keymap-select
 echo -ne '\e[6 q' # beam on startup
-preexec() { echo -ne '\e[6 q' } # beam on new prompt
+precmd() { echo -ne '\e[6 q' } # beam on new prompt
