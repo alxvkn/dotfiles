@@ -21,6 +21,8 @@ bindkey '^N' down-line-or-history
 bindkey "^[[1~" beginning-of-line # home key
 bindkey "^[[4~" end-of-line # end key
 
+bindkey -M viins kj vi-cmd-mode
+
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M vicmd '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
