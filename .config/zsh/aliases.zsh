@@ -7,6 +7,10 @@ alias less='less -R'
 ## human readable sizes
 alias df='df -h'
 
+if [ -n "$(command -v exa)" ]; then
+    alias ls='exa --icons'
+fi
+
 # actual aliases
 alias ll='ls -l'
 
