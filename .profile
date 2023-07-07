@@ -26,6 +26,10 @@ if [ -d "$HOME/.npm-global" ]; then
     export PATH="$HOME/.npm-global/bin:$PATH"
 fi
 
+if [ -d "$HOME/go/bin" ]; then
+    export PATH="$HOME/go/bin:$PATH"
+fi
+
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 if [ "$(tty)" = '/dev/tty1' ]; then
