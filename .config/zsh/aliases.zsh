@@ -24,3 +24,15 @@ alias t='tmux'
 
 alias fuck='doas $(fc -ln -1)'
 
+timer() {
+    (
+        seconds=$1
+        shift
+        sleep $seconds &&
+            notify-send "timer $seconds seconds" "$*"
+    )& disown
+}
+
+cht() {
+    curl cht.sh/$1$(shift; (($# > 0)) && echo "/$@" | tr ' ' '+')
+}
