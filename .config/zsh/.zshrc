@@ -77,8 +77,7 @@ else
 fi
 
 # prompt
-PROMPT="┌$PROMPT_OS%n %B%2~%b"$'\n└%# '
-RPROMPT="%(0?..%F{red}%?%f 💀)"
+PROMPT="┌$PROMPT_OS%n %B%2~%b %(0?.%F{green}✓%f.💀 %F{red}%?%f) %*"$'\n└%# '
 
 zstyle ':completion:*' completer _expand_alias _complete _correct
 zstyle ':completion:*' matcher-list 'r:|[-_./]=** r:|=*'
