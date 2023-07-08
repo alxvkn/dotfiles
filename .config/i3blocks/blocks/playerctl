@@ -7,6 +7,7 @@ playerctl -p "%any" -F status | while read status; do
         ICON=
     else
         echo
+        continue
     fi
     echo "$ICON $(playerctl metadata -f '{{artist}} - {{title}}')"
 done &
