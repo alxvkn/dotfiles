@@ -1,21 +1,43 @@
 #!/bin/sh
 
-playerctl -p "%any" -F status | while read status; do
+on_update() {
+    status="$1"
     if [ "$status" = Playing ]; then
         ICON=
     elif [ "$status" = Paused ]; then
         ICON=
     else
         echo
-        continue
+        return
     fi
-    echo "$ICON $(playerctl metadata -f '{{artist}} - {{title}}')"
+    ARTIST="$(playerctl metadata -f '{{artist}}')"
+    TITLE="$(playerctl metadata -f '{{title}}')"
+
+    INFO="$TITLE"
+    if [ -n "$ARTIST" ]; then
+        INFO="$ARTIST - $INFO"
+    else
+        INFO="$(playerctl metadata -f '{{playerName}}'): $INFO"
+    fi
+
+    echo "$ICON $INFO"
+}
+
+playerctl -F status | while read status; do
+    on_update "$status"
+done &
+
+playerctl -F metadata -f '{{title}}' | while read title; do
+    on_update "$(playerctl status)"
 done &
 
 while read button; do
     case $button in
         1)
             playerctl play-pause
+            ;;
+        2)
+            echo # hide before status changes
             ;;
         4)
             playerctl position 5-
