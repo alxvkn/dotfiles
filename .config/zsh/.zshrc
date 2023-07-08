@@ -80,7 +80,8 @@ fi
 PROMPT="┌$PROMPT_OS%n %B%2~%b"$'\n└%# '
 RPROMPT="%(0?..%F{red}%?%f 💀)"
 
-zstyle ':completion:*' completer _expand_alias _complete
+zstyle ':completion:*' completer _expand_alias _complete _correct
+zstyle ':completion:*' matcher-list 'r:|[-_./]=** r:|=*'
 zstyle ':completion:*' format 'completing %d'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' menu select=1
