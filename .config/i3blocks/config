@@ -17,6 +17,7 @@ interval=persist
 [playerctl]
 command=$SCRIPT_DIR/playerctl
 interval=persist
+markup=pango
 
 [gputemp]
 command=echo gpu: $(~/scripts/gputemp.sh)
@@ -39,7 +40,6 @@ LABEL=󰄜
 command=$SCRIPT_DIR/adb
 interval=persist
 markup=pango
-format=raw
 
 [diskspace#root]
 LABEL=
