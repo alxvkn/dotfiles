@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd('DirChanged', {
 })
 
 vim.o.hlsearch = false
+vim.o.conceallevel = 2
 
 -- Russian keys
 vim.o.langmap = 'ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;\'zxcvbnm\\,.,ЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>'
