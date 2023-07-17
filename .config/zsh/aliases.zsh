@@ -24,6 +24,11 @@ alias t='tmux'
 
 alias fuck='doas $(fc -ln -1)'
 
+alias aunlock='adb shell input text $(cat ~/.phonepin)'
+alias alock='adb shell input keyevent POWER'
+
+alias aopen='adb shell am start -a android.intent.action.VIEW -d'
+
 timer() {
     (
         seconds=$1
