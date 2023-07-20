@@ -20,8 +20,8 @@ else
 fi
 
 if [ -n "$CHARGING" ]; then
-    # BATTERY=󰂄
-    BATTERY=󰂅
+    # BATTERY=󰂅
+    BATTERY=󰂄
     BATTERY='<span fgcolor="'$COLOR'">'$BATTERY'</span>'
 else
     BATTERY=󰁹
