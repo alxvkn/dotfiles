@@ -43,7 +43,10 @@ def icon_for_window(window):
 
 def rename_workspaces(ipc):
     for workspace in ipc.get_tree().workspaces():
-        name_parts = parse_workspace_name(workspace.name)
+        try:
+            name_parts = parse_workspace_name(workspace.name)
+        except Exception:
+            continue
         icon_tuple = ()
         for w in workspace:
             if w.app_id is not None or w.window_class is not None:

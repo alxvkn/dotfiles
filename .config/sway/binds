@@ -69,6 +69,8 @@ bindsym {
     $mod+Shift+0 move container to workspace number 10
 }
 
+include any-letter-workspace
+
 # Workspace cycling with $mod+{,Shift}+Tab and $mod+{p,n}
 bindsym --to-code {
     $mod+Shift+Tab workspace prev

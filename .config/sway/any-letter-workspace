@@ -1,0 +1,57 @@
+# vim: ft=swayconfig
+
+bindsym --to-code {
+    $mod+Control+q workspace q
+    $mod+Control+w workspace w
+    $mod+Control+e workspace e
+    $mod+Control+r workspace r
+    $mod+Control+t workspace t
+    $mod+Control+y workspace y
+    $mod+Control+u workspace u
+    $mod+Control+i workspace i
+    $mod+Control+o workspace o
+    $mod+Control+p workspace p
+    $mod+Control+a workspace a
+    $mod+Control+s workspace s
+    $mod+Control+d workspace d
+    $mod+Control+f workspace f
+    $mod+Control+g workspace g
+    $mod+Control+h workspace h
+    $mod+Control+j workspace j
+    $mod+Control+k workspace k
+    $mod+Control+l workspace l
+    $mod+Control+z workspace z
+    $mod+Control+x workspace x
+    $mod+Control+c workspace c
+    $mod+Control+v workspace v
+    $mod+Control+b workspace b
+    $mod+Control+n workspace n
+    $mod+Control+m workspace m
+
+    $mod+Control+Shift+q move container to workspace q
+    $mod+Control+Shift+w move container to workspace w
+    $mod+Control+Shift+e move container to workspace e
+    $mod+Control+Shift+r move container to workspace r
+    $mod+Control+Shift+t move container to workspace t
+    $mod+Control+Shift+y move container to workspace y
+    $mod+Control+Shift+u move container to workspace u
+    $mod+Control+Shift+i move container to workspace i
+    $mod+Control+Shift+o move container to workspace o
+    $mod+Control+Shift+p move container to workspace p
+    $mod+Control+Shift+a move container to workspace a
+    $mod+Control+Shift+s move container to workspace s
+    $mod+Control+Shift+d move container to workspace d
+    $mod+Control+Shift+f move container to workspace f
+    $mod+Control+Shift+g move container to workspace g
+    $mod+Control+Shift+h move container to workspace h
+    $mod+Control+Shift+j move container to workspace j
+    $mod+Control+Shift+k move container to workspace k
+    $mod+Control+Shift+l move container to workspace l
+    $mod+Control+Shift+z move container to workspace z
+    $mod+Control+Shift+x move container to workspace x
+    $mod+Control+Shift+c move container to workspace c
+    $mod+Control+Shift+v move container to workspace v
+    $mod+Control+Shift+b move container to workspace b
+    $mod+Control+Shift+n move container to workspace n
+    $mod+Control+Shift+m move container to workspace m
+}
