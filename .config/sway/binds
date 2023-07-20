@@ -213,7 +213,7 @@ bindsym --to-code {
     XF86PowerOff exec $browser
 
     # Open tui mixer
-    $mod+F9 exec $term --app-id=tui_mixer -e ncpamixer -t o
+    $mod+F9 exec $term --app-id=tui_mixer -e pulsemixer
 
     # Screenshots
     Print exec "~/scripts/wayland_screenshot.sh"
