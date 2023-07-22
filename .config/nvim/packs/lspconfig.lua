@@ -29,8 +29,22 @@ return {
       }
     end
     -- servers that need some extra configuration
+    lspconfig.denols.setup {
+      on_attach = function(client, bufnr)
+        if lspconfig.util.root_pattern('package.json')(vim.fn.getcwd()) then
+          client.stop()
+        end
+        on_attach(client, bufnr)
+      end,
+      capabilities = capabilities,
+    }
     lspconfig.tsserver.setup {
-      on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        if lspconfig.util.root_pattern('deno.json', 'deno.jsonc')(vim.fn.getcwd()) then
+          client.stop()
+        end
+        on_attach(client, bufnr)
+      end,
       capabilities = capabilities,
       filetypes = {
         'javascript',
