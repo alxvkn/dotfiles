@@ -1,3 +1,32 @@
+format=<sub>%a</sub>\n<b>%s</b>\n%b
+
+font=IosevkaMedium 11
+
 background-color=#222222aa
-border-color=#aaaaaa
-anchor=bottom-right
+border-color=#ffffff55
+
+border-size=2
+border-radius=10
+# width=500
+
+anchor=top-right
+
+icon-location=right
+
+max-visible=-1
+
+# layer=overlay
+
+on-notify=exec playsound /usr/share/sounds/freedesktop/stereo/message.oga
+
+[app-name=Spotify]
+on-notify=none
+width=400
+height=300
+padding=10
+font=IosevkaMedium 11
+text-alignment=center
+max-icon-size=150
+border-color=#1ED760
+background-color=#002000aa
+format=<span size="25pt" color="#1ED760"></span>\n<b>%s</b>\n%b
