@@ -18,7 +18,7 @@ alias ll='ls -l'
 alias n='nvim'
 alias e="$EDITOR"
 alias g='git'
-alias r="source $ZDOTDIR/.zshrc"
+alias r="source ~/.zshrc"
 
 alias t='tmux'
 
