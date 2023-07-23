@@ -7,7 +7,7 @@ border-color=#ffffff55
 
 border-size=2
 border-radius=10
-# width=500
+width=300
 
 anchor=top-right
 
@@ -24,9 +24,8 @@ on-notify=none
 width=400
 height=300
 padding=10
-font=IosevkaMedium 11
 text-alignment=center
-max-icon-size=150
+max-icon-size=128
 border-color=#1ED760
 background-color=#002000aa
-format=<span size="25pt" color="#1ED760"></span>\n<b>%s</b>\n%b
+format=<span size="20pt" color="#1ED760"></span>\n<b>%s</b>\n%b
