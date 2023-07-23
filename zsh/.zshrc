@@ -46,9 +46,9 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd ' e' edit-command-line
 
-source $ZDOTDIR/aliases.zsh
+source ~/.config/zsh/aliases.zsh
 
-source $ZDOTDIR/vi-mode-cursor.zsh
+source ~/.config/zsh/vi-mode-cursor.zsh
 
 # toggle doas at line beginning
 toggle-doas() {
@@ -111,10 +111,16 @@ if [ -n "$(command -v zoxide)" ]; then
     eval "$(zoxide init zsh)"
 fi
 
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if ! [ -f ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
+fi
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if ! [ -f ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/plugins/zsh-syntax-highlighting
+fi
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 # https://git.kernel.org/pub/scm/git/git.git/plain/contrib/completion/git-completion.zsh
