@@ -1,0 +1,35 @@
+(deflisten workspaces
+  "$HOME/.config/eww/scripts/hyprland-workspaces.sh")
+
+(deflisten active_workspace
+  "$HOME/.config/eww/scripts/hyprland-active-workspace.sh")
+
+(defwidget workspaces []
+  (eventbox
+    :onscroll { ; TODO: !!
+    "{}" == "down" ?
+    "echo {} hyprctl dispatch workspace +1"
+    :
+    "echo hyprctl dispatch workspace -1"
+    }
+    (box
+      (box :class "workspaces"
+           :halign "start"
+           :space-evenly false
+        (for workspace in {workspaces}
+          (button
+            :class {active_workspace.id == workspace.id ?
+            "workspace-button active" :
+            "workspace-button"}
+            :onclick "hyprctl dispatch workspace ${workspace.id}"
+            {workspace.name})
+          )
+        )
+      ;; without this, eww ignores the active_workspace variable
+      (label :text "${active_workspace.name}"
+             :visible false
+        )
+      )
+    )
+  )
+
