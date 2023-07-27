@@ -27,6 +27,10 @@ bindkey '^U' backward-kill-line
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
+# save current command line and clear the buffer
+# to execute another command and then continue editing
+bindkey '^Z' push-line
+
 bindkey '^P' up-line-or-history
 bindkey '^N' down-line-or-history
 
