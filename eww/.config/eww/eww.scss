@@ -26,6 +26,10 @@ tooltip {
     color: black;
 }
 
+label {
+    padding: 0 8;
+}
+
 .discord {
     transition-property: background;
     transition-duration: 0.3s;
@@ -35,7 +39,6 @@ tooltip {
 .workspace-button {
     color: white;
     background: black;
-    padding: 0 8;
     transition-duration: 0.3s;
     border-radius: 0;
     border: none;
@@ -48,7 +51,7 @@ tooltip {
 }
 
 .workspace-button.active {
-    box-shadow: inset 0 -2px white;
+    box-shadow: inset 0 -2px red;
     background: #555;
     color: white;
 }
