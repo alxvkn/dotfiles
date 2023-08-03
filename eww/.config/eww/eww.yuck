@@ -61,7 +61,9 @@
     "topbar"
     }
     (workspaces)
-    (label :text {active_window.title == "null" ? "" : active_window.title})
+    (label
+      :text {active_window.title == "null" ? "" : active_window.title}
+      :class "active_window")
     (datetime :halign "end")
     )
   )
