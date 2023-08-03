@@ -58,6 +58,10 @@
     ?
     "discord topbar"
     :
+    active_window.class == "org.telegram.desktop"
+    ?
+    "telegram topbar"
+    :
     "topbar"
     }
     (workspaces)
