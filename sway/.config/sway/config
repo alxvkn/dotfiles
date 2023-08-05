@@ -68,7 +68,7 @@ client.focused_inactive #000000 $bg     #aaaaaa
 client.unfocused        #000000 $bg     #aaaaaa             #000000
 
 # Gaps
-gaps inner 10px
+gaps inner 0px
 # smart_gaps on
 
 # Borders
@@ -84,14 +84,14 @@ bar {
     id main
     # status_command ~/dev/bstatus/main.py
     status_command SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
-    separator_symbol ' ん '
+    separator_symbol ' $ '
     position top
 
     height 20
     strip_workspace_numbers no
     workspace_min_width 24
 
-    gaps 10px
+    gaps 0px
     colors {
         background          #00000000
         statusline          $fg
