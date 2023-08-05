@@ -82,19 +82,20 @@ zle -N _fuck
 bindkey '^M' _fuck
 
 if [ -n "$TERMUX_VERSION" ]; then
-    # PROMPT_OS="%F{green}󰀲%f "
-    PROMPT_OS="%F{green}%f "
+    # 󰀲
+    PROMPT_HOST=""
 elif [ -f /etc/os-release ]; then
     source /etc/os-release
+    # TODO: desktop detection adjustment
     if [ "$ID" = arch ]; then
-        PROMPT_OS="%F{cyan}%f "
+        PROMPT_HOST=''
     fi
 else
-    PROMPT_OS=
+    PROMPT_HOST='%m'
 fi
 
 # prompt
-PROMPT="┌$PROMPT_OS%n %B%2~%b %(0?.%F{green}✓%f.💀 %F{red}%?%f) %*"$'\n└%# '
+PROMPT="%S┌$PROMPT_HOST  %s %n%F{blue} %B%2~%b%f %(0?.%F{green}✓%f.💀 %F{red}%?%f)"$'\n└%# '
 
 zstyle ':completion:*' completer _expand_alias _complete _correct
 zstyle ':completion:*' matcher-list 'r:|[-_./]=** r:|=*'
