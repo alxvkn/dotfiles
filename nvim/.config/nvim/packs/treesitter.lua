@@ -8,7 +8,6 @@ return {
         indent = { enable = true },
       }
     end,
-    event = 'BufRead',
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
