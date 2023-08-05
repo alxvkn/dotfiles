@@ -1,5 +1,7 @@
 return {
   'nvim-neorg/neorg',
+  cmd = 'Neorg',
+  keys = '<Leader>n',
   config = function()
     require('neorg').setup {
       load = {
