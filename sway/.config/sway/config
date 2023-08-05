@@ -122,6 +122,8 @@ for_window [app_id=floating_terminal] {
     move position 25 ppt 10 ppt
 }
 
+for_window [class=scrcpy] floating enable
+
 # HOLY FUCK IT REALLY DID WORK OUT!!!
 # telegram's tray icon's context menu has the
 # same app_id as the actual telegram window,
