@@ -74,12 +74,11 @@ vim.keymap.set('n', '0', '^')
 vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', { desc = 'Yank to system clipboard' })
 vim.keymap.set({'n', 'v'}, '<Leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
-vim.o.guifont = 'Fira Code:h10'
+vim.o.guifont = 'Iosevka Medium:h11'
 
 vim.o.title = true
 
 if vim.g.neovide then
-  vim.g.neovide_transparency = 0.8
   vim.g.neovide_cursor_vfx_mode = 'sonicboom'
   vim.g.neovide_cursor_animation_length = 0.15
   vim.g.neovide_cursor_trail_size = 0.3
