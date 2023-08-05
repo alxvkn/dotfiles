@@ -25,7 +25,7 @@ done &
 while read button; do
     case $button in
         1)
-            scrcpy > /dev/null &
+            scrcpy --no-audio > /dev/null &
             ;;
         2)
             adb shell input text $(cat ~/.phonepin)
