@@ -150,10 +150,6 @@ exec swayidle before-sleep swaylock
 
 ### Autostart
 exec {
-    # script distributed with sway, with icons defined
-    # TODO: improve handling of closing last window on the workspace
-    ~/.config/sway/autoname-workspaces.py
-
     # Sway's "exec" command has one not that much documented feature:
     #   If exact process that was started with it creates a window
     #   then the window will be placed on workspace that was focused when it was called
