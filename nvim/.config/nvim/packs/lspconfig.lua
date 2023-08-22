@@ -30,6 +30,7 @@ return {
     end
     -- servers that need some extra configuration
     lspconfig.denols.setup {
+      root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
       on_attach = function(client, bufnr)
         if lspconfig.util.root_pattern('package.json')(vim.fn.getcwd()) then
           client.stop()
