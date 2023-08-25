@@ -32,6 +32,8 @@ bindkey -M vicmd '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
 bindkey -M vicmd '^F' history-incremental-pattern-search-forward
 
+autoload -Uz colors && colors
+
 # edit in $EDITOR with <space>e
 autoload -Uz edit-command-line
 zle -N edit-command-line
