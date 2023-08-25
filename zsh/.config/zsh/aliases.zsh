@@ -29,6 +29,26 @@ alias alock='adb shell input keyevent POWER'
 
 alias aopen='adb shell am start -a android.intent.action.VIEW -d'
 
+hi() (
+    set -e
+    exit() {
+        if [ $? != 0 ]; then
+            echo $fg[red]something went wrong$fg[default]
+        else
+            echo all $bg[green]$fg[black]done$fg[default]$bg[default]!
+        fi
+    }
+    trap exit EXIT
+    echo hiiii
+    cd ~/.dotfiles
+    echo pulling $fg[blue]dotfiles$fg[default] updates
+    git pull
+    echo
+    echo updating $fg[cyan]Neo$fg[green]vim$fg[default] plugins
+    nvim --headless +'Lazy! sync' +qa
+    echo
+)
+
 timer() {
     (
         seconds=$1
