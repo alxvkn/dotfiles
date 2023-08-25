@@ -34,7 +34,7 @@ timer() {
         seconds=$1
         shift
         sleep $seconds &&
-            notify-send "timer $seconds seconds" "$*"
+            notify-send "timer $seconds seconds $*"
     )& disown
 }
 
