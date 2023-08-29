@@ -9,6 +9,7 @@
     ss = status -s
     co = checkout
     ci = commit
+    lsf = ls-files
     unstage = restore --staged
 [url "https://github.com/"]
     insteadOf = ghttps:
