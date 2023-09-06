@@ -57,6 +57,8 @@ gg() {
         fi
     fi
 }
+zle -N gg
+bindkey -M viins ^g gg
 
 timer() {
     (
