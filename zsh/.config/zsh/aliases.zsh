@@ -49,6 +49,15 @@ hi() (
     echo
 )
 
+gg() {
+    if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]; then
+        FILE="$(git ls-files | fzy)"
+        if [ -n "$FILE" ]; then
+            nvim "$FILE"
+        fi
+    fi
+}
+
 timer() {
     (
         seconds=$1
