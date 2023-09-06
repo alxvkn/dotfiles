@@ -45,7 +45,7 @@ hi() (
     git pull
     echo
     echo updating $fg[cyan]Neo$fg[green]vim$fg[default] plugins
-    nvim --headless +'Lazy! sync' +qa
+    nvim --headless +'Lazy! sync' +TSUpdateSync +qa
     echo
 )
 
