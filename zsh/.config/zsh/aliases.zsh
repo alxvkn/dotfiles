@@ -57,8 +57,6 @@ jg() {
         fi
     fi
 }
-zle -N jg
-bindkey -M viins ^j jg
 
 timer() {
     (
