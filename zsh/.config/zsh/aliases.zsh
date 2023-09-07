@@ -49,7 +49,7 @@ hi() (
     echo
 )
 
-gg() {
+jg() {
     if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]; then
         FILE="$(git ls-files | fzy)"
         if [ -n "$FILE" ]; then
@@ -57,8 +57,8 @@ gg() {
         fi
     fi
 }
-zle -N gg
-bindkey -M viins ^g gg
+zle -N jg
+bindkey -M viins ^j jg
 
 timer() {
     (
