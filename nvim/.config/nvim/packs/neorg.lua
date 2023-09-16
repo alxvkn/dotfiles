@@ -1,7 +1,10 @@
 return {
   'nvim-neorg/neorg',
   cmd = 'Neorg',
-  keys = '<Leader>n',
+  keys = {
+    '<Leader>n',
+    '<Leader>N',
+  },
   config = function()
     require('neorg').setup {
       load = {
@@ -20,12 +23,14 @@ return {
           config = {
             default_workspace = 'notes',
             workspaces = {
-              notes = '~/documents/neorg/notes'
+              notes = '~/documents/neorg/notes',
+              college = '~/documents/neorg/college'
             }
           }
         }
       },
     }
     vim.keymap.set('n', '<Leader>n', vim.cmd['Neorg'])
+    vim.keymap.set('n', '<Leader>N', ':Neorg ')
   end,
 }
