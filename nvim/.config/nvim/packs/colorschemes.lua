@@ -5,6 +5,7 @@ return {
   'ayu-theme/ayu-vim',
   'kdheepak/monochrome.nvim',
   'projekt0n/github-nvim-theme',
+  'ellisonleao/gruvbox.nvim',
   {
     'rose-pine/neovim',
     config = function()
