@@ -19,6 +19,7 @@ return {
         ['core.completion'] = {
           config = { engine = 'nvim-cmp' },
         },
+        ['core.export'] = {},
         ['core.dirman'] = {
           config = {
             default_workspace = 'notes',
