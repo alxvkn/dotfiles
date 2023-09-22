@@ -25,7 +25,7 @@ return {
           config = {
             default_workspace = 'notes',
             workspaces = {
-              notes = '~/documents/neorg/notes',
+              notes = '~/documents/notes/neorg',
               college = '~/documents/college/neorg'
             }
           }
