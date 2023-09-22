@@ -51,6 +51,9 @@ vim.o.langmap = 'ёйцукенгшщзхъфывапролджэячсмить�
 vim.o.keymap = 'russian-jcukenwin'
 vim.o.iminsert = 0 -- disable alternative keymap by default
 
+vim.keymap.set('i', 'kj', '<Esc>')
+vim.keymap.set('i', '<c-o>', '<c-^>')
+
 vim.cmd.cabbrev('ц', 'w')
 vim.cmd.cabbrev('й', 'q')
 vim.cmd.cabbrev('цй', 'wq')
@@ -65,8 +68,6 @@ vim.keymap.set('t', '<A-[>', '<C-\\><C-N>')
 
 vim.keymap.set('n', '<C-j>', '<Cmd>bnext<CR>')
 vim.keymap.set('n', '<C-k>', '<Cmd>bprevious<CR>')
-
-vim.keymap.set('i', 'kj', '<Esc>')
 
 vim.keymap.set('n', '^', '0')
 vim.keymap.set('n', '0', '^')
