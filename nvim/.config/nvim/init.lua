@@ -23,14 +23,16 @@ if os.getenv('TERM') ~= 'linux' then
   vim.o.termguicolors = true
 end
 
--- only ignore case in command completion
-vim.cmd [[
-    augroup ignorecase_commandmode
-        autocmd!
-        autocmd CmdLineEnter : let &ignorecase = 1
-        autocmd CmdLineLeave : let &ignorecase = 0
-    augroup end
-]]
+vim.o.ignorecase = 1
+
+-- -- only ignore case in command completion
+-- vim.cmd [[
+--     augroup ignorecase_commandmode
+--         autocmd!
+--         autocmd CmdLineEnter : let &ignorecase = 1
+--         autocmd CmdLineLeave : let &ignorecase = 0
+--     augroup end
+-- ]]
 
 -- https://github.com/neovim/neovim/issues/21771
 local tmux_pwd_fix_augroup = vim.api.nvim_create_augroup('TmuxPwdFix', { clear = true })
