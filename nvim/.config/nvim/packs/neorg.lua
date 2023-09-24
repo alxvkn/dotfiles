@@ -21,6 +21,11 @@ return {
           config = { engine = 'nvim-cmp' },
         },
         ['core.export'] = {},
+        ['core.export.markdown'] = {
+          config = {
+            extensions = 'all',
+          }
+        },
         ['core.dirman'] = {
           config = {
             default_workspace = 'notes',
@@ -29,7 +34,9 @@ return {
               college = '~/documents/college/neorg'
             }
           }
-        }
+        },
+        -- NOTE: wait for neovim 0.10.0
+        -- ['core.tempus'] = {},
       },
     }
     vim.keymap.set('n', '<Leader>n', vim.cmd['Neorg'])
