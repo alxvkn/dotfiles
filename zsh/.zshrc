@@ -129,6 +129,12 @@ fi
 # TODO: port and kinda finish note script from bashrc
 # create a todo script
 
+if [ -n "$(command -v tmux)" ]; then
+    if [ -z "$TMUX" ]; then
+        tmux attach || tmux
+    fi
+fi
+
 # test -f ~/TODO.md && cat ~/TODO.md
 
 # pywal colors
