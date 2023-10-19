@@ -2,9 +2,9 @@
 # ~/.profile
 #
 
-if [ -n $(command -v nvim) ]; then
+if [ -n "$(command -v nvim)" ]; then
     export VISUAL="nvim --noplugin -u $HOME/.config/min-nvim/init.lua"
-elif [ -n $(command -v vim) ]; then
+elif [ -n "$(command -v vim)" ]; then
     export VISUAL=vim
 else
     export VISUAL=vi
@@ -26,7 +26,7 @@ fi
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 if [ "$(tty)" = '/dev/tty1' ]; then
-    COMPOSITOR=sway
+    COMPOSITOR=Hyprland
     if [ -n "$(command -v $COMPOSITOR)" ]; then
         echo starting "$COMPOSITOR"
         exec "$COMPOSITOR"
