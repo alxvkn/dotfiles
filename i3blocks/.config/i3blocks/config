@@ -19,10 +19,6 @@ command=$SCRIPT_DIR/playerctl
 interval=persist
 markup=pango
 
-[gputemp]
-command=echo gpu: $(~/scripts/gputemp.sh)
-interval=2
-
 [memfree]
 command=free -h | awk '/Mem/{print "mem: " $3 " used"}'
 interval=2
