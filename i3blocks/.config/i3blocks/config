@@ -46,8 +46,7 @@ interval=2
 [pulseaudio]
 command=$SCRIPT_DIR/pulseaudio
 interval=persist
-min_width=50
-align=center
+min_width=36
 
 [date]
 # command=date '+%Y-%m-%d %H:%M:%S'
