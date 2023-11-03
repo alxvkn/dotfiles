@@ -1,4 +1,4 @@
-format=<sub>%a</sub>\n<b>%s</b>\n%b
+format=%a\n<b>%s</b>\n%b
 
 font=IosevkaMedium 11
 
