@@ -10,6 +10,8 @@ else
     export VISUAL=vi
 fi
 
+export MOZ_ENABLE_WAYLAND=1
+
 export EDITOR="$VISUAL"
 
 export WINEDLLOVERRIDES=winemenubuilder.exe=d
