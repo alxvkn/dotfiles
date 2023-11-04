@@ -1,2 +1,13 @@
 map <c-z> $ kill -STOP $PPID
 map D delete
+
+cmd z %{{
+    res="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$res\""
+}}
+
+cmd zi ${{
+    res="$(zoxide query -i)"
+    lf -remote "send $id cd \"$res\""
+}}
+map Z zi
