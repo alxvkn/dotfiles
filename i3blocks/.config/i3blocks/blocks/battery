@@ -1,0 +1,62 @@
+#!/bin/sh
+
+if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
+    CHARGE_NOW=$(cat /sys/class/power_supply/BAT0/charge_now)
+    CHARGE_FULL=$(cat /sys/class/power_supply/BAT0/charge_full)
+    STATUS=$(cat /sys/class/power_supply/BAT0/status)
+
+    percentage=$((CHARGE_NOW * 100 / CHARGE_FULL))
+
+    if [ "$STATUS" = Full ]; then
+        icon=󱟢
+        icon_color='<span color="#aaffaa">󱟢</span>' 
+    elif [ "$STATUS" = Charging ]; then
+        case $((percentage / 10)) in
+            0) icon=󰢟 ;;
+            1) icon=󰢜 ;;
+            2) icon=󰂆 ;;
+            3) icon=󰂇 ;;
+            4) icon=󰂈 ;;
+            5) icon=󰢝 ;;
+            6) icon=󰂉 ;;
+            7) icon=󰢞 ;;
+            8) icon=󰂊 ;;
+            9) icon=󰂋 ;;
+            10) icon=󰂄
+                icon_color='<span color="#aaffaa">󰂄</span>'
+                ;;
+        esac
+    else
+        case $((percentage / 10)) in
+            0) icon=󰂎
+                icon_color='<span color="#ffaaaa">󱃍</span>'
+                ;;
+            1) icon=󰁺 ;;
+            2) icon=󰁻 ;;
+            3) icon=󰁼 ;;
+            4) icon=󰁽 ;;
+            5) icon=󰁾 ;;
+            6) icon=󰁿 ;;
+            7) icon=󰂀 ;;
+            8) icon=󰂁 ;;
+            9) icon=󰂂 ;;
+            10) icon=󱟢
+                icon_color='<span color="#aaffaa">󱟢</span>'
+                ;;
+        esac
+    fi
+    if [ -z "$icon_color" ]; then
+        icon_color="$icon"
+    fi
+
+    if [ "$button" ]; then
+        notify-send -h int:value:$percentage \
+            -a "$icon Battery" \
+            -c battery-$STATUS \
+            -t 7500 "$(acpi | cut -d ' ' -f 3-)"
+    fi
+
+    echo $icon_color $percentage%
+else
+    exit 1
+fi

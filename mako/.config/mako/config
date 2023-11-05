@@ -8,6 +8,7 @@ border-color=#ffffff55
 border-size=2
 border-radius=10
 width=300
+height=500
 
 anchor=top-right
 
@@ -17,7 +18,19 @@ max-visible=-1
 
 # layer=overlay
 
-on-notify=exec playsound /usr/share/sounds/freedesktop/stereo/message.oga
+on-notify=exec sh -c 'pkill -9 playsound; playsound /usr/share/sounds/freedesktop/stereo/message.oga'
+
+[category=battery-Full]
+progress-color=#00000000
+
+[category=battery-Charging]
+progress-color=#448844
+
+[category=battery-Discharging]
+progress-color=#888844
+
+[category=calendar]
+background-color=#000000
 
 [app-name=Spotify]
 on-notify=none

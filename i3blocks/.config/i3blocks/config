@@ -37,6 +37,11 @@ command=$SCRIPT_DIR/adb
 interval=persist
 markup=pango
 
+[battery]
+command=$SCRIPT_DIR/battery
+interval=5
+markup=pango
+
 [diskspace#root]
 LABEL=
 MOUNTPOINT=/
