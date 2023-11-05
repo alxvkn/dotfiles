@@ -53,4 +53,16 @@ pactl subscribe |
     while read void
     do
         on_update
-    done
+    done &
+
+while read button; do
+    case $button in
+        1) pactl set-sink-mute 0 toggle
+            ;;
+        4) pactl set-sink-volume 0 +5%
+            ;;
+        5) pactl set-sink-volume 0 -5%
+            ;;
+    esac
+done
+
