@@ -8,6 +8,7 @@
     s = status
     ss = status -s
     co = checkout
+    b = branch
     ci = commit
     lsf = ls-files
     unstage = restore --staged
