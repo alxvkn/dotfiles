@@ -59,6 +59,11 @@ jg() {
     fi
 }
 
+jdf() {
+    cd ~/.dotfiles
+    jg
+}
+
 timer() {
     (
         seconds=$1
