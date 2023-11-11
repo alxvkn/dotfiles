@@ -19,6 +19,7 @@ alias n='nvim'
 alias e="$EDITOR"
 alias g='git'
 alias r="source ~/.zshrc"
+alias o=xdg-open
 
 alias t='tmux'
 
