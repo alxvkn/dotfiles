@@ -12,6 +12,17 @@ set {
     $down j
     $up k
     $right l
+}
+
+set {
+    $set_en_kb input type:keyboard xkb_switch_layout 0
+    $set_ru_kb input type:keyboard xkb_switch_layout 1
+
+    $wallpaper $(find ~/.local/share/backgrounds/ | shuf -n 1)
+
+    # lock command
+    $lock swaylock -i $wallpaper -s fill
+    $lock_with_screen_timeout 'swayidle timeout 4 "swaymsg output \* power off" resume "swaymsg output \* power on" & swaylock -i $wallpaper -s fill; kill %1'
 
     # Browser
     $browser browser

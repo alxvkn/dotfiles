@@ -154,10 +154,6 @@ floating_modifier $mod normal
 bindsym --to-code $mod+Shift+c reload
 
 # Switch to one of keyboard layouts
-set {
-    $set_en_kb input type:keyboard xkb_switch_layout 0
-    $set_ru_kb input type:keyboard xkb_switch_layout 1
-}
 bindsym --to-code {
     $mod+i $set_en_kb
     $mod+o $set_ru_kb
