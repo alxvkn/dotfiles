@@ -53,6 +53,10 @@ command=$SCRIPT_DIR/pulseaudio
 interval=persist
 min_width=36
 
+[sway/keyboard_layout]
+command=$SCRIPT_DIR/sway/keyboard_layout
+interval=persist
+
 [date]
 command=[ "$button" ] && notify-send -t 20000 -c calendar -a Calendar "$(cal)"; date '+%a %d.%m.%Y %X'
 # command=date '+%A %x %X'

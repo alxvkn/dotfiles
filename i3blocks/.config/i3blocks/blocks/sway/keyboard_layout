@@ -1,0 +1,42 @@
+#!/bin/sh
+
+get_layout_name() {
+    jq_filter='[.[] | select(.type == "keyboard")][0].xkb_active_layout_name'
+    swaymsg -t get_inputs | jq -r --unbuffered "$jq_filter"
+}
+
+if [ -n "$NOEMOJI" ]; then
+short_name() {
+    sed --unbuffered \
+'s/English (US)/en/;'\
+'s/Russian/ru/;'
+}
+else
+short_name() {
+    sed --unbuffered \
+'s/English (US)/🇺🇸/;'\
+'s/Russian/🇷🇺/;'
+}
+fi
+
+on_layout_update() {
+    jq -r --unbuffered 'select(.change == "xkb_layout").input.xkb_active_layout_name'
+}
+
+get_layout_name | short_name
+
+swaymsg -mt subscribe '["input"]' | on_layout_update | short_name &
+
+while read button; do
+    case $button in
+        1 | 5)
+            swaymsg 'input type:keyboard xkb_switch_layout next'
+            ;;
+        3)
+            notify-send "$(get_layout_name)" -t 1000 -a ''
+            ;;
+        4)
+            swaymsg 'input type:keyboard xkb_switch_layout prev'
+            ;;
+    esac
+done 2>&1 >/dev/null 
