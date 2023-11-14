@@ -55,6 +55,8 @@ pactl subscribe |
         on_update
     done &
 
+on_update
+
 while read button; do
     case $button in
         1) pactl set-sink-mute 0 toggle
