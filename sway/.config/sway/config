@@ -68,9 +68,10 @@ include ~/.cache/wal/colors-sway
 set {
     $bg #0C0C10
     $fg #ffffff
-    $bg $background
-    $fg $foreground
+    # $bg $background
+    # $fg $foreground
     $inactive_fg $color2
+    $inactive_fg #444444
 }
 
 # class                 border  bg      text    indicator   child_border
@@ -88,7 +89,7 @@ default_border pixel 1
 default_floating_border normal 1
 
 # Wallpaper
-output * bg $wallpaper tile
+output * bg $wallpaper fill #000000
 
 # Bar
 bar {
