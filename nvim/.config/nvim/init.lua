@@ -16,9 +16,6 @@ vim.o.swapfile = false
 vim.o.number = true
 vim.o.relativenumber = true
 
--- TODO: change this and diagnostics settings based on screen width
-vim.o.signcolumn = 'yes'
-
 if os.getenv('TERM') ~= 'linux' then
   vim.o.termguicolors = true
 end
