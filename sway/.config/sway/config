@@ -1,7 +1,3 @@
-# machine-local settings, which make no sense lying on dotfiles repo
-# e.g. monitor setup
-include local/*
-
 ### Variables
 set {
     # Logo key
@@ -39,12 +35,16 @@ set {
     $menu 'fuzzel -d'
 }
 
+# machine-local settings, which make no sense lying on dotfiles repo
+# e.g. monitor setup
+include local/*
+
 ### Input
 # Keyboard
 input * {
     xkb_numlock enable
     xkb_layout us,ru
-    xkb_options grp:alt_shift_toggle,caps:escape
+    xkb_options grp:alt_shift_toggle,grp:ctrl_space_toggle,caps:escape
 }
 
 # Mouse
