@@ -53,6 +53,11 @@ input type:pointer {
     pointer_accel -0.4
 }
 
+input type:touchpad {
+    tap enabled
+    scroll_factor 0.2
+}
+
 # hide mouse cursor when anything is pressed on keyboard
 seat * hide_cursor when-typing enable
 
