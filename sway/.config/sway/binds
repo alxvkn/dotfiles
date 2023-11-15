@@ -196,11 +196,9 @@ bindsym --to-code {
     $mod+Shift+period $set_en_kb; exec "MENU='"$menu"' COPYTOOL='wl-copy' ~/scripts/emoji-picker.sh"
 
     # Lock
-    $mod+Shift+Return $set_en_kb; exec swaylock
+    $mod+Shift+Return $set_en_kb; exec $lock_with_screen_timeout
 
-    Scroll_lock $set_en_kb; exec swaylock
-
-    $mod+u exec wlogout
+    Scroll_lock exec $lock_with_screen_timeout
 
     # Application launcher
     $mod+d $set_en_kb; exec $launcher
