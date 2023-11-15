@@ -2,30 +2,31 @@ inside-color=00000000
 text-color=ffffff
 ring-color=000000
 
-inside-ver-color=00000000
+inside-ver-color=000000
 text-ver-color=ffffff
 ring-ver-color=000000
 
 inside-clear-color=00000000
-text-clear-color=ffffff
-ring-clear-color=aaaaaa
+ring-clear-color=ffffff
 
 inside-wrong-color=aa2222
 text-wrong-color=ffffff
-ring-wrong-color=aaaaaa
+ring-wrong-color=ffffff
 
 inside-caps-lock-color=ffffff
 text-caps-lock-color=000000
 
 line-uses-ring
 
-key-hl-color=aaaaaa
+key-hl-color=ffffff
 hide-keyboard-layout
 
-indicator-idle-visible
-font-size=15
+# indicator-idle-visible
+indicator-radius=100
+indicator-thickness=15
+font-size=20
 
-font=FiraCode
+font=Iosevka
 
 color=000000
 scaling=fill
