@@ -214,9 +214,6 @@ bindsym --to-code {
     # Htop
     $mod+Escape exec $term --app-id=htop -e htop
 
-    # Uhh
-    XF86PowerOff exec $browser
-
     # Open tui mixer
     $mod+F9 exec $term --app-id=tui_mixer -e pulsemixer
     $mod+Shift+m exec $term --app-id=tui_mixer -e pulsemixer
@@ -224,6 +221,9 @@ bindsym --to-code {
     # Screenshots
     Print exec "~/scripts/wayland_screenshot.sh"
     $mod+Print exec "~/scripts/wayland_screenshot.sh --area"
+
+    $mod+Shift+y exec "~/scripts/wayland_screenshot.sh --area"
+    $mod+y exec "~/scripts/wayland_screenshot.sh"
 
     Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save"
     $mod+Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save --area"
