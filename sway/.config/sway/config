@@ -163,7 +163,9 @@ for_window [app_id=tui_mixer] {
     move position 58 ppt 68 ppt
 }
 
-exec swayidle before-sleep swaylock
+# TODO: sway.env.sh
+exec swayidle -w before-sleep 'swaymsg $set_en_kb; $lock -f'
+
 
 ### Autostart
 exec {
