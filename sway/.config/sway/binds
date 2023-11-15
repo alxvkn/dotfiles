@@ -6,8 +6,13 @@ include marks
 
 ### Modes
 # Resize
-set $resize_step 30px
-set $floating_move_step 30px
+set {
+    $resize_step 30px
+    $floating_move_step 30px
+    $kbd_brightness_step 25%
+    $mon_brightness_step 1
+}
+
 mode "resize" {
     bindsym --to-code {
         # left will shrink the containers width
@@ -225,6 +230,13 @@ bindsym --to-code {
 
     # Make all media bindings available on lockscreen
     --locked {
+        # Brightness
+        XF86KbdBrightnessUp exec brightnessctl -d '*kbd_backlight*' s $kbd_brightness_step+
+        XF86KbdBrightnessDown exec brightnessctl -d '*kbd_backlight*' s $kbd_brightness_step-
+
+        XF86MonBrightnessUp exec brightnessctl s $mon_brightness_step+
+        XF86MonBrightnessDown exec brightnessctl s $mon_brightness_step-
+
         # Volume control
         $mod+F12 exec pactl set-sink-volume 0 +5%
         $mod+F11 exec pactl set-sink-volume 0 -5%
