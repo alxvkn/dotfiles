@@ -149,7 +149,7 @@ for_window [class=scrcpy] floating enable
 # (title for the real window is "Telegram (*count of unread chats*))
 for_window [title=TelegramDesktop] {
     floating enable
-    move position 90 ppt 0 ppt
+    move position cursor
 }
 
 # open mixer as floating window ./binds:189
