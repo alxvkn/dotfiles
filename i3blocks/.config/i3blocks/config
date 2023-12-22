@@ -51,7 +51,6 @@ interval=persist
 [pulseaudio]
 command=$SCRIPT_DIR/pulseaudio
 interval=persist
-min_width=36
 
 [sway/keyboard_layout]
 command=$SCRIPT_DIR/sway/keyboard_layout

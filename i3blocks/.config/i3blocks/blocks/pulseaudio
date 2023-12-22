@@ -61,6 +61,13 @@ while read button; do
     case $button in
         1) pactl set-sink-mute 0 toggle
             ;;
+        3)
+            (if pgrep pavucontrol; then
+                pkill pavucontrol
+            else
+                pavucontrol &
+            fi) 2>&1 >/dev/null
+            ;;
         4) pactl set-sink-volume 0 +5%
             ;;
         5) pactl set-sink-volume 0 -5%
