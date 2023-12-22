@@ -4,13 +4,15 @@ return {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-nvim-lsp',     -- nvim
-    'saadparwaiz1/cmp_luasnip', -- luasnip
-    'f3fora/cmp-spell',         -- spell
+    'hrsh7th/cmp-nvim-lsp',
+    'saadparwaiz1/cmp_luasnip',
+    'f3fora/cmp-spell',
+    'onsails/lspkind.nvim',
   },
   config = function()
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+    local lspkind = require 'lspkind'
 
     cmp.setup {
       snippet = {
@@ -52,6 +54,22 @@ return {
         { name = 'path' },
         { name = 'spell' },
         { name = 'buffer' },
+      },
+      formatting = {
+        format = lspkind.cmp_format {
+          mode = 'symbol',
+          preset = 'codicons',
+          symbol_map = {
+            Function = '󰊕',
+          },
+          before = function(entry, vim_item)
+            if entry.source.name == 'nvim_lsp' then
+              local lspserver_name = entry.source.source.client.name
+              vim_item.menu = ('[%s]'):format(lspserver_name)
+            end
+            return vim_item
+          end
+        },
       },
     }
     cmp.setup.cmdline(':', {
