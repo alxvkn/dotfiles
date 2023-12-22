@@ -4,9 +4,17 @@ MOUNTPOINT="${MOUNTPOINT:-/}"
 
 # Файловая система Размер Использовано  Дост Использовано% Cмонтировано в
 # /dev/sda5          167G         141G   18G           90% /
-#                                        $4                $6
+# $1                 $2           $3     $4                $6
 
-df -h $MOUNTPOINT | awk -v LABEL="$LABEL" '{ if (NR == 2) print LABEL, $6, $4, "free"}'
+usage() {
+    df -h $MOUNTPOINT | echo $(awk '{ if (NR == 2) print $6, $3 "/" $2}')
+}
 
-# resulting line will be 
-# disk 18G / free
+echo $LABEL
+while read button; do
+    if [ -n "$button" ]; then
+        echo $LABEL $(usage)
+    fi
+    read button
+    echo $LABEL
+done
