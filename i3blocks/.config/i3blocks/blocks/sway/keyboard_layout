@@ -20,7 +20,7 @@ short_name() {
 fi
 
 on_layout_update() {
-    jq -r --unbuffered 'select(.change == "xkb_layout").input.xkb_active_layout_name'
+    jq -r --unbuffered 'select(.change == "xkb_layout" or .change == "xkb_keymap").input.xkb_active_layout_name'
 }
 
 get_layout_name | short_name
