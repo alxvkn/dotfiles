@@ -1,7 +1,7 @@
 (defpoll datetime :interval "1s"
   `date +"%X %A, %d %B %Y"`)
 
-(include "/home/me/.config/eww/workspaces.yuck")
+(include "/home/leha/.config/eww/workspaces.yuck")
 
 (defvar cal
   "click to load calendar")
