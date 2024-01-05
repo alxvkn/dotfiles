@@ -62,7 +62,7 @@ mode "mark" {
 }
 bindsym --to-code $mod+m mode "mark"
 
-mode "go_to_mark" {
+mode "go to mark" {
     bindsym --to-code {
         q [con_mark=q] focus; mode "default"
         w [con_mark=w] focus; mode "default"
@@ -122,4 +122,4 @@ mode "go_to_mark" {
         Escape mode "default"
     }
 }
-bindsym --to-code $mod+apostrophe mode "go_to_mark"
+bindsym --to-code $mod+apostrophe mode "go to mark"
