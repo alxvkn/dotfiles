@@ -46,7 +46,7 @@ include local/*
 input * {
     xkb_numlock enable
     xkb_layout us,ru
-    xkb_options grp:alt_shift_toggle,grp:ctrl_space_toggle,caps:escape
+    xkb_options grp:alt_shift_toggle,grp:ctrl_space_toggle,caps:escape,grp_led:caps,altwin:swap_alt_win
 }
 
 # Mouse
@@ -103,16 +103,16 @@ bar {
     id main
     # status_command ~/dev/bstatus/main.py
     status_command SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
-    separator_symbol ' $ '
+    separator_symbol '  '
     position top
 
-    height 20
+    height 24
     strip_workspace_numbers no
-    workspace_min_width 24
+    workspace_min_width 28
 
     gaps 0px
     colors {
-        background          #00000000
+        background          #000000
         statusline          $fg
         separator           $inactive_fg
 
@@ -136,12 +136,16 @@ for_window [app_id=floating_terminal] {
     floating enable
     resize set {
         height 80 ppt
-        width 50 ppt
+        width 80 ppt
     }
-    move position 25 ppt 10 ppt
+    move position 10 ppt 10 ppt
 }
 
 for_window [class=scrcpy] floating enable
+
+for_window [app_id=org.twosheds.iwgtk] floating enable, move position cursor
+
+for_window [app_id=pavucontrol] floating enable, move position cursor
 
 # HOLY FUCK IT REALLY DID WORK OUT!!!
 # telegram's tray icon's context menu has the
