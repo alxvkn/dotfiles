@@ -65,6 +65,16 @@ vim.o.timeout = false
 
 vim.keymap.set('t', '<A-[>', '<C-\\><C-N>')
 
+vim.keymap.set('t', '<A-h>', '<C-\\><C-N><C-W>h')
+vim.keymap.set('t', '<A-j>', '<C-\\><C-N><C-W>j')
+vim.keymap.set('t', '<A-k>', '<C-\\><C-N><C-W>k')
+vim.keymap.set('t', '<A-l>', '<C-\\><C-N><C-W>l')
+
+vim.keymap.set('n', '<A-h>', '<C-W>h')
+vim.keymap.set('n', '<A-j>', '<C-W>j')
+vim.keymap.set('n', '<A-k>', '<C-W>k')
+vim.keymap.set('n', '<A-l>', '<C-W>l')
+
 vim.keymap.set('n', '<C-j>', '<Cmd>bnext<CR>')
 vim.keymap.set('n', '<C-k>', '<Cmd>bprevious<CR>')
 
