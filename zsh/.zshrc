@@ -5,6 +5,8 @@ SAVEHIST=10000
 setopt hist_ignore_dups
 setopt hist_ignore_space
 
+setopt correct
+
 setopt notify
 setopt shwordsplit # afaik iterate over words in a string as bash does
 
@@ -24,6 +26,7 @@ bindkey '^N' down-line-or-history
 # (at least on foot terminal)
 bindkey "^[[1~" beginning-of-line # home key
 bindkey "^[[4~" end-of-line # end key
+bindkey "^[[3~" delete-char # delete key
 
 bindkey -M viins kj vi-cmd-mode
 
