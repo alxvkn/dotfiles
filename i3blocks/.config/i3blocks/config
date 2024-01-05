@@ -19,10 +19,6 @@ command=$SCRIPT_DIR/playerctl
 interval=persist
 markup=pango
 
-[memfree]
-command=free -h | awk '/Mem/{print "󰍛 " $3 "/" $2 }'
-interval=2
-
 [adb#tablet]
 DEVICE_PATTERN=Lenovo
 LABEL=󰓶
@@ -42,10 +38,11 @@ command=$SCRIPT_DIR/battery
 interval=5
 markup=pango
 
-[diskspace#root]
-LABEL=
-MOUNTPOINT=/
-command=$SCRIPT_DIR/diskspace
+[stats]
+LABEL=󰍛
+MEM_LABEL=󰍛
+DISK_LABEL=󰋊
+command=$SCRIPT_DIR/stats
 interval=persist
 
 [pulseaudio]
