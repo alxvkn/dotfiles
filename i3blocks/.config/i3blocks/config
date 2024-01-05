@@ -39,9 +39,10 @@ interval=5
 markup=pango
 
 [stats]
+SEP= | 
 LABEL=󰍛
 MEM_LABEL=󰍛
-DISK_LABEL=󰋊
+STORAGE_LABEL=󰋊
 command=$SCRIPT_DIR/stats
 interval=persist
 
