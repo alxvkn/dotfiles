@@ -60,8 +60,7 @@ jg() {
 }
 
 jdf() {
-    cd ~/.dotfiles
-    jg
+    ( cd ~/.dotfiles && jg )
 }
 
 timer() {
