@@ -196,10 +196,13 @@ bindsym --to-code {
     # beautiful
     $mod+End exec "TERM="$term" ~/.config/sway/scripts/toggle_music.sh"
 
+    $mod+g $open_windows_menu
+    XF86LaunchA $open_windows_menu
+
     # 💀 Emoji picker
-    $mod+period $set_en_kb; exec "MENU='"$menu"' TYPETOOL='wtype -' ~/scripts/emoji-picker.sh"
+    $mod+period $set_en_kb; exec "MENU='$menu' TYPETOOL='wtype -' ~/scripts/emoji-picker.sh"
     # 💀 Emoji picker, but just copy to clipboard
-    $mod+Shift+period $set_en_kb; exec "MENU='"$menu"' COPYTOOL='wl-copy' ~/scripts/emoji-picker.sh"
+    $mod+Shift+period $set_en_kb; exec "MENU='$menu' COPYTOOL='wl-copy' ~/scripts/emoji-picker.sh"
 
     # Lock
     $mod+Shift+Return $set_en_kb; exec $lock_with_screen_timeout

@@ -32,7 +32,9 @@ set {
     $launcher menu_path | fuzzel -dp 'run> ' | xargs swaymsg exec --
 
     # General purpose menu
-    $menu 'fuzzel -d'
+    $menu fuzzel -d
+
+    $open_windows_menu exec swaymsg -t get_tree | jq -r '.. | objects | select(has("app_id")) | (.id | tostring | (. + " " * (6 - length))) + .name' | sort -rn | $menu | cut -d ' ' -f 1 | xargs -I{} swaymsg "[con_id={}]" focus
 }
 
 # machine-local settings, which make no sense lying on dotfiles repo
