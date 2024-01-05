@@ -276,3 +276,16 @@ bindsym --to-code {
         Shift+XF86AudioNext exec playerctl next
     }
 }
+
+mode "logout" {
+    bindsym --to-code {
+        e exit; mode "default"
+        u exec systemctl suspend; mode "default"
+        h exec systemctl hibernate; mode "default"
+        Shift+s exec systemctl poweroff; mode "default"
+        l exec $lock_with_screen_timeout; mode "default"
+        Return mode "default"
+        Escape mode "default"
+    }
+}
+bindsym --to-code $mod+u mode "logout"
