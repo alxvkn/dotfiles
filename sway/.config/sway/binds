@@ -165,6 +165,9 @@ bindsym --to-code $mod+Shift+c reload
 bindsym --to-code {
     $mod+i $set_en_kb
     $mod+o $set_ru_kb
+
+    $mod+Shift+i input * xkb_variant 'dvp,'
+    $mod+Shift+o input * xkb_variant ','
 }
 
 set $shortcut_mode "shortcuts: [t] - , [b] - , [s] - 󰄜, [v] - vnc, [y] - mpv $(wl-paste), [d] - 󰙯"
