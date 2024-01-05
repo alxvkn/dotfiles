@@ -215,6 +215,13 @@ bindsym --to-code {
     # Small floating terminal window
     $mod+grave exec $term --app-id=floating_terminal
 
+    # Bluez bluetooth settings
+    $mod+Shift+b exec $term --app-id=floating_terminal bluetoothctl
+
+    # iwd wi-fi settings
+    $mod+Shift+w exec $term --app-id=floating_terminal iwctl
+    $mod+Control+w exec iwgtk
+
     # Terminal
     $mod+Return exec $term
 
@@ -224,6 +231,7 @@ bindsym --to-code {
     # Open tui mixer
     $mod+F9 exec $term --app-id=tui_mixer -e pulsemixer
     $mod+Shift+m exec $term --app-id=tui_mixer -e pulsemixer
+    $mod+Control+m exec pavucontrol
 
     # Screenshots
     Print exec "~/scripts/wayland_screenshot.sh"
