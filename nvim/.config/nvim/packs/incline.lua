@@ -1,4 +1,12 @@
 return {
   'b0o/incline.nvim',
-  config = true
+  config = function()
+    require('incline').setup {
+      window = {
+        margin = {
+          vertical = 0,
+        },
+      },
+    }
+  end,
 }
