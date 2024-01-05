@@ -1,0 +1,80 @@
+# vim: ft=swayconfig
+
+set $touchpad_launcher_mode "1:  | 2:  | 3:󰗃  | 4: "
+
+mode "select workspace with touchpad [1-4]" {
+    bindgesture {
+        hold:1 workspace 1; mode "default"
+        hold:2 workspace 2; mode "default"
+        hold:3 workspace 3; mode "default"
+        hold:4 workspace 4; mode "default"
+
+        swipe:4:up mode "select workspace with touchpad [5-8]"
+        swipe:4:down mode $touchpad_launcher_mode
+
+        swipe:4:left mode "default"
+        swipe:4:right mode "default"
+    }
+
+    bindsym --to-code {
+        Escape mode "default"
+        Return mode "default"
+    }
+}
+bindgesture swipe:4:up mode "select workspace with touchpad [1-4]"
+
+mode "select workspace with touchpad [5-8]" {
+    bindgesture {
+        hold:1 workspace 5; mode "default"
+        hold:2 workspace 6; mode "default"
+        hold:3 workspace 7; mode "default"
+        hold:4 workspace 8; mode "default"
+
+        swipe:4:up mode "default"
+
+        swipe:4:down mode "default"
+    }
+
+    bindsym --to-code {
+        Escape mode "default"
+        Return mode "default"
+    }
+}
+
+mode $touchpad_launcher_mode {
+    bindgesture {
+        hold:1 exec telegram-desktop; mode "default"
+        hold:2 exec $browser; mode "default"
+        hold:3 exec $browser --app=https://youtube.com; mode "default"
+        hold:4 exec $browser --app=https://vk.com/im; mode "default"
+
+        swipe:4 mode "default"
+    }
+
+    bindsym --to-code {
+        Escape mode "default"
+        Return mode "default"
+    }
+}
+
+bindgesture {
+    swipe:4:right workspace prev
+    swipe:4:left workspace next
+
+    swipe:4:down $set_en_kb; exec $lock_with_screen_timeout
+
+    pinch:3:outward fullscreen toggle
+    pinch:3:inward floating toggle
+
+    pinch:4:inward kill
+
+    swipe:3:right focus right
+    swipe:3:left focus left
+    swipe:3:up focus up
+    swipe:3:down focus down
+
+    pinch:3:inward+right move right
+    pinch:3:inward+left move left
+    pinch:3:inward+up move up
+    pinch:3:inward+down move down
+} 

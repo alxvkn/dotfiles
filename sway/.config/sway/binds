@@ -291,3 +291,5 @@ mode "logout" {
 bindsym --to-code $mod+u mode "logout"
 
 bindswitch lid:on exec systemctl suspend
+
+include touchpad-gestures
