@@ -135,7 +135,7 @@ fi
 # create a todo script
 
 if [ -n "$(command -v tmux)" ]; then
-    if [ -z "$TMUX" ] && ! [ "$TERM" = "linux" ]; then
+    if [ -z "$TMUX" ] && [ -z "$NVIM" ] && ! [ "$TERM" = "linux" ]; then
         tmux attach || tmux
     fi
 fi
