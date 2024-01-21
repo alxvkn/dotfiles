@@ -10,7 +10,7 @@ return {
     'rose-pine/neovim',
     config = function()
       -- TODO: require this module somewhere else
-      require 'colors'
+      require 'transparency'
       vim.cmd.colorscheme 'rose-pine'
     end
   },
@@ -21,7 +21,7 @@ return {
       require('nightfox').setup {
         options = {
           dim_inactive = true,
-          -- transparent = true
+          transparent = true
         }
       }
     end
