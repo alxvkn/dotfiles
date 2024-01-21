@@ -5,13 +5,20 @@ vim.keymap.set('n', '<Leader>tr', function()
     'Normal',
     'NormalNC',
     'NormalFloat',
-    'FloatBorder',
+
+    'WinSeparator',
+
+    -- 'Title',
+
+    'SignColumn',
 
     'GitSignsAdd',
     'GitSignsChange',
     'GitSignsDelete',
 
     'TelescopeNormal',
+    'TelescopeBorder',
+    'TelescopePromptNormal',
 
     -- silly but i don't want to know how to
     -- customize lualine theme it's hard
