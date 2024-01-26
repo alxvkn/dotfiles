@@ -30,6 +30,10 @@ alias alock='adb shell input keyevent POWER'
 
 alias aopen='adb shell am start -a android.intent.action.VIEW -d'
 
+alias doasreflector='doas sh -c "reflector > /etc/pacman.d/mirrorlist"'
+
+alias ka=killall
+
 hi() (
     set -e
     exit() {
