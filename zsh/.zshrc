@@ -127,6 +127,13 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # default black comments are invisible on black bg
 ZSH_HIGHLIGHT_STYLES[comment]=fg=blue,bold
 
+if [ -z "$SWAYSOCK" ]; then
+    SWAY_PID=$(pidof sway)
+    if [ -n "$SWAY_PID" ]; then
+        export SWAYSOCK="/run/user/$(id -u)/sway-ipc.$(id -u).$SWAY_PID.sock"
+    fi
+fi
+
 # https://git.kernel.org/pub/scm/git/git.git/plain/contrib/completion/git-completion.zsh
 # zsh's built-in git completion is slow.
 # script by the link above supposed to work faster (being official from the git distribution)
