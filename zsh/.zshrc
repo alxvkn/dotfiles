@@ -10,6 +10,8 @@ setopt correct
 setopt notify
 setopt shwordsplit # afaik iterate over words in a string as bash does
 
+setopt interactive_comments
+
 bindkey -v
 bindkey '^W' backward-kill-word
 bindkey '^U' backward-kill-line
@@ -121,6 +123,9 @@ if ! [ -f ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; 
 fi
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# default black comments are invisible on black bg
+ZSH_HIGHLIGHT_STYLES[comment]=fg=blue,bold
 
 # https://git.kernel.org/pub/scm/git/git.git/plain/contrib/completion/git-completion.zsh
 # zsh's built-in git completion is slow.
