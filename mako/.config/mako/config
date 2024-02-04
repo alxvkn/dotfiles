@@ -32,6 +32,9 @@ progress-color=#888844
 [category=calendar]
 background-color=#000000
 
+[app-name="Telegram Desktop"]
+format=\n<b>%s</b>\n%b
+
 [app-name=Spotify]
 on-notify=none
 width=400
