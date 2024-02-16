@@ -94,7 +94,7 @@ fi
 PROMPT="$PROMPT_HOST%F{green} %U%2~%u%f %# "
 
 zstyle ':completion:*' completer _expand_alias _complete _correct
-zstyle ':completion:*' matcher-list 'r:|[-_./]=** r:|=*'
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}' 'r:|[-_./]=** r:|=*'
 zstyle ':completion:*' format 'completing %d'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' menu select=1
