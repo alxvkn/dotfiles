@@ -50,6 +50,11 @@ interval=persist
 command=$SCRIPT_DIR/pulseaudio
 interval=persist
 
+[gnome_dark_mode]
+command=$SCRIPT_DIR/gnome_dark_mode
+min_width=
+interval=persist
+
 [sway/keyboard_layout]
 command=$SCRIPT_DIR/sway/keyboard_layout
 interval=persist

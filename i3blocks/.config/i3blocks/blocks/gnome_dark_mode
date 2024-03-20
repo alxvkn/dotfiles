@@ -1,0 +1,19 @@
+#!/bin/sh
+
+SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
+if [ "$SCHEME" = "'prefer-dark'" ]; then
+    echo 
+else
+    echo 
+fi
+
+while read button; do
+    SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
+    if [ "$SCHEME" = "'prefer-dark'" ]; then
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+        echo 
+    else
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+        echo 
+    fi
+done
