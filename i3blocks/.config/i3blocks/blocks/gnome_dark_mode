@@ -11,9 +11,13 @@ while read button; do
     SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
     if [ "$SCHEME" = "'prefer-dark'" ]; then
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+        $SCRIPT_DIR/gnome_dark_mode.d/nvim.py light
+        adb shell cmd uimode night no > /dev/null 2>&1
         echo 
     else
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+        $SCRIPT_DIR/gnome_dark_mode.d/nvim.py dark
+        adb shell cmd uimode night yes > /dev/null 2>&1
         echo 
     fi
 done
