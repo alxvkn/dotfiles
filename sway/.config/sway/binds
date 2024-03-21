@@ -185,6 +185,20 @@ mode $shortcut_mode {
 }
 bindsym --to-code $mod+z mode $shortcut_mode
 
+set $notifications_mode "[a]ctivate | [d]ismiss | [r]estore | [c]lear"
+mode $notifications_mode {
+    bindsym --to-code {
+        a exec makoctl invoke; mode "default"
+        d exec makoctl dismiss
+        r exec makoctl restore
+        c exec makoctl dismiss --all; mode "default"
+
+        Escape mode "default"
+        Return mode "default"
+    }
+}
+bindsym --to-code $mod+x mode $notifications_mode
+
 ### I honestly don't now how to name this section
 bindsym --to-code {
     # control mouse from keyboard
