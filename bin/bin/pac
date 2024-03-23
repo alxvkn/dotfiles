@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# case "$1" in
+#     s)
+#         shift
+#         PACKAGE="$(paru -Ssq $@ | fzy)"
+#         ;;
+#     si)
+#         shift
+#         PACKAGE="$(paru -Ssq $@ | head -n 1)"
+#         ;;
+# esac
+
+if [ "$(command -v paru)" ]; then
+    INSTALL_COMMAND="paru -S"
+    LIST_COMMAND="paru -Ssq"
+    INFO_COMMAND="paru -Si"
+elif [ "$(command -v pacman)" ]; then
+    INSTALL_COMMAND="doas pacman -S"
+    LIST_COMMAND="pacman -Ssq"
+    INFO_COMMAND="pacman -Si"
+fi
+
+PACKAGE="$($LIST_COMMAND $@ | fzy)"
+
+! [ "$PACKAGE" ] && exit
+$INFO_COMMAND "$PACKAGE"
+echo -n 'install? [Y/n] '
+read ANS
+if [ "$ANS" = y ] || [ "$ANS" = Y ] || ! [ "$ANS" ]; then
+    $INSTALL_COMMAND "$PACKAGE"
+fi
