@@ -6,7 +6,7 @@ return {
     vim.keymap.set('i', '<C-s>', require('luasnip').expand)
     require('luasnip').setup {}
     require('luasnip.loaders.from_vscode').lazy_load {
-      exclude = { 'html', 'css' }
+      -- exclude = { 'html', 'css' }
     }
   end,
 }
