@@ -30,6 +30,12 @@ alias alock='adb shell input keyevent POWER'
 
 alias aopen='adb shell am start -a android.intent.action.VIEW -d'
 
+if [ "$XDG_CURRENT_DESKTOP" = GNOME ]; then
+    alias doas='pkexec --keep-cwd'
+fi
+
+[ "$(command -v todo.sh)" ] && alias to=todo.sh
+
 alias doasreflector='doas sh -c "reflector > /etc/pacman.d/mirrorlist"'
 
 alias ka=killall
