@@ -29,10 +29,17 @@ fi
 
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
-if [ "$(tty)" = '/dev/tty1' ]; then
-    COMPOSITOR=sway
-    if [ -n "$(command -v $COMPOSITOR)" ]; then
-        echo starting "$COMPOSITOR"
-        exec "$COMPOSITOR"
+if [ $TERM = linux ]; then
+    if [ -n "$(command -v fzy)" ]; then
+        CHOICES="$(ls /usr/bin/Hyprland /usr/bin/sway)"$'\n'"gnome"
+        while echo 'run what?'; do
+            PROG="$(echo $CHOICES | fzy)"
+            [ -z "$PROG" ] && break
+            if [ -n "$(command -v $PROG)" ]; then
+                exec "$PROG"
+            elif [ "$PROG" = gnome ]; then
+                exec doas systemctl start gdm.service
+            fi
+        done
     fi
 fi
