@@ -127,6 +127,7 @@ bar {
         #                   border          bg      text
         focused_workspace   $fg             $fg     $bg
         inactive_workspace  $inactive_fg    $bg     $inactive_fg
+        urgent_workspace    $inactive_fg    $bg     #ffaaaa
     }
 }
 
