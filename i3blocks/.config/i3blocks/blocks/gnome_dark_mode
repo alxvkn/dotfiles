@@ -7,17 +7,78 @@ else
     echo 
 fi
 
-while read button; do
+KBD_BRIGHTNESS="$(brightnessctl -d '*kbd_backlight*' g)"
+if [ $KBD_BRIGHTNESS -le 0 ]; then
+    KBD_BRIGHTNESS="100%"
+fi
+
+light_mode() {
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    $SCRIPT_DIR/gnome_dark_mode.d/nvim.py light
+    adb shell cmd uimode night no
+    # swaymsg 'bar main colors background $fg'
+    # swaymsg 'bar main colors statusline $bg'
+} > /dev/null 2>&1
+
+dark_mode() {
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    $SCRIPT_DIR/gnome_dark_mode.d/nvim.py dark
+    adb shell cmd uimode night yes
+} > /dev/null 2>&1
+
+toggle() {
     SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
     if [ "$SCHEME" = "'prefer-dark'" ]; then
-        gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-        $SCRIPT_DIR/gnome_dark_mode.d/nvim.py light
-        adb shell cmd uimode night no > /dev/null 2>&1
+        light_mode
         echo 
     else
-        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-        $SCRIPT_DIR/gnome_dark_mode.d/nvim.py dark
-        adb shell cmd uimode night yes > /dev/null 2>&1
+        dark_mode
         echo 
     fi
-done
+}
+
+SOCKET="$XDG_RUNTIME_DIR/gnome_dark_mode.sock"
+rm -f "$SOCKET" && mkfifo "$SOCKET" && tail -f "$SOCKET" |
+    while read mode; do
+        case $mode in
+            dark)
+                dark_mode
+                echo 
+                ;;
+            light)
+                light_mode
+                echo 
+                ;;
+            toggle)
+                echo $(toggle)
+                ;;
+        esac
+    done &
+
+    while read button; do
+        case $button in
+            1)
+                SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
+                if [ "$SCHEME" = "'prefer-dark'" ]; then
+                    light_mode
+                    echo 
+                else
+                    dark_mode
+                    echo 
+                fi
+                ;;
+            3)
+                {
+                    _KBD_BRIGHTNESS="$(brightnessctl -d '*kbd_backlight*' g)"
+                    if [ $_KBD_BRIGHTNESS -gt 0 ]; then
+                        KBD_BRIGHTNESS=$_KBD_BRIGHTNESS
+                        brightnessctl -d '*kbd_backlight*' s 0
+                    else
+                        brightnessctl -d '*kbd_backlight*' s $KBD_BRIGHTNESS
+                    fi
+                } > /dev/null 2>&1
+                ;;
+            4) brightnessctl s +1 > /dev/null 2>&1 ;;
+            5) brightnessctl s 1- > /dev/null 2>&1 ;;
+        esac
+    done
