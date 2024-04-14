@@ -22,6 +22,9 @@ bindkey '^E' end-of-line
 # to execute another command and then continue editing
 bindkey '^Z' push-line
 
+bindkey -M viins '^T' transpose-words
+bindkey -M vicmd ' t' transpose-words
+
 bindkey '^P' up-line-or-history
 bindkey '^N' down-line-or-history
 
