@@ -109,7 +109,10 @@ bindkey -M menuselect k vi-up-line-or-history
 bindkey -M menuselect l vi-forward-char
 
 if [ -n "$(command -v zoxide)" ]; then
-    eval "$(zoxide init zsh)"
+    # eval "$(zoxide init zsh | sed 's,files -/,directories,g')"
+    eval "$(zoxide init zsh --no-cmd | sed 's,files -/,directories,g')"
+    function z() { __zoxide_z "$@" }
+    function zi() { __zoxide_zi "$@" }
 fi
 
 if ! [ -f ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
