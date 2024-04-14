@@ -23,14 +23,23 @@ return {
             keymaps = {
               ['aa'] = '@parameter.outer',
               ['ia'] = '@parameter.inner',
+
               ['af'] = '@function.outer',
               ['if'] = '@function.inner',
+
+              ['ac'] = '@call.outer',
+              ['ic'] = '@call.inner',
+
+              ['al'] = '@loop.outer',
+              ['il'] = '@loop.inner',
+
+              ['a='] = '@assignment.outer',
+              ['i='] = '@assignment.inner',
+              ['l='] = '@assignment.lhs',
+              ['r='] = '@assignment.rhs',
+
               ['ac'] = '@class.outer',
               ['ic'] = '@class.inner',
-            },
-            selection_modes = {
-              ['@function.inner'] = 'V',
-              ['@class.inner'] = 'V',
             },
           },
           swap = {
