@@ -14,7 +14,10 @@ set {
     $set_en_kb input type:keyboard xkb_switch_layout 0
     $set_ru_kb input type:keyboard xkb_switch_layout 1
 
-    $wallpaper $(find ~/.local/share/backgrounds/ | shuf -n 1)
+    $wallpaper $(find ~/.local/share/backgrounds/ -mindepth 1 | shuf -n 1)
+
+    $font IosevkaMedium
+    $font_size 11
 
     # lock command
     $lock swaylock -i $wallpaper -s fill
@@ -23,16 +26,19 @@ set {
     # Browser
     $browser browser
 
+    # File manager
+    $file_manager nautilus
+
     # Terminal emulator
     $term footclient
 
     # Application launcher
     # Pass the final command to swaymsg so that the resulting window can be opened
     # on the original workspace that the command was run on.
-    $launcher menu_path | fuzzel -dp 'run> ' | xargs swaymsg exec --
+    $launcher menu_path | fuzzel --font=$font -dp 'run> ' | xargs swaymsg exec --
 
     # General purpose menu
-    $menu fuzzel -d
+    $menu fuzzel --font=$font -d
 
     $open_windows_menu exec swaymsg -t get_tree | jq -r '.. | objects | select(has("app_id")) | (.id | tostring | (. + " " * (6 - length))) + .name' | sort -rn | $menu | cut -d ' ' -f 1 | xargs -I{} swaymsg "[con_id={}]" focus
 }
@@ -67,7 +73,7 @@ seat * hide_cursor when-typing enable
 
 ### Appearance
 # Font
-font IosevkaMedium 11
+font $font $font_size
 
 include ~/.cache/wal/colors-sway
 

@@ -179,6 +179,7 @@ mode $shortcut_mode {
         v exec vncviewer; mode "default"
         y exec mpv "$(wl-paste)"; mode "default"
         d exec discord; mode "default"
+        f exec $file_manager; mode "default"
         Escape mode "default"
         Return mode "default"
     }
