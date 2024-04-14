@@ -22,6 +22,7 @@ return {
       },
       mapping = {
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete {}, { 'i', 'c' }),
+        ['<C-z>'] = cmp.mapping(cmp.mapping.complete {}, { 'i', 'c' }),
         ['<CR>'] = cmp.mapping.confirm { select = false },
         ['<C-y>'] = cmp.mapping.confirm { select = true },
         ['<C-e>'] = cmp.mapping.abort(),
