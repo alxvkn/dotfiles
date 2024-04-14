@@ -101,6 +101,8 @@ smart_borders on
 default_border pixel 1
 default_floating_border normal 1
 
+focus_on_window_activation focus
+
 # Wallpaper
 output * bg $wallpaper fill #000000
 
