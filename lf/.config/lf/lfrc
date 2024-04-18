@@ -11,3 +11,5 @@ cmd zi ${{
     lf -remote "send $id cd \"$res\""
 }}
 map Z zi
+
+set history false
