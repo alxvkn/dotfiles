@@ -207,7 +207,7 @@ bindsym --to-code $mod+x mode $notifications_mode
 bindsym --to-code {
     # control mouse from keyboard
     # https://github.com/rvaiya/warpd
-    $mod+semicolon exec "killall warpd; warpd --normal"
+    # $mod+semicolon exec "killall warpd; warpd --normal"
 
     # Music
     $mod+Home exec "~/scripts/music.sh"
@@ -229,6 +229,9 @@ bindsym --to-code {
 
     # Application launcher
     $mod+d $set_en_kb; exec $launcher
+
+    # Open files in user dirs
+    $mod+comma exec $file_launcher
 
     # Small floating terminal window
     $mod+grave exec $term --app-id=floating_terminal

@@ -40,6 +40,9 @@ set {
     # General purpose menu
     $menu fuzzel --font=$font -d
 
+    # Open files from user dirs
+    $file_launcher exec find Downloads Documents Pictures Videos Music Public -type f ! -path '*/.*' | $menu -a top -w 128 -l 100 | xargs -I{} xdg-open '{}'
+
     $open_windows_menu exec swaymsg -t get_tree | jq -r '.. | objects | select(has("app_id")) | (.id | tostring | (. + " " * (6 - length))) + .name' | sort -rn | $menu | cut -d ' ' -f 1 | xargs -I{} swaymsg "[con_id={}]" focus
 }
 
