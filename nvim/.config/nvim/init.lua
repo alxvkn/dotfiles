@@ -13,6 +13,8 @@ vim.o.autoindent = true
 -- no swapfiles
 vim.o.swapfile = false
 
+vim.o.wrap = false
+
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = 'yes'
