@@ -13,7 +13,7 @@ return {
     vim.keymap.set('n', '<Leader>jj', builtin.planets)
 
     vim.keymap.set('n', '<Leader>ds', builtin.lsp_document_symbols, { desc = 'Jump to [D]ocument [S]ymbol' })
-    vim.keymap.set('n', '<Leader>ws', builtin.lsp_workspace_symbols, { desc = 'Jump to [W]orkspace [S]ymbol' })
+    vim.keymap.set('n', '<Leader>ws', builtin.lsp_dynamic_workspace_symbols, { desc = 'Jump to [W]orkspace [S]ymbol' })
 
     vim.keymap.set('n', '<Leader>tc', function() builtin.colorscheme { enable_preview = true } end)
   end,
