@@ -183,6 +183,7 @@ mode $shortcut_mode {
         y exec mpv "$(wl-paste)"; mode "default"
         d exec discord; mode "default"
         f exec $file_manager; mode "default"
+        o exec obsidian; mode "default"
         Escape mode "default"
         Return mode "default"
     }
