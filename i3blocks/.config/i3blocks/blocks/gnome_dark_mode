@@ -35,6 +35,7 @@ toggle() {
         dark_mode
         echo 
     fi
+    ~/.config/sway/colors.sh
 }
 
 SOCKET="$XDG_RUNTIME_DIR/gnome_dark_mode.sock"

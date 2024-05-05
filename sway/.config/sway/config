@@ -78,22 +78,7 @@ seat * hide_cursor when-typing enable
 # Font
 font $font $font_size
 
-include ~/.cache/wal/colors-sway
-
-# Colors
-set {
-    $bg #0C0C10
-    $fg #ffffff
-    # $bg $background
-    # $fg $foreground
-    $inactive_fg $color2
-    $inactive_fg #444444
-}
-
-# class                 border  bg      text    indicator   child_border
-client.focused          $fg     $bg     $fg     #aaaaaa     #aaaaaa
-client.focused_inactive #000000 $bg     #aaaaaa
-client.unfocused        #000000 $bg     #aaaaaa             #000000
+exec_always ~/.config/sway/colors.sh
 
 # Gaps
 gaps inner 0px
@@ -122,16 +107,6 @@ bar {
     workspace_min_width 28
 
     gaps 0px
-    colors {
-        background          #000000
-        statusline          $fg
-        separator           $inactive_fg
-
-        #                   border          bg      text
-        focused_workspace   $fg             $fg     $bg
-        inactive_workspace  $inactive_fg    $bg     $inactive_fg
-        urgent_workspace    $inactive_fg    $bg     #ffaaaa
-    }
 }
 
 include {
