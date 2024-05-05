@@ -43,7 +43,8 @@ on_update() {
     esac
 
     if [ "$(sink_device_api $(pactl get-default-sink))" = bluez5 ]; then
-        icon_api='󰂯'
+        battery_percentage="$(bluetoothctl info | grep 'Battery Percentage' | sed 's/.*(\(.*\))/\1/')"
+        icon_api="󰥉 $battery_percentage%"
     else
         icon_api=
     fi
