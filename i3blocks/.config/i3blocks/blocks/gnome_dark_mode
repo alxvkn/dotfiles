@@ -58,14 +58,7 @@ rm -f "$SOCKET" && mkfifo "$SOCKET" && tail -f "$SOCKET" |
     while read button; do
         case $button in
             1)
-                SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
-                if [ "$SCHEME" = "'prefer-dark'" ]; then
-                    light_mode
-                    echo 
-                else
-                    dark_mode
-                    echo 
-                fi
+                echo $(toggle)
                 ;;
             3)
                 {
