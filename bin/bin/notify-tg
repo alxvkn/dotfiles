@@ -1,0 +1,11 @@
+#!/bin/sh
+
+. "$(dirname $0)/.notify-tg"
+
+if [ -z "$TOKEN" ]; then
+    exit 1
+fi
+
+TEXT=${TEXT:-"$1"}
+
+curl -L "https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$CHAT_ID&text=$TEXT"
