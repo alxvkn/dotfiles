@@ -14,7 +14,6 @@ fi
 
 light_mode() {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-    $SCRIPT_DIR/gnome_dark_mode.d/nvim.py light
     adb shell cmd uimode night no
     # swaymsg 'bar main colors background $fg'
     # swaymsg 'bar main colors statusline $bg'
@@ -22,7 +21,6 @@ light_mode() {
 
 dark_mode() {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    $SCRIPT_DIR/gnome_dark_mode.d/nvim.py dark
     adb shell cmd uimode night yes
 } > /dev/null 2>&1
 
