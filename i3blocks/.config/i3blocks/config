@@ -10,9 +10,9 @@
 separator=true
 separator_block_width=15
 
-[sway/window]
-command=$SCRIPT_DIR/sway/window
-interval=persist
+# [sway/window]
+# command=$SCRIPT_DIR/sway/window
+# interval=persist
 
 [playerctl]
 command=$SCRIPT_DIR/playerctl
@@ -33,11 +33,6 @@ command=$SCRIPT_DIR/adb
 interval=persist
 markup=pango
 
-[battery]
-command=$SCRIPT_DIR/battery
-interval=5
-markup=pango
-
 [stats]
 SEP= | 
 LABEL=󰍛
@@ -46,13 +41,18 @@ STORAGE_LABEL=󰋊
 command=$SCRIPT_DIR/stats
 interval=persist
 
-[pulseaudio]
-command=$SCRIPT_DIR/pulseaudio
-interval=persist
-
 [gnome_dark_mode]
 command=$SCRIPT_DIR/gnome_dark_mode
 min_width=
+interval=persist
+
+[battery]
+command=$SCRIPT_DIR/battery
+interval=5
+markup=pango
+
+[pulseaudio]
+command=$SCRIPT_DIR/pulseaudio
 interval=persist
 
 [sway/keyboard_layout]
