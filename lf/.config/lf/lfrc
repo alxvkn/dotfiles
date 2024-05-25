@@ -1,6 +1,8 @@
 map <c-z> $ kill -STOP $PPID
 map D delete
 
+map <enter> open
+
 cmd z %{{
     res="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
     lf -remote "send $id cd \"$res\""
@@ -11,5 +13,8 @@ cmd zi ${{
     lf -remote "send $id cd \"$res\""
 }}
 map Z zi
+
+set previewer ~/.config/lf/previewer.sh
+set sixel
 
 set history false
