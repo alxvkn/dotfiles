@@ -3,7 +3,7 @@
 if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
     STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
-    percentage=$(acpi | cut -d ',' -f 2)
+    percentage=$(acpi | awk -F ', ' '{print $2}')
     percentage=${percentage%"%"}
 
     if [ "$STATUS" = Full ]; then
@@ -49,7 +49,7 @@ if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
     fi
 
     if [ "$button" ]; then
-        notify-send -h int:value:$percentage \
+        notify-send -h "int:value:$percentage" \
             -a "$icon Battery" \
             -c battery-$STATUS \
             -t 7500 "$(acpi | cut -d ' ' -f 3-)"
