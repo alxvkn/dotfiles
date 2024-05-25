@@ -1,3 +1,4 @@
+require 'transparency'
 return {
   'RRethy/nvim-base16',
   'dikiaap/minimalist',
@@ -7,13 +8,13 @@ return {
   'projekt0n/github-nvim-theme',
   'ellisonleao/gruvbox.nvim',
   {
-    'rose-pine/neovim',
+    'Mofiqul/vscode.nvim',
     config = function()
-      -- TODO: require this module somewhere else
-      require 'transparency'
-      vim.cmd.colorscheme 'rose-pine'
+      require('vscode').setup {}
+      vim.cmd.colorscheme 'vscode'
     end
   },
+  'rose-pine/neovim',
   {
     'EdenEast/nightfox.nvim',
     lazy = true,
