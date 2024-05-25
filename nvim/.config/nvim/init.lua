@@ -23,7 +23,7 @@ if os.getenv('TERM') ~= 'linux' then
   vim.o.termguicolors = true
 end
 
-vim.o.ignorecase = 1
+vim.o.ignorecase = true
 
 -- -- only ignore case in command completion
 -- vim.cmd [[
