@@ -3,7 +3,7 @@
 if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
     STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
-    percentage=$(acpi | cut -d ' ' -f 4)
+    percentage=$(acpi | cut -d ',' -f 2)
     percentage=${percentage%"%"}
 
     if [ "$STATUS" = Full ]; then
