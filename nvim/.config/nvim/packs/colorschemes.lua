@@ -1,30 +1,34 @@
 require 'transparency'
 return {
   'RRethy/nvim-base16',
-  'dikiaap/minimalist',
-  'ntk148v/vim-horizon',
-  'ayu-theme/ayu-vim',
   'kdheepak/monochrome.nvim',
-  'projekt0n/github-nvim-theme',
   'ellisonleao/gruvbox.nvim',
+  -- 'ayu-theme/ayu-vim',
+  -- 'projekt0n/github-nvim-theme',
+  {
+    'ramojus/mellifluous.nvim',
+    config = function()
+      vim.cmd.colorscheme('mellifluous')
+    end
+  },
   {
     'Mofiqul/vscode.nvim',
+    lazy = true,
     config = function()
       require('vscode').setup {}
-      vim.cmd.colorscheme 'vscode'
     end
   },
   'rose-pine/neovim',
-  {
-    'EdenEast/nightfox.nvim',
-    lazy = true,
-    config = function()
-      require('nightfox').setup {
-        options = {
-          dim_inactive = true,
-          transparent = true
-        }
-      }
-    end
-  },
+  -- {
+  --   'EdenEast/nightfox.nvim',
+  --   lazy = true,
+  --   config = function()
+  --     require('nightfox').setup {
+  --       options = {
+  --         dim_inactive = true,
+  --         transparent = false
+  --       }
+  --     }
+  --   end
+  -- },
 }
