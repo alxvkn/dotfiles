@@ -5,12 +5,7 @@ return {
   'ellisonleao/gruvbox.nvim',
   -- 'ayu-theme/ayu-vim',
   -- 'projekt0n/github-nvim-theme',
-  {
-    'ramojus/mellifluous.nvim',
-    config = function()
-      vim.cmd.colorscheme('mellifluous')
-    end
-  },
+  -- 'ramojus/mellifluous.nvim',
   {
     'Mofiqul/vscode.nvim',
     lazy = true,
@@ -18,7 +13,12 @@ return {
       require('vscode').setup {}
     end
   },
-  'rose-pine/neovim',
+  {
+    'rose-pine/neovim',
+    config = function()
+      vim.cmd.colorscheme 'rose-pine'
+    end
+  },
   -- {
   --   'EdenEast/nightfox.nvim',
   --   lazy = true,
