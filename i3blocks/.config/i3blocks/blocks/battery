@@ -8,8 +8,9 @@ if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
 
     if [ "$STATUS" = Full ]; then
         icon=󱟢
-        icon_color='<span color="#aaffaa">󱟢</span>' 
+        icon_color='#aaffaa' 
     elif [ "$STATUS" = Charging ]; then
+        icon_color='#aaaaff'
         case $((percentage / 10)) in
             0) icon=󰢟 ;;
             1) icon=󰢜 ;;
@@ -22,13 +23,13 @@ if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
             8) icon=󰂊 ;;
             9) icon=󰂋 ;;
             10) icon=󰂄
-                icon_color='<span color="#aaffaa">󰂄</span>'
+                icon_color='#aaffaa'
                 ;;
         esac
     else
         case $((percentage / 10)) in
             0) icon=󰂎
-                icon_color='<span color="#ffaaaa">󱃍</span>'
+                icon_color='#ffaaaa'
                 ;;
             1) icon=󰁺 ;;
             2) icon=󰁻 ;;
@@ -40,12 +41,12 @@ if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
             8) icon=󰂁 ;;
             9) icon=󰂂 ;;
             10) icon=󱟢
-                icon_color='<span color="#aaffaa">󱟢</span>'
+                icon_color='#aaffaa'
                 ;;
         esac
     fi
-    if [ -z "$icon_color" ]; then
-        icon_color="$icon"
+    if [ -n "$icon_color" ]; then
+        icon='<span color="'$icon_color'">'$icon'</span>'
     fi
 
     if [ "$button" ]; then
@@ -55,7 +56,7 @@ if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
             -t 7500 "$(acpi | cut -d ' ' -f 3-)"
     fi
 
-    echo $icon_color $percentage%
+    echo $icon $percentage%
 else
     exit 1
 fi

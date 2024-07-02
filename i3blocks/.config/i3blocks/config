@@ -19,15 +19,8 @@ command=$SCRIPT_DIR/playerctl
 interval=persist
 markup=pango
 
-[adb#tablet]
-DEVICE_PATTERN=Lenovo
-LABEL=󰓶
-command=$SCRIPT_DIR/adb
-interval=persist
-markup=pango
-
 [adb#phone]
-DEVICE_PATTERN=SM
+DEVICE_PATTERN=RMX3890
 LABEL=󰄜
 command=$SCRIPT_DIR/adb
 interval=persist
@@ -35,8 +28,8 @@ markup=pango
 
 [stats]
 SEP= | 
-LABEL=󰍛
-MEM_LABEL=󰍛
+LABEL=
+MEM_LABEL=
 STORAGE_LABEL=󰋊
 command=$SCRIPT_DIR/stats
 interval=persist
