@@ -21,7 +21,7 @@ line-uses-ring
 key-hl-color=ffffff
 hide-keyboard-layout
 
-# indicator-idle-visible
+indicator-idle-visible
 indicator-radius=100
 indicator-thickness=15
 font-size=20

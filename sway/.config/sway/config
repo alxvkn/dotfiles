@@ -14,14 +14,13 @@ set {
     $set_en_kb input type:keyboard xkb_switch_layout 0
     $set_ru_kb input type:keyboard xkb_switch_layout 1
 
-    $wallpaper $(find ~/.local/share/backgrounds/ -mindepth 1 | shuf -n 1)
-
     $font IosevkaMedium
     $font_size 11
 
+    # TODO: wallpapers
     # lock command
-    $lock swaylock -i $wallpaper -s fill
-    $lock_with_screen_timeout 'swayidle timeout 4 "swaymsg output \* power off" resume "swaymsg output \* power on" & swaylock -i $wallpaper -s fill; kill %1'
+    $lock swaylock
+    $lock_with_screen_timeout 'swayidle timeout 4 "swaymsg output \* power off" resume "swaymsg output \* power on" & swaylock -s fill; kill %1'
 
     # Browser
     $browser browser
@@ -90,9 +89,6 @@ default_border pixel 1
 default_floating_border normal 1
 
 focus_on_window_activation focus
-
-# Wallpaper
-output * bg $wallpaper fill #000000
 
 # Bar
 bar {

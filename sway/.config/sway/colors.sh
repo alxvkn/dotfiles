@@ -5,11 +5,19 @@ fg=#ffffff
 inactive_fg=#444444
 accent=#ffaaff
 
+SCHEME=d
+
 if [ "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-light'" ]; then
+    SCHEME=l
     _bg=$bg
     bg=$fg
     fg=$_bg
 fi
+
+# TODO: swaylock
+
+killall swaybg
+swaybg -i ~/.local/share/backgrounds/amber-$SCHEME.jxl > /dev/null & disown
 
 {
     #       class                    border  bg      text    indicator   child_border
