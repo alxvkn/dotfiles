@@ -31,7 +31,10 @@ if [ $SAVE_TO_FILE = 'yes' ]; then
 fi
 
 if [ $SELECT_AREA = 'yes' ]; then
-    $GRIM_CMD -g "$(slurp)" - | tee $FILE_PATH | wl-copy
+    GEOMETRY="$(slurp)"
+    if [ -n "$GEOMETRY" ]; then
+        $GRIM_CMD -g "$GEOMETRY" - | tee $FILE_PATH | wl-copy
+    fi
 else
     $GRIM_CMD - | tee $FILE_PATH | wl-copy
 fi
