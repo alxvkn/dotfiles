@@ -1,0 +1,12 @@
+;; vim:ft=lisp
+
+(defsrc 
+  caps)
+
+(defalias
+  caps-esc-ctrl (tap-hold 100 150 esc lctl)
+  )
+
+(deflayer
+  base
+  @caps-esc-ctrl)

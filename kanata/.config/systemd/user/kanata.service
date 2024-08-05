@@ -1,0 +1,9 @@
+[Unit]
+Description=Improve keyboard comfort and usability with advanced customization
+
+[Service]
+Type=simple
+ExecStart=kanata -c "$HOME/.config/kanata/config.kbd"
+
+[Install]
+WantedBy=default.target
