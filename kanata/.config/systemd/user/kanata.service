@@ -3,7 +3,7 @@ Description=Improve keyboard comfort and usability with advanced customization
 
 [Service]
 Type=simple
-ExecStart=kanata -c "$HOME/.config/kanata/config.kbd"
+ExecStart=kanata -c "%h/.config/kanata/config.kbd"
 
 [Install]
 WantedBy=default.target
