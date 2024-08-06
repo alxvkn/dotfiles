@@ -80,9 +80,11 @@ vim.keymap.set('n', '<A-l>', '<C-W>l')
 
 vim.keymap.set('n', '<C-j>', '<Cmd>bnext<CR>')
 vim.keymap.set('n', '<C-k>', '<Cmd>bprevious<CR>')
+vim.keymap.set('n', '<Bs>', '<C-^>')
 
 vim.keymap.set('n', '^', '0')
 vim.keymap.set('n', '0', '^')
+vim.keymap.set('n', ';', ':')
 
 vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', { desc = 'Yank to system clipboard' })
 vim.keymap.set({'n', 'v'}, '<Leader>p', '"+p', { desc = 'Paste from system clipboard' })
