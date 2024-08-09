@@ -54,7 +54,8 @@ include local/*
 input * {
     xkb_numlock enable
     xkb_layout us,ru
-    xkb_options grp:alt_shift_toggle,grp:ctrl_space_toggle,caps:escape,grp_led:caps
+    # xkb_options grp:alt_shift_toggle,grp:ctrl_space_toggle,caps:escape,grp_led:caps
+    xkb_options grp:alt_shift_toggle,grp:ctrl_space_toggle
 }
 
 # Mouse
