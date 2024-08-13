@@ -53,11 +53,17 @@ hi() (
         fi
     }
     trap exit EXIT
+
     echo hiiii
+
+    # udpate dotfiles
     cd ~/.dotfiles
     echo pulling $fg[blue]dotfiles$fg[default] updates
     git pull
+
     echo
+
+    # optionally update neovim plugins
     read ans\?"$fg_bold[default]update $fg[cyan]Neo$fg[green]vim$fg[default] plugins? [y/N] $fg_no_bold[default]"
     case "$ans" in
         Y | y | yes)
@@ -66,6 +72,20 @@ hi() (
             ;;
         *)
     esac
+
+    echo
+
+    # optionally update zsh plugins
+    read ans\?"$fg_bold[default]update $fg[green]zsh$fg[default] plugins? [y/N] $fg_no_bold[default]"
+
+    case "$ans" in
+        Y | y | yes)
+            echo updating $fg[green]zsh$fg[default] plugins
+            for p in ~/.zsh/plugins/*; do (cd "$p"; git pull); done
+            ;;
+        *)
+    esac
+
     echo
 )
 
