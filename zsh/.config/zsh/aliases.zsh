@@ -49,7 +49,7 @@ hi() (
         if [ $? != 0 ]; then
             echo $fg[red]something went wrong$fg[default]
         else
-            echo all $bg[green]$fg[black]done$fg[default]$bg[default]!
+            echo all $bg[green]$fg[black]done$fg[default]$bg[default]! byeee
         fi
     }
     trap exit EXIT
@@ -58,8 +58,14 @@ hi() (
     echo pulling $fg[blue]dotfiles$fg[default] updates
     git pull
     echo
-    echo updating $fg[cyan]Neo$fg[green]vim$fg[default] plugins
-    nvim --headless +'Lazy! sync' +TSUpdateSync +qa
+    read ans\?"$fg_bold[default]update $fg[cyan]Neo$fg[green]vim$fg[default] plugins? [y/N] $fg_no_bold[default]"
+    case "$ans" in
+        Y | y | yes)
+            echo updating $fg[cyan]Neo$fg[green]vim$fg[default] plugins
+            nvim --headless +'Lazy! sync' +TSUpdateSync +qa
+            ;;
+        *)
+    esac
     echo
 )
 
