@@ -29,7 +29,7 @@ markup=pango
 [stats]
 SEP= | 
 LABEL=
-MEM_LABEL=
+MEM_LABEL=󰍛
 STORAGE_LABEL=󰋊
 command=$SCRIPT_DIR/stats
 interval=persist
@@ -53,8 +53,11 @@ command=$SCRIPT_DIR/sway/keyboard_layout
 interval=persist
 
 [date]
-command=[ "$button" ] && notify-send -t 20000 -c calendar -a Date "$(date '+%A %d.%m.%Y')" "$(cal)"; date '+%X'
-# command=date '+%A %x %X'
+command=[ "$button" ] && notify-send -t 20000 -c calendar -a Date "$(date '+%A %d.%m.%Y')" "$(cal)"; date +'󰃭 %a %x'
+interval=1
+
+[time]
+command=date +'󰥔 %H:%M'
 interval=1
 
 # vim: ft=dosini
