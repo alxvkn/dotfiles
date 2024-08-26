@@ -13,6 +13,7 @@ return {
 
     -- servers with default settings
     local servers = {
+      { 'gopls' },
       { 'clangd' },
       { 'bashls' },
       { 'pyright' },
