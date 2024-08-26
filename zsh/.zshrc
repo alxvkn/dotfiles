@@ -94,7 +94,7 @@ else
 fi
 
 # prompt
-PROMPT="$PROMPT_HOST%(0?.%F{green}.%F{red}) %U%2~%u%f "
+PROMPT="┌$PROMPT_HOST%f %B%n%b@%m %F{blue}%2~%f "$'\n'"└%(0?..%F{red})%#%f "
 
 zstyle ':completion:*' completer _expand_alias _complete _correct
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}' 'r:|[-_./]=** r:|=*'
