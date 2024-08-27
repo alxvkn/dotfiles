@@ -1,4 +1,3 @@
-require 'transparency'
 return {
   'RRethy/nvim-base16',
   'kdheepak/monochrome.nvim',

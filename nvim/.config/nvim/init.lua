@@ -103,3 +103,4 @@ if vim.g.neovide then
 end
 
 require 'lazy_bootstrap'
+require 'transparency'
