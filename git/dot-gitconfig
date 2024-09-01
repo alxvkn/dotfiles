@@ -1,3 +1,5 @@
+# vim:ft=gitconfig
+
 [user]
     name = on8t
     email = 64454213+on8t@users.noreply.github.com
