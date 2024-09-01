@@ -135,12 +135,8 @@ bindsym --to-code {
     # Toggle the current focus between tiling and floating mode
     $mod+Shift+space floating toggle
 
-    # Stick floating focus to current output so that it'l show up on any workspace
-    $mod+Control+space sticky toggle
-
     # Swap focus between the tiling area and the floating area
     $mod+space focus mode_toggle
-
 
     # So uhm scratchpad
     $mod+Shift+minus move scratchpad
@@ -232,7 +228,9 @@ bindsym --to-code {
     $mod+d $set_en_kb; exec $launcher
 
     # Open files in user dirs
-    $mod+comma exec $file_launcher
+    $mod+slash exec $file_launcher
+
+    $mod+comma exec albert show
 
     # Small floating terminal window
     $mod+grave exec $term --app-id=floating_terminal
