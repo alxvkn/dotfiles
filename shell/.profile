@@ -40,6 +40,9 @@ fi
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 if [ $TERM = linux ]; then
+    if [ $(tty) = /dev/tty1 ] && [ -n "$(command -v sway)" ]; then
+        exec sway
+    fi
     if [ -n "$(command -v fzy)" ]; then
         CHOICES="$(ls /usr/bin/Hyprland /usr/bin/sway)"$'\n'"gnome"
         while echo 'run what?'; do
