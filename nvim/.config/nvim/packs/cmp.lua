@@ -51,14 +51,14 @@ return {
       },
       sources = cmp.config.sources {
         { name = 'nvim_lsp' },
-        -- { name = 'luasnip' },
+        { name = 'luasnip' },
         { name = 'path' },
         { name = 'spell' },
         { name = 'buffer' },
       },
       formatting = {
         format = lspkind.cmp_format {
-          mode = 'symbol',
+          mode = 'symbol_text',
           preset = 'codicons',
           symbol_map = {
             Function = '󰊕',
