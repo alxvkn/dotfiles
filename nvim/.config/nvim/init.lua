@@ -105,3 +105,4 @@ end
 
 require 'lazy_bootstrap'
 require 'transparency'
+require 'diagnostics'
