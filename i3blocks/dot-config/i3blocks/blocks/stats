@@ -3,6 +3,7 @@ SEP="${SEP:- | }"
 LABEL="${LABEL:-stats}"
 MEM_LABEL="${MEM_LABEL:-mem:}"
 STORAGE_LABEL="${STORAGE_LABEL:-storage:}"
+MOUNTPOINT="${MOUNTPOINT:-/}"
 
 memfree() {
     free -h | awk '/Mem/{print $3 "/" $2 }'
