@@ -10,9 +10,6 @@ vim.o.expandtab = true
 vim.o.smarttab = true
 vim.o.autoindent = true
 
--- no swapfiles
-vim.o.swapfile = false
-
 vim.o.wrap = false
 
 vim.o.number = true
