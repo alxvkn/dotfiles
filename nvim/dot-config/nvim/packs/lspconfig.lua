@@ -31,7 +31,7 @@ return {
           on_attach(client, bufnr)
         end,
       },
-      { 'tsserver',
+      { 'ts_ls',
         on_attach = function(client, bufnr)
           if lspconfig.util.root_pattern('deno.json', 'deno.jsonc')(vim.fn.getcwd()) then
             client.stop()
