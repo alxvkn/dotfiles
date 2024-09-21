@@ -20,7 +20,7 @@ set {
     # TODO: wallpapers
     # lock command
     $lock swaylock
-    $lock_with_screen_timeout 'swayidle timeout 4 "swaymsg output \* power off" resume "swaymsg output \* power on" & swaylock -s fill; kill %1'
+    $lock_with_screen_timeout 'swayidle timeout 4 "swaymsg output \* power off" resume "swaymsg output \* power on" & swaylock; kill %1'
 
     # Browser
     $browser browser
