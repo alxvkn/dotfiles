@@ -42,16 +42,4 @@ if [ $TERM = linux ]; then
         [ -n "$(command -v fastfetch)" ] && fastfetch && read
         exec sway
     fi
-    if [ -n "$(command -v fzy)" ]; then
-        CHOICES="$(ls /usr/bin/Hyprland /usr/bin/sway)"$'\n'"gnome"
-        while echo 'run what?'; do
-            PROG="$(echo $CHOICES | fzy)"
-            [ -z "$PROG" ] && break
-            if [ -n "$(command -v $PROG)" ]; then
-                exec "$PROG"
-            elif [ "$PROG" = gnome ]; then
-                exec doas systemctl start gdm.service
-            fi
-        done
-    fi
 fi
