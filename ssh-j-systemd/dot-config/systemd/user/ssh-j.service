@@ -1,0 +1,10 @@
+[Unit]
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=ssh ssh-j.com -NR %H:22:localhost:22
+Restart=always
+
+[Install]
+WantedBy=default.target
