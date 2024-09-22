@@ -1,0 +1,31 @@
+#!/bin/sh
+
+LABEL="${LABEL:-note:}"
+
+# maybe configure extenrally just as LABEL
+NOTE_PATH=~/Documents/obsidian/notes/quicknote.md
+
+echo $LABEL $(cat $NOTE_PATH)
+
+while sleep $((60 * 5)); do
+    echo $LABEL $(cat $NOTE_PATH)
+done & # re-read every five minutes
+
+while read button; do
+    case $button in
+        1)
+            NOTE=$(zenity --title 'quicknote' --entry --text='' --entry-text="$(cat $NOTE_PATH)")
+            if [ $? = 0 ]; then
+                echo $NOTE > $NOTE_PATH
+            fi
+            echo $LABEL $(cat $NOTE_PATH)
+            ;;
+        # 3)
+        #     COLOR=$(zenity --title 'quicknote color' --color-selection --show-palette | sed 's/,/ /g;s/rgb(//;s/)//' | xargs printf "#%02X%02X%02X")
+        #     echo '<span color="'$COLOR'">'$LABEL'</span>' $NOTE
+        #     ;;
+        *) # re-read on any other button press
+            echo $LABEL $(cat $NOTE_PATH)
+            ;;
+    esac
+done

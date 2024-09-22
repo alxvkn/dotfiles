@@ -19,6 +19,12 @@ command=$SCRIPT_DIR/playerctl
 interval=persist
 markup=pango
 
+[quicknote]
+LABEL=
+command=$SCRIPT_DIR/quicknote
+interval=persist
+markup=pango
+
 [adb#phone]
 DEVICE_PATTERN=RMX3890
 LABEL=󰄜
