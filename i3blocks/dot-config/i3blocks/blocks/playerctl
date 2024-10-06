@@ -20,12 +20,12 @@ on_update() {
         INFO="$(playerctl metadata -f '{{playerName}}'): $INFO"
     fi
 
-    PLAYERNAME="$(playerctl metadata -f '{{playerName}}')" 
-    if [ "$PLAYERNAME" = spotify ]; then
-        ICON="<span color=\"#1ED760\"></span> $ICON"
-    elif [ "$PLAYERNAME" = chromium ]; then
-        ICON=" $ICON"
-    fi
+    # PLAYERNAME="$(playerctl metadata -f '{{playerName}}')" 
+    # if [ "$PLAYERNAME" = spotify ]; then
+    #     ICON="<span color=\"#1ED760\"></span> $ICON"
+    # elif [ "$PLAYERNAME" = chromium ]; then
+    #     ICON=" $ICON"
+    # fi
 
     # replace & with &amp; (for pango)
     # (discovered with Search & Rescue)
