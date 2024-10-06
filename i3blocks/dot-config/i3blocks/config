@@ -66,4 +66,8 @@ interval=1
 command=date +'󰥔 %H:%M'
 interval=1
 
+[sway/scratchpad]
+full_text=󰖲
+command=swaymsg scratchpad show > /dev/null 2>&1
+
 # vim: ft=dosini
