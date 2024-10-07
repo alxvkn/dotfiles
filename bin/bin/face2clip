@@ -1,0 +1,17 @@
+#!/bin/sh
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --low)
+            FILTER="-vf scale=64:64,setsar=1:1"
+            ;;
+        --square)
+            ;;
+    esac
+    shift
+done
+
+ffmpeg -i /dev/video0 \
+    -frames:v 1 \
+    $FILTER \
+    -c:v png -f image2pipe - | wl-copy
