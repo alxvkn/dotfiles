@@ -28,6 +28,8 @@ alias t='tmux'
 
 alias fuck='doas $(fc -ln -1)'
 
+alias daterfc='date --rfc-3339=date'
+
 alias aunlock='adb shell input text $(cat ~/.phonepin)'
 alias alock='adb shell input keyevent POWER'
 
