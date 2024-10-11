@@ -17,7 +17,7 @@ fi
 # TODO: swaylock
 
 killall swaybg
-swaybg -i ~/.local/share/backgrounds/amber-$SCHEME.jxl > /dev/null & disown
+swaybg -c $bg > /dev/null & disown
 
 {
     #       class                    border  bg      text    indicator   child_border
