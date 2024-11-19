@@ -63,7 +63,7 @@ command=[ "$button" ] && notify-send -t 20000 -c calendar -a Date "$(date '+%A %
 interval=1
 
 [time]
-command=date +'󰥔 %H:%M'
+command=echo $(clock_icon_from_hour $(date +%H)) $(date +'%H:%M')
 interval=1
 
 [sway/scratchpad]

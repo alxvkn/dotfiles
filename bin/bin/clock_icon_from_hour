@@ -1,0 +1,19 @@
+#!/bin/sh
+
+hour=$1
+hour=$((hour % 12))
+
+case $hour in
+    1) echo 󱐿 ;;
+    2) echo 󱑀 ;;
+    3) echo 󱑁 ;;
+    4) echo 󱑂 ;;
+    5) echo 󱑃 ;;
+    6) echo 󱑄 ;;
+    7) echo 󱑅 ;;
+    8) echo 󱑆 ;;
+    9) echo 󱑇 ;;
+    10) echo 󱑈 ;;
+    11) echo 󱑉 ;;
+    0) echo 󱑊 ;;
+esac
