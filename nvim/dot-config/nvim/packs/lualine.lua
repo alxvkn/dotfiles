@@ -11,10 +11,6 @@ return {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
       },
-      tabline = {
-        lualine_b = { 'buffers' },
-        lualine_y = { 'tabs' },
-      },
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
