@@ -8,10 +8,10 @@ return {
     vim.keymap.set('n', '<Leader>jn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[J]ump to [N]eovim config files' })
-    vim.keymap.set('n', '<Leader>jb', builtin.buffers, { desc = '[J]ump to [B]uffer' })
-    vim.keymap.set('n', '<Leader>jh', builtin.help_tags, { desc = '[J]ump to [H]elp tag' })
-    vim.keymap.set('n', '<Leader>jl', builtin.live_grep, { desc = '[J]ump to [L]ive grep result' })
-    vim.keymap.set('n', '<Leader>jj', builtin.planets)
+    vim.keymap.set('n', '<Leader>b', builtin.buffers, { desc = 'Jump to [B]uffer' })
+    vim.keymap.set('n', '<Leader>h', builtin.help_tags, { desc = 'Jump to [H]elp tag' })
+    vim.keymap.set('n', '<Leader>lg', builtin.live_grep, { desc = '[L]ive [G]rep' })
+    -- vim.keymap.set('n', '<Leader>jj', builtin.planets)
 
     vim.keymap.set('n', '<Leader>ds', builtin.lsp_document_symbols, { desc = 'Jump to [D]ocument [S]ymbol' })
     vim.keymap.set('n', '<Leader>ws', builtin.lsp_dynamic_workspace_symbols, { desc = 'Jump to [W]orkspace [S]ymbol' })
