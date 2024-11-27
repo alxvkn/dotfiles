@@ -238,10 +238,6 @@ bindsym --to-code {
     # Bluez bluetooth settings
     $mod+Shift+b exec $term --app-id=floating_terminal bluetoothctl
 
-    # iwd wi-fi settings
-    $mod+Shift+w exec $term --app-id=floating_terminal iwctl
-    $mod+Control+w exec iwgtk
-
     # Terminal
     $mod+Return exec $term
 
