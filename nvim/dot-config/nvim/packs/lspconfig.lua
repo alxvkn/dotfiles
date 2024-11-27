@@ -7,10 +7,6 @@ return {
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-    -- stop all active clients if there are any
-    -- (if config is reloaded)
-    vim.lsp.stop_client(vim.lsp.get_active_clients(), true)
-
     -- servers with default settings
     local servers = {
       { 'gopls' },
