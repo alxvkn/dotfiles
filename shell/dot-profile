@@ -24,8 +24,6 @@ export EDITOR="$VISUAL"
 
 export WINEDLLOVERRIDES=winemenubuilder.exe=d
 
-export QT_QPA_PLATFORMTHEME=gnome
-
 # optional custom location for npm global prefix
 if [ -d "$HOME/.npm-global" ]; then
     export PATH="$HOME/.npm-global/bin:$PATH"
