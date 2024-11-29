@@ -33,6 +33,10 @@ if [ -d "$HOME/go/bin" ]; then
     export PATH="$HOME/go/bin:$PATH"
 fi
 
+if [ -d "$HOME/.dotnet/tools" ]; then
+    export PATH="$HOME/.dotnet/tools:$PATH"
+fi
+
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 if [ $TERM = linux ]; then
