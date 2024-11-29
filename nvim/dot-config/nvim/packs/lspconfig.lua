@@ -18,6 +18,7 @@ return {
       { 'emmet_ls' },
       { 'html' },
       { 'cssls' },
+      { 'csharp_ls' },
       { 'denols',
         root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
         on_attach = function(client, bufnr)
