@@ -10,7 +10,7 @@ set {
     $resize_step 30px
     $floating_move_step 30px
     $kbd_brightness_step 25%
-    $mon_brightness_step 1
+    $mon_brightness_step 5%
 }
 
 mode "resize" {
