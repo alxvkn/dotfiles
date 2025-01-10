@@ -73,8 +73,11 @@ update-zsh-plugins() (
 )
 
 jg() {
+    if [ $# -gt 0 ]; then
+        QUERY="-q $1"
+    fi
     if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]; then
-        FILE="$(git ls-files | fzy)"
+        FILE="$(git ls-files | fzy $QUERY)"
         if [ -n "$FILE" ]; then
             nvim "$FILE"
         fi
@@ -82,7 +85,7 @@ jg() {
 }
 
 jdf() {
-    ( cd ~/.dotfiles && jg )
+    ( cd ~/.dotfiles && jg "$@" )
 }
 
 timer() {
