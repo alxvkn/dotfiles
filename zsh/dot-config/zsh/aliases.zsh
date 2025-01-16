@@ -73,6 +73,7 @@ update-zsh-plugins() (
 )
 
 jg() {
+    unset QUERY
     if [ $# -gt 0 ]; then
         QUERY="-q $1"
     fi
