@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SCREENSHOT_DIR=${SCREENSHOT_DIR:-"$HOME/.scrn"}
+SCREENSHOT_DIR=${SCREENSHOT_DIR:-"$(xdg-user-dir PICTURES)/Screenshots"}
 
 GRIM_CMD="grim -t png"
 
