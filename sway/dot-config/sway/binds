@@ -288,6 +288,8 @@ bindsym --to-code {
         XF86AudioNext exec playerctl position 5+
         Shift+XF86AudioPrev exec playerctl previous
         Shift+XF86AudioNext exec playerctl next
+
+        XF86Tools output eDP-1 toggle
     }
 }
 
