@@ -1,6 +1,6 @@
 # vim: ft=swayconfig
 
-set $touchpad_launcher_mode "1:  | 2:  | 3:󰗃  | 4: "
+set $touchpad_launcher_mode "1:  | 2:  | 3:  | 4:󰗃 "
 
 mode "select workspace with touchpad [1-4]" {
     bindgesture {
@@ -43,9 +43,9 @@ mode "select workspace with touchpad [5-8]" {
 
 mode $touchpad_launcher_mode {
     bindgesture {
-        hold:1 exec telegram-desktop; mode "default"
-        hold:2 exec $browser; mode "default"
-        hold:3 exec $browser --app=https://youtube.com; mode "default"
+        hold:1 exec $browser; mode "default"
+        hold:2 exec $file_manager; mode "default"
+        hold:3 exec telegram-desktop; mode "default"
         hold:4 exec $browser --app=https://vk.com/im; mode "default"
 
         swipe:3 mode "default"
