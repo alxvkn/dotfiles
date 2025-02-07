@@ -155,8 +155,6 @@ bindsym --to-code {
 # Move and resize windows with mouse by holding $mod
 floating_modifier $mod normal
 
-
-
 # Reload config
 bindsym --to-code $mod+Shift+c reload
 
@@ -169,7 +167,7 @@ bindsym --to-code {
     $mod+Shift+o input * xkb_variant ','
 }
 
-set $shortcut_mode "shortcuts: [t] - , [b] - , [s] - 󰄜, [v] - vnc, [y] - mpv $(wl-paste), [d] - 󰙯"
+set $shortcut_mode "shortcuts: [t] - , [b] - , [f] - , [s] - 󰄜, [v] - vnc, [y] - mpv $(wl-paste), [d] - 󰙯"
 mode $shortcut_mode {
     bindsym --to-code {
         t exec telegram-desktop; mode "default"
