@@ -4,6 +4,7 @@ bg=#0C0C10
 fg=#ffffff
 inactive_fg=#555555
 accent=#ffaaff
+wallpaper=~/Pictures/fefe8b37374b206d9a9da1cb9dbbd0f9.jpg
 
 SCHEME=d
 
@@ -15,9 +16,10 @@ if [ "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-ligh
 fi
 
 # TODO: swaylock
+swaymsg -- set \$lock swaylock -i $wallpaper -s center
 
 killall swaybg
-swaybg -c $bg > /dev/null & disown
+swaybg -m center -c $bg -i $wallpaper > /dev/null & disown
 
 {
     #       class                    border  bg      text    indicator   child_border
