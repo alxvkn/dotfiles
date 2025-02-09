@@ -16,7 +16,7 @@ if [ "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-ligh
 fi
 
 # TODO: swaylock
-swaymsg -- set \$lock swaylock -i $wallpaper -s center
+swaymsg -- set \$lock swaylock -i $wallpaper -s center 2>&1 > /dev/null
 
 killall swaybg
 swaybg -m center -c $bg -i $wallpaper > /dev/null & disown
