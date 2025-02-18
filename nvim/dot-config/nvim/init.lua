@@ -15,6 +15,8 @@ vim.o.wrap = false
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = 'yes'
+vim.o.cursorline = true
+vim.o.colorcolumn = '80'
 
 if os.getenv('TERM') ~= 'linux' then
   vim.o.termguicolors = true
