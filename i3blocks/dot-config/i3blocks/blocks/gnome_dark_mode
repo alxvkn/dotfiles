@@ -34,6 +34,7 @@ toggle() {
         echo 
     fi
     ~/.config/sway/colors.sh
+    tmux source ~/.tmux.conf
 }
 
 SOCKET="$XDG_RUNTIME_DIR/gnome_dark_mode.sock"
