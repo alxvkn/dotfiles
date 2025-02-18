@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -x
-
 DIR="$1"
 NAME=$(basename "$DIR")
 
