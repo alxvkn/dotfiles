@@ -155,7 +155,7 @@ for_window [app_id=tui_mixer] {
 }
 
 # TODO: sway.env.sh
-exec swayidle -w before-sleep 'swaymsg $set_en_kb; $lock -f'
+exec swayidle -w before-sleep 'swaymsg $set_en_kb; swaylock -f'
 
 
 ### Autostart
