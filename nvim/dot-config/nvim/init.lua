@@ -109,3 +109,5 @@ end
 require 'lazy_bootstrap'
 require 'transparency'
 require 'diagnostics'
+
+vim.cmd.colorscheme 'rose-pine'
