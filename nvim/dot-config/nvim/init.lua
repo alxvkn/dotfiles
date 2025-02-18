@@ -84,6 +84,12 @@ vim.keymap.set('n', '<Bs>', '<C-^>')
 vim.keymap.set('n', '^', '0')
 vim.keymap.set('n', '0', '^')
 
+-- center the screen after long jumps
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
+
 vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', { desc = 'Yank to system clipboard' })
 vim.keymap.set({'n', 'v'}, '<Leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
