@@ -15,7 +15,8 @@ alias cpr='rsync -hh --archive --info=stats1,progress2 --modify-window=1'
 alias mvr='rsync -hh --archive --info=stats1,progress2 --modify-window=1 --remove-source-files' 
 
 # actual aliases
-alias ll='ls -l'
+alias l='ls -l'
+alias la='ls -la'
 
 # shortcuts
 alias n='nvim'
