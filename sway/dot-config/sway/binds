@@ -247,6 +247,9 @@ bindsym --to-code {
     # Htop
     $mod+Escape exec $term --app-id=htop -e htop
 
+    # Search and kill a process
+    $mod+Mod1+k exec ps x | tail +2 | $menu -l 40 -w 150 | awk '{print $1}' | xargs kill
+
     # Open tui mixer
     $mod+F9 exec $term --app-id=tui_mixer -e pulsemixer
     $mod+Shift+m exec $term --app-id=tui_mixer -e pulsemixer
