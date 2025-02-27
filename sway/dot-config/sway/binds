@@ -168,7 +168,7 @@ bindsym --to-code {
     $mod+i $set_en_kb
     $mod+o $set_ru_kb
 
-    $mod+Shift+i input * xkb_variant 'dvp,'
+    $mod+Shift+i input * xkb_variant 'dvorak,'
     $mod+Shift+o input * xkb_variant ','
 }
 
