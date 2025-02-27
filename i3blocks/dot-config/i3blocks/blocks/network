@@ -1,0 +1,60 @@
+#!/bin/sh
+
+get_wifi_icon() {
+    connectivity="$1"
+    strength="$2"
+
+    case $connectivity in
+        full)
+            case $strength in
+                0) echo 󰤯 ;;
+                1) echo 󰤟 ;;
+                2) echo 󰤢 ;;
+                3) echo 󰤥 ;;
+                4) echo 󰤨 ;;
+            esac
+            ;;
+        portal)
+            case $strength in
+                0) echo 󰤬 ;;
+                1) echo 󰤡 ;;
+                2) echo 󰤤 ;;
+                3) echo 󰤧 ;;
+                4) echo 󰤪 ;;
+            esac
+            ;;
+        limited)
+            case $strength in
+                0) echo 󰤫 ;;
+                1) echo 󰤠 ;;
+                2) echo 󰤣 ;;
+                3) echo 󰤦 ;;
+                4) echo 󰤩 ;;
+            esac
+            ;;
+    esac
+}
+
+while sleep 1; do
+    nmcli_output=$(nmcli -g NAME,TYPE connection show --active | head -1)
+
+    name=${nmcli_output%:*}
+    type=${nmcli_output#*:}
+
+    connectivity=$(nmcli networking connectivity)
+
+    case $type in
+        802-11-wireless)
+            strength=$(nmcli -t -f IN-USE,SIGNAL device wifi list | awk -F: '/*/ { print int($2 / 25) }')
+            icon=$(get_wifi_icon $connectivity $strength)
+            ;;
+        ethernet)
+            icon=󰈀
+            ;;
+        *)
+            icon=󰛳
+            ;;
+    esac
+
+    echo $icon $name
+done

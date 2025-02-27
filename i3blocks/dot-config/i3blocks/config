@@ -45,6 +45,10 @@ command=$SCRIPT_DIR/gnome_dark_mode
 min_width=
 interval=persist
 
+[network]
+command=$SCRIPT_DIR/network
+interval=persist
+
 [battery]
 command=$SCRIPT_DIR/battery
 interval=5
