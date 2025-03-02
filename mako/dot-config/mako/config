@@ -2,7 +2,7 @@ format=%a\n<b>%s</b>\n%b
 
 font=IosevkaMedium 11
 
-background-color=#222222aa
+background-color=#222222ff
 border-color=#ffffff55
 
 border-size=2
