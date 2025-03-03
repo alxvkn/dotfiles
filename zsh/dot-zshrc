@@ -83,7 +83,7 @@ bindkey '^M' _fuck
 if [ -n "$TERMUX_VERSION" ]; then
     # 󰀲
     PROMPT_HOST=""
-elif echo "$HOST" | grep "mac" > /dev/null ; then
+elif echo "$HOST" | grep -i "mac" > /dev/null ; then
     PROMPT_HOST="󰀵"
 elif [ -f /etc/os-release ]; then
     source /etc/os-release
