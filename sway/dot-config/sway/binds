@@ -89,10 +89,12 @@ bindsym {
     $mod+Shift+9 move container to workspace number 9
     $mod+Shift+0 move container to workspace number 10
 
-    $mod+Control+$left move workspace to output left
-    $mod+Control+$down move workspace to output down
-    $mod+Control+$up move workspace to output up
-    $mod+Control+$right move workspace to output right
+    --to-code {
+        $mod+Control+$left move workspace to output left
+        $mod+Control+$down move workspace to output down
+        $mod+Control+$up move workspace to output up
+        $mod+Control+$right move workspace to output right
+    }
 }
 
 # Workspace cycling with $mod+{,Shift}+Tab and $mod+{p,n}
