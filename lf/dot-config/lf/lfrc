@@ -1,7 +1,13 @@
 map <c-z> $ kill -STOP $PPID
+
 map D delete
 
 map <enter> open
+
+cmd copy-path &{{
+    wl-copy $fx
+}}
+map Y copy-path
 
 cmd z %{{
     res="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
@@ -18,3 +24,4 @@ set previewer ~/.config/lf/previewer.sh
 set sixel
 
 set history false
+set mouse
