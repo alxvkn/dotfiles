@@ -1,6 +1,7 @@
 #!/bin/sh
 
-bg=#0C0C10
+# bg=#0C0C10
+bg=#000000
 fg=#ffffff
 inactive_fg=#555555
 accent=#ffaaff
@@ -25,7 +26,7 @@ swaybg -m center -c $bg -i $wallpaper > /dev/null & disown
     #       class                    border  bg      text    indicator   child_border
     swaymsg "client.focused          $fg     $bg     $fg     #aaaaaa     #aaaaaa"
     swaymsg "client.focused_inactive #000000 $bg     #aaaaaa"
-    swaymsg "client.unfocused        #000000 #000000 #aaaaaa             #000000"
+    swaymsg "client.unfocused        #000000 $bg     #aaaaaa             #000000"
 
 
     swaymsg bar main colors "background          $bg"
