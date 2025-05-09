@@ -102,3 +102,28 @@ timer() {
 cht() {
     curl cht.sh/$1$(shift; (($# > 0)) && echo "/$@" | tr ' ' '+')
 }
+
+adbw() {
+    for line in $(avahi-browse -ktrp _adb-tls-connect._tcp); do
+        case $line in
+            \=*)
+                ;;
+            *)
+                continue
+                ;;
+        esac
+        url=$(echo $line | awk -F ';' '{print $8 ":" $9}')
+
+        adb_output=$(adb connect $url)
+        case $adb_output in
+            *connected*)
+                echo $adb_output
+                return 0
+                ;;
+            *)
+                echo error: $adb_output
+                return 1
+                ;;
+        esac
+    done
+}
