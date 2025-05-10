@@ -121,8 +121,7 @@ adbw() {
                 return 0
                 ;;
             *)
-                echo error: $adb_output
-                return 1
+                continue
                 ;;
         esac
     done
