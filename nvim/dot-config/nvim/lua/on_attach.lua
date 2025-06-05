@@ -4,8 +4,8 @@ M.on_attach = function(_, bufnr)
   local opts = { silent = true, buffer = bufnr }
 
   vim.keymap.set('i', '<c-l>', vim.lsp.buf.signature_help, opts)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+  vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+  vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', '<Leader>gd', vim.lsp.buf.definition, opts)
   vim.keymap.set('n', '<Leader>gD', vim.lsp.buf.declaration, opts)
