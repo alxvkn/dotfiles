@@ -1,12 +1,34 @@
 ;; vim:ft=lisp
 
-(defsrc 
-  caps)
-
-(defalias
-  caps-esc-ctrl (tap-hold 100 150 esc lctl)
+(defcfg
+  process-unmapped-keys yes
   )
 
-(deflayer
-  base
-  @caps-esc-ctrl)
+(defvar
+  tap-timeout 100
+  hold-timeout 150
+  tt $tap-timeout
+  ht $hold-timeout
+  )
+
+(defalias
+  a (tap-hold $tt $ht a lmet)
+  s (tap-hold $tt $ht s lalt)
+  d (tap-hold $tt $ht d lsft)
+  f (tap-hold $tt $ht f lctl)
+
+  j (tap-hold $tt $ht j rctl)
+  k (tap-hold $tt $ht k rsft)
+  l (tap-hold $tt $ht l ralt)
+  ; (tap-hold $tt $ht ; rmet)
+  )
+
+(defsrc 
+  caps
+  a s d f
+  j k l ;)
+
+(deflayer base
+  esc
+  @a @s @d @f
+  @j @k @l @;)
