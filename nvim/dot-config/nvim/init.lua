@@ -53,6 +53,7 @@ vim.o.langmap = 'ёйцукенгшщзхъфывапролджэячсмить�
 
 vim.o.keymap = 'russian-jcukenwin'
 vim.o.iminsert = 0 -- disable alternative keymap by default
+vim.o.spell = true
 
 vim.keymap.set('i', 'kj', '<Esc>')
 vim.keymap.set('i', '<c-o>', '<c-^>')
