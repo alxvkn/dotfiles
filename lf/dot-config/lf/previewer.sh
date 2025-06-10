@@ -11,6 +11,14 @@ case "$(file -Lb --mime-type -- "$1")" in
         sqlite3 "$1" .tables
         exit 1
         ;;
+    application/zip)
+        unzip -l "$1"
+        exit 1
+        ;;
+    application/x-7z-compressed)
+        7z -ba l "$1"
+        exit 1
+        ;;
     *)
         if [ -n "$(command -v bat)" ]; then
             bat -f --style=numbers "$1"
