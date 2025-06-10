@@ -5,6 +5,8 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-calc',
+    'andersevenrud/cmp-tmux',
     'saadparwaiz1/cmp_luasnip',
     'f3fora/cmp-spell',
     'onsails/lspkind.nvim',
@@ -55,6 +57,8 @@ return {
         { name = 'path' },
         { name = 'spell' },
         { name = 'buffer' },
+        { name = 'calc' },
+        { name = 'tmux' },
       },
       formatting = {
         format = lspkind.cmp_format {
@@ -64,14 +68,22 @@ return {
             Function = '󰊕',
           },
           before = function(entry, vim_item)
+            vim_item.menu = entry.source.name
             if entry.source.name == 'nvim_lsp' then
               local lspserver_name = entry.source.source.client.name
-              vim_item.menu = ('[%s]'):format(lspserver_name)
+              vim_item.menu = vim_item.menu .. (('[%s]'):format(lspserver_name))
+            elseif entry.source.name == 'calc' then
+              vim_item.kind = '󰪚'
             end
             return vim_item
           end
         },
       },
+      window = {
+        completion = {
+          winblend = 10,
+        },
+      }
     }
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
