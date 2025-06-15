@@ -177,7 +177,7 @@ bindsym --to-code {
 set $shortcut_mode "shortcuts: [t] - , [b] - , [f] - , [s] - 󰄜, [v] - vnc, [y] - mpv $(wl-paste), [d] - 󰙯"
 mode $shortcut_mode {
     bindsym --to-code {
-        t exec telegram-desktop; mode "default"
+        t exec Telegram; mode "default"
         b exec $browser; mode "default"
         s exec scrcpy -K --no-audio; mode "default"
         v exec vncviewer; mode "default"
