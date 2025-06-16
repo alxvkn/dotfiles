@@ -29,7 +29,9 @@ return {
         ['<C-y>'] = cmp.mapping.confirm { select = true },
         ['<C-e>'] = cmp.mapping.abort(),
         ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i' }),
+        ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i' }),
         ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i' }),
+        ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i' }),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<Tab>'] = cmp.mapping(function(fallback)
