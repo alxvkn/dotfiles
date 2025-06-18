@@ -8,7 +8,6 @@ return {
     'hrsh7th/cmp-calc',
     'andersevenrud/cmp-tmux',
     'saadparwaiz1/cmp_luasnip',
-    'f3fora/cmp-spell',
     'onsails/lspkind.nvim',
   },
   config = function()
@@ -57,7 +56,6 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-        { name = 'spell' },
         { name = 'buffer' },
         { name = 'calc' },
         { name = 'tmux' },
