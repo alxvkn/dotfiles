@@ -45,7 +45,7 @@ mode $touchpad_launcher_mode {
     bindgesture {
         hold:1 exec $browser; mode "default"
         hold:2 exec $file_manager; mode "default"
-        hold:3 exec telegram-desktop; mode "default"
+        hold:3 exec Telegram; mode "default"
         hold:4 exec $browser --app=https://vk.com/im; mode "default"
 
         swipe:3 mode "default"
