@@ -4,4 +4,5 @@ return {
   'ellisonleao/gruvbox.nvim',
   'rose-pine/neovim',
   'vague2k/vague.nvim',
+  'savq/melange-nvim',
 }
