@@ -17,6 +17,7 @@ return {
       { 'dartls' },
       { 'emmet_ls' },
       { 'html' },
+      { 'htmx' },
       { 'intelephense' },
       { 'jdtls' },
       { 'kotlin_language_server' },
