@@ -29,6 +29,7 @@ return {
       { 'csharp_ls' },
       { 'lua_ls' },
       { 'jsonls' },
+      { 'lemminx' },
       { 'denols',
         root_markers = { 'deno.json', 'deno.jsonc' },
         on_attach = function(client, bufnr)
