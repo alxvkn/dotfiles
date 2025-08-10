@@ -5,8 +5,6 @@ return {
 
     local on_attach = require('on_attach').on_attach
 
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
     -- servers with default settings
     local servers = {
       { 'gopls' },
@@ -67,7 +65,6 @@ return {
       local name = server[1]
       local config = {
         on_attach = on_attach,
-        capabilities = capabilities,
       }
 
       for k, v in pairs(server) do
