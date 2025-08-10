@@ -8,6 +8,7 @@
 [alias]
     a = add
     s = status
+    p = pull
     ss = status -s
     co = checkout
     b = branch

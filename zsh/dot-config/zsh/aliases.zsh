@@ -103,6 +103,17 @@ cht() {
     curl cht.sh/$1$(shift; (($# > 0)) && echo "/$@" | tr ' ' '+')
 }
 
+cmb() { # cmake build
+    test -f CMakeLists.txt || return
+
+    if ! [ -d build ]; then
+        mkdir -p build
+        cmake -B build || return
+    fi
+
+    cmake --build build
+}
+
 adbw() {
     for line in $(avahi-browse -ktrp _adb-tls-connect._tcp); do
         case $line in
