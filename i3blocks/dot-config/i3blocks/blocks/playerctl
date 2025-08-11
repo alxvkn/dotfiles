@@ -3,11 +3,9 @@
 on_update() {
     status="$1"
     if [ "$status" = Playing ]; then
-        # ICON=
-        ICON=󰏤
+        ICON=
     elif [ "$status" = Paused ]; then
-        # ICON=
-        ICON=󰐊
+        ICON=
     else
         echo
         return
