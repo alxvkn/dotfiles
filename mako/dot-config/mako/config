@@ -5,8 +5,8 @@ font=IosevkaMedium 11
 background-color=#222222ff
 border-color=#ffffff55
 
-border-size=2
-border-radius=10
+border-size=1
+# border-radius=10
 width=300
 height=500
 
