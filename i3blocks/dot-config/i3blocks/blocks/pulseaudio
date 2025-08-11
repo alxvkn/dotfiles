@@ -74,11 +74,18 @@ while read button; do
     case $button in
         1) pactl set-sink-mute 0 toggle
             ;;
-        3)
+        2)
             (if pgrep pavucontrol; then
                 pkill pavucontrol
             else
                 pavucontrol &
+            fi) 2>&1 >/dev/null
+            ;;
+        3)
+            (if pgrep -f tui_mixer; then
+                pkill -f tui_mixer
+            else
+                footclient --app-id=tui_mixer pulsemixer &
             fi) 2>&1 >/dev/null
             ;;
         4) pactl set-sink-volume 0 +5%
