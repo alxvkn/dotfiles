@@ -26,6 +26,7 @@ return {
         ['<C-z>'] = cmp.mapping(cmp.mapping.complete {}, { 'i', 'c' }),
         ['<CR>'] = cmp.mapping.confirm { select = false },
         ['<C-y>'] = cmp.mapping.confirm { select = true },
+        ['<M-CR>'] = cmp.mapping.confirm { select = true },
         ['<C-e>'] = cmp.mapping.abort(),
         ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i' }),
         ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i' }),
