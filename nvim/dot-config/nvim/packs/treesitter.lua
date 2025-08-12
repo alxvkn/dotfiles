@@ -18,7 +18,6 @@ return {
           select = {
             enable = true,
 
-            include_surrounding_whitespace = true,
             lookahead = true,
             keymaps = {
               ['aa'] = '@parameter.outer',
@@ -27,16 +26,16 @@ return {
               ['af'] = '@function.outer',
               ['if'] = '@function.inner',
 
-              ['ac'] = '@call.outer',
-              ['ic'] = '@call.inner',
+              ['aC'] = '@call.outer',
+              ['iC'] = '@call.inner',
 
               ['al'] = '@loop.outer',
               ['il'] = '@loop.inner',
 
               ['a='] = '@assignment.outer',
               ['i='] = '@assignment.inner',
-              ['l='] = '@assignment.lhs',
-              ['r='] = '@assignment.rhs',
+              ['ik'] = '@assignment.lhs',
+              ['iv'] = '@assignment.rhs',
 
               ['ac'] = '@class.outer',
               ['ic'] = '@class.inner',
@@ -49,6 +48,26 @@ return {
             },
             swap_previous = {
               ["<leader>A"] = "@parameter.inner",
+            },
+          },
+          move = {
+            enable = true,
+            -- TODO: jumps to objects from select
+            goto_next_start = {
+              ["]f"] = "@function.outer",
+              ["]c"] = "@class.outer",
+            },
+            goto_next_end = {
+              ["]F"] = "@function.outer",
+              ["]C"] = "@class.outer",
+            },
+            goto_previous_start = {
+              ["[f"] = "@function.outer",
+              ["[c"] = "@class.outer",
+            },
+            goto_previous_end = {
+              ["[F"] = "@function.outer",
+              ["[C"] = "@class.outer",
             },
           },
         }
