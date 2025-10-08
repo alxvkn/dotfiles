@@ -5,6 +5,7 @@ After=network-online.target
 Type=simple
 ExecStart=autossh -M 0 ssh-j.com -NR %H:22:localhost:22
 Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=default.target
