@@ -11,8 +11,8 @@ if [ -n "$(command -v eza)" ]; then
     alias ls='eza --icons=auto'
 fi
 
-alias cpr='rsync -hh --archive --info=stats1,progress2 --modify-window=1' 
-alias mvr='rsync -hh --archive --info=stats1,progress2 --modify-window=1 --remove-source-files' 
+alias cpr='rsync -hh --archive --partial --info=stats1,progress2 --modify-window=1' 
+alias mvr='rsync -hh --archive --partial --info=stats1,progress2 --modify-window=1 --remove-source-files' 
 
 # actual aliases
 alias l='ls -l'
