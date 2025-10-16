@@ -1,9 +1,0 @@
-[Unit]
-Description=Start a local Shadowsocks proxy instance
-
-[Service]
-Type=simple
-ExecStart=sslocal -c %h/.config/shadowsocks/config.json
-
-[Install]
-WantedBy=default.target
