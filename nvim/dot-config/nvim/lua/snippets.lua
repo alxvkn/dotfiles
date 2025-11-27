@@ -27,5 +27,12 @@ return {
       i(1),
       t(' << std::endl;'),
     }),
+  },
+  html = {
+    s('lcss', {
+      t('<link rel="stylesheet" href="'),
+      i(1),
+      t('">')
+    })
   }
 }
