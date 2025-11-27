@@ -137,7 +137,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ZSH_HIGHLIGHT_STYLES[comment]=fg=blue,bold
 
 if [ -z "$SWAYSOCK" ]; then
-    SWAY_PID=$(pgrep sway)
+    SWAY_PID=$(pgrep -o sway)
     if [ -n "$SWAY_PID" ]; then
         export SWAYSOCK="/run/user/$(id -u)/sway-ipc.$(id -u).$SWAY_PID.sock"
     fi
