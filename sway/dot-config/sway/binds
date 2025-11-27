@@ -229,7 +229,10 @@ bindsym --to-code {
 
     Scroll_lock exec $lock_with_screen_timeout
 
-    # Application launcher
+    # Application launcher (actual .desktop files)
+    $mod+Shift+d $set_en_kb; exec fuzzel
+
+    # Program launcher
     $mod+d $set_en_kb; exec $launcher
 
     # Open files in user dirs
