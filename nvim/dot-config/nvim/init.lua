@@ -18,6 +18,8 @@ vim.o.signcolumn = 'yes'
 vim.o.cursorline = true
 vim.o.colorcolumn = '80'
 
+vim.o.list = true
+
 if os.getenv('TERM') ~= 'linux' then
   vim.o.termguicolors = true
 end
