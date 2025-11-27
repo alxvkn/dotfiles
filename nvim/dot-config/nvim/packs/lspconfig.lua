@@ -13,7 +13,27 @@ return {
       { 'pyright' },
       { 'rust_analyzer' },
       { 'dartls' },
-      { 'emmet_ls' },
+      { 'emmet_ls',
+        filetypes = {
+          'astro',
+          'css',
+          'eruby',
+          'html',
+          'htmlangular',
+          'htmldjango',
+          'javascript',
+          'javascriptreact',
+          'less',
+          'pug',
+          'sass',
+          'scss',
+          'svelte',
+          'templ',
+          'typescript',
+          'typescriptreact',
+          'vue',
+        }
+      },
       { 'html' },
       { 'htmx' },
       { 'intelephense' },
@@ -29,7 +49,6 @@ return {
       { 'jsonls' },
       { 'lemminx' },
       { 'denols',
-        root_markers = { 'deno.json', 'deno.jsonc' },
         on_attach = function(client, bufnr)
           if lspconfig.util.root_pattern('package.json')(vim.fn.getcwd()) then
             client.stop()
@@ -38,28 +57,11 @@ return {
           on_attach(client, bufnr)
         end,
       },
-      { 'ts_ls',
-        on_attach = function(client, bufnr)
-          if lspconfig.util.root_pattern('deno.json', 'deno.jsonc')(vim.fn.getcwd()) then
-            client.stop()
-            return
-          end
-          on_attach(client, bufnr)
-        end,
-        filetypes = {
-          'javascript',
-          'javascriptreact',
-          'javascript.jsx',
-          'typescript',
-          'typescriptreact',
-          'typescript.tsx',
-          'svelte',
-        },
-        cmd = { 'npx', 'typescript-language-server', '--stdio' },
-      },
+      { 'ts_ls' },
       { 'svelte',
         cmd = { 'npx', 'svelte-language-server', '--stdio' },
       },
+      { 'glsl_analyzer' },
     }
     for _, server in ipairs(servers) do
       local name = server[1]
