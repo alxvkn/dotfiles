@@ -5,6 +5,21 @@ M.on_attach = function(_, bufnr)
 
   if vim.lsp.inlay_hint then
     vim.lsp.inlay_hint.enable(true)
+
+    local customizeHighlight = function()
+      local hl = vim.api.nvim_get_hl(0, { name = 'LspInlayHint', link = false })
+
+      vim.api.nvim_set_hl(0, 'LspInlayHint', {
+        fg = hl.fg,
+        bg = hl.bg,
+        italic = true,
+      })
+    end
+    customizeHighlight()
+
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      callback = customizeHighlight
+    })
   end
 
   vim.keymap.set('i', '<c-l>', vim.lsp.buf.signature_help, opts)
