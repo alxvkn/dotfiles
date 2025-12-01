@@ -3,6 +3,10 @@ local M = {}
 M.on_attach = function(_, bufnr)
   local opts = { silent = true, buffer = bufnr }
 
+  if vim.lsp.inlay_hint then
+    vim.lsp.inlay_hint.enable(true)
+  end
+
   vim.keymap.set('i', '<c-l>', vim.lsp.buf.signature_help, opts)
   vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
   vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
