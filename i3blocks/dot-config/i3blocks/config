@@ -19,10 +19,6 @@ command=$SCRIPT_DIR/playerctl
 interval=persist
 markup=pango
 
-[weather]
-command=$SCRIPT_DIR/weather
-interval=3600
-
 [quicknote]
 LABEL=
 command=$SCRIPT_DIR/quicknote
