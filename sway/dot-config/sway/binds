@@ -129,10 +129,10 @@ bindsym --to-code {
     $mod+v splitv
 
     # toggle
-    $mod+Shift+s sticky toggle
+    $mod+Shift+t sticky toggle
 
     # Switch the current container between different layout styles
-    $mod+s layout stacking
+    $mod+Shift+w layout stacking
     $mod+w layout tabbed
     $mod+e layout toggle split
 
@@ -264,8 +264,8 @@ bindsym --to-code {
     Print exec "~/scripts/wayland_screenshot.sh"
     $mod+Print exec "~/scripts/wayland_screenshot.sh --area"
 
-    $mod+Shift+y exec "~/scripts/wayland_screenshot.sh --area"
-    $mod+y exec "~/scripts/wayland_screenshot.sh"
+    $mod+Shift+s exec "~/scripts/wayland_screenshot.sh --area"
+    $mod+s exec "~/scripts/wayland_screenshot.sh"
 
     Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save"
     $mod+Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save --area"
