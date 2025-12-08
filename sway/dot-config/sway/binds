@@ -260,12 +260,15 @@ bindsym --to-code {
     $mod+Shift+m exec $term --app-id=tui_mixer -e pulsemixer
     $mod+Control+m exec pavucontrol
 
-    # Screenshots
+    # Screenshots & Screencasts
     Print exec "~/scripts/wayland_screenshot.sh"
     $mod+Print exec "~/scripts/wayland_screenshot.sh --area"
 
     $mod+Shift+s exec "~/scripts/wayland_screenshot.sh --area"
     $mod+s exec "~/scripts/wayland_screenshot.sh"
+
+    $mod+Control+s exec "~/scripts/wayland_screencast.sh"
+    $mod+Control+Shift+s exec "~/scripts/wayland_screencast.sh --area"
 
     Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save"
     $mod+Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save --area"
