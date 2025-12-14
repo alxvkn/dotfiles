@@ -50,19 +50,6 @@ bindsym --to-code $mod+b bar main mode toggle
 # ~/.config/i3blocks/blocks/gnome_dark_mode:40
 bindsym --to-code $mod+t exec 'echo toggle > $XDG_RUNTIME_DIR/gnome_dark_mode.sock'
 
-bindsym --to-code {
-    $mod+BackSpace exec wtype -M shift -k home -m shift -k backspace
-
-    $mod+up exec wtype -k page_up
-    $mod+down exec wtype -k page_down
-
-    $mod+Left exec wtype -k home
-    $mod+Right exec wtype -k end
-
-    $mod+Shift+Left exec wtype -M shift -k home -m shift
-    $mod+Shift+Right exec wtype -M shift -k end -m shift
-}
-
 ### Workspace stuff
 bindsym {
     # You guess it
