@@ -13,11 +13,16 @@ sink_device_api() {
     echo $JSON | jq -r '.[] | select(.name == "'"$1"'") | .properties."device.api"'
 }
 
-sink_muted() {
+default_sink_muted() {
     # pactl -f json list sinks 2>/dev/null | jq '.[] | select(.name == "'"$1"'") | .mute' |
     #     { read bool; [ $bool = 'true' ]; }
     # funny how they actually have this command
     pactl get-sink-mute @DEFAULT_SINK@ |
+        { read mute; [ "$mute" = 'Mute: yes' ]; }
+}
+
+default_source_muted() {
+    pactl get-source-mute @DEFAULT_SOURCE@ |
         { read mute; [ "$mute" = 'Mute: yes' ]; }
 }
 
@@ -29,18 +34,21 @@ on_update() {
     # !!! volume shown is for left channel
     case "$(sink_active_port_type $(pactl get-default-sink))" in
         HDMI)
-            icon_unmuted=󰽟
-            icon_muted=󰽠
+            sink_icon_unmuted=󰽟
+            sink_icon_muted=󰽠
             ;;
         Headphones)
-            icon_unmuted=󰋋
-            icon_muted=󰟎
+            sink_icon_unmuted=󰋋
+            sink_icon_muted=󰟎
             ;;
         *)
-            icon_unmuted=󰕾
-            icon_muted=󰝟
+            sink_icon_unmuted=󰕾
+            sink_icon_muted=󰝟
             ;;
     esac
+
+    source_icon_unmuted=󰍬
+    source_icon_muted=󰍭
 
     if [ "$(sink_device_api $(pactl get-default-sink))" = bluez5 ]; then
         battery_percentage="$(bluetoothctl info | grep 'Battery Percentage' | sed 's/.*(\(.*\))/\1/')"
@@ -49,20 +57,33 @@ on_update() {
         icon_api=
     fi
 
-    if sink_muted; then
-        icon="$icon_muted"
-        volume=
+    if default_sink_muted; then
+        sink_icon="$sink_icon_muted"
+        sink_volume=
     else
-        icon="$icon_unmuted"
-        volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{ print $5 }')
+        sink_icon="$sink_icon_unmuted"
+        sink_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{ print $5 }')
     fi
-    echo $icon_api $icon "$volume"
+
+    if default_source_muted; then
+        source_icon="$source_icon_muted"
+        source_volume=
+    else
+        source_icon="$source_icon_unmuted"
+        source_volume=$(pactl get-source-volume @DEFAULT_SOURCE@ | awk 'NR==1{ print $5 }')
+    fi
+
+    if [ -n "$(pactl list source-outputs)" ]; then
+        source_icon="<span color='#fc9526'>$source_icon</span>"
+    fi
+
+    echo '{"full_text":"'$icon_api $sink_icon "$sink_volume" $source_icon "$source_volume"'"}'
 }
 
 # pactl json output is fucked up
 # at least with jq (maybe it expects a newline before each new object)
 pactl subscribe |
-    stdbuf -o0 grep -e "on sink #" -e "on server #" |
+    stdbuf -o0 grep -e "on sink #" -e "on source #" -e "on source-output #" -e "on server #" |
     while read void
     do
         on_update
@@ -70,23 +91,23 @@ pactl subscribe |
 
 on_update
 
-while read button; do
+jq --unbuffered -c '.' | while read object
+do
+    echo $object
+    button="$(echo $object | jq '.button')"
+    # TODO: Shift and mwheel to control mic volume
+
     case $button in
         1) pactl set-sink-mute 0 toggle
             ;;
         2)
-            (if pgrep pavucontrol; then
-                pkill pavucontrol
-            else
-                pavucontrol &
+            (if pgrep -f tui_mixer; then
+            pkill -f tui_mixer
+        else
+            footclient --app-id=tui_mixer pulsemixer &
             fi) 2>&1 >/dev/null
             ;;
-        3)
-            (if pgrep -f tui_mixer; then
-                pkill -f tui_mixer
-            else
-                footclient --app-id=tui_mixer pulsemixer &
-            fi) 2>&1 >/dev/null
+        3) pactl set-source-mute 0 toggle
             ;;
         4) pactl set-sink-volume 0 +5%
             ;;
@@ -94,4 +115,3 @@ while read button; do
             ;;
     esac
 done
-

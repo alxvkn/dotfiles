@@ -57,6 +57,8 @@ markup=pango
 [pulseaudio]
 command=$SCRIPT_DIR/pulseaudio
 interval=persist
+format=json
+markup=pango
 
 [sway/keyboard_layout]
 command=$SCRIPT_DIR/sway/keyboard_layout
