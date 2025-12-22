@@ -94,9 +94,9 @@ on_update
 jq --unbuffered -c '.' | while read object
 do
     echo $object
-    button="$(echo $object | jq '.button')"
-    # TODO: Shift and mwheel to control mic volume
+    button="$(echo $object | jq -r '.button')"
 
+    # https://github.com/swaywm/sway/issues/5571
     case $button in
         1) pactl set-sink-mute 0 toggle
             ;;
