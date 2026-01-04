@@ -6,6 +6,10 @@ M.on_attach = function(_, bufnr)
   if vim.lsp.inlay_hint then
     vim.lsp.inlay_hint.enable(true)
 
+    vim.keymap.set('n', '<Leader>I', function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    end, opts)
+
     local customizeHighlight = function()
       local hl = vim.api.nvim_get_hl(0, { name = 'LspInlayHint', link = false })
 
