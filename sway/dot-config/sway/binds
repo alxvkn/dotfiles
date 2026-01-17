@@ -251,11 +251,12 @@ bindsym --to-code {
     Print exec "~/scripts/wayland_screenshot.sh"
     $mod+Print exec "~/scripts/wayland_screenshot.sh --area"
 
-    $mod+Shift+s exec "~/scripts/wayland_screenshot.sh --area"
     $mod+s exec "~/scripts/wayland_screenshot.sh"
+    $mod+Shift+s exec "~/scripts/wayland_screenshot.sh --area"
+    $mod+Control+s exec "~/scripts/wayland_screenshot.sh --current-output"
 
-    $mod+Control+s exec "~/scripts/wayland_screencast.sh"
-    $mod+Control+Shift+s exec "~/scripts/wayland_screencast.sh --area"
+    $mod+Mod1+s exec "~/scripts/wayland_screencast.sh"
+    $mod+Mod1+Shift+s exec "~/scripts/wayland_screencast.sh --area"
 
     Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save"
     $mod+Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save --area"

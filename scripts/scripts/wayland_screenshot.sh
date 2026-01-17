@@ -12,6 +12,9 @@ if [ $# -gt 0 ]; then
             --area)
                 SELECT_AREA=yes
                 ;;
+            --current-output)
+                CURRENT_OUTPUT=yes
+                ;;
             --no-save)
                 SAVE_TO_FILE=no
                 ;;
@@ -30,10 +33,15 @@ if [ $SAVE_TO_FILE = 'yes' ]; then
     FILE_PATH="$SCREENSHOT_DIR/$(date +%F.%H-%M-%S).png"
 fi
 
-if [ $SELECT_AREA = 'yes' ]; then
+if [ "$SELECT_AREA" = 'yes' ]; then
     GEOMETRY="$(slurp)"
     if [ -n "$GEOMETRY" ]; then
         $GRIM_CMD -g "$GEOMETRY" - | tee $FILE_PATH | wl-copy
+    fi
+elif [ "$CURRENT_OUTPUT" = 'yes' ]; then
+    OUTPUT="$(swaymsg -t get_outputs | jq -r '.[] | select(.focused).name')"
+    if [ -n "$OUTPUT" ]; then
+        $GRIM_CMD -o "$OUTPUT" - | tee $FILE_PATH | wl-copy
     fi
 else
     $GRIM_CMD - | tee $FILE_PATH | wl-copy
