@@ -171,4 +171,6 @@ exec {
     # no matter which one is focused at the moment.
     # With all this in mind we can just append and ampersand
     foot --server &
+
+    curl -s 'wttr.in/?format=%S+%s' | xargs -L1 sh -c 'wlsunset -S $0 -s $1'
 }
