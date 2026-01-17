@@ -161,9 +161,24 @@ if [ -n "$(command -v tmux)" ]; then
     fi
 fi
 
+if [ -n "$(command -v pyenv)" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - zsh)"
+fi
+
+
 # test -f ~/TODO.md && cat ~/TODO.md
 
 # pywal colors
 # [ -z "$TMUX" ] && test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
+
+# pnpm
+export PNPM_HOME="/home/leha/.local/share/pnpm"
+case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 : # make sure last status will be 0
