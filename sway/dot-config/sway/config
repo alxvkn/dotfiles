@@ -137,11 +137,11 @@ for_window [app_id=pavucontrol] floating enable, move position cursor
 # same app_id as the actual telegram window,
 # but always has this exact title
 
-# (title for the real window is "Telegram (*count of unread chats*))
-for_window [title=TelegramDesktop] {
-    floating enable
-    move position cursor
-}
+# # (title for the real window is "Telegram (*count of unread chats*))
+# for_window [title=TelegramDesktop] {
+#     floating enable
+#     move position cursor
+# }
 
 # open mixer as floating window ./binds:189
 for_window [app_id=tui_mixer] {
