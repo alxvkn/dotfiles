@@ -36,7 +36,7 @@ set {
     $launcher menu_path | fuzzel --font=$font -dp 'run> ' | xargs swaymsg exec --
 
     # General purpose menu
-    $menu fuzzel --font=$font -d
+    $menu fuzzel --terminal=footclient --font=$font -d
 
     # Open files from user dirs
     $file_launcher exec find Downloads Documents Pictures Videos Music Public -type f ! -path '*/.*' | $menu -a top -w 128 -l 100 | xargs -I{} xdg-open '{}'
