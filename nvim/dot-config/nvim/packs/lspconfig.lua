@@ -47,6 +47,7 @@ return {
       { 'csharp_ls' },
       { 'lua_ls' },
       { 'jsonls' },
+      { 'yamlls' },
       { 'lemminx' },
       { 'denols',
         on_attach = function(client, bufnr)
