@@ -20,10 +20,11 @@ case "$(file -Lb --mime-type -- "$1")" in
         exit 1
         ;;
     *)
-        if [ -n "$(command -v bat)" ]; then
-            bat -f --style=numbers "$1"
-        else
-            cat "$1"
-        fi
+        # if [ -n "$(command -v bat)" ]; then
+        #     bat -f --style=numbers "$1"
+        # else
+        #     cat "$1"
+        # fi
+        cat "$1"
         ;;
 esac
