@@ -15,7 +15,7 @@ set {
     $set_ru_kb input type:keyboard xkb_switch_layout 1
 
     $font IosevkaMedium
-    $font_size 11
+    $font_size 12
 
     # TODO: wallpapers
     # lock command
