@@ -56,7 +56,17 @@ vim.o.langmap = 'ёйцукенгшщзхъфывапролджэячсмить�
 
 vim.o.keymap = 'russian-jcukenwin'
 vim.o.iminsert = 0 -- disable alternative keymap by default
+
 vim.o.spell = true
+vim.o.spelllang = 'en,ru'
+
+vim.api.nvim_create_autocmd('TermOpen', {
+  group = vim.api.nvim_create_augroup('NoSpellInTerm', { clear = true }),
+  callback = function()
+    vim.opt_local.spell = false
+  end,
+  desc = 'Disable spellcheck in terminal buffers'
+})
 
 vim.keymap.set('i', 'kj', '<Esc>')
 vim.keymap.set('i', '<c-o>', '<c-^>')
