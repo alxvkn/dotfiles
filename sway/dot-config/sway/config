@@ -148,10 +148,10 @@ for_window [app_id=tui_mixer] {
     floating enable
     sticky enable
     resize set {
-        height 30 ppt
+        height 50 ppt
         width 40 ppt
     }
-    move position 58 ppt 68 ppt
+    move position 60 ppt 0 ppt
 }
 
 # TODO: sway.env.sh
