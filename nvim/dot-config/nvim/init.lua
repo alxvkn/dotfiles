@@ -16,7 +16,6 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = 'yes'
 vim.o.cursorline = true
-vim.o.colorcolumn = '80'
 
 vim.o.list = true
 
