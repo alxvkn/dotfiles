@@ -23,9 +23,8 @@ key-hl-color=ffffff
 
 indicator-radius=100
 indicator-thickness=15
-font-size=20
+font-size=25
 
 font=Iosevka
 
-color=000000
 scaling=fill
