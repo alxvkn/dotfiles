@@ -3,7 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
-      require('nvim-treesitter.configs').setup {
+      require('nvim-treesitter.config').setup {
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
@@ -12,8 +12,9 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
     config = function()
-      require('nvim-treesitter.configs').setup {
+      require('nvim-treesitter.config').setup {
         textobjects = {
           select = {
             enable = true,
@@ -74,14 +75,4 @@ return {
       }
     end
   },
-  {
-    'nvim-treesitter/playground',
-    config = function()
-      require('nvim-treesitter.configs').setup {
-        playground = {
-          enable = true
-        }
-      }
-    end
-  }
 }
