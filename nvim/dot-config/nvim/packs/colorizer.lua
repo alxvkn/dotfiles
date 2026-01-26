@@ -1,3 +1,4 @@
+---@type LazySpec
 -- preview colors
 return {
   'norcalli/nvim-colorizer.lua',

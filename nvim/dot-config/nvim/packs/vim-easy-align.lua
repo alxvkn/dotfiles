@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   'junegunn/vim-easy-align',
   config = function()

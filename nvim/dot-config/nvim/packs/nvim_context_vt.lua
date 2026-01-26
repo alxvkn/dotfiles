@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   'https://github.com/andersevenrud/nvim_context_vt',
   config = function()

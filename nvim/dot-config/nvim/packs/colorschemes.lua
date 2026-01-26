@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   'RRethy/nvim-base16',
   'kdheepak/monochrome.nvim',

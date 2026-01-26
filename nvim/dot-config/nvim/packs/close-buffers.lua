@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   'kazhala/close-buffers.nvim',
   config = function()

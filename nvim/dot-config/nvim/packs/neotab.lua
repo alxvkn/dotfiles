@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   'kawre/neotab.nvim',
   config = function()

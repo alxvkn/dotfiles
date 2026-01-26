@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   'folke/twilight.nvim',
   config = function()

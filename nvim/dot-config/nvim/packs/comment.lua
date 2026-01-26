@@ -1,3 +1,4 @@
+---@type LazySpec
 -- commenting plugin
 return {
   'numtostr/comment.nvim',

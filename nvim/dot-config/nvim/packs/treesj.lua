@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   'Wansmer/treesj',
   keys = '<Leader>m',

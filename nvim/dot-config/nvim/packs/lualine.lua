@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   'nvim-lualine/lualine.nvim',
   config = function()
