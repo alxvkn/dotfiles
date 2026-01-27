@@ -4,6 +4,21 @@ return {
     'nvim-treesitter/nvim-treesitter',
     branch = 'main',
     build = ':TSUpdate',
+    config = function()
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('my.treesitter', {}),
+        pattern = '*',
+        desc = 'Start treesitter if a parser for current filetype is installed',
+        callback = function(args)
+          if require('util').table_has_value(
+                require('nvim-treesitter').get_installed(),
+                vim.treesitter.language.get_lang(args.match)
+              ) then
+            vim.treesitter.start()
+          end
+        end
+      })
+    end
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
