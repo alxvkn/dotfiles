@@ -30,7 +30,8 @@ if [ -d "$HOME/.npm-global" ]; then
 fi
 
 if [ -d "$HOME/.cargo" ]; then
-    fi
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
 
 if [ -d "$HOME/go/bin" ]; then
     export PATH="$HOME/go/bin:$PATH"
@@ -49,7 +50,6 @@ if [ $TERM = linux ]; then
         exec sway 2>&1 > /tmp/sway.log
     fi
 fi
-. "$HOME/.cargo/env"
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
