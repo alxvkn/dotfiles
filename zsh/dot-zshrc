@@ -173,12 +173,4 @@ fi
 # pywal colors
 # [ -z "$TMUX" ] && test -f ~/.cache/wal/sequences && (cat ~/.cache/wal/sequences &)
 
-# pnpm
-export PNPM_HOME="/home/leha/.local/share/pnpm"
-case ":$PATH:" in
-    *":$PNPM_HOME:"*) ;;
-    *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 : # make sure last status will be 0
