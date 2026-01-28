@@ -14,27 +14,7 @@ return {
       { 'pyright' },
       { 'rust_analyzer' },
       { 'dartls' },
-      { 'emmet_ls',
-        filetypes = {
-          'astro',
-          'css',
-          'eruby',
-          'html',
-          'htmlangular',
-          'htmldjango',
-          'javascript',
-          'javascriptreact',
-          'less',
-          'pug',
-          'sass',
-          'scss',
-          'svelte',
-          'templ',
-          'typescript',
-          'typescriptreact',
-          'vue',
-        }
-      },
+      { 'emmet_ls' },
       { 'html' },
       { 'htmx' },
       { 'intelephense' },
@@ -50,7 +30,8 @@ return {
       { 'jsonls' },
       { 'yamlls' },
       { 'lemminx' },
-      { 'denols',
+      {
+        'denols',
         on_attach = function(client, bufnr)
           if lspconfig.util.root_pattern('package.json')(vim.fn.getcwd()) then
             client.stop()
@@ -60,9 +41,33 @@ return {
         end,
       },
       { 'ts_ls' },
-      { 'svelte',
-        cmd = { 'npx', 'svelte-language-server', '--stdio' },
-      },
+      { 'svelte' },
+      -- { 'vue_ls' },
+      -- {
+      --   'vtsls',
+      --   on_attach = function(client, bufnr)
+      --     if lspconfig.util.root_pattern('package.json')(vim.fn.getcwd()) then
+      --       client.stop()
+      --       return
+      --     end
+      --     on_attach(client, bufnr)
+      --   end,
+      --   settings = {
+      --     vtsls = {
+      --       tsserver = {
+      --         globalPlugins = {
+      --           {
+      --             name = '@vue/typescript-plugin',
+      --             location = 'vue-language-server',
+      --             languages = { 'vue' },
+      --             configNamespace = 'typescript',
+      --           },
+      --         },
+      --       },
+      --     },
+      --   },
+      --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+      -- },
       { 'glsl_analyzer' },
     }
     for _, server in ipairs(servers) do
