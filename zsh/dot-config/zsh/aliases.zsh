@@ -8,7 +8,7 @@ alias less='less -R'
 alias df='df -h'
 
 if [ -n "$(command -v eza)" ]; then
-    alias ls='eza --icons=auto'
+    alias ls='eza --icons=auto --classify=auto'
 fi
 
 alias cpr='rsync -hh --archive --partial --info=stats1,progress2 --modify-window=1' 
