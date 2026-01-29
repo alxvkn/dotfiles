@@ -100,7 +100,7 @@ bar {
     separator_symbol ''
     position top
 
-    height 28
+    height 24
     strip_workspace_numbers no
     workspace_min_width 28
 
