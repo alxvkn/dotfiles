@@ -1,15 +1,15 @@
 -- installing lazy.nvim if it isn't already installed
 local lazy_path = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazy_path) then
+if not vim.uv.fs_stat(lazy_path) then
   print('cloning lazy to ' .. lazy_path)
-  vim.fn.system({
+  vim.system({
     'git',
     'clone',
     '--filter=blob:none',
     'https://github.com/folke/lazy.nvim.git',
     '--branch=stable',
     lazy_path,
-  })
+  }):wait()
 end
 
 vim.opt.rtp:prepend(lazy_path)
