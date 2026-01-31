@@ -9,10 +9,10 @@
 -- end
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_lines = true,
   underline = true,
   update_in_insert = true,
-  severity_sort = false,
+  severity_sort = true,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "󰅚 ",
