@@ -14,10 +14,10 @@ return {
     vim.keymap.set('n', '<Leader>lg', builtin.live_grep, { desc = '[L]ive [G]rep' })
     -- vim.keymap.set('n', '<Leader>jj', builtin.planets)
 
-    vim.keymap.set('n', '<Leader>ds', builtin.lsp_document_symbols, { desc = 'Jump to [D]ocument [S]ymbol' })
-    vim.keymap.set('n', '<Leader>ws', builtin.lsp_dynamic_workspace_symbols, { desc = 'Jump to [W]orkspace [S]ymbol' })
+    vim.keymap.set('n', '<Leader>s', builtin.lsp_document_symbols, { desc = 'Jump to Document [s]ymbol' })
+    vim.keymap.set('n', '<Leader>S', builtin.lsp_dynamic_workspace_symbols, { desc = 'Jump to Workspace [S]ymbol' })
 
-    vim.keymap.set('n', '<Leader>jd', builtin.diagnostics, { desc = '[J]ump to [D]iagnostic' })
+    vim.keymap.set('n', '<Leader>d', builtin.diagnostics, { desc = 'Jump to [D]iagnostic' })
 
     vim.keymap.set('n', '<Leader>tc', function() builtin.colorscheme { enable_preview = true } end)
   end,
