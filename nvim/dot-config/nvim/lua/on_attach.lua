@@ -1,7 +1,13 @@
 local M = {}
 
-M.on_attach = function(_, bufnr)
+---@param client vim.lsp.Client
+---@param bufnr number
+M.on_attach = function(client, bufnr)
   local opts = { silent = true, buffer = bufnr }
+
+  if client:supports_method('textDocuemnt/foldingRange', bufnr) then
+    vim.wo[0][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+  end
 
   if vim.lsp.inlay_hint then
     vim.lsp.inlay_hint.enable(true)
