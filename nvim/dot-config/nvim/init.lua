@@ -19,6 +19,8 @@ vim.o.cursorline = true
 
 vim.o.list = true
 
+vim.o.foldlevelstart = 99
+
 if os.getenv('TERM') ~= 'linux' then
   vim.o.termguicolors = true
 end
