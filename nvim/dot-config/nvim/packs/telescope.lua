@@ -3,7 +3,7 @@ return {
   'nvim-telescope/telescope.nvim',
   config = function()
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<Leader>t<Leader>', builtin.builtin)
+    vim.keymap.set('n', '<Leader><Leader>', builtin.builtin)
     vim.keymap.set('n', '<Leader>jf', builtin.find_files, { desc = '[J]ump to [F]ile' })
     vim.keymap.set('n', '<Leader>jg', builtin.git_files, { desc = '[J]ump to [G]it file' })
     vim.keymap.set('n', '<Leader>jn', function()
