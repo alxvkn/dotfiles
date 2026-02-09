@@ -94,8 +94,8 @@ vim.keymap.set('n', '<A-j>', '<C-W>j')
 vim.keymap.set('n', '<A-k>', '<C-W>k')
 vim.keymap.set('n', '<A-l>', '<C-W>l')
 
-vim.keymap.set('n', '<C-j>', '<Cmd>bnext<CR>')
-vim.keymap.set('n', '<C-k>', '<Cmd>bprevious<CR>')
+vim.keymap.set('i', '<C-d>', '<C-k>')
+
 vim.keymap.set('n', '<Bs>', '<C-^>')
 
 vim.keymap.set('n', '^', '0')

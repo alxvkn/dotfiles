@@ -1,6 +1,7 @@
 local ls = require('luasnip')
 local s = ls.snippet
 local s = ls.snippet
+local isn = ls.indent_snippet_node
 local sn = ls.snippet_node
 local t = ls.text_node
 local i = ls.insert_node
@@ -11,7 +12,7 @@ local r = ls.restore_node
 
 local c_cpp_main = s('main', {
   t('int main(int argc, char** argv) {'),
-  t({ '', '    ' }), i(1),
+  t({ '', '    ' }), i(0),
   t({ '', '    return 0;' }),
   t({ '', '}' }),
 })

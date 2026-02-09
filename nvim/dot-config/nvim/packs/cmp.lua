@@ -15,6 +15,7 @@ return {
     local cmp = require 'cmp'
     local lspkind = require 'lspkind'
     local neotab = require 'neotab'
+    local luasnip = require 'luasnip'
 
     cmp.setup {
       snippet = {
@@ -38,15 +39,19 @@ return {
         ['<Tab>'] = cmp.mapping(function(_)
           if cmp.visible() then
             cmp.select_next_item()
+          elseif luasnip.jumpable(1) then
+            luasnip.jump(1)
           else
-            neotab.tabout_luasnip()
+            neotab.tabout()
           end
         end, { 'i', 's' }),
         ['<S-Tab>'] = cmp.mapping(function(_)
           if cmp.visible() then
             cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
           else
-            neotab.tabout_luasnip()
+            neotab.tabreverse()
           end
         end, { 'i', 's' }),
       },

@@ -4,10 +4,45 @@ return {
   dependencies = { 'rafamadriz/friendly-snippets' },
   config = function()
     local luasnip = require('luasnip')
+    local types = require 'luasnip.util.types'
 
-    vim.keymap.set('i', '<C-s>', function() luasnip.expand {} end)
+    luasnip.setup {
+      region_check_events = {
+        'CursorMoved',
+        'CursorHold',
+        'InsertEnter'
+      },
+      delete_check_events = {
+        'TextChanged'
+      },
+      ext_opts = {
+        [types.insertNode] = {
+          passive = {
+            hl_group = 'Search',
+            hl_mode = 'combine'
+          },
+        },
+        [types.choiceNode] = {
+          passive = {
+            virt_text = { { '?', 'Comment' } },
+            hl_group = 'Search',
+            hl_mode = 'combine'
+          },
+        },
+      }
+    }
 
-    luasnip.setup {}
+    vim.keymap.set({ 'i', 's' }, '<C-j>', function()
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      end
+    end)
+    vim.keymap.set({ 'i', 's' }, '<C-k>', function()
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      end
+    end)
+
     require('luasnip.loaders.from_vscode').lazy_load {
       -- exclude = { 'html', 'css' }
     }
