@@ -1,0 +1,6 @@
+BasedOnStyle: Google
+
+DerivePointerAlignment: false
+PointerAlignment: Left
+ReferenceAlignment: Pointer
+IndentWidth: 4
