@@ -2,6 +2,8 @@ inside-color=00000000
 text-color=ffffff
 ring-color=000000
 
+indicator-idle-visible
+
 inside-ver-color=000000
 text-ver-color=ffffff
 ring-ver-color=000000
