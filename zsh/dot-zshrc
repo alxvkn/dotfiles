@@ -51,6 +51,8 @@ bindkey -M vicmd ' e' edit-command-line
 
 source ~/.config/zsh/aliases.zsh
 
+source ~/.config/zsh/functions.zsh
+
 source ~/.config/zsh/vi-mode-cursor.zsh
 
 # toggle doas at line beginning
