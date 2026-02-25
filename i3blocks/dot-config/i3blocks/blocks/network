@@ -35,7 +35,7 @@ get_wifi_icon() {
     esac
 }
 
-while sleep 1; do
+render() {
     nmcli_output=$(nmcli -g NAME,TYPE connection show --active | head -1)
 
     name=${nmcli_output%:*}
@@ -45,7 +45,7 @@ while sleep 1; do
 
     case $type in
         802-11-wireless)
-            strength=$(nmcli -t -f IN-USE,SIGNAL device wifi list | awk -F: '/*/ { print int($2 / 25) }')
+            strength=$(nmcli -t -f IN-USE,SIGNAL device wifi list | awk -F: '/\*/ { print int($2 / 25) }')
             icon=$(get_wifi_icon $connectivity $strength)
             ;;
         ethernet)
@@ -57,4 +57,10 @@ while sleep 1; do
     esac
 
     echo $icon $name
+}
+
+render
+
+while sleep 1; do
+    render
 done
