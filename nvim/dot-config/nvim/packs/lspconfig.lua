@@ -7,6 +7,7 @@ return {
     local on_attach = require('on_attach').on_attach
 
     -- servers with default settings
+    ---@type vim.lsp.Config[]
     local servers = {
       { 'gopls' },
       { 'clangd' },
