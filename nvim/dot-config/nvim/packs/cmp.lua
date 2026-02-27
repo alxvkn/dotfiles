@@ -91,7 +91,12 @@ return {
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
-        { name = 'cmdline' }
+        {
+          name = 'cmdline',
+          option = {
+            ignore_cmds = {}
+          }
+        },
       },
     })
   end,
