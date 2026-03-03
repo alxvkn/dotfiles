@@ -43,14 +43,6 @@ fi
 
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
-if [ $TERM = linux ]; then
-    if [ $(tty) = /dev/tty1 ] && [ -n "$(command -v sway)" ]; then
-        [ -n "$(command -v fastfetch)" ] && fastfetch && read
-        export XDG_CURRENT_DESKTOP=sway:gnome
-        exec sway 2>&1 > /tmp/sway.log
-    fi
-fi
-
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
@@ -59,3 +51,16 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+if [ $TERM = linux ]; then
+    if [ $(tty) = /dev/tty1 ] && [ -n "$(command -v sway)" ]; then
+        [ -n "$(command -v fastfetch)" ] && fastfetch
+        echo -n 'exec sway? [Y/n] '
+        read -r ans
+        case $ans in
+            "" | 'Y' | 'y' | 'Yes' | 'yes')
+                export XDG_CURRENT_DESKTOP=sway:gnome
+                exec sway > /tmp/sway.log 2>&1
+            ;;
+        esac
+    fi
+fi
