@@ -49,6 +49,10 @@ interval=persist
 command=$SCRIPT_DIR/network
 interval=persist
 
+[sensors#cpu]
+command=$SCRIPT_DIR/sensors
+interval=persist
+
 [battery]
 command=$SCRIPT_DIR/battery
 interval=5

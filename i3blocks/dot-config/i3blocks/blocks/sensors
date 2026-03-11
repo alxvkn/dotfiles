@@ -1,0 +1,15 @@
+#!/bin/sh
+
+temp_input=$(for f in /sys/devices/platform/coretemp.0/hwmon/hwmon?/temp1_input; do echo "$f"; break; done)
+
+if [ -z "$temp_input" ]; then
+    exit 1
+fi
+
+icon=""
+
+while true; do
+    temp=$(cat "$temp_input")
+    echo "$icon" "$((temp / 1000))""℃"
+    sleep 5
+done
