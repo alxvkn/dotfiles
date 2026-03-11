@@ -98,7 +98,8 @@ else
 fi
 
 # prompt
-PROMPT="┌$PROMPT_HOST%f %B%n%b@%m %F{blue}%2~%f "$'\n'"└%(0?..%F{red})%#%f "
+PROMPT="$PROMPT_HOST%f %n %B%2~%b %(0?..%F{red})%#%f "
+RPROMPT="%(1j.%K{yellow} %j job(s) %k.)"
 
 zstyle ':completion:*' completer _expand_alias _complete _correct
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}' 'r:|[-_./]=** r:|=*'
