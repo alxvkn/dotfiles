@@ -90,6 +90,22 @@ adbw() {
     done
 }
 
+# TODO: this actually doesn't work
 retry() {
     while ! sh -c "$@"; do sleep 1; done
+}
+
+venv() {
+    if ! [ -d venv/ ]; then
+        python -m venv venv
+
+
+        . ./venv/bin/activate
+
+        if [ -f ./requirements.txt ]; then
+            pip install -r requirements.txt
+        fi
+    else
+        . ./venv/bin/activate
+    fi
 }
