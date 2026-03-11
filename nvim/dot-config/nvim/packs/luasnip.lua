@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   'L3MON4D3/LuaSnip', -- engine
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  -- dependencies = { 'rafamadriz/friendly-snippets' },
   config = function()
     local luasnip = require('luasnip')
     local types = require 'luasnip.util.types'
@@ -43,9 +43,9 @@ return {
       end
     end)
 
-    require('luasnip.loaders.from_vscode').lazy_load {
-      -- exclude = { 'html', 'css' }
-    }
+    -- require('luasnip.loaders.from_vscode').lazy_load {
+    --   -- exclude = { 'html', 'css' }
+    -- }
 
     for ft, snippets in pairs(require('snippets')) do
       -- custom snippets should have higher priority than the default one of 1000
