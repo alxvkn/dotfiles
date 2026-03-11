@@ -17,10 +17,6 @@ set {
     $font IosevkaMedium
     $font_size 12
 
-    # TODO: wallpapers
-    # lock command
-    $lock_with_screen_timeout 'swayidle timeout 10 "swaymsg output \* power off" resume "swaymsg output \* power on" & $lock; kill %1'
-
     # Browser
     $browser browser
 
@@ -153,10 +149,6 @@ for_window [app_id=tui_mixer] {
     }
     move position 60 ppt 0 ppt
 }
-
-# TODO: sway.env.sh
-exec swayidle -w before-sleep 'swaymsg $set_en_kb; swaylock -f'
-
 
 ### Autostart
 exec {
