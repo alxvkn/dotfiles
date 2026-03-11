@@ -8,7 +8,7 @@ else
 fi
 
 KBD_BRIGHTNESS="$(brightnessctl -d '*kbd_backlight*' g)"
-if [ $KBD_BRIGHTNESS -le 0 ]; then
+if [ -n "$KBD_BRIGHTNESS" ] && [ "$KBD_BRIGHTNESS" -le 0 ]; then
     KBD_BRIGHTNESS="100%"
 fi
 
@@ -33,13 +33,15 @@ toggle() {
         dark_mode
         echo 
     fi
-    ~/.config/sway/colors.sh
-    tmux source ~/.tmux.conf
+    {
+        ~/.config/sway/colors.sh
+        tmux source ~/.tmux.conf
+    } > /dev/null 2>&1
 }
 
 SOCKET="$XDG_RUNTIME_DIR/gnome_dark_mode.sock"
 rm -f "$SOCKET" && mkfifo "$SOCKET" && tail -f "$SOCKET" |
-    while read mode; do
+    while read -r mode; do
         case $mode in
             dark)
                 dark_mode
@@ -50,15 +52,15 @@ rm -f "$SOCKET" && mkfifo "$SOCKET" && tail -f "$SOCKET" |
                 echo 
                 ;;
             toggle)
-                echo $(toggle)
+                toggle
                 ;;
         esac
     done &
 
-    while read button; do
+    while read -r button; do
         case $button in
             1)
-                echo $(toggle)
+                toggle
                 ;;
             3)
                 {
