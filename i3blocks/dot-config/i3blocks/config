@@ -10,9 +10,9 @@
 separator=true
 separator_block_width=15
 
-# [sway/window]
-# command=$SCRIPT_DIR/sway/window
-# interval=persist
+[sway/window]
+command=$SCRIPT_DIR/sway/window
+interval=persist
 
 [playerctl]
 command=$SCRIPT_DIR/playerctl
