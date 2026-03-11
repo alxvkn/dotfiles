@@ -212,9 +212,9 @@ bindsym --to-code {
     $mod+Shift+period $set_en_kb; exec "MENU='$menu' COPYTOOL='wl-copy' ~/scripts/emoji-picker.sh"
 
     # Lock
-    $mod+Shift+Return $set_en_kb; exec $lock_with_screen_timeout
+    $mod+Shift+Return exec $loc
 
-    Scroll_lock exec $lock_with_screen_timeout
+    Scroll_lock exec $lock
 
     # Application launcher (actual .desktop files)
     $mod+Shift+d $set_en_kb; exec fuzzel
@@ -304,7 +304,7 @@ mode "logout" {
         u exec systemctl suspend; mode "default"
         h exec systemctl hibernate; mode "default"
         Shift+s exec systemctl poweroff; mode "default"
-        l exec $lock_with_screen_timeout; mode "default"
+        l exec $lock; mode "default"
         Return mode "default"
         Escape mode "default"
     }

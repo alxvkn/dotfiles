@@ -61,7 +61,7 @@ bindgesture {
     swipe:3:right workspace prev
     swipe:3:left workspace next
 
-    swipe:4:down $set_en_kb; exec $lock_with_screen_timeout
+    swipe:4:down $set_en_kb; exec $lock
 
     pinch:3:outward fullscreen toggle
     pinch:3:inward floating toggle

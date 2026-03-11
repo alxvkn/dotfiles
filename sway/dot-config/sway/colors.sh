@@ -23,10 +23,15 @@ elif [ $SCHEME = 'light' ]; then
     WP=$wallpaper_light
 fi
 
-# TODO: swaylock
-swaymsg -- set \$lock swaylock $([ -n "$WP" ] && echo "-i $WP") -c "${bg###}" --ring-color "${inactive_fg###}" > /dev/null
+LOCK_COMMAND="swaylock $([ -n "$WP" ] && echo "-i $WP") -c ${bg###} --ring-color ${inactive_fg###}"
+LOCK_DAEMON_COMMAND="$LOCK_COMMAND -f"
 
-killall swaybg
+swaymsg -- set \$lock "$LOCK_COMMAND" > /dev/null
+
+killall swayidle > /dev/null 2>&1
+swayidle -w before-sleep "$LOCK_DAEMON_COMMAND" &
+
+killall swaybg > /dev/null 2>&1
 swaybg -m fill -c "$bg" -i "$WP" > /dev/null &
 # swaybg -c "$bg" > /dev/null &
 
