@@ -19,6 +19,8 @@
     insteadOf = ghttps:
 [url "git@github.com:"]
     insteadOf = gh:
+[push]
+    autoSetupRemote = true
 [safe]
     directory = /opt/flutter
 [filter "lfs"]
