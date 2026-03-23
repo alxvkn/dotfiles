@@ -4,7 +4,7 @@
 
 case "$(file -Lb --mime-type -- "$1")" in
     image/*)
-        chafa -f sixel -s "$2x$3" --animate off --polite on "$1"
+        chafa -f sixel -s "$(($2 - 1))x$(($3 - 1))" --animate off --polite on "$1"
         exit 1
         ;;
     application/vnd.sqlite3)
