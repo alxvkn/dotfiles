@@ -1,7 +1,7 @@
 # vim:ft=sh
 
 if [ -n "$(command -v nvim)" ]; then
-    export VISUAL="nvim --noplugin -u $HOME/.config/min-nvim/init.lua"
+    export VISUAL=nvim
 elif [ -n "$(command -v vim)" ]; then
     export VISUAL=vim
 else
