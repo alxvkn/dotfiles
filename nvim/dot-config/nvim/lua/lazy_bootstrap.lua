@@ -23,11 +23,11 @@ end
 
 -- vim.print(plugins)
 
-require('lazy').setup(plugins)
-
-vim.keymap.set('n', '<leader>lr',
-  function() vim.cmd.runtime 'plugin/lazy.lua' end,
-  { desc = 'Reload lazy plugin specifications' })
+require('lazy').setup {
+  spec = {
+    { import = 'plugins' }
+  }
+}
 
 vim.keymap.set('n', '<leader>ll',
   vim.cmd.Lazy,
