@@ -53,7 +53,8 @@ vim.o.hlsearch = false
 vim.o.conceallevel = 2
 
 -- Russian keys
-vim.o.langmap = 'ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;\'zxcvbnm\\,.,ЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>'
+vim.o.langmap =
+'ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;\'zxcvbnm\\,.,ЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>'
 
 vim.o.keymap = 'russian-jcukenwin'
 vim.o.iminsert = 0 -- disable alternative keymap by default
@@ -108,8 +109,8 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
-vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', { desc = 'Yank to system clipboard' })
-vim.keymap.set({'n', 'v'}, '<Leader>p', '"+p', { desc = 'Paste from system clipboard' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>y', '"+y', { desc = 'Yank to system clipboard' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
 vim.keymap.set('n', '<Leader>T', '<Cmd>e ~/Documents/obsidian/notes/todo.txt<cr>')
 
