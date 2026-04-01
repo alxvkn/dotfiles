@@ -1,2 +1,3 @@
+# vim:ft=udevrules
 # allow users in input group to use kanata without root permissions.
 KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
