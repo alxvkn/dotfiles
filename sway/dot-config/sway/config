@@ -165,4 +165,6 @@ exec {
     foot --server &
 
     curl -s 'wttr.in/?format=%S+%s' | xargs -L1 sh -c 'wlsunset -S $0 -s $1'
+
+    exec v2rayn
 }
