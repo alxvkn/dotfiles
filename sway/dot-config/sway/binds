@@ -231,7 +231,7 @@ bindsym --to-code {
     $mod+grave exec $term --app-id=floating_terminal
 
     # Bluez bluetooth settings
-    $mod+Shift+b exec $term --app-id=floating_terminal bluetoothctl
+    $mod+Shift+b exec $term --app-id=floating_terminal bluetui
 
     # Terminal
     $mod+Return exec $term
