@@ -128,5 +128,4 @@ require 'lazy_bootstrap'
 require 'transparency'
 require 'diagnostics'
 
--- vim.cmd.colorscheme 'habamax'
 vim.cmd.colorscheme 'rose-pine'
