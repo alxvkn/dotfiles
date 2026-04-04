@@ -166,7 +166,7 @@ mode $shortcut_mode {
     bindsym --to-code {
         t exec Telegram; mode "default"
         b exec $browser; mode "default"
-        s exec scrcpy -K --no-audio; mode "default"
+        s exec scrcpy -K; mode "default"
         v exec vncviewer; mode "default"
         y exec mpv "$(wl-paste)"; mode "default"
         d exec discord; mode "default"
