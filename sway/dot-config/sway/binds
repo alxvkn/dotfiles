@@ -225,6 +225,9 @@ bindsym --to-code {
     # Open files in user dirs
     $mod+slash exec $file_launcher
 
+    # Calculate expression from primary selection
+    $mod+Shift+e exec sh -c 'wl-paste --primary | bc | wl-copy --trim-newline'
+
     $mod+comma exec albert show
 
     # Small floating terminal window
