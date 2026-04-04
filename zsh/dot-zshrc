@@ -139,11 +139,15 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # default black comments are invisible on black bg
 ZSH_HIGHLIGHT_STYLES[comment]=fg=blue,bold
 
-if [ -z "$SWAYSOCK" ]; then
+get_swaysock() {
     SWAY_PID=$(pgrep -o sway)
     if [ -n "$SWAY_PID" ]; then
-        export SWAYSOCK="/run/user/$(id -u)/sway-ipc.$(id -u).$SWAY_PID.sock"
+        echo "/run/user/$(id -u)/sway-ipc.$(id -u).$SWAY_PID.sock"
     fi
+}
+
+if [ -z "$SWAYSOCK" ]; then
+    export SWAYSOCK="$(get_swaysock)"
 fi
 
 # https://git.kernel.org/pub/scm/git/git.git/plain/contrib/completion/git-completion.zsh
