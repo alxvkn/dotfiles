@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "blink.cmp": {
+      "rev": "b4b7cbb52bab6c716b317433fa9348a070cccee5",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
     "indent-blankline.nvim": {
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
