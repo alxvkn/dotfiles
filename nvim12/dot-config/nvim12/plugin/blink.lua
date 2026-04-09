@@ -13,7 +13,18 @@
 vim.pack.add { 'https://github.com/saghen/blink.cmp' }
 
 require('blink.cmp').setup {
+  keymap = {
+    preset = 'super-tab',
+    ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
+    ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
+  },
+  signature = { enabled = true },
   completion = {
+    menu = { auto_show = false },
+    ghost_text = {
+      enabled = true,
+      show_with_menu = false,
+    },
     documentation = {
       auto_show = true
     }
