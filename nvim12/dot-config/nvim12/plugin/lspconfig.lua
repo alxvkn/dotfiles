@@ -109,7 +109,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       else
         vim.lsp.buf.hover()
       end
-    end, { buf = 0 })
+    end, { buffer = 0 })
 
   end
 })
