@@ -1,8 +1,9 @@
 local M = {}
 
----@return boolean
-function M.table_has_value(table, value)
-  for _, v in pairs(table) do
+---@param t table
+---@returns bool
+function M.table_has_value(t, value)
+  for _,v in pairs(t) do
     if v == value then
       return true
     end
