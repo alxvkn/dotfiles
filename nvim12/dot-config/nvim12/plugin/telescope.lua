@@ -1,20 +1,8 @@
--- vim.pack.add({ 'https://github.com/nvim-telescope/telescope-fzf-native.nvim' })
---
--- vim.api.nvim_create_autocmd('PackChanged', {
---   group = vim.api.nvim_create_augroup('my.build_fzf_native', {}),
---   callback = function(e)
---     local name, kind = e.data.spec.name, e.data.kind
---
---     if name == 'telescope-fzf-native.nvim' and (kind == 'install' or kind == 'update') then
---       local obj = vim.system({ 'make' }, { cwd = e.data.path }):wait()
---       print(obj)
---     end
---   end
--- })
+vim.pack.add({ 'https://github.com/nvim-telescope/telescope-fzf-native.nvim' })
 
 vim.pack.add({ 'https://github.com/nvim-telescope/telescope.nvim' })
 
--- require('telescope').load_extension('fzf')
+require('telescope').load_extension('fzf')
 
 local builtin = require('telescope.builtin')
 

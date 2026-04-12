@@ -5,7 +5,7 @@
 --     local name, kind = e.data.spec.name, e.data.kind
 --
 --     if name == 'blink.cmp' and kind == 'install' or kidn == 'update' then
---       vim.system({ 'cargo', 'build', '--release' }, { cwd = e.data.path })
+--       vim.system({ 'cargo', 'build', '--release' }, { cwd = e.data.path }):wait()
 --     end
 --   end
 -- })
@@ -20,11 +20,11 @@ require('blink.cmp').setup {
   },
   signature = { enabled = true },
   completion = {
-    menu = { auto_show = false },
-    ghost_text = {
-      enabled = true,
-      show_with_menu = false,
-    },
+    -- menu = { auto_show = false },
+    -- ghost_text = {
+    --   enabled = true,
+    --   show_with_menu = false,
+    -- },
     documentation = {
       auto_show = true
     }

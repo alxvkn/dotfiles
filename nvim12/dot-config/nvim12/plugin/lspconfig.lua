@@ -88,6 +88,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
       jump = { float = true },
     })
 
+    vim.keymap.set('n', 'grf', vim.lsp.buf.format, { buf = 0 })
+
     vim.keymap.set('n', 'K', function()
       local d = vim.diagnostic.get_next { count = 1 }
       if d == nil then
