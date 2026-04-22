@@ -8,6 +8,7 @@ include marks
 # Resize
 set {
     $resize_step 30px
+    $big_resize_step 100px
     $floating_move_step 30px
     $kbd_brightness_step 25%
     $mon_brightness_step 5%
@@ -23,6 +24,11 @@ mode "resize" {
         $down resize grow height $resize_step
         $up resize shrink height $resize_step
         $right resize grow width $resize_step
+
+        Shift+$left resize shrink width $big_resize_step
+        Shift+$down resize grow height $big_resize_step
+        Shift+$up resize shrink height $big_resize_step
+        Shift+$right resize grow width $big_resize_step
 
         # Ditto, with arrow keys
         Left resize shrink width $resize_step
