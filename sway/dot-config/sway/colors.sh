@@ -4,7 +4,7 @@
 bg=#000000
 fg=#ffffff
 inactive_fg=#555555
-accent=#ffaaff
+accent=#af5b5b
 wallpaper_dark=~/Pictures/arch_logo_white_on_black.png
 wallpaper_light=~/Pictures/arch_logo_black_on_white.png
 
@@ -49,5 +49,5 @@ swaybg -m fill -c "$bg" -i "$WP" > /dev/null &
     #                                            border          bg      text
     swaymsg bar main colors "focused_workspace   $fg             $fg     $bg"
     swaymsg bar main colors "inactive_workspace  $bg             $bg     $inactive_fg"
-    swaymsg bar main colors "urgent_workspace    $inactive_fg    $bg     #ffaaaa"
+    swaymsg bar main colors "urgent_workspace    $inactive_fg    $bg     $accent"
 } > /dev/null 2>&1
