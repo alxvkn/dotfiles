@@ -1,5 +1,13 @@
 ;; vim:ft=lisp
 
+;; (defsrc
+;;   grv  1 2 3 4 5 6 7 8 9 - = bspc
+;;   tab  q w e r t y u i o p [ ] \
+;;   caps a s d f g h j k l ; ' ret
+;;   lsft z x c v b n m , . / rsft
+;;   lctl lmet lalt spc ralt rmet rctl
+;;   )
+
 (defsrc
   caps
   lmet
@@ -13,40 +21,33 @@
 
   bspc
 )
+
 (defvar
   tap-time 200
   hold-time 150
 )
 
-(deflayer base
-  @caps
-  _
-  (layer-while-held wasd-arrows-and-numpad)
-
-  _ _ _ _
-
-  _ _ _
-  _ _ _
-  _ _ _
-
-  (fork _ (macro (unmod lsft Home) (unmod bspc)) (lmet))
+(deflayermap base
+  bspc (fork _ (macro (unmod lsft Home) (unmod bspc)) (lmet))
+  caps @caps
+  ralt (layer-while-held wasd-arrows-and-numpad)
 )
 
-(deflayer wasd-arrows-and-numpad
-  _
-  _
-  _
+(deflayermap wasd-arrows-and-numpad
+  w @up
+  a @left
+  s @down
+  d @right
 
-  (fork up pgup (lmet))
-  (fork left home (lmet))
-  (fork down pgdn (lmet))
-  (fork rght end (lmet))
-
-  7 8 9
-  4 5 6
-  1 2 3
-  _
+  u 7 i 8 o 9
+  j 4 k 5 l 6
+  m 1 , 2 . 3
 )
+
+(defalias up (fork up pgup (lmet)))
+(defalias left (fork left home (lmet)))
+(defalias down (fork down pgdn (lmet)))
+(defalias right (fork rght end (lmet)))
 
 (defalias
   caps (tap-hold-release $tap-time $hold-time esc lctl)
