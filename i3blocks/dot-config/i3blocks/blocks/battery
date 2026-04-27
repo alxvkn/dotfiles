@@ -1,6 +1,12 @@
 #!/bin/sh
 
-if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
+if ! [ -f /sys/class/power_supply/BAT0/charge_now ]; then
+    exit 1
+fi
+
+INTERVAL=5
+
+print_icon() {
     STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
     # percentage=$(acpi | awk -F ', ' '{print $2}')
@@ -50,14 +56,20 @@ if [ -f /sys/class/power_supply/BAT0/charge_now ]; then
         icon='<span color="'$icon_color'">'$icon'</span>'
     fi
 
+    echo $icon $percentage%
+}
+
+print_icon
+
+while read button; do
     if [ "$button" ]; then
         notify-send -h "int:value:$percentage" \
             -a "$icon Battery" \
             -c battery-$STATUS \
             -t 7500 "$(acpi | cut -d ' ' -f 3-)"
     fi
+done &
 
-    echo $icon $percentage%
-else
-    exit 1
-fi
+while sleep $INTERVAL; do
+    print_icon
+done

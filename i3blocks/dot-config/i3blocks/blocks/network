@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ -z "$(command -v nmcli)" ]; then
+    echo $0: nmcli not found
+    exit 1
+fi
+
 get_wifi_icon() {
     connectivity="$1"
     strength="$2"

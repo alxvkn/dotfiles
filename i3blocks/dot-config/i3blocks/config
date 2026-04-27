@@ -55,7 +55,7 @@ interval=persist
 
 [battery]
 command=$SCRIPT_DIR/battery
-interval=5
+interval=persist
 markup=pango
 
 [pulseaudio]
