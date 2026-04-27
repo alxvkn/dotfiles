@@ -146,10 +146,6 @@ get_swaysock() {
     fi
 }
 
-if [ -z "$SWAYSOCK" ]; then
-    export SWAYSOCK="$(get_swaysock)"
-fi
-
 # https://git.kernel.org/pub/scm/git/git.git/plain/contrib/completion/git-completion.zsh
 # zsh's built-in git completion is slow.
 # script by the link above supposed to work faster (being official from the git distribution)
