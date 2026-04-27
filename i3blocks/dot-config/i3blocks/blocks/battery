@@ -15,7 +15,7 @@ print_icon() {
 
     if [ "$STATUS" = Full ]; then
         icon=󱟢
-        icon_color='#aaffaa' 
+        icon_color='#aaffaa'
     elif [ "$STATUS" = Charging ]; then
         icon_color='#aaaaff'
         case $((percentage / 10)) in
@@ -61,15 +61,15 @@ print_icon() {
 
 print_icon
 
-while read button; do
-    if [ "$button" ]; then
-        notify-send -h "int:value:$percentage" \
-            -a "$icon Battery" \
-            -c battery-$STATUS \
-            -t 7500 "$(acpi | cut -d ' ' -f 3-)"
-    fi
-done &
-
 while sleep $INTERVAL; do
     print_icon
 done
+
+# while read button; do
+#     if [ "$button" ]; then
+#         notify-send -h "int:value:$percentage" \
+#             -a "$icon Battery" \
+#             -c battery-$STATUS \
+#             -t 7500 "$(acpi | cut -d ' ' -f 3-)"
+#     fi
+# done
