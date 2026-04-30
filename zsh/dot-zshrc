@@ -83,7 +83,7 @@ zle -N _fuck
 bindkey '^M' _fuck
 
 # prompt
-PROMPT="%f%n@%m %B%2~%b %(0?..%F{red})%#%f "
+PROMPT="%f%B%n%b@%m %B%2~%b %(0?..%F{red})%#%f "
 RPROMPT="%(1j.%K{yellow} %j job(s) %k.)"
 
 zstyle ':completion:*' completer _expand_alias _complete _correct
