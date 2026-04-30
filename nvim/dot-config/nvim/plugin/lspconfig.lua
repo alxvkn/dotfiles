@@ -88,6 +88,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       jump = { float = true },
     })
 
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buf = 0 })
     vim.keymap.set('n', 'grf', vim.lsp.buf.format, { buf = 0 })
 
     vim.keymap.set('n', 'K', function()
