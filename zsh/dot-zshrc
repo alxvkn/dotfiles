@@ -82,23 +82,8 @@ _fuck() {
 zle -N _fuck
 bindkey '^M' _fuck
 
-if [ -n "$TERMUX_VERSION" ]; then
-    # 󰀲
-    PROMPT_HOST=""
-elif echo "$HOST" | grep -i "mac" > /dev/null ; then
-    PROMPT_HOST="󰀵"
-elif [ -f /etc/os-release ]; then
-    source /etc/os-release
-    # TODO: desktop detection adjustment
-    if [ "$ID" = arch ]; then
-        PROMPT_HOST='󰣇'
-    fi
-else
-    PROMPT_HOST='%m'
-fi
-
 # prompt
-PROMPT="$PROMPT_HOST%f %n %B%2~%b %(0?..%F{red})%#%f "
+PROMPT="%f%n@%m %B%2~%b %(0?..%F{red})%#%f "
 RPROMPT="%(1j.%K{yellow} %j job(s) %k.)"
 
 zstyle ':completion:*' completer _expand_alias _complete _correct
