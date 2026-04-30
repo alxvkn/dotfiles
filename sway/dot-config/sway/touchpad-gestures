@@ -64,15 +64,14 @@ bindgesture {
     swipe:4:down $set_en_kb; exec $lock
 
     pinch:3:outward fullscreen toggle
-    pinch:3:inward floating toggle
 
-    pinch:4:inward kill
+    pinch:4:inward floating toggle
 
     swipe:4:right focus right
     swipe:4:left focus left
 
-    pinch:3:inward+right move right
-    pinch:3:inward+left move left
-    pinch:3:inward+up move up
-    pinch:3:inward+down move down
-} 
+    pinch:3:inward+right move workspace to output right
+    pinch:3:inward+left move workspace to output left
+    pinch:3:inward+up move workspace to output up
+    pinch:3:inward+down move workspace to output down
+}
