@@ -293,17 +293,17 @@ bindsym --to-code {
 
         # MPRIS2
         $mod+F1 exec playerctl play-pause
-        $mod+F2 exec playerctl position 5-
-        $mod+F3 exec playerctl position 5+
-        $mod+Shift+F2 exec playerctl previous
-        $mod+Shift+F3 exec playerctl next
+        $mod+Shift+F2 exec playerctl position 5-
+        $mod+Shift+F3 exec playerctl position 5+
+        $mod+F2 exec playerctl previous
+        $mod+F3 exec playerctl next
         
         XF86AudioPause exec playerctl pause
         XF86AudioPlay exec playerctl play-pause
-        XF86AudioPrev exec playerctl position 5-
-        XF86AudioNext exec playerctl position 5+
-        Shift+XF86AudioPrev exec playerctl previous
-        Shift+XF86AudioNext exec playerctl next
+        Shift+XF86AudioPrev exec playerctl position 5-
+        Shift+XF86AudioNext exec playerctl position 5+
+        XF86AudioPrev exec playerctl previous
+        XF86AudioNext exec playerctl next
 
         XF86Tools output eDP-1 toggle
     }
