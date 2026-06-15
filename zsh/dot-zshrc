@@ -143,11 +143,11 @@ fi
 # TODO: port and kinda finish note script from bashrc
 # create a todo script
 
-if [ -n "$(command -v tmux)" ]; then
-    if [ -z "$TMUX" ] && [ -z "$NVIM" ] && ! [ "$TERM" = "linux" ]; then
-        tmux attach || tmux
-    fi
-fi
+# if [ -n "$(command -v tmux)" ]; then
+#     if [ -z "$TMUX" ] && [ -z "$NVIM" ] && ! [ "$TERM" = "linux" ]; then
+#         tmux attach || tmux
+#     fi
+# fi
 
 if [ -n "$(command -v pyenv)" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
