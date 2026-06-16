@@ -28,14 +28,15 @@ toggle() {
     SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
     if [ "$SCHEME" = "'prefer-dark'" ]; then
         light_mode
+        killall foot -USR2
         echo 
     else
         dark_mode
+        killall foot -USR1
         echo 
     fi
     {
         ~/.config/sway/colors.sh
-        tmux source ~/.tmux.conf
     } > /dev/null 2>&1
 }
 
@@ -65,11 +66,11 @@ rm -f "$SOCKET" && mkfifo "$SOCKET" && tail -f "$SOCKET" |
             3)
                 {
                     _KBD_BRIGHTNESS="$(brightnessctl -d '*kbd_backlight*' g)"
-                    if [ $_KBD_BRIGHTNESS -gt 0 ]; then
+                    if [ "$_KBD_BRIGHTNESS" -gt 0 ]; then
                         KBD_BRIGHTNESS=$_KBD_BRIGHTNESS
                         brightnessctl -d '*kbd_backlight*' s 0
                     else
-                        brightnessctl -d '*kbd_backlight*' s $KBD_BRIGHTNESS
+                        brightnessctl -d '*kbd_backlight*' s "$KBD_BRIGHTNESS"
                     fi
                 } > /dev/null 2>&1
                 ;;
