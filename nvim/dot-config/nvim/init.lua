@@ -1,6 +1,8 @@
 local util = require "util"
 -- vim.loader.enable()
 
+vim.g.loaded_python3_provider = 0
+
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
