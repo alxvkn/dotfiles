@@ -25,12 +25,12 @@ command=$SCRIPT_DIR/quicknote
 interval=persist
 markup=pango
 
-[adb#phone]
-DEVICE_PATTERN=RMX3890
-LABEL=󰄜
-command=$SCRIPT_DIR/adb
-interval=persist
-markup=pango
+# [adb#phone]
+# DEVICE_PATTERN=RMX3890
+# LABEL=󰄜
+# command=$SCRIPT_DIR/adb
+# interval=persist
+# markup=pango
 
 [stats]
 SEP= | 
