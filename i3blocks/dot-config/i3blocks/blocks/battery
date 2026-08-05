@@ -13,6 +13,7 @@ print_icon() {
     percentage=$(cat /sys/class/power_supply/BAT0/capacity)
     percentage=${percentage%"%"}
 
+    icon_color=
     if [ "$STATUS" = Full ]; then
         icon=󱟢
         icon_color='#aaffaa'
