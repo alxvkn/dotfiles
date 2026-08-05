@@ -3,6 +3,8 @@ map <c-z> $ kill -STOP $PPID
 map D delete
 
 map <enter> open
+map <tab> open
+
 # https://github.com/gokcehan/lf/discussions/2247
 cmd paste-and-select %{{
     while read file; do
