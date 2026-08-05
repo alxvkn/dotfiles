@@ -3,4 +3,4 @@
 [ -n "$button" ] &&
     notify-send -t 5000 -a wttr.in "$(curl -s wttr.in/?T0)"
 
-curl -s 'wttr.in/?format=%C%20%t\n'
+curl -s 'wttr.in/?format=%c%t\n'

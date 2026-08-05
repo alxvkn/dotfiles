@@ -74,6 +74,11 @@ interval=persist
 command=[ "$button" ] && notify-send -t 20000 -c calendar -a Date "$(date '+%A %d.%m.%Y')" "$(cal)"; date +'󰃭 %a %x'
 interval=1
 
+[weather]
+command=$SCRIPT_DIR/weather
+# 30 mins
+interval=1800
+
 [time]
 command=echo $(clock_icon_from_hour $(date +%k)) $(date +'%H:%M')
 interval=1
