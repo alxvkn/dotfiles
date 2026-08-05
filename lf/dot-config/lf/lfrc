@@ -5,7 +5,7 @@ map D delete
 map <enter> open
 
 cmd copy-path &{{
-    wl-copy $fx
+    wl-copy "$fx"
 }}
 map Y copy-path
 
