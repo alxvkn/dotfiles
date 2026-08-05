@@ -32,13 +32,15 @@ markup=pango
 # interval=persist
 # markup=pango
 
-[stats]
-SEP= | 
-LABEL=
-MEM_LABEL=󰘚
-STORAGE_LABEL=󰋊
-command=$SCRIPT_DIR/stats
-interval=persist
+[ram]
+LABEL=󰘚
+command=$SCRIPT_DIR/ram
+interval=2
+
+[storage]
+LABEL=󰋊
+command=$SCRIPT_DIR/storage
+interval=5
 
 [gnome_dark_mode]
 command=$SCRIPT_DIR/gnome_dark_mode

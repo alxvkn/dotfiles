@@ -1,0 +1,10 @@
+#!/bin/sh
+
+LABEL="${LABEL:-storage}"
+MOUNTPOINT="${MOUNTPOINT:-/}"
+
+storage() {
+    df -h "$MOUNTPOINT" | awk '{ if (NR == 2) print "\"" $6 "\"", $3 "/" $2}'
+}
+
+echo "$LABEL $(storage)"

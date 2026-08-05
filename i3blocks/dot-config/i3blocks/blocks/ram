@@ -1,0 +1,9 @@
+#!/bin/sh
+
+LABEL="${LABEL:-ram}"
+
+ram() {
+    free -h | awk '/Mem/{print $3 "/" $2 }'
+}
+
+echo "$LABEL $(ram)"
