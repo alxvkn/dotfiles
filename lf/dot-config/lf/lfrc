@@ -9,6 +9,11 @@ cmd copy-path &{{
 }}
 map Y copy-path
 
+cmd copy-name &{{
+    printf "%s" "$fx" | sed 's,.*/,,' | wl-copy
+}}
+map <c-y> copy-name
+
 cmd z %{{
     res="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
     lf -remote "send $id cd \"$res\""
