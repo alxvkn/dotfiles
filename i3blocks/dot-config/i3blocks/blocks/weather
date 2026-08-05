@@ -1,6 +1,14 @@
 #!/bin/sh
 
-[ -n "$button" ] &&
-    notify-send -t 5000 -a wttr.in "$(curl -s wttr.in/?T0)"
+# maybe create a reload script that will be triggered when connecting to a new
+# network, so that the script will not sleep for `interval`, while it could
+# already show the right weather
+# and also maybe a systemd drop-in hook for resume from suspend
+# but at the same time, do i need that? can i really not just reload my config?
 
-curl -s 'wttr.in/?format=%c%t\n'
+LOCATION=$(cat ~/.wttr.location) # pretty slick huh?
+
+[ -n "$button" ] &&
+    notify-send -t 5000 -a wttr.in "$(curl -s "wttr.in/$LOCATION?T0")"
+
+curl -s "wttr.in/$LOCATION?format=%c%t\n"
