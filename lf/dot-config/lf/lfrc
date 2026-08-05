@@ -5,6 +5,8 @@ map D delete
 map <enter> open
 map <tab> open
 
+map <c-f> filter
+
 # https://github.com/gokcehan/lf/discussions/2247
 cmd paste-and-select %{{
     while read file; do
