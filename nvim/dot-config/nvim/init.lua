@@ -15,6 +15,9 @@ vim.o.list = true
 vim.o.foldlevelstart = 99
 
 vim.g.mapleader = ' '
+vim.keymap.set('n', ' ', '')
+
+vim.o.timeout = false
 
 vim.keymap.set('n', '<BS>', '<C-^>', {})
 
