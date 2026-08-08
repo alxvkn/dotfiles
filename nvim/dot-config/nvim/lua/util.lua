@@ -29,4 +29,13 @@ function M.pack_del_inactive()
   end
 end
 
+function M.bind(f, ...)
+  local args = {...}
+  local n = select('#', ...)
+
+  return function()
+    return f(unpack(args, 1, n))
+  end
+end
+
 return M

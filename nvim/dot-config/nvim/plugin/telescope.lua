@@ -1,15 +1,30 @@
-vim.pack.add({ 'https://github.com/nvim-telescope/telescope.nvim' })
+local mappings = {
+  ['<leader><leader>'] = 'builtin',
+  ['<leader>l'] = 'live_grep',
+  ['<leader>h'] = 'help_tags',
+  ['<leader>b'] = 'buffers',
+  ['<leader>f'] = 'git_files',
+  ['<leader>F'] = 'find_files',
+  ['<leader>s'] = 'lsp_dynamic_workspace_symbols',
+}
 
-local builtin = require('telescope.builtin')
+local builtin = nil
 
-vim.keymap.set('n', '<leader><leader>', builtin.builtin)
+local bind = require('util').bind
 
-vim.keymap.set('n', '<leader>r', builtin.live_grep, { desc = 'Find live g[r]ep results' })
-vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Find [h]elp' })
-vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Find [b]uffers' })
-vim.keymap.set('n', '<leader>f', builtin.git_files, { desc = 'Find [g]it-tracked files' })
-vim.keymap.set('n', '<leader>F', builtin.find_files, { desc = 'Find all [F]iles' })
+local function load_or_get_picker(picker)
+  if builtin == nil then
+    vim.pack.add({ 'https://github.com/nvim-telescope/telescope.nvim' })
+    builtin = require('telescope.builtin')
 
-vim.pack.add({ 'https://github.com/nvim-telescope/telescope-fzf-native.nvim' })
+    vim.pack.add({ 'https://github.com/nvim-telescope/telescope-fzf-native.nvim' })
 
-pcall(require('telescope').load_extension, 'fzf')
+    pcall(require('telescope').load_extension, 'fzf')
+  end
+
+  return builtin[picker]()
+end
+
+for lhs, picker in pairs(mappings) do
+  vim.keymap.set('n', lhs, bind(load_or_get_picker, picker))
+end
