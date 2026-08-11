@@ -39,7 +39,7 @@ interval=2
 
 [storage]
 LABEL=󰋊
-command=$SCRIPT_DIR/storage
+command=$SCRIPT_DIR/luajit/storage.lua
 interval=5
 
 [gnome_dark_mode]
