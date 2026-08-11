@@ -2,8 +2,18 @@
 
 LABEL="${LABEL:-ram}"
 
-ram() {
-    free -h | awk '/Mem/{print $3 "/" $2 }'
-}
+while IFS=': ' read -r key value _; do
+    case $key in
+        MemTotal)
+            total=$value
+            ;;
+        MemAvailable)
+            avail=$value
+            ;;
+    esac
+done < /proc/meminfo
 
-echo "$LABEL $(ram)"
+
+used=$((total - avail))
+
+printf "$LABEL %d/%d Mi\n" $((used / 1024)) $((total / 1024))
