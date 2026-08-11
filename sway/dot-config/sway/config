@@ -91,7 +91,7 @@ focus_on_window_activation focus
 # Bar
 bar {
     id main
-    status_command SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
+    status_command make --silent -C ~/.config/i3blocks/blocks/c; SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
     # separator_symbol ' 󰫢 '
     separator_symbol ''
     position top

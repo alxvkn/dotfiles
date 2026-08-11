@@ -34,12 +34,12 @@ markup=pango
 
 [ram]
 LABEL=󰘚
-command=$SCRIPT_DIR/lua/ram.lua
+command=$SCRIPT_DIR/c/ram
 interval=2
 
 [storage]
 LABEL=󰋊
-command=$SCRIPT_DIR/luajit/storage.lua
+command=$SCRIPT_DIR/c/storage
 interval=5
 
 [gnome_dark_mode]
