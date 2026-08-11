@@ -34,7 +34,7 @@ markup=pango
 
 [ram]
 LABEL=󰘚
-command=$SCRIPT_DIR/ram
+command=$SCRIPT_DIR/lua/ram.lua
 interval=2
 
 [storage]
