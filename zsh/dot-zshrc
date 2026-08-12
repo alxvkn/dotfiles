@@ -30,10 +30,9 @@ bindkey -M vicmd ' t' transpose-words
 bindkey '^P' up-line-or-history
 bindkey '^N' down-line-or-history
 
-# (at least on foot terminal)
-bindkey "^[[1~" beginning-of-line # home key
-bindkey "^[[4~" end-of-line # end key
-bindkey "^[[3~" delete-char # delete key
+bindkey "${terminfo[khome]}" beginning-of-line # home key
+bindkey "${terminfo[kend]}" end-of-line # end key
+bindkey "${terminfo[kdch1]}" delete-char # delete key
 
 bindkey -M viins kj vi-cmd-mode
 
