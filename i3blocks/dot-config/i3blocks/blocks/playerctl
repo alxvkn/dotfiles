@@ -29,20 +29,20 @@ on_update() {
 
     # replace & with &amp; (for pango)
     # (discovered with Search & Rescue)
-    INFO=$(echo $INFO | sed 's.&.&amp;.')
+    INFO=$(echo "$INFO" | sed 's.&.&amp;.')
 
     echo "$ICON $INFO"
 }
 
-playerctl -F status | while read status; do
+playerctl -F status | while read -r status; do
     on_update "$status"
 done &
 
-playerctl -F metadata -f '{{title}}' | while read title; do
+playerctl -F metadata -f '{{title}}' | while read -r title; do
     on_update "$(playerctl status)"
 done &
 
-while read button; do
+while read -r button; do
     case $button in
         1)
             playerctl play-pause
