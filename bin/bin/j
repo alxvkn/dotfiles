@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=$(ls ~/code/ | fzf --tmux --preview="eza --color=always --icons ~/code/{}")
+DIR=$(ls ~/code/ | fzf --tmux --preview="eza --color=always --icons=always ~/code/{}")
 
 if [ "$DIR" ]; then
     ~/.config/tmux/scripts/session_in_dir.sh "$HOME/code/$DIR"
