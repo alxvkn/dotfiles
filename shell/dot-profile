@@ -18,6 +18,9 @@ export BROWSER=browser
 #     export XDG_RUNTIME_DIR
 # fi
 
+# bruno
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
 export MOZ_ENABLE_WAYLAND=1
 
 export EDITOR="$VISUAL"
