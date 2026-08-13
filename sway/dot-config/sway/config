@@ -93,7 +93,7 @@ bar {
     id main
     status_command make --silent -C ~/.config/i3blocks/blocks/c; SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
     # separator_symbol ' 󰫢 '
-    separator_symbol ''
+    separator_symbol '] ['
     position top
 
     height 24
@@ -149,6 +149,16 @@ for_window [app_id=tui_mixer] {
     }
     move position 60 ppt 0 ppt
 }
+
+# for_window [title="Picture in picture"] {
+#     floating enable
+#     sticky enable
+#     resize set {
+#         height 50 ppt
+#         width 40 ppt
+#     }
+#     move position 60 ppt 0 ppt
+# }
 
 ### Autostart
 exec {
