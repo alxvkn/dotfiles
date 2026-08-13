@@ -3,6 +3,7 @@ local util = require "util"
 
 vim.g.loaded_python3_provider = 0
 
+vim.o.undofile = true
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
