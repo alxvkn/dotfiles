@@ -54,13 +54,12 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-if [ $TERM = linux ]; then
-    if [ $(tty) = /dev/tty1 ] && [ -n "$(command -v sway)" ]; then
-        [ -n "$(command -v fastfetch)" ] && fastfetch
+if [ "$TERM" = linux ] && [ "$(tty)" = /dev/tty1 ]; then
+    if  [ -n "$(command -v sway)" ]; then
         echo -n 'exec sway? [Y/n] '
         read -r ans
         case $ans in
-            "" | 'Y' | 'y' | 'Yes' | 'yes')
+            "" | [Yy] | [Yy][Ee][Ss])
                 export XDG_CURRENT_DESKTOP=sway:gnome
                 exec sway > /tmp/sway.log 2>&1
             ;;
