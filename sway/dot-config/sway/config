@@ -98,7 +98,7 @@ bar {
 
     height 24
     strip_workspace_numbers no
-    workspace_min_width 28
+    workspace_min_width 24
 
     gaps 0px
 }
