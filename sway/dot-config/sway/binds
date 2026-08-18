@@ -278,17 +278,17 @@ bindsym --to-code {
         XF86KbdBrightnessUp exec brightnessctl -d '*kbd_backlight*' s $kbd_brightness_step+
         XF86KbdBrightnessDown exec brightnessctl -d '*kbd_backlight*' s $kbd_brightness_step-
 
-        XF86MonBrightnessUp exec brightnessctl s $mon_brightness_step+
-        XF86MonBrightnessDown exec brightnessctl s $mon_brightness_step-
+        XF86MonBrightnessUp exec brightnessctl s $mon_brightness_step+ && ~/.config/sway/wob/notify-wob-brightness.sh
+        XF86MonBrightnessDown exec brightnessctl s $mon_brightness_step- && ~/.config/sway/wob/notify-wob-brightness.sh
 
         # Volume control
-        $mod+F12 exec pactl set-sink-volume 0 +5%
-        $mod+F11 exec pactl set-sink-volume 0 -5%
-        $mod+F10 exec pactl set-sink-mute 0 toggle
+        $mod+F12 exec pactl set-sink-volume 0 +5% && ~/.config/sway/wob/notify-wob-volume.sh
+        $mod+F11 exec pactl set-sink-volume 0 -5% && ~/.config/sway/wob/notify-wob-volume.sh
+        $mod+F10 exec pactl set-sink-mute 0 toggle && ~/.config/sway/wob/notify-wob-volume.sh
 
-        XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-        XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-        XF86AudioMute exec pactl set-sink-mute 0 toggle
+        XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% && ~/.config/sway/wob/notify-wob-volume.sh
+        XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% && ~/.config/sway/wob/notify-wob-volume.sh
+        XF86AudioMute exec pactl set-sink-mute 0 toggle && ~/.config/sway/wob/notify-wob-volume.sh
         XF86AudioMicMute exec pactl set-source-mute 0 toggle
 
         # MPRIS2
