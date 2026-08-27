@@ -23,3 +23,5 @@ vim.o.timeout = false
 vim.keymap.set('n', '<BS>', '<C-^>', {})
 
 vim.api.nvim_create_user_command('PackDelInactive', util.pack_del_inactive, {})
+
+require('my_snippets').setup()
