@@ -74,7 +74,7 @@ end
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('my.ts_autostart', {}),
   callback = function(args)
-    if require('util').table_has_value(
+    if vim.tbl_contains(
           require('nvim-treesitter').get_installed(),
           vim.treesitter.language.get_lang(args.match)
         ) then
