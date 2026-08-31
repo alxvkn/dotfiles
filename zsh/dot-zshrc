@@ -124,7 +124,12 @@ source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 # default black comments are invisible on black bg
-ZSH_HIGHLIGHT_STYLES[comment]=fg=blue,bold
+# zsh releases still don't have italic, but the master has as of 2026-08-31
+if is-at-least 5.9.999; then
+    ZSH_HIGHLIGHT_STYLES[comment]=fg=8,italic
+else
+    ZSH_HIGHLIGHT_STYLES[comment]=fg=8,bold
+fi
 
 get_swaysock() {
     SWAY_PID=$(pgrep -o sway)
