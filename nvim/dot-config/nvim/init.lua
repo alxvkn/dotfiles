@@ -24,4 +24,6 @@ vim.keymap.set('n', '<BS>', '<C-^>', {})
 
 vim.api.nvim_create_user_command('PackDelInactive', util.pack_del_inactive, {})
 
+vim.cmd 'cabbrev ve vert'
+
 require('my_snippets').setup()
