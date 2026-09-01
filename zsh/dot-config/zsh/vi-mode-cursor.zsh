@@ -6,6 +6,10 @@ zle-keymap-select() {
         echo -ne '\e[6 q'
     fi
 }
+
 zle -N zle-keymap-select
 echo -ne '\e[6 q' # beam on startup
-precmd() { echo -ne '\e[6 q' } # beam on new prompt
+
+cursor_beam() { echo -ne '\e[6 q' } # beam on new prompt
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd cursor_beam
