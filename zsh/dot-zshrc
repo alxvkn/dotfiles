@@ -83,8 +83,57 @@ zle -N _fuck
 bindkey '^M' _fuck
 
 # prompt
-PROMPT="%f%B%n%b@%m %B%2~%b %(0?..%F{red})%#%f "
-RPROMPT="%(1j.%K{yellow} %j job(s) %k.)"
+
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+
+zstyle ':vcs_info:*' formats '[%B%b%%b%m]'
+# zstyle ':vcs_info:*' unstagedstr ' %F{red}u%f'
+# zstyle ':vcs_info:*' stagedstr ' %F{green}s%f'
+zstyle ':vcs_info:*' actionformats '[%b%m] | %a'
+
+zstyle ':vcs_info:git*+set-message:*' hooks git-count-changes
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd vcs_info
+
+setopt PROMPT_SUBST
+PROMPT='%f%B%(!.%F{red}%n%f.%n)%b@%m %B%2~%b on ${vcs_info_msg_0_} %(0?..%F{red})%#%f '
+RPROMPT='%(1j.%K{yellow} %j job(s) %k.)'
+
++vi-git-count-changes() {
+    local status_output=("${(f)$(git status --porcelain 2>/dev/null)}")
+
+    [[ -z "${status_output[*]}" ]] && return
+
+    local staged_files=("${(M)status_output[@]:#[AMDRT]*}")
+    local unstaged_files=("${(M)status_output[@]:#?[AMDRT]*}")
+    local untracked_files=("${(M)status_output[@]:#\?\?*}")
+
+    local msg=" "
+
+    local staged_count=${#staged_files}
+    local unstaged_count=${#unstaged_files}
+    local untracked_count=${#untracked_files}
+
+    if (( unstaged_count > 0 )); then
+        msg+="%F{red}!${unstaged_count}%f"
+    fi
+
+    if (( staged_count > 0 )); then
+        msg+="%F{green}*${staged_count}%f"
+    fi
+
+    if (( untracked_count > 0 )); then
+        msg+="%F{yellow}?${untracked_count}%f"
+    fi
+
+    if [[ -n "$msg" ]]; then
+        hook_com[misc]="$msg"
+    fi
+}
 
 setopt COMPLETE_IN_WORD
 
