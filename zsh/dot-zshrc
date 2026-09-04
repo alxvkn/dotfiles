@@ -87,23 +87,37 @@ bindkey '^M' _fuck
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
 
-zstyle ':vcs_info:*' formats '[%B%b%%b%m]'
+zstyle ':vcs_info:*' max-exports 2
+zstyle ':vcs_info:*' formats '[%B%b%%b%m]' '%m'
 # zstyle ':vcs_info:*' unstagedstr ' %F{red}u%f'
 # zstyle ':vcs_info:*' stagedstr ' %F{green}s%f'
 zstyle ':vcs_info:*' actionformats '[%b%m] | %a'
 
-zstyle ':vcs_info:git*+set-message:*' hooks git-count-changes
+zstyle ':vcs_info:git*+set-message:*' hooks git-count-changes git-count-unpushed
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd vcs_info
 
 setopt PROMPT_SUBST
 PROMPT='%f%B%(!.%F{red}%n%f.%n)%b@%m %B%2~%b on ${vcs_info_msg_0_} %(0?..%F{red})%#%f '
-RPROMPT='%(1j.%K{yellow} %j job(s) %k.)'
+RPROMPT='%(1j.%K{yellow} %j job(s) %k.) ${vcs_info_msg_1_}'
+
++vi-git-count-unpushed() {
+    [[ "$1" != "1" ]] && return
+
+    local count=$(git rev-list @{u}.. --count)
+    if (( count < 1 )); then
+        hook_com[misc]=""
+        return
+    fi
+    local upstream=$(git rev-parse --abbrev-ref @{u})
+    hook_com[misc]="[%F{yellow}$count%f unpushed to $upstream]"
+}
 
 +vi-git-count-changes() {
+    [[ "$1" != "0" ]] && return
+
     local status_output=("${(f)$(git status --porcelain 2>/dev/null)}")
 
     [[ -z "${status_output[*]}" ]] && return
