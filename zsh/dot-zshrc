@@ -89,7 +89,7 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 
 zstyle ':vcs_info:*' max-exports 2
-zstyle ':vcs_info:*' formats '[%B%b%%b%m]' '%m'
+zstyle ':vcs_info:*' formats ' [%B%b%%b%m]' '%m'
 # zstyle ':vcs_info:*' unstagedstr ' %F{red}u%f'
 # zstyle ':vcs_info:*' stagedstr ' %F{green}s%f'
 zstyle ':vcs_info:*' actionformats '[%b%m] | %a'
@@ -100,7 +100,7 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd vcs_info
 
 setopt PROMPT_SUBST
-PROMPT='%f%B%(!.%F{red}%n%f.%n)%b@%m %B%2~%b on ${vcs_info_msg_0_} %(0?..%F{red})%#%f '
+PROMPT='%f%B%(!.%F{red}%n%f.%n)%b@%m %B%2~%b${vcs_info_msg_0_} %(0?..%F{red})%#%f '
 RPROMPT='%(1j.%K{yellow} %j job(s) %k.) ${vcs_info_msg_1_}'
 
 +vi-git-count-unpushed() {
