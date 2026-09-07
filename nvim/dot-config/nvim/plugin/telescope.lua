@@ -28,3 +28,12 @@ end
 for lhs, picker in pairs(mappings) do
   vim.keymap.set('n', lhs, bind(load_or_get_picker, picker))
 end
+
+vim.api.nvim_create_user_command('Telescope', function(t)
+  vim.pack.add { 'https://github.com/nvim-telescope/telescope.nvim' }
+
+  -- so the lazy loading on keybinds is skipped
+  builtin = require('telescope.builtin')
+
+  vim.api.nvim_cmd({ cmd = t.name, args = t.fargs }, {})
+end, { nargs = '*' })
