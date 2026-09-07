@@ -105,14 +105,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       }
 
       if c.line >= d.lnum + 1 and c.line <= d.end_lnum + 1
-        and
-        c.col >= d.col and c.col <= d.end_col
-        then
+          and
+          c.col >= d.col and c.col <= d.end_col
+      then
         vim.diagnostic.open_float()
       else
         vim.lsp.buf.hover()
       end
     end, { buffer = 0 })
-
   end
 })
