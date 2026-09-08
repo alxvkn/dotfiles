@@ -41,7 +41,7 @@ local servers = {
   { 'lemminx' },
   { 'gopls' },
   -- { 'denols' },
-  { 'ts_ls' },
+  { 'tsc' },
   { 'svelte' },
   { 'glsl_analyzer' },
 }
