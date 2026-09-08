@@ -44,6 +44,10 @@ if [ -d "$HOME/.dotnet/tools" ]; then
     export PATH="$HOME/.dotnet/tools:$PATH"
 fi
 
+if [ -d "$HOME/.bun/bin" ]; then
+    export PATH="$HOME/.bun/bin:$PATH"
+fi
+
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 # pnpm
