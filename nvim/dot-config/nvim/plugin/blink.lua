@@ -1,21 +1,12 @@
--- build on install
--- vim.api.nvim_create_autocmd('PackChanged', {
---   group = vim.api.nvim_create_augroup('my.build_blink', {}),
---   callback = function(e)
---     local name, kind = e.data.spec.name, e.data.kind
---
---     if name == 'blink.cmp' and kind == 'install' or kind == 'update' then
---       vim.system({ 'cargo', 'build', '--release' }, { cwd = e.data.path }):wait()
---     end
---   end
--- })
-
 vim.api.nvim_create_autocmd({ 'InsertEnter', 'CmdLineEnter' }, {
   group = vim.api.nvim_create_augroup('my.blink', {}),
   once = true,
   callback = function()
+    vim.pack.add { 'https://github.com/saghen/blink.lib' }
     vim.pack.add { 'https://github.com/saghen/blink.cmp' }
 
+    -- takes forever, requires cargo
+    -- require('blink.cmp').build():pwait()
     require('blink.cmp').setup {
       keymap = {
         preset = 'super-tab',
@@ -33,7 +24,7 @@ vim.api.nvim_create_autocmd({ 'InsertEnter', 'CmdLineEnter' }, {
           auto_show = true
         }
       },
-      fuzzy = { implementation = 'lua' }
+      fuzzy = { implementation = 'lua' } -- build if not lua
     }
   end
 })
