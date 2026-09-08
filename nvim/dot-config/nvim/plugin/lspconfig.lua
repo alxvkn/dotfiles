@@ -17,7 +17,7 @@ local servers = {
     }
   },
   { 'clangd' },
-  { 'bashls' },
+  { 'shuck' },
   { 'pyright' },
   { 'rust_analyzer' },
   { 'dartls' },
