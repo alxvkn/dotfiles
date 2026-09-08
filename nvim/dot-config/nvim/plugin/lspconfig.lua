@@ -21,7 +21,7 @@ local servers = {
   { 'pyright' },
   { 'rust_analyzer' },
   { 'dartls' },
-  { 'emmet_ls' },
+  { 'emmet_language_server' },
   { 'html' },
   { 'htmx' },
   { 'vala_ls' },
