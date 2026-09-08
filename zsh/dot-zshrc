@@ -197,7 +197,7 @@ fi
 get_swaysock() {
     SWAY_PID=$(pgrep -o sway)
     if [ -n "$SWAY_PID" ]; then
-        echo "/run/user/$(id -u)/sway-ipc.$(id -u).$SWAY_PID.sock"
+        echo "$XDG_RUNTIME_DIR/sway-ipc.$(id -u).$SWAY_PID.sock"
     fi
 }
 
