@@ -37,3 +37,16 @@ vim.api.nvim_create_user_command('Telescope', function(t)
 
   vim.api.nvim_cmd({ cmd = t.name, args = t.fargs }, {})
 end, { nargs = '*' })
+
+require('config_test').add(function()
+  assert(pcall(require, 'telescope') == false) -- it's lazy-loaded
+
+  require('config_test.util').feedkeys('<Leader>F')
+  assert(vim.bo.filetype == 'TelescopePrompt')
+
+  require('telescope.actions').close(vim.api.nvim_get_current_buf())
+end)
+
+-- TODO: add test for lazy-loading on :Telescope command
+-- blocked by a redesign of the test runner to support running each test in a
+-- fresh neovim instance, because plugins cannot be reliably unloaded
