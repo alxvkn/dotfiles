@@ -22,5 +22,7 @@ gs.setup {
 
     vim.keymap.set({ 'x', 'o' }, 'ag', function() gs.select_hunk() end, opts)
     vim.keymap.set({ 'x', 'o' }, 'ig', function() gs.select_hunk() end, opts)
+
+    vim.keymap.set('x', 'ga', function() gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' } end, opts)
   end
 }
