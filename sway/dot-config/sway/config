@@ -40,10 +40,6 @@ set {
     $open_windows_menu exec swaymsg -t get_tree | jq -r '.. | objects | select(has("app_id")) | (.id | tostring | (. + " " * (6 - length))) + .name' | sort -rn | $menu | cut -d ' ' -f 1 | xargs -I{} swaymsg "[con_id={}]" focus
 }
 
-# machine-local settings, which make no sense lying on dotfiles repo
-# e.g. monitor setup
-include local/*
-
 ### Input
 # Keyboard
 input * {
@@ -111,6 +107,10 @@ include {
 }
 
 include binds
+
+# machine-local settings, which make no sense lying on dotfiles repo
+# e.g. monitor setup
+include local/*
 
 # binds:177
 for_window [app_id=floating_terminal] {
