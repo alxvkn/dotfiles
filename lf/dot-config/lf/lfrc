@@ -50,7 +50,6 @@ cmd zi ${{
 map Z zi
 
 set previewer ~/.config/lf/previewer.sh
-set sixel
 
 set history false
 set mouse
