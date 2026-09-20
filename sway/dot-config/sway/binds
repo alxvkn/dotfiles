@@ -313,6 +313,6 @@ mode "logout" {
         Escape mode "default"
     }
 }
-bindsym --to-code $mod+u mode "logout"
+bindsym --to-code $mod+Shift+u mode "logout"
 
 include touchpad-gestures
