@@ -234,8 +234,6 @@ bindsym --to-code {
     # Calculate expression from primary selection
     $mod+Shift+e exec sh -c 'wl-paste --primary | bc | wl-copy --trim-newline'
 
-    $mod+comma exec albert show
-
     # Small floating terminal window
     $mod+grave exec $term --app-id=floating_terminal
 
