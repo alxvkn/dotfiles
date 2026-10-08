@@ -35,7 +35,17 @@ local servers = {
   { 'tailwindcss' },
   { 'csharp_ls' },
   { 'jsonls' },
-  { 'yamlls' },
+  {
+    'yamlls',
+    ---@type lspconfig.settings.yamlls
+    settings = {
+      yaml = {
+        format = {
+          singleQuote = true,
+        },
+      },
+    },
+  },
   { 'ansiblels' },
   { 'lemminx' },
   { 'gopls' },
