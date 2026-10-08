@@ -7,14 +7,19 @@ local servers = {
     ---@type lspconfig.settings.lua_ls
     settings = {
       Lua = {
+        format = {
+          defaultConfig = {
+            trailing_table_separator = 'smart',
+          },
+        },
         workspace = {
           library = {
             vim.fn.stdpath('data') .. '/site/pack/core/opt/nvim-lspconfig',
             vim.env.VIMRUNTIME,
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   },
   { 'clangd' },
   { 'shuck' },
@@ -122,5 +127,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.buf.hover()
       end
     end, { buffer = 0 })
-  end
+  end,
 })
