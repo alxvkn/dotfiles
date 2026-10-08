@@ -34,7 +34,6 @@ local servers = {
   { 'cssls' },
   { 'tailwindcss' },
   { 'csharp_ls' },
-  { 'lua_ls' },
   { 'jsonls' },
   { 'yamlls' },
   { 'ansiblels' },
