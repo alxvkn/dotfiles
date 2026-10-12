@@ -14,14 +14,12 @@ fi
 
 light_mode() {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-    adb shell cmd uimode night no
     # swaymsg 'bar main colors background $fg'
     # swaymsg 'bar main colors statusline $bg'
 } > /dev/null 2>&1
 
 dark_mode() {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    adb shell cmd uimode night yes
 } > /dev/null 2>&1
 
 toggle() {
