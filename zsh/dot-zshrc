@@ -106,12 +106,12 @@ RPROMPT='%(1j.%K{yellow} %j job(s) %k.) ${vcs_info_msg_1_}'
 +vi-git-count-unpushed() {
     [[ "$1" != "1" ]] && return
 
-    local count=$(git rev-list @{u}.. --count)
+    local count=$(git rev-list @{u}.. --count 2>/dev/null)
     if (( count < 1 )); then
         hook_com[misc]=""
         return
     fi
-    local upstream=$(git rev-parse --abbrev-ref @{u})
+    local upstream=$(git rev-parse --abbrev-ref @{u} 2>/dev/null)
     hook_com[misc]="[%F{yellow}$count%f unpushed to $upstream]"
 }
 
