@@ -1,5 +1,7 @@
 #!/bin/sh
 
+OPENRGB="$(command -v openrgb)"
+
 SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
 if [ "$SCHEME" = "'prefer-dark'" ]; then
     echo 
@@ -14,11 +16,11 @@ fi
 
 light_mode() {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-    # swaymsg 'bar main colors background $fg'
-    # swaymsg 'bar main colors statusline $bg'
+    [ -n "$OPENRGB" ] && openrgb -c ffffff
 } > /dev/null 2>&1
 
 dark_mode() {
+    [ -n "$OPENRGB" ] && openrgb -c 000000
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 } > /dev/null 2>&1
 
