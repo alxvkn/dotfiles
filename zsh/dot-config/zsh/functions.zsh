@@ -109,3 +109,5 @@ venv() {
         . ./venv/bin/activate
     fi
 }
+
+cppath() { wl-copy "$(realpath "$1")" }
