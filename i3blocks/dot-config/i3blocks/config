@@ -37,6 +37,7 @@ interval=5
 
 [storage]
 LABEL=󰋊
+LABEL_TEMP=󱃃
 command=$SCRIPT_DIR/c/storage
 interval=5
 
