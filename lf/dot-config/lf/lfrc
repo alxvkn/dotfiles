@@ -6,6 +6,7 @@ map <enter> open
 map <tab> open
 
 map <c-f> filter
+map ; read
 
 # https://github.com/gokcehan/lf/discussions/2247
 cmd paste-and-select %{{
