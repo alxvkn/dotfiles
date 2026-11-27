@@ -314,6 +314,7 @@ mode "logout" {
         u exec systemctl suspend; mode "default"
         h exec systemctl hibernate; mode "default"
         Shift+s exec systemctl poweroff; mode "default"
+        Shift+r exec systemctl reboot; mode "default"
         l exec $lock; mode "default"
         Return mode "default"
         Escape mode "default"
