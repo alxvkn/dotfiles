@@ -66,10 +66,10 @@ format=json
 command=$SCRIPT_DIR/sway/keyboard_layout
 interval=persist
 
-[weather]
-command=$SCRIPT_DIR/weather
-# 30 mins
-interval=1800
+# [weather]
+# command=$SCRIPT_DIR/weather
+# # 30 mins
+# interval=1800
 
 [date]
 command=[ "$button" ] && notify-send -t 20000 -c calendar -a Date "$(date '+%A %d.%m.%Y')" "$(cal)"; date +'󰃭 %a %x'
