@@ -15,6 +15,9 @@ if [ $# -gt 0 ]; then
             --current-output)
                 CURRENT_OUTPUT=yes
                 ;;
+            --current-window)
+                CURRENT_WINDOW=yes
+                ;;
             --no-save)
                 SAVE_TO_FILE=no
                 ;;
@@ -43,6 +46,9 @@ elif [ "$CURRENT_OUTPUT" = 'yes' ]; then
     if [ -n "$OUTPUT" ]; then
         $GRIM_CMD -o "$OUTPUT" - | tee $FILE_PATH | wl-copy
     fi
+elif [ "$CURRENT_WINDOW" = 'yes' ]; then
+    WINDOW_RECT="$(swaymsg -t get_tree | jq -r '.. | select(.focused?).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
+    $GRIM_CMD -g "$WINDOW_RECT" - | tee $FILE_PATH | wl-copy
 else
     $GRIM_CMD - | tee $FILE_PATH | wl-copy
 fi

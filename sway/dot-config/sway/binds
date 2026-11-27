@@ -261,14 +261,15 @@ bindsym --to-code {
     Print exec "~/scripts/wayland_screenshot.sh"
     $mod+Print exec "~/scripts/wayland_screenshot.sh --area"
 
-    $mod+s exec "~/scripts/wayland_screenshot.sh"
-    $mod+Shift+s exec "~/scripts/wayland_screenshot.sh --area"
-    $mod+Control+s exec "~/scripts/wayland_screenshot.sh --current-output"
+    $mod+s exec "~/.config/sway/scripts/screenshot.sh"
+    $mod+Shift+s exec "~/.config/sway/scripts/screenshot.sh --area"
+    $mod+Control+s exec "~/.config/sway/scripts/screenshot.sh --current-output"
+    $mod+Mod1+s exec "~/.config/sway/scripts/screenshot.sh --current-window"
 
     $mod+Control+c exec "~/scripts/ocr.sh"
 
-    Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save"
-    $mod+Shift+Print exec "~/scripts/wayland_screenshot.sh --no-save --area"
+    Shift+Print exec "~/.config/sway/scripts/screenshot.sh --no-save"
+    $mod+Shift+Print exec "~/.config/sway/scripts/screenshot.sh --no-save --area"
 
     # Make all media bindings available on lockscreen
     --locked {
