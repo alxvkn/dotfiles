@@ -12,6 +12,7 @@ set {
     $floating_move_step 30px
     $kbd_brightness_step 25%
     $mon_brightness_step 5%
+    $mon_brightness_step_smaller 1%
 }
 
 mode "resize" {
@@ -277,6 +278,8 @@ bindsym --to-code {
 
         XF86MonBrightnessUp exec brightnessctl s $mon_brightness_step+ && ~/.config/sway/wob/notify-wob-brightness.sh
         XF86MonBrightnessDown exec brightnessctl s $mon_brightness_step- && ~/.config/sway/wob/notify-wob-brightness.sh
+        Shift+XF86MonBrightnessUp exec brightnessctl s $mon_brightness_step_smaller+ && ~/.config/sway/wob/notify-wob-brightness.sh
+        Shift+XF86MonBrightnessDown exec brightnessctl s $mon_brightness_step_smaller- && ~/.config/sway/wob/notify-wob-brightness.sh
 
         # Volume control
         $mod+F12 exec pactl set-sink-volume 0 +5% && ~/.config/sway/wob/notify-wob-volume.sh
