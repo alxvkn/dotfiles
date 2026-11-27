@@ -80,7 +80,10 @@ command=echo $(clock_icon_from_hour $(date +%k)) $(date +'%H:%M')
 interval=1
 
 [sway/scratchpad]
-full_text=󰖲
-command=swaymsg scratchpad show > /dev/null 2>&1
+min_width= 1
+LABEL=󱂬
+LABEL_OPEN=<b>󱂬</b>
+command=$SCRIPT_DIR/sway/scratchpad
+interval=persist
 
 # vim: ft=dosini

@@ -1,0 +1,33 @@
+#!/bin/sh
+
+LABEL=${LABEL:-scratch}
+LABEL_OPEN=${LABEL_OPEN:-scratch (open)}
+
+update() {
+    TREE=$(swaymsg -t get_tree)
+    NUMBER_IN_SCRATCHPAD=$(printf "%s" "$TREE" | jq '[ .. | select(.scratchpad_state? == "fresh") ] | length')
+
+    VISIBLE=$(printf "%s" "$TREE" | jq '.. | select(.scratchpad_state? == "fresh" and .visible == true)')
+
+    if [ -n "$VISIBLE" ]; then
+        MESSAGE=$LABEL_OPEN
+    else
+        MESSAGE=$LABEL
+    fi
+
+    if [ "$NUMBER_IN_SCRATCHPAD" -gt 0 ]; then
+        MESSAGE="$MESSAGE $NUMBER_IN_SCRATCHPAD"
+    fi
+
+    echo $MESSAGE
+}
+
+update
+
+swaymsg -mt subscribe '["window"]' | while read _; do
+    update
+done &
+
+while read _; do
+    swaymsg scratchpad show > /dev/null 2>&1
+done
