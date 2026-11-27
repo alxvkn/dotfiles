@@ -10,6 +10,6 @@ icon=""
 
 while true; do
     temp=$(cat "$temp_input")
-    echo "$icon" "$((temp / 1000))""℃"
+    echo "$icon" "$((temp / 1000))""°C"
     sleep 5
 done
