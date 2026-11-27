@@ -9,6 +9,7 @@
 # Global properties
 separator=true
 separator_block_width=15
+markup=pango
 
 [sway/window]
 command=$SCRIPT_DIR/sway/window
@@ -17,20 +18,17 @@ interval=persist
 [playerctl]
 command=$SCRIPT_DIR/playerctl
 interval=persist
-markup=pango
 
 [quicknote]
 LABEL=
 command=$SCRIPT_DIR/quicknote
 interval=persist
-markup=pango
 
 # [adb#phone]
 # DEVICE_PATTERN=RMX3890
 # LABEL=󰄜
 # command=$SCRIPT_DIR/adb
 # interval=persist
-# markup=pango
 
 [ram]
 LABEL=󰘚
@@ -58,13 +56,11 @@ interval=persist
 [battery]
 command=$SCRIPT_DIR/battery
 interval=persist
-markup=pango
 
 [pulseaudio]
 command=$SCRIPT_DIR/pulseaudio
 interval=persist
 format=json
-markup=pango
 
 [sway/keyboard_layout]
 command=$SCRIPT_DIR/sway/keyboard_layout
