@@ -50,6 +50,10 @@ interval=persist
 command=$SCRIPT_DIR/network
 interval=persist
 
+[ip]
+command=ip -4 -brief addr show to 192.168.0.0/16 | awk '{print $3" via "$1}'
+interval=60
+
 [sensors#cpu]
 command=$SCRIPT_DIR/sensors
 interval=persist
