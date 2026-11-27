@@ -3,14 +3,20 @@ local M = {}
 ---@type table<string, table<string, string>>
 M.snippets = {
   nvim_config = {
-    vpa = 'vim.pack.add { $1 }$0'
+    vpa = 'vim.pack.add { $1 }$0',
   },
   lua = {
-    f = 'function() $1 end$0'
+    f = 'function() $1 end$0',
   },
   c = {
-    main = 'int main(int argc, char** argv) {\n\t$0\n}'
-  }
+    main = 'int main(int argc, char** argv) {\n\t$0\n}',
+  },
+  cpp = {
+    main = 'int main(int argc, char** argv) {\n\t$0\n}',
+  },
+  python = {
+    main = "if __name__ == '__main__':\n\t${1:pass}$0",
+  },
 }
 
 local function try_expand(snippets)
@@ -59,7 +65,7 @@ function M.setup()
       if snippets ~= nil and next(snippets) then
         vim.keymap.set('i', '<C-j>', function() try_expand(snippets) end, { buffer = ev.buf })
       end
-    end
+    end,
   })
 end
 
