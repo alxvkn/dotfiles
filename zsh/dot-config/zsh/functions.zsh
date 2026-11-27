@@ -31,7 +31,7 @@ jg() {
         QUERY="-q $1"
     fi
     if [ "$(git rev-parse --is-inside-work-tree 2>&1)" = "true" ]; then
-        FILE="$(git ls-files | fzy $QUERY)"
+        FILE="$(git ls-files | fzf --preview='bat --color=always --decorations=never {}' $QUERY)"
         if [ -n "$FILE" ]; then
             nvim "$FILE"
         fi
